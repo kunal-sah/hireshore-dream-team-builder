@@ -1,12 +1,22 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import LandingHero from "../components/LandingHero";
+import BenefitsSection from "../components/BenefitsSection";
+import RolesSection from "../components/RolesSection";
+import TrustSection from "../components/TrustSection";
+import TestimonialsSection from "../components/TestimonialsSection";
+import HiringFormSection from "../components/HiringFormSection";
+import SiteFooter from "../components/SiteFooter";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="bg-gradient-to-tr from-[#e0e7ff] via-white to-[#e0ffe7] min-h-screen flex flex-col font-sans text-neutral-900">
+      <LandingHero />
+      <BenefitsSection />
+      <RolesSection />
+      <TrustSection />
+      <TestimonialsSection />
+      <HiringFormSection />
+      <SiteFooter />
     </div>
   );
 };
