@@ -7,9 +7,7 @@ const roles = [
   "QA Engineers & DevOps",
   "Shopify / WordPress Experts",
   "Customer Support Reps (Email, Chat, Phone)",
-  "More — tailored for your needs",
-  "Why Hireshore Section",
-  "🧠 Why Founders Pick Hireshore",
+  "More — tailored for your needs"
 ];
 
 const RolesSection = () => (
@@ -23,6 +21,7 @@ const RolesSection = () => (
         gap-3 md:gap-6 
         justify-items-center
       "
+      style={{ gridAutoRows: 'minmax(100px, auto)', justifyContent: 'center' }}
     >
       {roles.map((role) => (
         <span
@@ -37,4 +36,3 @@ const RolesSection = () => (
 );
 
 export default RolesSection;
-
