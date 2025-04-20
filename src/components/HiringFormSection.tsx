@@ -15,8 +15,10 @@ const HiringFormSection = () => {
   return (
     <section id="hire-form" className="max-w-xl mx-auto py-12 md:py-20 px-4">
       <div className="bg-gradient-to-tr from-white to-[#eeeefd] rounded-2xl shadow-lg p-8 border border-gray-100">
-        <h2 className="text-2xl md:text-3xl font-playfair mb-3 text-center text-[#6336c9]">📩 Ready to Hire Smarter?</h2>
-        <p className="text-lg text-gray-600 mb-8 text-center">Fill out the quick form below and get your first shortlist in 48 hours.</p>
+        <h2 className="text-2xl md:text-3xl font-playfair mb-3 text-center text-[#6336c9]">🚀 Let's Build Your Offshore Team</h2>
+        <p className="text-lg text-gray-600 mb-8 text-center">
+          Whether you're hiring a VA or a full tech squad — we've got you. Free hiring consultation, shortlist in 48 hours, onboard in 14 days. <b>Pay only after onboarding.</b>
+        </p>
         <form
           ref={form}
           onSubmit={handleSubmit}
@@ -47,11 +49,11 @@ const HiringFormSection = () => {
             type="submit"
             className="bg-gradient-to-r from-[#8b5cf6] to-[#22d3ee] text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg transition-transform hover:scale-105 mt-2"
           >
-            {submitted ? "🎉 Thank you! We’ll reach out soon." : "Start Hiring Now"}
+            {submitted ? "🎉 Thank you! We'll reach out soon." : "👉 Start Hiring Now"}
           </button>
         </form>
         <div className="text-sm mt-5 text-gray-400 text-center">
-          Free Consultation. No Strings Attached.
+          (No commitment. Get a free shortlist.)
         </div>
       </div>
     </section>
