@@ -25,6 +25,11 @@ const benefits = [
     title: "No Upfront Cost",
     desc: "Pay only after you onboard and are fully satisfied. Hiring made frictionless.",
   },
+  {
+    emoji: "🤝",
+    title: "Personalized Support",
+    desc: "From custom role scoping to post-hire support — we act as your extended hiring team, not just a vendor.",
+  }
 ];
 
 const vettingSteps = [
@@ -67,3 +72,4 @@ const BenefitsSection = () => (
 );
 
 export default BenefitsSection;
+

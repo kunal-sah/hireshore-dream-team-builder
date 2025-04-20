@@ -8,6 +8,7 @@ const roles = [
   "Shopify / WordPress Experts",
   "Customer Support Reps (Email, Chat, Phone)",
   "More — tailored for your needs",
+  "Why Hireshore Section",
   "🧠 Why Founders Pick Hireshore",
 ];
 
@@ -16,7 +17,8 @@ const RolesSection = () => (
     <h2 className="text-xl md:text-2xl font-playfair mb-6 text-center">
       👨‍💻 Roles We Specialize In
     </h2>
-    <div className="
+    <div
+      className="
         grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3
         gap-3 md:gap-6 
         justify-items-center
@@ -35,3 +37,4 @@ const RolesSection = () => (
 );
 
 export default RolesSection;
+
