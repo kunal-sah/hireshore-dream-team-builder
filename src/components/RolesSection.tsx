@@ -1,4 +1,3 @@
-
 const roles = [
   "Full Stack Developers (React, Node, Laravel, etc.)",
   "UI/UX Designers (Figma, Webflow)",
@@ -11,7 +10,7 @@ const roles = [
 ];
 
 const RolesSection = () => (
-  <section className="max-w-4xl mx-auto py-8 md:py-14 px-4">
+  <section id="roles" className="max-w-4xl mx-auto py-8 md:py-14 px-4">
     <h2 className="text-xl md:text-2xl font-playfair mb-6 text-center">
       👨‍💻 Roles We Specialize In
     </h2>

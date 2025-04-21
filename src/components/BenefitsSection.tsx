@@ -1,4 +1,3 @@
-
 const benefits = [
   {
     emoji: "🧠",
@@ -43,7 +42,7 @@ const vettingSteps = [
 ];
 
 const BenefitsSection = () => (
-  <section className="max-w-5xl mx-auto py-12 md:py-20 grid gap-8 md:gap-12 px-4">
+  <section id="benefits" className="max-w-5xl mx-auto py-12 md:py-20 grid gap-8 md:gap-12 px-4">
     <h2 className="text-2xl md:text-3xl font-sans mb-2 text-center">🧠 Why Hireshore?</h2>
     <p className="text-lg text-center text-gray-500 mb-8">We’re not just recruiters. We’re an extension of your founding team.</p>
     <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6">

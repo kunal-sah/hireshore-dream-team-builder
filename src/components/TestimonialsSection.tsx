@@ -1,4 +1,3 @@
-
 const testimonials = [
   {
     name: "Alex J.",
@@ -21,7 +20,7 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => (
-  <section className="max-w-5xl mx-auto py-10 md:py-14 px-4">
+  <section id="testimonials" className="max-w-5xl mx-auto py-10 md:py-14 px-4">
     <h2 className="text-xl md:text-2xl font-playfair mb-6 text-center">❤️ Why Founders & Agencies Rely on Hireshore</h2>
     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
       {testimonials.map((t) => (
