@@ -11,12 +11,12 @@ import SiteFooter from "../components/SiteFooter";
 
 const Index = () => {
   return (
-    <div className="bg-gradient-to-tr from-[#e0e7ff] via-white to-[#e0ffe7] min-h-screen flex flex-col font-sans text-neutral-900">
+    <div className="bg-white min-h-screen flex flex-col font-sans text-neutral-900">
       <NavBar />
       <LandingHero />
+      <TrustSection />
       <BenefitsSection />
       <RolesSection />
-      <TrustSection />
       <TestimonialsSection />
       <HiringFormSection />
       <SiteFooter />
