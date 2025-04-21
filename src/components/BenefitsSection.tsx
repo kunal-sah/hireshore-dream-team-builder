@@ -8,7 +8,7 @@ const benefits = [
   {
     emoji: "💸",
     title: "Massive Cost Advantage",
-    desc: "Save up to 80–90% vs. local hires. Senior pros from $499/month. Grow lean — without compromise.",
+    desc: "Save up to 80–90% vs. local hires. Pros from $800/month. Grow lean — without compromise.",
   },
   {
     emoji: "⚡️",
@@ -44,9 +44,9 @@ const vettingSteps = [
 
 const BenefitsSection = () => (
   <section className="max-w-5xl mx-auto py-12 md:py-20 grid gap-8 md:gap-12 px-4">
-    <h2 className="text-2xl md:text-3xl font-playfair mb-2 text-center">🧠 Why Hireshore?</h2>
+    <h2 className="text-2xl md:text-3xl font-sans mb-2 text-center">🧠 Why Hireshore?</h2>
     <p className="text-lg text-center text-gray-500 mb-8">We’re not just recruiters. We’re an extension of your founding team.</p>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6">
       {benefits.map((b) => (
         <div key={b.title} className="bg-white bg-opacity-60 rounded-2xl shadow-glass p-6 flex flex-col items-center gap-2 border border-gray-200">
           <span className="text-3xl mb-1">{b.emoji}</span>
@@ -72,4 +72,3 @@ const BenefitsSection = () => (
 );
 
 export default BenefitsSection;
-
