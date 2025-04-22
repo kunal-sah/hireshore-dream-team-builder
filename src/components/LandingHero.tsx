@@ -8,7 +8,7 @@ const LandingHero = () => {
       <div className="max-w-3xl mx-auto text-center">
         <h1 className="text-4xl md:text-6xl font-bold font-sans mb-6 text-gray-900 leading-tight tracking-tight">
           Top 1% Remote Talent from Nepal
-          <span className="bg-gradient-to-r from-[#8b5cf6] to-[#22d3ee] inline-block text-transparent bg-clip-text"> at 80% Less Cost</span>
+          <span className="bg-gradient-to-r from-[#8b5cf6] to-[#22d3ee] inline-block text-transparent bg-clip-text"> Startup-Friendly Cost</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-700 mb-8">
           Hireshore helps startups and agencies hire senior tech, creative, and support talent — fast, affordable, risk-free.
