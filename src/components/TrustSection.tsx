@@ -53,6 +53,13 @@ const TrustSection = () => (
                 alt={client.name + ' logo'}
                 className="h-8 max-w-[100px] object-contain"
                 loading="lazy"
+                onError={(e) => {
+                  // If image fails to load, fallback to showing the client name
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null; // Prevent infinite loop
+                  target.style.display = 'none';
+                  target.parentElement!.innerHTML = `<span class="font-semibold text-gray-700 text-base whitespace-nowrap flex items-center gap-2"><span class="text-yellow-500">★</span>${client.name}</span>`;
+                }}
               />
             ) : (
               <span className="font-semibold text-gray-700 text-base whitespace-nowrap flex items-center gap-2">
@@ -68,4 +75,3 @@ const TrustSection = () => (
 );
 
 export default TrustSection;
-
