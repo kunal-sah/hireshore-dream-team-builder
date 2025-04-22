@@ -13,19 +13,19 @@ const testimonials = [
   {
     name: "Alex J.",
     title: "Founder @ Nutrogen",
-    text: ""We saved over $850K hiring with Hireshore. Insanely good people, and no hiring headaches."",
+    text: "We saved over $850K hiring with Hireshore. Insanely good people, and no hiring headaches.",
     photo: "https://randomuser.me/api/portraits/men/32.jpg",
   },
   {
     name: "Marlon M.",
     title: "CEO @ Medz Media",
-    text: ""Our VA from Hireshore works across research, project management, and even Shopify tasks. We now save over 30 hours a week — for just $499/month."",
+    text: "Our VA from Hireshore works across research, project management, and even Shopify tasks. We now save over 30 hours a week — for just $499/month.",
     photo: "https://randomuser.me/api/portraits/men/78.jpg",
   },
   {
     name: "Rachel S.",
     title: "Head of Ops @ Digital Six",
-    text: ""The fastest hiring process I've experienced. We had a designer onboarded in 6 days — and she's a rockstar."",
+    text: "The fastest hiring process I've experienced. We had a designer onboarded in 6 days — and she's a rockstar.",
     photo: "https://randomuser.me/api/portraits/women/68.jpg",
   },
 ];
