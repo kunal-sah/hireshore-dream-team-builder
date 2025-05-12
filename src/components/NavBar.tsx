@@ -17,6 +17,13 @@ const NavBar = () => {
     }
   };
 
+  const scrollToBooking = () => {
+    const bookingElement = document.getElementById('booking-form');
+    if (bookingElement) {
+      bookingElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-50 border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,10 +73,10 @@ const NavBar = () => {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <button 
-                  onClick={() => scrollToSection('hire-form')} 
+                  onClick={() => scrollToBooking()} 
                   className="px-4 py-2 text-sm text-gray-700 hover:text-gray-900"
                 >
-                  Contact
+                  Book a Call
                 </button>
               </NavigationMenuItem>
             </NavigationMenuList>

@@ -3,6 +3,13 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 
 const LandingHero = () => {
+  const scrollToBooking = () => {
+    const footerCalendly = document.querySelector('.calendly-inline-widget');
+    if (footerCalendly) {
+      footerCalendly.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return (
     <header className="w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-28 pb-20 md:pb-32 px-4 md:px-0">
       <div className="max-w-3xl mx-auto text-center">
@@ -24,7 +31,7 @@ const LandingHero = () => {
             variant="outline" 
             size="lg" 
             className="border-2 border-[#8b5cf6] text-[#8b5cf6] hover:bg-[#8b5cf6]/10"
-            onClick={() => window.open("https://cal.com/hireshore/consult", "_blank")}
+            onClick={scrollToBooking}
           >
             Book a Free Call
           </Button>

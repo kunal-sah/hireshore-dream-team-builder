@@ -1,16 +1,47 @@
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import emailjs from 'emailjs-com';
+import { toast } from "@/components/ui/sonner";
 
 const HiringFormSection = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const form = useRef<HTMLFormElement>(null);
+
+  // Initialize EmailJS with your user ID (public key)
+  useEffect(() => {
+    emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS User ID
+  }, []);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4500);
-    if (form.current) form.current.reset();
+    setLoading(true);
+    
+    if (form.current) {
+      // Add recipient email as a hidden field
+      const formData = new FormData(form.current);
+      formData.append("to_email", "wehireshore@gmail.com");
+      
+      // Send email using EmailJS
+      emailjs.sendForm(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS Service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS Template ID
+        form.current
+      )
+        .then(() => {
+          setSubmitted(true);
+          setLoading(false);
+          form.current?.reset();
+          toast.success("Form submitted successfully! We'll contact you soon.");
+          setTimeout(() => setSubmitted(false), 4500);
+        })
+        .catch((error) => {
+          console.error("Email sending failed:", error);
+          setLoading(false);
+          toast.error("Something went wrong. Please try again.");
+        });
+    }
   }
 
   return (
@@ -51,11 +82,15 @@ const HiringFormSection = () => {
             placeholder="What roles do you want to hire? (e.g., 2 developers for SaaS project)"
             required
           />
+          {/* Hidden field for recipient email */}
+          <input type="hidden" name="to_email" value="wehireshore@gmail.com" />
+          
           <Button
             type="submit"
             className="bg-gradient-to-r from-[#8b5cf6] to-[#22d3ee] text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#c7a3fa] w-full"
+            disabled={loading || submitted}
           >
-            {submitted ? "🎉 Thank you! We'll reach out soon." : "Start Hiring Now"}
+            {loading ? "Sending..." : submitted ? "🎉 Thank you! We'll reach out soon." : "Start Hiring Now"}
           </Button>
           <div className="text-sm mt-2 text-gray-400 text-center">
             No commitment. Get a free shortlist.

@@ -21,7 +21,7 @@ const SiteFooter = () => {
     <footer className="w-full py-12 md:py-16 bg-gradient-to-t from-[#e7e9f9] to-transparent mt-8 md:mt-12">
       <div className="max-w-4xl mx-auto px-6 md:px-8">
         {/* Calendly booking widget */}
-        <div className="mb-12 shadow-md rounded-xl overflow-hidden">
+        <div id="booking-form" className="mb-12 shadow-md rounded-xl overflow-hidden">
           <div 
             className="calendly-inline-widget" 
             data-url="https://calendly.com/hireshore/30min?email_notifications[email]=wehireshore@gmail.com&hide_gdpr_banner=1" 
@@ -39,7 +39,14 @@ const SiteFooter = () => {
             </p>
           </div>
           <div className="flex flex-col items-start md:items-end gap-3 text-sm">
-            <a className="text-[#7346e6] font-bold hover:underline flex items-center" href="https://cal.com/hireshore/consult" rel="noopener noreferrer" target="_blank">
+            <a 
+              className="text-[#7346e6] font-bold hover:underline flex items-center" 
+              href="#booking-form"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               <span className="mr-2">📞</span> Book a free strategy call
             </a>
             <a className="text-gray-500 hover:text-[#7346e6] hover:underline flex items-center" href="mailto:hello@hireshore.co">
