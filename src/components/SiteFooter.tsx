@@ -20,12 +20,12 @@ const SiteFooter = () => {
   return (
     <footer className="w-full py-12 md:py-16 bg-gradient-to-t from-[#e7e9f9] to-transparent mt-8 md:mt-12">
       <div className="max-w-4xl mx-auto px-6 md:px-8">
-        {/* Calendly booking widget */}
-        <div id="booking-form" className="mb-12 shadow-md rounded-xl overflow-hidden">
+        {/* Calendly booking widget - Updated with better fit */}
+        <div id="booking-form" className="mb-12 shadow-md rounded-xl overflow-hidden bg-white">
           <div 
-            className="calendly-inline-widget" 
-            data-url="https://calendly.com/hireshore/30min?email_notifications[email]=wehireshore@gmail.com&hide_gdpr_banner=1" 
-            style={{ minWidth: '320px', height: '700px' }}
+            className="calendly-inline-widget w-full" 
+            data-url="https://calendly.com/hireshore/30min?email_notifications[email]=wehireshore@gmail.com&hide_gdpr_banner=1&background_color=ffffff&text_color=333333&primary_color=7346e6" 
+            style={{ minWidth: '320px', height: '630px' }}
           />
         </div>
 
