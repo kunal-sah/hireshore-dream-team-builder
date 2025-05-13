@@ -49,8 +49,8 @@ const SiteFooter = () => {
             >
               <span className="mr-2">📞</span> Book a free strategy call
             </a>
-            <a className="text-gray-500 hover:text-[#7346e6] hover:underline flex items-center" href="mailto:hello@hireshore.co">
-              <span className="mr-2">📧</span> hello@hireshore.co
+            <a className="text-gray-500 hover:text-[#7346e6] hover:underline flex items-center" href="mailto:kunal@hireshore.co">
+              <span className="mr-2">📧</span> kunal@hireshore.co
             </a>
             <a className="text-gray-500 hover:text-[#7346e6] hover:underline flex items-center" href="https://www.hireshore.co" target="_blank" rel="noopener noreferrer">
               <span className="mr-2">🌐</span> www.hireshore.co
