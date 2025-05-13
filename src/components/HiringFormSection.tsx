@@ -1,21 +1,13 @@
 
-import { useEffect } from "react";
+import React from "react";
 
 const HiringFormSection = () => {
-  // Add useEffect to load the Calendly script when component mounts
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      // Clean up script when component unmounts
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
+  const scrollToBooking = () => {
+    const footerCalendly = document.getElementById('booking-form');
+    if (footerCalendly) {
+      footerCalendly.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="hire-form" className="max-w-3xl mx-auto py-16 md:py-24 px-4">
@@ -28,12 +20,14 @@ const HiringFormSection = () => {
           shortlist in 48 hours, onboard in 14 days. <b>Pay only after onboarding.</b>
         </p>
         
-        {/* Calendly inline widget */}
-        <div 
-          className="calendly-inline-widget" 
-          data-url="https://calendly.com/hireshore/30min?email_notifications[email]=wehireshore@gmail.com&hide_gdpr_banner=1" 
-          style={{ minWidth: '320px', height: '700px' }}
-        />
+        <div className="flex justify-center">
+          <button 
+            onClick={scrollToBooking}
+            className="bg-gradient-to-r from-[#8b5cf6] to-[#22d3ee] text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#c7a3fa]"
+          >
+            Book a Free Call
+          </button>
+        </div>
       </div>
     </section>
   );
