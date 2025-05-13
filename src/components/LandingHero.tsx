@@ -20,17 +20,17 @@ const LandingHero = () => {
         <p className="text-lg md:text-xl text-gray-700 mb-8">
           Hireshore helps startups and agencies hire senior tech, creative, and support talent — fast, affordable, risk-free.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#hire-form"
-            className="inline-block bg-gradient-to-r from-[#8b5cf6] to-[#22d3ee] text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#c7a3fa]"
+            className="inline-flex items-center justify-center h-12 bg-gradient-to-r from-[#8b5cf6] to-[#22d3ee] text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#c7a3fa]"
           >
             Start Hiring Now
           </a>
           <Button 
             variant="outline" 
             size="lg" 
-            className="border-2 border-[#8b5cf6] text-[#8b5cf6] hover:bg-[#8b5cf6]/10"
+            className="h-12 border-2 border-[#8b5cf6] text-[#8b5cf6] hover:bg-[#8b5cf6]/10"
             onClick={scrollToBooking}
           >
             Book a Free Call
