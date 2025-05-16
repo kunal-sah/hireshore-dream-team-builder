@@ -15,6 +15,8 @@
 :root {
   --mouse-x: 0;
   --mouse-y: 0;
+  --animate-duration: 0.8s;
+  --animate-delay: 0.2s;
 }
 
 /* Custom animation classes */
@@ -55,4 +57,83 @@ html {
 
 .focus-ring-effect {
   @apply focus:outline-none focus:ring-2 focus:ring-purple-200 focus:ring-opacity-50;
+}
+
+/* Magnetic button effect */
+.magnetic-button {
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Text reveal animation */
+@keyframes revealText {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.reveal-text {
+  animation: revealText 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Card hover effect */
+.hover-card {
+  transition: all 0.3s ease;
+}
+.hover-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Button glow effect */
+.btn-glow:hover {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+}
+
+/* 3D tilt effect */
+.tilt {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  transition: transform 0.1s;
+}
+.tilt-inner {
+  transform: translateZ(30px);
+}
+
+/* Create circular ripple effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect span {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(255, 255, 255, 0.4);
+  animation: ripple 0.8s linear;
+  pointer-events: none;
 }
