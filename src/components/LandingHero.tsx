@@ -55,14 +55,14 @@ const LandingHero = () => {
     }),
   };
   
-  // Create ripple effect
-  const createRipple = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const button = event.currentTarget;
+  // Create ripple effect - Modified to handle both button and anchor elements
+  const createRipple = (event: React.MouseEvent<Element>) => {
+    const element = event.currentTarget;
     const circle = document.createElement('span');
-    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const diameter = Math.max(element.clientWidth, element.clientHeight);
     const radius = diameter / 2;
 
-    const rect = button.getBoundingClientRect();
+    const rect = element.getBoundingClientRect();
     
     circle.style.width = circle.style.height = `${diameter}px`;
     circle.style.left = `${event.clientX - rect.left - radius}px`;
@@ -70,12 +70,12 @@ const LandingHero = () => {
     
     circle.classList.add('ripple');
     
-    const ripple = button.querySelector('.ripple');
+    const ripple = element.querySelector('.ripple');
     if (ripple) {
       ripple.remove();
     }
     
-    button.appendChild(circle);
+    element.appendChild(circle);
     
     setTimeout(() => {
       if (circle.parentElement) {
@@ -180,8 +180,7 @@ const LandingHero = () => {
           initial="hidden"
           animate="visible"
         >
-          <motion.a
-            href="#hire-form"
+          <motion.button
             className="inline-flex items-center justify-center h-12 bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-all hover:shadow-xl hover:shadow-blue-200/50 ripple-effect relative overflow-hidden"
             whileHover={{ 
               scale: 1.05,
@@ -189,6 +188,12 @@ const LandingHero = () => {
             }}
             whileTap={{ scale: 0.95 }}
             onMouseDown={createRipple}
+            onClick={() => {
+              const hireForm = document.getElementById('hire-form');
+              if (hireForm) {
+                hireForm.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             <span className="relative z-10">Start Hiring Now</span>
             <motion.span 
@@ -198,7 +203,7 @@ const LandingHero = () => {
               transition={{ duration: 0.4 }}
               style={{ borderRadius: 'inherit' }}
             />
-          </motion.a>
+          </motion.button>
           
           <motion.div
             whileHover={{ 
