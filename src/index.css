@@ -11,3 +11,48 @@
   font-family: 'Playfair Display', serif;
 }
 
+/* Add CSS variables for mouse position (for parallax effects) */
+:root {
+  --mouse-x: 0;
+  --mouse-y: 0;
+}
+
+/* Custom animation classes */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* Add smooth scrolling to the entire site */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhance focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid rgba(139, 92, 246, 0.6);
+  outline-offset: 2px;
+}
+
+/* Custom hover and focus ring styles */
+.hover-border-effect {
+  @apply transition-all duration-300 border border-transparent hover:border-purple-200;
+}
+
+.focus-ring-effect {
+  @apply focus:outline-none focus:ring-2 focus:ring-purple-200 focus:ring-opacity-50;
+}
