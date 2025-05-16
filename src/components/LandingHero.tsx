@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
 
@@ -7,6 +7,7 @@ const LandingHero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { scrollY } = useScroll();
   const y = useMotionValue(0);
+  const heroRef = useRef<HTMLElement>(null);
   
   // Parallax effect values
   const bgY1 = useTransform(scrollY, [0, 500], [0, -50]);
@@ -39,6 +40,29 @@ const LandingHero = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  // Spotlight effect for hero section
+  useEffect(() => {
+    if (!heroRef.current) return;
+    
+    const updateSpotlight = (e: MouseEvent) => {
+      if (!heroRef.current) return;
+      
+      const rect = heroRef.current.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      
+      heroRef.current.style.setProperty('--x', `${x}%`);
+      heroRef.current.style.setProperty('--y', `${y}%`);
+    };
+    
+    heroRef.current.addEventListener('mousemove', updateSpotlight);
+    return () => {
+      if (heroRef.current) {
+        heroRef.current.removeEventListener('mousemove', updateSpotlight);
+      }
+    };
+  }, [heroRef]);
   
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -83,16 +107,22 @@ const LandingHero = () => {
       }
     }, 800);
   };
+
+  // Text scramble effect
+  const scrambleText = "Startup-Friendly Cost";
   
   return (
-    <header className="w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-28 pb-20 md:pb-32 px-4 md:px-0 relative overflow-hidden">
-      {/* Animated background elements */}
+    <header ref={heroRef} className="w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-28 pb-20 md:pb-32 px-4 md:px-0 relative overflow-hidden spotlight" style={{
+      '--x': '50%',
+      '--y': '50%',
+    } as React.CSSProperties}>
+      {/* Animated morphing background elements */}
       <motion.div 
         className="absolute inset-0 w-full h-full"
         style={{ opacity }}
       >
         <motion.div 
-          className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-blue-200 opacity-20 blur-3xl" 
+          className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-blue-200 to-purple-200 opacity-20 blur-3xl morphing-shape" 
           style={{ y: bgY1 }}
           animate={{ 
             x: [0, 10, 0],
@@ -105,7 +135,7 @@ const LandingHero = () => {
           }}
         />
         <motion.div 
-          className="absolute bottom-20 right-[15%] w-80 h-80 rounded-full bg-blue-200 opacity-20 blur-3xl"
+          className="absolute bottom-20 right-[15%] w-80 h-80 rounded-full bg-gradient-to-tr from-blue-200 to-indigo-200 opacity-20 blur-3xl morphing-shape"
           style={{ y: bgY2 }}
           animate={{
             x: [0, -15, 0],
@@ -116,6 +146,37 @@ const LandingHero = () => {
             repeat: Infinity,
             repeatType: "reverse",
             delay: 1
+          }}
+        />
+        
+        {/* Add more subtle floating elements */}
+        <motion.div 
+          className="absolute top-[30%] right-[25%] w-24 h-24 rounded-full bg-gradient-to-r from-cyan-200 to-blue-200 opacity-10 blur-xl"
+          animate={{
+            y: [0, -20, 0],
+            x: [0, 10, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: 0.5
+          }}
+        />
+        
+        <motion.div 
+          className="absolute bottom-[40%] left-[20%] w-32 h-32 rounded-full bg-gradient-to-r from-purple-200 to-pink-200 opacity-10 blur-xl"
+          animate={{
+            y: [0, 15, 0],
+            x: [0, -10, 0],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: 2
           }}
         />
       </motion.div>
@@ -142,25 +203,32 @@ const LandingHero = () => {
           >
             Top 1% Remote Talent from Nepal
           </motion.span>
-          <motion.span 
-            className="bg-gradient-to-r from-[#0d6efd] to-[#0091ff] inline-block text-transparent bg-clip-text mt-2"
+          <motion.div
+            className="bg-gradient-to-r from-[#0d6efd] to-[#6610f2] inline-block text-transparent bg-clip-text mt-2 text-gradient"
             custom={1}
             variants={textVariants}
             initial="hidden"
             animate="visible"
           >
             <AnimatePresence>
-              <motion.span
-                className="inline-block"
+              <motion.div
+                className="inline-block text-scramble"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
               >
-                Startup-Friendly Cost
-              </motion.span>
+                {scrambleText.split('').map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    style={{ '--i': i } as React.CSSProperties}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </motion.div>
             </AnimatePresence>
-          </motion.span>
+          </motion.div>
         </motion.h1>
         
         <motion.p 
@@ -181,7 +249,7 @@ const LandingHero = () => {
           animate="visible"
         >
           <motion.button
-            className="inline-flex items-center justify-center h-12 bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-all hover:shadow-xl hover:shadow-blue-200/50 ripple-effect relative overflow-hidden"
+            className="inline-flex items-center justify-center h-12 gradient-btn text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-all hover:shadow-xl hover:shadow-blue-200/50 ripple-effect relative overflow-hidden"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 10px 25px -5px rgba(13, 110, 253, 0.3), 0 10px 10px -5px rgba(13, 110, 253, 0.2)"
@@ -215,7 +283,7 @@ const LandingHero = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="h-12 border-2 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd]/10 transition-all duration-300 ripple-effect relative overflow-hidden"
+              className="h-12 border-2 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd]/10 transition-all duration-300 ripple-effect relative overflow-hidden gradient-border"
               onClick={scrollToBooking}
               onMouseDown={createRipple}
             >
@@ -238,7 +306,15 @@ const LandingHero = () => {
           initial="hidden"
           animate="visible"
         >
-          No commitments. Get a free talent shortlist in 48 hours.
+          <motion.span
+            className="neon-glow inline-block"
+            animate={{ 
+              filter: ["drop-shadow(0 0 1px rgba(13, 110, 253, 0.5))", "drop-shadow(0 0 3px rgba(13, 110, 253, 0.7))", "drop-shadow(0 0 1px rgba(13, 110, 253, 0.5))"]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            No commitments. Get a free talent shortlist in 48 hours.
+          </motion.span>
         </motion.div>
       </motion.div>
     </header>

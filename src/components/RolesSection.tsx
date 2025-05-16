@@ -1,5 +1,5 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 const roles = [
@@ -16,6 +16,7 @@ const roles = [
 const RolesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   
   const container = {
     hidden: { opacity: 0 },
@@ -67,31 +68,40 @@ const RolesSection = () => {
   return (
     <motion.section 
       id="roles" 
-      className="max-w-4xl mx-auto py-16 md:py-24 px-4"
+      className="max-w-4xl mx-auto py-16 md:py-24 px-4 relative"
       ref={ref}
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-blue-50/30 to-white opacity-70"></div>
+      
       <motion.h2 
-        className="text-2xl md:text-3xl font-bold mb-10 text-center"
+        className="text-2xl md:text-3xl font-bold mb-10 text-center relative z-10"
         initial={{ opacity: 0, y: -30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
         transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
       >
-        <span className="relative inline-block">
+        <motion.span 
+          className="relative inline-block text-gradient"
+          animate={{
+            backgroundPosition: ["0% center", "100% center", "0% center"],
+          }}
+          transition={{ duration: 5, repeat: Infinity, repeatType: "loop" }}
+        >
           Roles We Specialize In
           <motion.span 
-            className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#0d6efd] to-[#0091ff]"
+            className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#0d6efd] via-[#6610f2] to-[#0091ff]"
             initial={{ width: 0 }}
             animate={isInView ? { width: "100%" } : { width: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
           />
-        </span>
+        </motion.span>
       </motion.h2>
       
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center relative z-10"
         variants={container}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}
@@ -110,9 +120,11 @@ const RolesSection = () => {
               z: 20,
               transition: { duration: 0.2 }
             }}
+            onMouseEnter={() => setActiveIndex(index)}
+            onMouseLeave={() => setActiveIndex(null)}
           >
             <motion.div
-              className="bg-white text-gray-800 px-5 py-4 rounded-lg shadow-sm border border-gray-100 text-sm md:text-base w-full text-center relative overflow-hidden group tilt"
+              className="bg-white text-gray-800 px-5 py-4 rounded-lg shadow-sm border border-gray-100 text-sm md:text-base w-full text-center relative overflow-hidden group tilt spotlight"
               style={{ 
                 x: index % 2 === 0 ? smoothX : useTransform(smoothX, v => -v),
                 y: index % 3 === 0 ? smoothY : useTransform(smoothY, v => -v),
@@ -130,12 +142,19 @@ const RolesSection = () => {
                 stiffness: 400, 
                 damping: 17
               }}
+              animate={{
+                background: activeIndex === index 
+                  ? "linear-gradient(120deg, rgba(248, 250, 252, 1), rgba(239, 246, 255, 0.8), rgba(248, 250, 252, 1))" 
+                  : "rgba(255, 255, 255, 1)"
+              }}
             >
               <div className="relative z-10 tilt-inner">
                 {role}
               </div>
+              
+              {/* Animated gradient background */}
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-[#0d6efd]/0 via-[#0d6efd]/0 to-[#0091ff]/0 group-hover:from-[#0d6efd]/5 group-hover:via-[#0d6efd]/10 group-hover:to-[#0091ff]/5" 
+                className="absolute inset-0 bg-gradient-to-r from-[#0d6efd]/0 via-[#0d6efd]/0 to-[#0091ff]/0 group-hover:from-[#0d6efd]/5 group-hover:via-[#6610f2]/10 group-hover:to-[#0091ff]/5" 
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
@@ -162,6 +181,36 @@ const RolesSection = () => {
           </motion.div>
         ))}
       </motion.div>
+      
+      {/* Add floating decorative elements */}
+      <motion.div
+        className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br from-blue-100/40 to-purple-100/40 blur-xl opacity-50 z-0"
+        animate={{
+          y: [0, -15, 0],
+          x: [0, 10, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          repeatType: "reverse"
+        }}
+      />
+      
+      <motion.div
+        className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-gradient-to-tr from-blue-100/40 to-indigo-100/40 blur-xl opacity-50 z-0"
+        animate={{
+          y: [0, 12, 0],
+          x: [0, -8, 0],
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          repeatType: "reverse",
+          delay: 2
+        }}
+      />
     </motion.section>
   );
 };

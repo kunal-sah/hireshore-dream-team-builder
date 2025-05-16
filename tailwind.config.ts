@@ -89,14 +89,47 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulse-subtle': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-100% 0' },
+					'100%': { backgroundPosition: '100% 0' }
+				},
+				'text-gradient': {
+					'0%': { backgroundPosition: '0% center' },
+					'100%': { backgroundPosition: '200% center' }
+				},
+				'morph': {
+					'0%': { borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%' },
+					'25%': { borderRadius: '58% 42% 75% 25% / 76% 46% 54% 24%' },
+					'50%': { borderRadius: '50% 50% 33% 67% / 55% 27% 73% 45%' },
+					'75%': { borderRadius: '33% 67% 58% 42% / 63% 68% 32% 37%' },
+					'100%': { borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-subtle': 'pulse-subtle 4s ease-in-out infinite',
+				'shimmer': 'shimmer 2s infinite',
+				'text-gradient': 'text-gradient 5s linear infinite',
+				'morph': 'morph 15s ease-in-out infinite alternate'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-purple-blue': 'linear-gradient(90deg, #0d6efd 0%, #6610f2 50%, #0d6efd 100%)',
+				'gradient-blue-indigo': 'linear-gradient(90deg, #0d6efd 0%, #6366f1 100%)',
+				'gradient-indigo-purple': 'linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%)'
 			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-

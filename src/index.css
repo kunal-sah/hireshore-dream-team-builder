@@ -138,3 +138,155 @@ html {
   animation: ripple 0.8s linear;
   pointer-events: none;
 }
+
+/* New animations and effects */
+
+/* Text gradient effect */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(90deg, #0d6efd, #6610f2, #6f42c1);
+  background-size: 200% auto;
+  animation: textGradient 5s linear infinite;
+}
+
+@keyframes textGradient {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Neon glow effect */
+.neon-glow {
+  filter: drop-shadow(0 0 5px rgba(13, 110, 253, 0.7));
+  transition: filter 0.3s ease;
+}
+
+.neon-glow:hover {
+  filter: drop-shadow(0 0 10px rgba(13, 110, 253, 0.9));
+}
+
+/* Rotating gradient border */
+@keyframes rotateGradientBorder {
+  0% { border-image-source: linear-gradient(0deg, #0d6efd, #6610f2); }
+  25% { border-image-source: linear-gradient(90deg, #0d6efd, #6610f2); }
+  50% { border-image-source: linear-gradient(180deg, #0d6efd, #6610f2); }
+  75% { border-image-source: linear-gradient(270deg, #0d6efd, #6610f2); }
+  100% { border-image-source: linear-gradient(360deg, #0d6efd, #6610f2); }
+}
+
+.gradient-border {
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, #0d6efd, #6610f2);
+  transition: transform 0.3s ease;
+}
+
+.gradient-border:hover {
+  animation: rotateGradientBorder 4s linear infinite;
+  transform: translateY(-3px);
+}
+
+/* Gradient button */
+.gradient-btn {
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, #0d6efd 0%, #6610f2 50%, #0d6efd 100%);
+  transition: background-position 0.5s ease-in-out, transform 0.3s ease;
+}
+
+.gradient-btn:hover {
+  background-position: right center;
+  transform: translateY(-3px);
+}
+
+/* Card flip effect */
+.card-flip-container {
+  perspective: 1000px;
+}
+
+.card-flip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-flip-container:hover .card-flip {
+  transform: rotateY(180deg);
+}
+
+.card-flip-front, .card-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Morphing background animation */
+@keyframes morphBackground {
+  0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+  50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+  75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+  100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
+.morphing-shape {
+  animation: morphBackground 15s ease-in-out infinite alternate;
+}
+
+/* Text scramble animation */
+@keyframes textScramble {
+  0%, 100% { opacity: 1; transform: translateY(0); }
+  50% { opacity: 0.8; transform: translateY(-3px); }
+}
+
+.text-scramble span {
+  display: inline-block;
+  animation: textScramble 1.5s infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+/* Scale hover effect with direction */
+.scale-direction-hover {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scale-direction-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Floating animation with randomness */
+.float-random {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: calc(var(--delay, 0) * 1s);
+}
+
+/* Spotlight effect */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  transform: translate(var(--mouse-x, 0), var(--mouse-y, 0));
+}
+
+.spotlight:hover::after {
+  opacity: 1;
+}
