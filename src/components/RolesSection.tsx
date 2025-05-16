@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 
@@ -68,7 +67,7 @@ const RolesSection = () => {
   return (
     <motion.section 
       id="roles" 
-      className="max-w-4xl mx-auto py-16 md:py-24 px-4 relative mt-20"
+      className="max-w-4xl mx-auto py-16 md:py-24 px-4 relative"
       ref={ref}
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}

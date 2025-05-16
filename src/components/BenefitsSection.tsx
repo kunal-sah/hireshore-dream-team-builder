@@ -55,7 +55,7 @@ const BenefitsSection = () => {
   };
 
   return (
-    <section id="benefits" className="max-w-5xl mx-auto py-16 md:py-24 px-4 relative">
+    <section id="benefits" className="max-w-5xl mx-auto py-16 md:py-24 px-4 relative overflow-visible">
       {/* Gradient background effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#f0f4ff] via-white to-[#f0f4ff] opacity-70 z-0"></div>
       
@@ -154,6 +154,9 @@ const BenefitsSection = () => {
           </motion.div>
         ))}
       </motion.div>
+      
+      {/* Add a spacer to ensure proper separation between sections */}
+      <div className="h-24 md:h-32"></div>
     </section>
   );
 };
