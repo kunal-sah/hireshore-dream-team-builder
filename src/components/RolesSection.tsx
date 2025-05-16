@@ -68,14 +68,14 @@ const RolesSection = () => {
   return (
     <motion.section 
       id="roles" 
-      className="max-w-4xl mx-auto py-16 md:py-24 px-4 relative"
+      className="max-w-4xl mx-auto py-16 md:py-24 px-4 relative mt-20"
       ref={ref}
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-blue-50/30 to-white opacity-70"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-blue-50/30 to-white opacity-70 z-0"></div>
       
       <motion.h2 
         className="text-2xl md:text-3xl font-bold mb-10 text-center relative z-10"
