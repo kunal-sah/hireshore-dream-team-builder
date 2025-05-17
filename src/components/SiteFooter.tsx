@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, WhatsApp } from 'lucide-react';
+import { Phone } from 'lucide-react';
 
 const SiteFooter = () => {
   // Add useEffect to load the Calendly script when component mounts
