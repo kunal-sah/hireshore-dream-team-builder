@@ -39,7 +39,7 @@ const SiteFooter = () => {
             repeat: Infinity,
             repeatType: "reverse" 
           }}
-        ></motion.div>
+        />
         
         <motion.div 
           className="absolute -bottom-10 right-1/4 w-80 h-80 rounded-full bg-blue-200 opacity-10 blur-3xl"
@@ -53,14 +53,14 @@ const SiteFooter = () => {
             repeat: Infinity,
             repeatType: "reverse" 
           }}
-        ></motion.div>
+        />
       </div>
       
-      <div className="max-w-4xl mx-auto px-6 md:px-8 relative z-10">
-        {/* Calendly booking widget - Updated with better fit */}
+      <div className="max-w-5xl mx-auto px-6 md:px-8 relative z-10">
+        {/* Calendly booking widget - Increased height and adjusted container */}
         <motion.div 
           id="booking-form" 
-          className="mb-12 shadow-md rounded-xl overflow-hidden bg-white"
+          className="mb-12 shadow-lg rounded-xl overflow-hidden bg-white"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
@@ -70,56 +70,78 @@ const SiteFooter = () => {
           <div 
             className="calendly-inline-widget w-full" 
             data-url="https://calendly.com/hireshore/30min?email_notifications[email]=wehireshore@gmail.com&hide_gdpr_banner=1&background_color=ffffff&text_color=333333&primary_color=7346e6" 
-            style={{ minWidth: "320px", height: "630px" }}
+            style={{ minWidth: "320px", height: "750px" }} 
           />
         </motion.div>
 
-        {/* Footer content */}
-        <div className="flex flex-col md:flex-row gap-6 items-start justify-between">
-          <motion.div 
-            className="text-gray-600 text-left max-w-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="text-base font-medium mb-2">🤝 Backed by Real People, Real Results</p>
-            <p className="text-gray-700 text-sm leading-relaxed">
-              Hireshore is founded by a global team in Nepal, dedicated to helping startups and agencies grow lean and smart.<br className="hidden md:block" />
-              You're not talking to a faceless recruiter — you're partnering with a founder who's built and scaled remote teams.
-            </p>
+        {/* Standard Footer Format */}
+        <div className="border-t border-gray-200 pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Company Info Column */}
+            <motion.div 
+              className="text-gray-600"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h4 className="text-lg font-medium text-gray-800 mb-4">About Us</h4>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                Hireshore is founded by a global team in Nepal, dedicated to helping startups and agencies grow lean and smart. 
+                You're partnering with a founder who's built and scaled remote teams.
+              </p>
+            </motion.div>
             
-            {/* Added company contact information */}
-            <div className="mt-6 pt-4 border-t border-gray-100">
-              <p className="font-medium text-gray-800 mb-1">Hireshore, LLC</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+            {/* Company Contact Column */}
+            <motion.div
+              className="text-gray-600"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <h4 className="text-lg font-medium text-gray-800 mb-4">Contact Us</h4>
+              <div className="space-y-3">
                 <div>
-                  <p className="text-sm text-gray-500 mb-1">HQ Office</p>
-                  <p className="text-xs text-gray-600">Nepal, Lalitpur, Krishna Galli</p>
+                  <p className="text-sm font-medium text-gray-700">Hireshore, LLC</p>
+                  <p className="text-sm text-gray-600">800 North King Street</p>
+                  <p className="text-sm text-gray-600">Wilmington, DE 19801 US</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 mb-1">Registered Address</p>
-                  <p className="text-xs text-gray-600">800 North King Street<br/>Wilmington, DE 19801 US</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500 mb-1">Representative</p>
-                  <p className="text-xs text-gray-600">Kunal Sah</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500 mb-1">Phone & WhatsApp</p>
-                  <p className="text-xs text-gray-600">+977 981 9074501</p>
+                  <p className="text-sm font-medium text-gray-700">HQ Office</p>
+                  <p className="text-sm text-gray-600">Nepal, Lalitpur, Krishna Galli</p>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+            
+            {/* Contact Person Column */}
+            <motion.div
+              className="text-gray-600"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <h4 className="text-lg font-medium text-gray-800 mb-4">Get in Touch</h4>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-gray-700">Representative</p>
+                  <p className="text-sm text-gray-600">Kunal Sah</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-700">Phone & WhatsApp</p>
+                  <p className="text-sm text-gray-600">+977 981 9074501</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-700">Email</p>
+                  <a href="mailto:kunal@hireshore.co" className="text-sm text-[#7346e6] hover:underline">kunal@hireshore.co</a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
           
-          <motion.div 
-            className="flex flex-col items-start md:items-end gap-3 text-sm"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
+          {/* Quick Links */}
+          <div className="flex justify-center mt-8 space-x-6">
             {footerLinks.map((link, index) => (
               link.href ? (
                 <motion.a
@@ -148,7 +170,7 @@ const SiteFooter = () => {
               ) : (
                 <motion.button
                   key={link.text}
-                  className="text-[#7346e6] font-bold hover:underline flex items-center group"
+                  className="text-[#7346e6] font-medium hover:underline flex items-center group"
                   onClick={link.action}
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -168,18 +190,19 @@ const SiteFooter = () => {
                 </motion.button>
               )
             ))}
+          </div>
+          
+          {/* Copyright */}
+          <motion.div 
+            className="text-sm text-center text-gray-400 pt-8 mt-8 border-t border-gray-100"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            © {new Date().getFullYear()} Hireshore. All rights reserved.
           </motion.div>
         </div>
-        
-        <motion.div 
-          className="text-xs text-center text-gray-400 pt-8 mt-6 border-t border-gray-100"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          © {new Date().getFullYear()} Hireshore. All rights reserved.
-        </motion.div>
       </div>
     </footer>
   );
