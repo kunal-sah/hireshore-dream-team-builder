@@ -88,6 +88,29 @@ const SiteFooter = () => {
               Hireshore is founded by a global team in Nepal, dedicated to helping startups and agencies grow lean and smart.<br className="hidden md:block" />
               You're not talking to a faceless recruiter — you're partnering with a founder who's built and scaled remote teams.
             </p>
+            
+            {/* Added company contact information */}
+            <div className="mt-6 pt-4 border-t border-gray-100">
+              <p className="font-medium text-gray-800 mb-1">Hireshore, LLC</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+                <div>
+                  <p className="text-sm text-gray-500 mb-1">HQ Office</p>
+                  <p className="text-xs text-gray-600">Nepal, Lalitpur, Krishna Galli</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 mb-1">Registered Address</p>
+                  <p className="text-xs text-gray-600">800 North King Street<br/>Wilmington, DE 19801 US</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 mb-1">Representative</p>
+                  <p className="text-xs text-gray-600">Kunal Sah</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 mb-1">Phone & WhatsApp</p>
+                  <p className="text-xs text-gray-600">+977 981 9074501</p>
+                </div>
+              </div>
+            </div>
           </motion.div>
           
           <motion.div 
