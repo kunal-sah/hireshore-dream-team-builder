@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Phone, WhatsApp } from 'lucide-react';
 
 const SiteFooter = () => {
   // Add useEffect to load the Calendly script when component mounts
@@ -85,10 +86,10 @@ const SiteFooter = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h4 className="text-lg font-medium text-gray-800 mb-4">About Us</h4>
+              <h4 className="text-lg font-medium text-gray-800 mb-4">🤝 Backed by Real People, Real Results</h4>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Hireshore is founded by a global team in Nepal, dedicated to helping startups and agencies grow lean and smart. 
-                You're partnering with a founder who's built and scaled remote teams.
+                Hireshore is founded by a global team in Nepal, dedicated to helping startups and agencies grow lean and smart.
+                You're not talking to a faceless recruiter — you're partnering with a founder who's built and scaled remote teams.
               </p>
             </motion.div>
             
@@ -130,7 +131,24 @@ const SiteFooter = () => {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-700">Phone & WhatsApp</p>
-                  <p className="text-sm text-gray-600">+977 981 9074501</p>
+                  <div className="flex flex-col space-y-2">
+                    <a 
+                      href="tel:+9779819074501" 
+                      className="text-sm text-[#7346e6] hover:underline flex items-center"
+                    >
+                      <Phone size={16} className="mr-1" />
+                      +977 981 9074501
+                    </a>
+                    <a 
+                      href="https://wa.me/9779819074501" 
+                      className="text-sm text-[#7346e6] hover:underline flex items-center"
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <WhatsApp size={16} className="mr-1" />
+                      WhatsApp Us
+                    </a>
+                  </div>
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-700">Email</p>
