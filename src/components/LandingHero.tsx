@@ -204,7 +204,7 @@ const LandingHero = () => {
             Top 1% Remote Talent from Nepal
           </motion.span>
           <motion.div
-            className="bg-gradient-to-r from-[#0d6efd] to-[#6610f2] inline-block text-transparent bg-clip-text mt-2 text-gradient"
+            className="bg-gradient-to-r from-[#0d6efd] to-[#6610f2] inline-block text-transparent bg-clip-text mt-2 text-gradient shadow-text"
             custom={1}
             variants={textVariants}
             initial="hidden"
@@ -218,14 +218,18 @@ const LandingHero = () => {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
               >
-                {scrambleText.split('').map((letter, i) => (
-                  <motion.span
-                    key={i}
-                    style={{ '--i': i } as React.CSSProperties}
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
+                {/* Adding a contrasting background behind the text to make it more visible */}
+                <span className="bg-white/80 px-2 py-1 rounded-md backdrop-blur-sm">
+                  {scrambleText.split('').map((letter, i) => (
+                    <motion.span
+                      key={i}
+                      className="text-[#0d6efd] font-bold"
+                      style={{ '--i': i } as React.CSSProperties}
+                    >
+                      {letter}
+                    </motion.span>
+                  ))}
+                </span>
               </motion.div>
             </AnimatePresence>
           </motion.div>
