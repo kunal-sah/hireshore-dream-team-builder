@@ -15,12 +15,8 @@ const Index = () => {
       <NavBar />
       <LandingHero />
       <TrustSection />
-      <div className="relative z-10">
-        <BenefitsSection />
-      </div>
-      <div className="relative z-20">
-        <RolesSection />
-      </div>
+      <BenefitsSection />
+      <RolesSection />
       <TestimonialsSection />
       <HiringFormSection />
       <SiteFooter />

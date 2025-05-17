@@ -67,149 +67,152 @@ const RolesSection = () => {
   return (
     <motion.section 
       id="roles" 
-      className="max-w-4xl mx-auto py-16 md:py-24 px-4 relative"
+      className="relative py-20 md:py-32 px-4"
       ref={ref}
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-blue-50/30 to-white opacity-70 z-0"></div>
-      
-      <motion.h2 
-        className="text-2xl md:text-3xl font-bold mb-10 text-center relative z-10"
-        initial={{ opacity: 0, y: -30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
-        transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
-      >
-        <motion.span 
-          className="relative inline-block text-gradient"
-          animate={{
-            backgroundPosition: ["0% center", "100% center", "0% center"],
-          }}
-          transition={{ duration: 5, repeat: Infinity, repeatType: "loop" }}
+      {/* Container with max width to prevent wide screens from breaking the layout */}
+      <div className="max-w-4xl mx-auto relative">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-blue-50/30 to-white opacity-70 -z-10"></div>
+        
+        <motion.h2 
+          className="text-2xl md:text-3xl font-bold mb-10 text-center"
+          initial={{ opacity: 0, y: -30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
+          transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
         >
-          Roles We Specialize In
           <motion.span 
-            className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#0d6efd] via-[#6610f2] to-[#0091ff]"
-            initial={{ width: 0 }}
-            animate={isInView ? { width: "100%" } : { width: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-          />
-        </motion.span>
-      </motion.h2>
-      
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center relative z-10"
-        variants={container}
-        initial="hidden"
-        animate={isInView ? "show" : "hidden"}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={() => {
-          x.set(0);
-          y.set(0);
-        }}
-      >
-        {roles.map((role, index) => (
-          <motion.div
-            key={role}
-            className="w-full perspective"
-            variants={item}
-            whileHover={{ 
-              z: 20,
-              transition: { duration: 0.2 }
+            className="relative inline-block text-gradient"
+            animate={{
+              backgroundPosition: ["0% center", "100% center", "0% center"],
             }}
-            onMouseEnter={() => setActiveIndex(index)}
-            onMouseLeave={() => setActiveIndex(null)}
+            transition={{ duration: 5, repeat: Infinity, repeatType: "loop" }}
           >
+            Roles We Specialize In
+            <motion.span 
+              className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#0d6efd] via-[#6610f2] to-[#0091ff]"
+              initial={{ width: 0 }}
+              animate={isInView ? { width: "100%" } : { width: 0 }}
+              transition={{ duration: 1, delay: 0.6 }}
+            />
+          </motion.span>
+        </motion.h2>
+        
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center"
+          variants={container}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={() => {
+            x.set(0);
+            y.set(0);
+          }}
+        >
+          {roles.map((role, index) => (
             <motion.div
-              className="bg-white text-gray-800 px-5 py-4 rounded-lg shadow-sm border border-gray-100 text-sm md:text-base w-full text-center relative overflow-hidden group tilt spotlight"
-              style={{ 
-                x: index % 2 === 0 ? smoothX : useTransform(smoothX, v => -v),
-                y: index % 3 === 0 ? smoothY : useTransform(smoothY, v => -v),
-                rotateX: useTransform(smoothY, [-5, 5], [2, -2]),
-                rotateY: useTransform(smoothX, [-5, 5], [-2, 2]),
-              }}
+              key={role}
+              className="w-full perspective"
+              variants={item}
               whileHover={{ 
-                y: -8, 
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.08)",
-                scale: 1.03,
-                backgroundColor: "rgba(248, 250, 252, 1)"
+                z: 20,
+                transition: { duration: 0.2 }
               }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 400, 
-                damping: 17
-              }}
-              animate={{
-                background: activeIndex === index 
-                  ? "linear-gradient(120deg, rgba(248, 250, 252, 1), rgba(239, 246, 255, 0.8), rgba(248, 250, 252, 1))" 
-                  : "rgba(255, 255, 255, 1)"
-              }}
+              onMouseEnter={() => setActiveIndex(index)}
+              onMouseLeave={() => setActiveIndex(null)}
             >
-              <div className="relative z-10 tilt-inner">
-                {role}
-              </div>
-              
-              {/* Animated gradient background */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-[#0d6efd]/0 via-[#0d6efd]/0 to-[#0091ff]/0 group-hover:from-[#0d6efd]/5 group-hover:via-[#6610f2]/10 group-hover:to-[#0091ff]/5" 
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-              />
-              
-              {/* Glowing border on hover */}
-              <motion.div 
-                className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100"
-                initial={{ boxShadow: "0 0 0 0px rgba(13, 110, 253, 0)" }}
-                whileHover={{ 
-                  boxShadow: "0 0 0 2px rgba(13, 110, 253, 0.3)",
-                  transition: { duration: 0.3 }
+              <motion.div
+                className="bg-white text-gray-800 px-5 py-4 rounded-lg shadow-sm border border-gray-100 text-sm md:text-base w-full text-center relative overflow-hidden group tilt spotlight"
+                style={{ 
+                  x: index % 2 === 0 ? smoothX : useTransform(smoothX, v => -v),
+                  y: index % 3 === 0 ? smoothY : useTransform(smoothY, v => -v),
+                  rotateX: useTransform(smoothY, [-5, 5], [2, -2]),
+                  rotateY: useTransform(smoothX, [-5, 5], [-2, 2]),
                 }}
-              />
-              
-              {/* Shimmer effect */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-30"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "100%" }}
-                transition={{ duration: 1.5, ease: "easeInOut", repeat: 0 }}
-              />
+                whileHover={{ 
+                  y: -8, 
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.08)",
+                  scale: 1.03,
+                  backgroundColor: "rgba(248, 250, 252, 1)"
+                }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 400, 
+                  damping: 17
+                }}
+                animate={{
+                  background: activeIndex === index 
+                    ? "linear-gradient(120deg, rgba(248, 250, 252, 1), rgba(239, 246, 255, 0.8), rgba(248, 250, 252, 1))" 
+                    : "rgba(255, 255, 255, 1)"
+                }}
+              >
+                <div className="relative z-10 tilt-inner">
+                  {role}
+                </div>
+                
+                {/* Animated gradient background */}
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-r from-[#0d6efd]/0 via-[#0d6efd]/0 to-[#0091ff]/0 group-hover:from-[#0d6efd]/5 group-hover:via-[#6610f2]/10 group-hover:to-[#0091ff]/5" 
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                />
+                
+                {/* Glowing border on hover */}
+                <motion.div 
+                  className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100"
+                  initial={{ boxShadow: "0 0 0 0px rgba(13, 110, 253, 0)" }}
+                  whileHover={{ 
+                    boxShadow: "0 0 0 2px rgba(13, 110, 253, 0.3)",
+                    transition: { duration: 0.3 }
+                  }}
+                />
+                
+                {/* Shimmer effect */}
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-30"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "100%" }}
+                  transition={{ duration: 1.5, ease: "easeInOut", repeat: 0 }}
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
-        ))}
-      </motion.div>
-      
-      {/* Add floating decorative elements */}
-      <motion.div
-        className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br from-blue-100/40 to-purple-100/40 blur-xl opacity-50 z-0"
-        animate={{
-          y: [0, -15, 0],
-          x: [0, 10, 0],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-      />
-      
-      <motion.div
-        className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-gradient-to-tr from-blue-100/40 to-indigo-100/40 blur-xl opacity-50 z-0"
-        animate={{
-          y: [0, 12, 0],
-          x: [0, -8, 0],
-          scale: [1, 1.05, 1],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          repeatType: "reverse",
-          delay: 2
-        }}
-      />
+          ))}
+        </motion.div>
+        
+        {/* Add floating decorative elements */}
+        <motion.div
+          className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br from-blue-100/40 to-purple-100/40 blur-xl opacity-50 -z-5"
+          animate={{
+            y: [0, -15, 0],
+            x: [0, 10, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            repeatType: "reverse"
+          }}
+        />
+        
+        <motion.div
+          className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-gradient-to-tr from-blue-100/40 to-indigo-100/40 blur-xl opacity-50 -z-5"
+          animate={{
+            y: [0, 12, 0],
+            x: [0, -8, 0],
+            scale: [1, 1.05, 1],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: 2
+          }}
+        />
+      </div>
     </motion.section>
   );
 };
