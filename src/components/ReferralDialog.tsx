@@ -74,29 +74,29 @@ export function ReferralDialog({ open, onOpenChange }: ReferralDialogProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px]">
-        <DialogHeader>
+      <DialogContent className="sm:max-w-[500px] bg-white border border-gray-200 shadow-lg">
+        <DialogHeader className="bg-white">
           <DialogTitle className="text-2xl font-bold text-center text-[#7346e6]">
             Refer a Friend & Earn $100
           </DialogTitle>
-          <DialogDescription className="text-center">
+          <DialogDescription className="text-center text-gray-700">
             Know someone who could use our services? Refer them and earn $100 when they sign up!
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 bg-white">
             <div className="grid grid-cols-1 gap-4">
               <div className="border-b pb-4 mb-2">
-                <h3 className="text-sm font-medium text-gray-500 mb-2">Your Information</h3>
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Your Information</h3>
                 <div className="space-y-3">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Your Name</FormLabel>
+                        <FormLabel className="text-gray-700">Your Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="John Doe" {...field} />
+                          <Input placeholder="John Doe" {...field} className="bg-white border-gray-300" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -107,9 +107,9 @@ export function ReferralDialog({ open, onOpenChange }: ReferralDialogProps) {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Your Email</FormLabel>
+                        <FormLabel className="text-gray-700">Your Email</FormLabel>
                         <FormControl>
-                          <Input placeholder="johndoe@example.com" {...field} />
+                          <Input placeholder="johndoe@example.com" {...field} className="bg-white border-gray-300" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -119,16 +119,16 @@ export function ReferralDialog({ open, onOpenChange }: ReferralDialogProps) {
               </div>
 
               <div>
-                <h3 className="text-sm font-medium text-gray-500 mb-2">Friend's Information</h3>
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Friend's Information</h3>
                 <div className="space-y-3">
                   <FormField
                     control={form.control}
                     name="friendName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Friend's Name</FormLabel>
+                        <FormLabel className="text-gray-700">Friend's Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Jane Smith" {...field} />
+                          <Input placeholder="Jane Smith" {...field} className="bg-white border-gray-300" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -139,9 +139,9 @@ export function ReferralDialog({ open, onOpenChange }: ReferralDialogProps) {
                     name="friendEmail"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Friend's Email</FormLabel>
+                        <FormLabel className="text-gray-700">Friend's Email</FormLabel>
                         <FormControl>
-                          <Input placeholder="janesmith@example.com" {...field} />
+                          <Input placeholder="janesmith@example.com" {...field} className="bg-white border-gray-300" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -154,7 +154,7 @@ export function ReferralDialog({ open, onOpenChange }: ReferralDialogProps) {
             <DialogFooter>
               <Button 
                 type="submit" 
-                className="w-full bg-[#f97316] hover:bg-[#ea580c]"
+                className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white"
               >
                 <UserPlus className="mr-2" />
                 Submit Referral
