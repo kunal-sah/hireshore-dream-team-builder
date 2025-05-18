@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Phone } from 'lucide-react';
+import { Phone, MessageSquare } from 'lucide-react';
 
 const SiteFooter = () => {
   // Add useEffect to load the Calendly script when component mounts
@@ -145,7 +145,7 @@ const SiteFooter = () => {
                       target="_blank" 
                       rel="noopener noreferrer"
                     >
-                      <WhatsApp size={16} className="mr-1" />
+                      <MessageSquare size={16} className="mr-1" />
                       WhatsApp Us
                     </a>
                   </div>
