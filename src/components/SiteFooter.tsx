@@ -1,9 +1,12 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MessageSquare } from 'lucide-react';
+import { Phone, MessageSquare, UserPlus } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import ReferralDialog from "./ReferralDialog";
 
 const SiteFooter = () => {
+  const [isReferralDialogOpen, setIsReferralDialogOpen] = useState(false);
+
   // Add useEffect to load the Calendly script when component mounts
   useEffect(() => {
     const script = document.createElement('script');
@@ -68,6 +71,24 @@ const SiteFooter = () => {
       </div>
       
       <div className="max-w-5xl mx-auto px-6 md:px-8 relative z-10">
+        {/* Refer a Friend button - visible in the footer */}
+        <motion.div
+          className="flex justify-center mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Button 
+            onClick={() => setIsReferralDialogOpen(true)}
+            className="bg-[#f97316] hover:bg-[#ea580c] px-8 py-6 text-base rounded-lg"
+            size="lg"
+          >
+            <UserPlus className="mr-2" />
+            Refer a friend - Earn $100
+          </Button>
+        </motion.div>
+        
         {/* Calendly booking widget - Increased height and adjusted container */}
         <motion.div 
           id="booking-form" 
@@ -232,6 +253,9 @@ const SiteFooter = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Referral Dialog */}
+      <ReferralDialog open={isReferralDialogOpen} onOpenChange={setIsReferralDialogOpen} />
     </footer>
   );
 };
