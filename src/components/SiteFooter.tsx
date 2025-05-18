@@ -11,10 +11,20 @@ const SiteFooter = () => {
     script.async = true;
     document.body.appendChild(script);
 
+    // Add LeadConnector chat widget script
+    const chatScript = document.createElement('script');
+    chatScript.src = "https://widgets.leadconnectorhq.com/loader.js";
+    chatScript.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+    chatScript.setAttribute('data-widget-id', '68298cb376ba227d5563113e');
+    document.body.appendChild(chatScript);
+
     return () => {
-      // Clean up script when component unmounts
+      // Clean up scripts when component unmounts
       if (document.body.contains(script)) {
         document.body.removeChild(script);
+      }
+      if (document.body.contains(chatScript)) {
+        document.body.removeChild(chatScript);
       }
     };
   }, []);
