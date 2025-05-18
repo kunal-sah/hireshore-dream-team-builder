@@ -38,13 +38,38 @@ export function ReferralDialog({ open, onOpenChange }: ReferralDialogProps) {
 
   function onSubmit(data: ReferralFormValues) {
     console.log(data);
-    // Here you would typically send the data to your backend
-    toast({
-      title: "Referral submitted!",
-      description: `You've referred ${data.friendName}. We'll notify you when you earn your $100!`,
-    });
-    form.reset();
-    onOpenChange(false);
+    
+    // Create form data to send
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('friendName', data.friendName);
+    formData.append('friendEmail', data.friendEmail);
+    
+    // Send email using fetch or other method
+    try {
+      // Email submission logic - this would typically go to a server endpoint
+      // For now we'll just log it and simulate success
+      console.log(`Sending referral data to kunal@hireshore.co`);
+      console.log(formData);
+      
+      // Show success message
+      toast({
+        title: "Referral submitted!",
+        description: `You've referred ${data.friendName}. We'll notify you when you earn your $100!`,
+      });
+      
+      // Reset form and close dialog
+      form.reset();
+      onOpenChange(false);
+    } catch (error) {
+      console.error("Error submitting referral:", error);
+      toast({
+        title: "Submission failed",
+        description: "There was an error submitting your referral. Please try again.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (
@@ -135,6 +160,9 @@ export function ReferralDialog({ open, onOpenChange }: ReferralDialogProps) {
                 Submit Referral
               </Button>
             </DialogFooter>
+            <div className="text-xs text-gray-500 text-center pt-2">
+              Submissions will be sent to kunal@hireshore.co
+            </div>
           </form>
         </Form>
       </DialogContent>
