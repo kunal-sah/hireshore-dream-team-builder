@@ -9,6 +9,7 @@ import TestimonialsSection from "../components/TestimonialsSection";
 import HiringFormSection from "../components/HiringFormSection";
 import SiteFooter from "../components/SiteFooter";
 import ReferralBanner from "../components/ReferralBanner";
+import ServicesSection from "../components/ServicesSection";
 
 const Index = () => {
   // Add useEffect to load the popup form script
@@ -23,14 +24,14 @@ const Index = () => {
     iframe.style.borderRadius = "3px";
     iframe.id = "popup-shdOJ5vbCj1i9JYIQOyt";
     iframe.setAttribute("data-layout", "{'id':'POPUP'}");
-    iframe.setAttribute("data-trigger-type", "showOnScrolling");
-    iframe.setAttribute("data-trigger-value", "20");
+    iframe.setAttribute("data-trigger-type", "alwaysShow");
+    iframe.setAttribute("data-trigger-value", "");
     iframe.setAttribute("data-activation-type", "alwaysActivated");
     iframe.setAttribute("data-activation-value", "");
     iframe.setAttribute("data-deactivation-type", "neverDeactivate");
     iframe.setAttribute("data-deactivation-value", "");
     iframe.setAttribute("data-form-name", "Cal Form");
-    iframe.setAttribute("data-height", "533");
+    iframe.setAttribute("data-height", "430");
     iframe.setAttribute("data-layout-iframe-id", "popup-shdOJ5vbCj1i9JYIQOyt");
     iframe.setAttribute("data-form-id", "shdOJ5vbCj1i9JYIQOyt");
     iframe.title = "Cal Form";
@@ -60,6 +61,7 @@ const Index = () => {
       <LandingHero />
       <TrustSection />
       <BenefitsSection />
+      <ServicesSection />
       <RolesSection />
       <TestimonialsSection />
       <HiringFormSection />
