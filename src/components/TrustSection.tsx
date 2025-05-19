@@ -29,11 +29,6 @@ const clients = [
     url: "https://propertystack.ai/",
     logo: "https://propertystack.ai/images/logo-light.svg",
   },
-  {
-    name: "HireShore",
-    url: "/",
-    logo: "/lovable-uploads/aac5788d-05c5-45ce-8123-df113e7f5dca.png",
-  },
 ];
 
 const TrustSection = () => {
