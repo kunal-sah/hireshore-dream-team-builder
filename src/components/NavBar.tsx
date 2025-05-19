@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -104,19 +103,11 @@ const NavBar = () => {
               <motion.img 
                 src="/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png" 
                 alt="HireShore Logo" 
-                className="h-8 w-auto mr-2"
+                className="h-10 w-auto" 
                 initial={{ opacity: 0, rotateY: 90 }}
                 animate={{ opacity: 1, rotateY: 0 }}
                 transition={{ duration: 0.8, type: "spring" }}
               />
-              <motion.span 
-                className="text-xl font-bold text-gray-900 bg-gradient-to-r from-[#0d6efd] to-[#0091ff] inline-block text-transparent bg-clip-text"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-              >
-                HireShore
-              </motion.span>
             </Link>
           </motion.div>
           
