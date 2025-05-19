@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Users, Calendar, Phone, Code, Pen, ShoppingCart, MessageSquare, User, Headphones } from 'lucide-react';
+import { Briefcase, Users, Calendar, Phone, Code, Pen, ShoppingCart, MessageSquare, User, Headphones, Search, FileEdit } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
