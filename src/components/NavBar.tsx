@@ -102,7 +102,7 @@ const NavBar = () => {
           >
             <Link to="/" className="flex items-center">
               <motion.img 
-                src="/lovable-uploads/e6af2892-586c-4cc7-90ef-9842c9d5a08c.png" 
+                src="/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png" 
                 alt="HireShore Logo" 
                 className="h-8 w-auto mr-2"
                 initial={{ opacity: 0, rotateY: 90 }}
