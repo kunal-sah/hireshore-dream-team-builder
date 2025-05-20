@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import NavBar from "../components/NavBar";
 import LandingHero from "../components/LandingHero";
@@ -23,6 +24,16 @@ const Index = () => {
     calIframe.style.borderRadius = "3px";
     calIframe.id = "popup-shdOJ5vbCj1i9JYIQOyt";
     calIframe.setAttribute("data-layout", "{'id':'POPUP'}");
+    calIframe.setAttribute("data-trigger-type", "pageScroll");
+    calIframe.setAttribute("data-trigger-value", "20");
+    calIframe.setAttribute("data-activation-type", "alwaysActivated");
+    calIframe.setAttribute("data-activation-value", "");
+    calIframe.setAttribute("data-deactivation-type", "neverDeactivate");
+    calIframe.setAttribute("data-deactivation-value", "");
+    calIframe.setAttribute("data-form-name", "Cal Form");
+    calIframe.setAttribute("data-height", "430");
+    calIframe.setAttribute("data-layout-iframe-id", "popup-shdOJ5vbCj1i9JYIQOyt");
+    calIframe.setAttribute("data-form-id", "shdOJ5vbCj1i9JYIQOyt");
     calIframe.title = "Cal Form";
     document.body.appendChild(calIframe);
 
