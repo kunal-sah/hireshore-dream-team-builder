@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 interface ReferralDialogProps {
   open: boolean;
@@ -17,16 +17,6 @@ export function ReferralDialog({ open, onOpenChange }: ReferralDialogProps) {
             style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
             id="inline-W8qvJ5pMmshpCpggHwCP" 
             data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="Refer"
-            data-height="577"
-            data-layout-iframe-id="inline-W8qvJ5pMmshpCpggHwCP"
-            data-form-id="W8qvJ5pMmshpCpggHwCP"
             title="Refer"
           ></iframe>
         </div>
