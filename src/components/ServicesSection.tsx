@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Users, Calendar, Phone, Code, Pen, ShoppingCart, MessageSquare, User, Headphones, Search, FileEdit } from 'lucide-react';
+import { Briefcase, Users, Calendar, Phone, Code, Pen, ShoppingCart, MessageSquare, User, Headphones, Search, FileEdit, Palette } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -15,6 +15,11 @@ const ServicesSection = () => {
       title: "Full Stack Developers", 
       icon: <Code className="w-10 h-10 text-[#0d6efd]" />,
       description: "Expert developers who can handle both front-end and back-end development needs."
+    },
+    { 
+      title: "Graphics Designers", 
+      icon: <Palette className="w-10 h-10 text-[#0d6efd]" />,
+      description: "Creative professionals who design stunning visual content and brand materials."
     },
     { 
       title: "UI/UX Designers", 
