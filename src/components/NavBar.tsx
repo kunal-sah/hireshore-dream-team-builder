@@ -1,19 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Headphones, Users, Phone } from "lucide-react";
+import { motion } from "framer-motion";
+import { Headphones, Users, Phone, Palette, Code } from "lucide-react";
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
@@ -113,49 +105,59 @@ const NavBar = () => {
             </Link>
           </motion.div>
           
-          {/* Funnel-style CTAs - Primary Focus */}
-          <div className="flex items-center space-x-3">
-            {/* Primary CTA - Cold Callers */}
+          {/* Service-specific CTAs */}
+          <div className="hidden lg:flex items-center space-x-2">
+            {/* Cold Callers CTA - Primary */}
             <motion.button
-              className="hidden md:inline-flex items-center justify-center h-10 bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-bold px-4 py-2 rounded-full text-sm hover:shadow-md hover:shadow-blue-200/50 transition-all ripple-effect relative overflow-hidden"
+              className="inline-flex items-center justify-center h-9 bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-semibold px-3 py-2 rounded-md text-sm hover:shadow-md hover:shadow-blue-200/50 transition-all ripple-effect relative overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onMouseDown={createRipple}
               onClick={() => scrollToSection('hire-form')}
             >
               <Headphones className="mr-1.5 h-4 w-4" />
-              <span className="relative z-10 font-semibold">Hire Cold Callers</span>
-              <motion.span
-                className="absolute inset-0 bg-white/20"
-                initial={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.4 }}
-                style={{ borderRadius: 'inherit' }}
-              />
+              <span className="relative z-10">Cold Callers</span>
             </motion.button>
 
-            {/* Secondary CTA - Other Talent */}
+            {/* Tech Talent CTA */}
             <motion.button
-              className="hidden md:inline-flex items-center justify-center h-10 border-2 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd]/10 font-medium px-4 py-2 rounded-full text-sm transition-all ripple-effect relative overflow-hidden"
+              className="inline-flex items-center justify-center h-9 border-2 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd]/10 font-medium px-3 py-2 rounded-md text-sm transition-all ripple-effect relative overflow-hidden"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onMouseDown={createRipple}
+              onClick={() => scrollToSection('hire-form')}
+            >
+              <Code className="mr-1.5 h-4 w-4" />
+              <span className="relative z-10">Tech</span>
+            </motion.button>
+
+            {/* Admin Talent CTA */}
+            <motion.button
+              className="inline-flex items-center justify-center h-9 border-2 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd]/10 font-medium px-3 py-2 rounded-md text-sm transition-all ripple-effect relative overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onMouseDown={createRipple}
               onClick={() => scrollToSection('hire-form')}
             >
               <Users className="mr-1.5 h-4 w-4" />
-              <span className="relative z-10 font-semibold">Hire Tech/Admin</span>
-              <motion.span
-                className="absolute inset-0 bg-[#0d6efd]/10"
-                initial={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.4 }}
-                style={{ borderRadius: 'inherit' }}
-              />
+              <span className="relative z-10">Admin</span>
             </motion.button>
 
-            {/* Book a Call - Tertiary CTA */}
+            {/* Creative Talent CTA */}
             <motion.button
-              className="hidden lg:inline-flex items-center justify-center h-10 text-[#0d6efd] hover:bg-[#0d6efd]/5 font-medium px-3 py-2 rounded-md text-sm transition-all"
+              className="inline-flex items-center justify-center h-9 border-2 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd]/10 font-medium px-3 py-2 rounded-md text-sm transition-all ripple-effect relative overflow-hidden"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onMouseDown={createRipple}
+              onClick={() => scrollToSection('hire-form')}
+            >
+              <Palette className="mr-1.5 h-4 w-4" />
+              <span className="relative z-10">Creative</span>
+            </motion.button>
+
+            {/* Book a Call - Secondary CTA */}
+            <motion.button
+              className="inline-flex items-center justify-center h-9 text-[#0d6efd] hover:bg-[#0d6efd]/5 font-medium px-3 py-2 rounded-md text-sm transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToBooking}
@@ -165,77 +167,21 @@ const NavBar = () => {
             </motion.button>
           </div>
 
-          {/* Traditional Navigation - Secondary */}
-          <NavigationMenu className="hidden lg:flex">
-            <NavigationMenuList>
-              {["Services", "benefits", "testimonials"].map((item, index) => {
-                const isDropdown = item === "Services";
-                return (
-                  <NavigationMenuItem key={item}>
-                    {isDropdown ? (
-                      <>
-                        <NavigationMenuTrigger 
-                          onMouseEnter={() => setHoveredIndex(index)}
-                          onMouseLeave={() => setHoveredIndex(null)}
-                          className="px-3 py-2 text-sm text-gray-600 hover:text-gray-900 relative group"
-                        >
-                          Services
-                          <motion.div 
-                            className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#0d6efd] transform -translate-x-1/2"
-                            animate={{ width: hoveredIndex === index ? "80%" : "0%" }}
-                            transition={{ duration: 0.3 }}
-                          />
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          <div className="w-[200px] p-2">
-                            <motion.button 
-                              whileHover={{ x: 5 }}
-                              onClick={() => scrollToSection('roles')}
-                              className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-                            >
-                              Available Roles
-                            </motion.button>
-                            <motion.button 
-                              whileHover={{ x: 5 }}
-                              onClick={() => scrollToSection('trust')}
-                              className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-                            >
-                              Trust & Safety
-                            </motion.button>
-                          </div>
-                        </NavigationMenuContent>
-                      </>
-                    ) : (
-                      <motion.button 
-                        onMouseEnter={() => setHoveredIndex(index)}
-                        onMouseLeave={() => setHoveredIndex(null)}
-                        onClick={() => scrollToSection(item)} 
-                        className="px-3 py-2 text-sm text-gray-600 hover:text-gray-900 relative"
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        {item.charAt(0).toUpperCase() + item.slice(1)}
-                        <motion.div 
-                          className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#0d6efd] transform -translate-x-1/2"
-                          animate={{ width: hoveredIndex === index ? "80%" : "0%" }}
-                          transition={{ duration: 0.3 }}
-                        />
-                      </motion.button>
-                    )}
-                  </NavigationMenuItem>
-                );
-              })}
-            </NavigationMenuList>
-          </NavigationMenu>
-
-          {/* Mobile Menu Button */}
-          <motion.div className="md:hidden">
-            <button
+          {/* Mobile Menu - Simplified */}
+          <div className="flex lg:hidden items-center space-x-2">
+            <motion.button
               onClick={() => scrollToSection('hire-form')}
-              className="inline-flex items-center justify-center bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-bold py-2 px-3 rounded-full text-sm hover:shadow-md transition-all"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-bold py-2 px-3 rounded-md text-sm hover:shadow-md transition-all"
             >
               <Headphones className="h-4 w-4" />
-            </button>
-          </motion.div>
+            </motion.button>
+            <motion.button
+              onClick={scrollToBooking}
+              className="inline-flex items-center justify-center border-2 border-[#0d6efd] text-[#0d6efd] py-2 px-3 rounded-md text-sm transition-all"
+            >
+              <Phone className="h-4 w-4" />
+            </motion.button>
+          </div>
         </div>
       </div>
     </motion.nav>
