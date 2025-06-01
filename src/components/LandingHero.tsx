@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
@@ -261,7 +262,7 @@ const LandingHero = () => {
             />
           </motion.button>
           
-          {/* Secondary CTA - Tech & Admin */}
+          {/* Secondary CTA - Tech, Admin & Creative */}
           <motion.div
             whileHover={{ 
               scale: 1.05,
@@ -283,7 +284,7 @@ const LandingHero = () => {
             >
               <Users className="mr-2 h-5 w-5" />
               <div className="flex flex-col items-start">
-                <span className="relative z-10 text-base font-bold">Hire Tech or Admin Talent</span>
+                <span className="relative z-10 text-base font-bold">Hire Tech, Admin or Creative Talent</span>
                 <span className="relative z-10 text-xs opacity-80">Developers & Operations Staff</span>
               </div>
               <motion.span 
