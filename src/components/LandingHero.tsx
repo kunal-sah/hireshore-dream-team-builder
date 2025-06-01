@@ -1,7 +1,7 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
+import { Phone, Users, Headphones } from "lucide-react";
 
 const LandingHero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -108,9 +108,6 @@ const LandingHero = () => {
     }, 800);
   };
 
-  // Text scramble effect
-  const scrambleText = "Startup-Friendly Cost";
-  
   return (
     <header ref={heroRef} className="w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-28 pb-20 md:pb-32 px-4 md:px-0 relative overflow-hidden spotlight" style={{
       '--x': '50%',
@@ -182,7 +179,7 @@ const LandingHero = () => {
       </motion.div>
 
       <motion.div 
-        className="max-w-3xl mx-auto text-center relative z-10"
+        className="max-w-4xl mx-auto text-center relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -201,59 +198,41 @@ const LandingHero = () => {
             initial="hidden"
             animate="visible"
           >
-            Top 1% Remote Talent from Nepal
+            Hire Trained Cold Callers, Tech Experts & Admin Talent
           </motion.span>
           <motion.div
-            className="bg-gradient-to-r from-[#0d6efd] to-[#6610f2] inline-block text-transparent bg-clip-text mt-2 text-gradient shadow-text"
+            className="bg-gradient-to-r from-[#0d6efd] to-[#6610f2] inline-block text-transparent bg-clip-text mt-2"
             custom={1}
             variants={textVariants}
             initial="hidden"
             animate="visible"
           >
-            <AnimatePresence>
-              <motion.div
-                className="inline-block text-scramble"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-              >
-                {/* Adding a contrasting background behind the text to make it more visible */}
-                <span className="bg-white/80 px-2 py-1 rounded-md backdrop-blur-sm">
-                  {scrambleText.split('').map((letter, i) => (
-                    <motion.span
-                      key={i}
-                      className="text-[#0d6efd] font-bold"
-                      style={{ '--i': i } as React.CSSProperties}
-                    >
-                      {letter}
-                    </motion.span>
-                  ))}
-                </span>
-              </motion.div>
-            </AnimatePresence>
+            <span className="bg-white/80 px-2 py-1 rounded-md backdrop-blur-sm">
+              <span className="text-[#0d6efd] font-bold">Remotely from Nepal</span>
+            </span>
           </motion.div>
         </motion.h1>
         
         <motion.p 
-          className="text-lg md:text-xl text-gray-700 mb-8"
+          className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto"
           custom={2}
           variants={textVariants}
           initial="hidden"
           animate="visible"
         >
-          Hireshore helps startups and agencies hire senior tech, creative, and support talent — fast, affordable, risk-free.
+          We help startups and agencies hire top 1% remote talent — fast, cost-effective, and with no upfront fees.
         </motion.p>
         
         <motion.div 
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col lg:flex-row gap-6 justify-center items-center mb-6"
           custom={3}
           variants={textVariants}
           initial="hidden"
           animate="visible"
         >
+          {/* Primary CTA - Cold Callers */}
           <motion.button
-            className="inline-flex items-center justify-center h-12 gradient-btn text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-all hover:shadow-xl hover:shadow-blue-200/50 ripple-effect relative overflow-hidden"
+            className="inline-flex items-center justify-center h-14 gradient-btn text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-all hover:shadow-xl hover:shadow-blue-200/50 ripple-effect relative overflow-hidden min-w-[280px]"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 10px 25px -5px rgba(13, 110, 253, 0.3), 0 10px 10px -5px rgba(13, 110, 253, 0.2)"
@@ -261,13 +240,18 @@ const LandingHero = () => {
             whileTap={{ scale: 0.95 }}
             onMouseDown={createRipple}
             onClick={() => {
+              // TODO: Link to dedicated cold caller landing page
               const hireForm = document.getElementById('hire-form');
               if (hireForm) {
                 hireForm.scrollIntoView({ behavior: 'smooth' });
               }
             }}
           >
-            <span className="relative z-10">Start Hiring Now</span>
+            <Headphones className="mr-2 h-5 w-5" />
+            <div className="flex flex-col items-start">
+              <span className="relative z-10 text-base font-bold">Hire Cold Callers / Setters</span>
+              <span className="relative z-10 text-xs opacity-90">Trained Telecalling Agents</span>
+            </div>
             <motion.span 
               className="absolute inset-0 bg-white/20"
               initial={{ scale: 0, opacity: 0 }}
@@ -277,6 +261,7 @@ const LandingHero = () => {
             />
           </motion.button>
           
+          {/* Secondary CTA - Tech & Admin */}
           <motion.div
             whileHover={{ 
               scale: 1.05,
@@ -287,11 +272,20 @@ const LandingHero = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="h-12 border-2 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd]/10 transition-all duration-300 ripple-effect relative overflow-hidden gradient-border"
-              onClick={scrollToBooking}
+              className="h-14 border-2 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd]/10 transition-all duration-300 ripple-effect relative overflow-hidden gradient-border min-w-[280px]"
+              onClick={() => {
+                const hireForm = document.getElementById('hire-form');
+                if (hireForm) {
+                  hireForm.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               onMouseDown={createRipple}
             >
-              <span className="relative z-10">Book a Free Call</span>
+              <Users className="mr-2 h-5 w-5" />
+              <div className="flex flex-col items-start">
+                <span className="relative z-10 text-base font-bold">Hire Tech or Admin Talent</span>
+                <span className="relative z-10 text-xs opacity-80">Developers & Operations Staff</span>
+              </div>
               <motion.span 
                 className="absolute inset-0 bg-[#0d6efd]/10"
                 initial={{ scale: 0, opacity: 0 }}
@@ -302,10 +296,29 @@ const LandingHero = () => {
             </Button>
           </motion.div>
         </motion.div>
+
+        {/* Book a Call Button - Secondary positioning */}
+        <motion.div
+          className="mb-6"
+          custom={4}
+          variants={textVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <Button 
+            variant="ghost" 
+            size="lg" 
+            className="h-12 text-[#0d6efd] hover:bg-[#0d6efd]/5 transition-all duration-300 underline-offset-4 hover:underline"
+            onClick={scrollToBooking}
+          >
+            <Phone className="mr-2 h-4 w-4" />
+            Book a Free Call
+          </Button>
+        </motion.div>
         
         <motion.div 
-          className="text-sm mt-4 text-gray-500 italic"
-          custom={4}
+          className="text-sm text-gray-600 max-w-2xl mx-auto"
+          custom={5}
           variants={textVariants}
           initial="hidden"
           animate="visible"
@@ -317,7 +330,7 @@ const LandingHero = () => {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            No commitments. Get a free talent shortlist in 48 hours.
+            Get a curated shortlist of top 1% remote talent in 48 hours. Save up to 70% on hiring costs with zero upfront fees.
           </motion.span>
         </motion.div>
       </motion.div>
