@@ -5,7 +5,7 @@ const clients = [
   {
     name: "Medz Media",
     url: "https://medzmediaagency.com.au/",
-    logo: "/lovable-uploads/936ff4a8-e76e-467f-b57a-9df89f07ab2f.png",
+    logo: "/lovable-uploads/c7b9d56b-ffc4-4200-b765-496cd470a080.png",
   },
   {
     name: "Affective Health",
