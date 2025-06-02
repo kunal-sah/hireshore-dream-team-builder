@@ -1,4 +1,3 @@
-
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -33,23 +32,23 @@ const clients = [
 const mediaFeatures = [
   {
     name: "Forbes",
-    logo: "/lovable-uploads/1457fab9-a136-42e8-90f3-5eaedc841cf3.png",
+    logo: "/lovable-uploads/forbes-logo.png",
   },
   {
     name: "Google News",
-    logo: "/lovable-uploads/1457fab9-a136-42e8-90f3-5eaedc841cf3.png",
+    logo: "/lovable-uploads/google-news-logo.png",
   },
   {
     name: "Inman",
-    logo: "/lovable-uploads/1457fab9-a136-42e8-90f3-5eaedc841cf3.png",
+    logo: "/lovable-uploads/inman-logo.png",
   },
   {
     name: "Realtor",
-    logo: "/lovable-uploads/1457fab9-a136-42e8-90f3-5eaedc841cf3.png",
+    logo: "/lovable-uploads/realtor-logo.png",
   },
   {
     name: "MSN",
-    logo: "/lovable-uploads/1457fab9-a136-42e8-90f3-5eaedc841cf3.png",
+    logo: "/lovable-uploads/msn-logo.png",
   },
 ];
 
