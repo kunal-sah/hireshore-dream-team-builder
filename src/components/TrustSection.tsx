@@ -1,4 +1,3 @@
-
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -6,28 +5,27 @@ const clients = [
   {
     name: "Medz Media",
     url: "https://medzmediaagency.com.au/",
-    logo: "https://medzmediaagency.com.au/wp-content/uploads/2024/03/Logo-main-1.svg",
+    logo: "/lovable-uploads/936ff4a8-e76e-467f-b57a-9df89f07ab2f.png",
   },
   {
     name: "Affective Health",
     url: "http://affectivehealthservices.com.au/",
-    // No clear white logo; fallback to name
-    logo: "",
+    logo: "/lovable-uploads/311b322b-98dc-490e-8eef-00a2ba10de8c.png",
   },
   {
     name: "Digital Six",
     url: "https://digitalsix.com.au/",
-    logo: "https://digitalsix.com.au/wp-content/uploads/2024/03/Digital-Six-Logo-Retina.png",
+    logo: "/lovable-uploads/e8eb4eea-0993-4006-beb8-9c96700cc841.png",
   },
   {
     name: "Yes Digital",
     url: "https://www.yesdigital.com.au/",
-    logo: "https://www.yesdigital.com.au/wp-content/uploads/2022/09/Logo.svg",
+    logo: "/lovable-uploads/0645b68b-e612-4979-b35e-2a5406bdda0b.png",
   },
   {
     name: "PropertyStack",
     url: "https://propertystack.ai/",
-    logo: "https://propertystack.ai/images/logo-light.svg",
+    logo: "/lovable-uploads/01309d50-9aad-4e5d-b846-f75569799366.png",
   },
 ];
 
@@ -99,31 +97,19 @@ const TrustSection = () => {
                 boxShadow: "0 4px 20px rgba(139, 92, 246, 0.15)" 
               }}
             >
-              {client.logo ? (
-                <img
-                  src={client.logo}
-                  alt={client.name + ' logo'}
-                  className="h-8 max-w-[100px] object-contain transition-opacity duration-300 hover:opacity-80"
-                  loading="lazy"
-                  onError={(e) => {
-                    // If image fails to load, fallback to showing the client name
-                    const target = e.target as HTMLImageElement;
-                    target.onerror = null; // Prevent infinite loop
-                    target.style.display = 'none';
-                    target.parentElement!.innerHTML = `<span class="font-semibold text-gray-700 text-base whitespace-nowrap flex items-center gap-2"><span class="text-yellow-500">★</span>${client.name}</span>`;
-                  }}
-                />
-              ) : (
-                <span className="font-semibold text-gray-700 text-base whitespace-nowrap flex items-center gap-2">
-                  <motion.div
-                    animate={{ rotate: [0, 20, 0, -20, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
-                  >
-                    <Star className="w-5 h-5 text-yellow-500" />
-                  </motion.div>
-                  {client.name}
-                </span>
-              )}
+              <img
+                src={client.logo}
+                alt={client.name + ' logo'}
+                className="h-8 max-w-[100px] object-contain transition-opacity duration-300 hover:opacity-80"
+                loading="lazy"
+                onError={(e) => {
+                  // If image fails to load, fallback to showing the client name
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null; // Prevent infinite loop
+                  target.style.display = 'none';
+                  target.parentElement!.innerHTML = `<span class="font-semibold text-gray-700 text-base whitespace-nowrap flex items-center gap-2"><span class="text-yellow-500">★</span>${client.name}</span>`;
+                }}
+              />
             </motion.div>
           </motion.a>
         ))}
