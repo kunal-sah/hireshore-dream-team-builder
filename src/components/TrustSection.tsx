@@ -5,7 +5,7 @@ const clients = [
   {
     name: "Medz Media",
     url: "https://medzmediaagency.com.au/",
-    logo: "/lovable-uploads/11bd08e6-1aef-4604-8d1c-ea04a7654fc5.png",
+    logo: "/lovable-uploads/d44ef2d1-ea46-4a06-8e1d-f8a836983722.png",
   },
   {
     name: "Affective Health",
@@ -32,23 +32,23 @@ const clients = [
 const mediaFeatures = [
   {
     name: "Forbes",
-    logo: "/lovable-uploads/forbes-logo.png",
+    logo: "/lovable-uploads/fca333ed-fa13-4bf6-8cde-4708ebfb7ae9.png",
   },
   {
     name: "Google News",
-    logo: "/lovable-uploads/google-news-logo.png",
+    logo: "/lovable-uploads/ecf56630-afb3-4e7b-9ae6-94694f6f12a7.png",
   },
   {
     name: "Inman",
-    logo: "/lovable-uploads/inman-logo.png",
+    logo: "/lovable-uploads/45e83f55-ac8b-42ac-943b-ff04ecaf7b0f.png",
   },
   {
     name: "Realtor",
-    logo: "/lovable-uploads/realtor-logo.png",
+    logo: "/lovable-uploads/191e546d-59d4-4888-baf8-be28996f7dd3.png",
   },
   {
     name: "MSN",
-    logo: "/lovable-uploads/msn-logo.png",
+    logo: "/lovable-uploads/39722330-5204-4d51-a69b-4979142e6e40.png",
   },
 ];
 
