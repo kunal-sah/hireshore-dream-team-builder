@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
@@ -200,10 +201,11 @@ const LandingHero = () => {
           >
             Be Part of the{" "}
             <span 
-              className="bg-gradient-to-r from-[#0d6efd] via-[#6610f2] to-[#0d6efd] bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-[#0d6efd] via-[#6610f2] to-[#0d6efd] bg-clip-text text-transparent relative"
               style={{
-                filter: "drop-shadow(0 0 8px rgba(13, 110, 253, 0.8)) drop-shadow(0 0 15px rgba(102, 16, 242, 0.6))",
-                textShadow: "0 0 20px rgba(13, 110, 253, 0.5)"
+                textShadow: "0 0 2px rgba(13, 110, 253, 1), 0 0 4px rgba(102, 16, 242, 0.8), 0 0 6px rgba(13, 110, 253, 0.6)",
+                filter: "brightness(1.2) contrast(1.1)",
+                WebkitTextStroke: "1px rgba(13, 110, 253, 0.3)"
               }}
             >
               Global Economy
