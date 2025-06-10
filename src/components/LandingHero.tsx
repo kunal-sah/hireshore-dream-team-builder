@@ -198,7 +198,26 @@ const LandingHero = () => {
             initial="hidden"
             animate="visible"
           >
-            Be Part of the Global Economy — No Hiring, No Managing, No Wasted Time
+            Be Part of the{" "}
+            <span 
+              className="bg-gradient-to-r from-[#0d6efd] via-[#6610f2] to-[#0d6efd] bg-clip-text text-transparent"
+              style={{
+                filter: "drop-shadow(0 0 8px rgba(13, 110, 253, 0.8)) drop-shadow(0 0 15px rgba(102, 16, 242, 0.6))",
+                textShadow: "0 0 20px rgba(13, 110, 253, 0.5)"
+              }}
+            >
+              Global Economy
+            </span>
+          </motion.span>
+          <br />
+          <motion.span 
+            className="inline-block font-light italic text-3xl md:text-5xl mt-2"
+            custom={1}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            No Hiring, No Managing, No Wasted Time
           </motion.span>
         </motion.h1>
         
