@@ -227,7 +227,7 @@ const LandingHero = () => {
           initial="hidden"
           animate="visible"
         >
-          Build your remote team of expert Cold Callers, Developers, and Admins — fully managed, cost-effective, and ready in days.
+          Build your remote team of expert Cold Callers, Developers, Admins, Designers, Marketers fully managed, cost-effective, and ready in days.
         </motion.p>
         
         <motion.div 
