@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
@@ -201,11 +200,9 @@ const LandingHero = () => {
           >
             Be Part of the{" "}
             <span 
-              className="bg-gradient-to-r from-[#0d6efd] via-[#6610f2] to-[#0d6efd] bg-clip-text text-transparent relative"
+              className="bg-[#1e3a8a] text-white px-4 py-2 rounded-lg font-bold relative inline-block"
               style={{
-                textShadow: "0 0 2px rgba(13, 110, 253, 1), 0 0 4px rgba(102, 16, 242, 0.8), 0 0 6px rgba(13, 110, 253, 0.6)",
-                filter: "brightness(1.2) contrast(1.1)",
-                WebkitTextStroke: "1px rgba(13, 110, 253, 0.3)"
+                boxShadow: "0 4px 15px rgba(30, 58, 138, 0.4), 0 2px 8px rgba(30, 58, 138, 0.3)",
               }}
             >
               Global Economy
