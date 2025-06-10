@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
@@ -199,19 +198,8 @@ const LandingHero = () => {
             initial="hidden"
             animate="visible"
           >
-            Hire Trained Cold Callers, Tech Experts & Admin Talent
+            Be Part of the Global Economy — No Hiring, No Managing, No Wasted Time
           </motion.span>
-          <motion.div
-            className="bg-gradient-to-r from-[#0d6efd] to-[#6610f2] inline-block text-transparent bg-clip-text mt-2"
-            custom={1}
-            variants={textVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <span className="bg-white/80 px-2 py-1 rounded-md backdrop-blur-sm">
-              <span className="text-[#0d6efd] font-bold">Remotely from Nepal</span>
-            </span>
-          </motion.div>
         </motion.h1>
         
         <motion.p 
@@ -221,7 +209,7 @@ const LandingHero = () => {
           initial="hidden"
           animate="visible"
         >
-          We help startups and agencies hire top 1% remote talent — fast, cost-effective, and with no upfront fees.
+          Build your remote team of expert Cold Callers, Developers, and Admins — fully managed, cost-effective, and ready in days.
         </motion.p>
         
         <motion.div 
