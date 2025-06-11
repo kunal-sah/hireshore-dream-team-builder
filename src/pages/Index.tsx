@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import NavBar from "../components/NavBar";
 import LandingHero from "../components/LandingHero";
@@ -59,8 +58,8 @@ const Index = () => {
       <ReferralBanner />
       <NavBar />
       <LandingHero />
-      <TrustSection />
       <BenefitsSection />
+      <TrustSection />
       <ServicesSection />
       <RolesSection />
       <TestimonialsSection />
