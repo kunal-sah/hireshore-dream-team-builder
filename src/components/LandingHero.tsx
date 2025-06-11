@@ -254,10 +254,7 @@ const LandingHero = () => {
             }}
           >
             <Pointer className="mr-2 h-5 w-5" />
-            <div className="flex flex-col items-start">
-              <span className="relative z-10 text-base font-bold">👉 Yes — I'm Ready to Scale Smarter</span>
-              <span className="relative z-10 text-xs opacity-90">Cut costs, save time, and grow with pre-vetted offshore pros — fully managed for you.</span>
-            </div>
+            <span className="relative z-10 text-base font-bold">👉 Yes — I'm Ready to Scale Smarter</span>
             <motion.span 
               className="absolute inset-0 bg-white/20"
               initial={{ scale: 0, opacity: 0 }}
