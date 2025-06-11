@@ -282,7 +282,7 @@ const LandingHero = () => {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Get a curated shortlist of top 1% remote talent in 48 hours. Save up to 70% on hiring costs with zero upfront fees.
+            Cut costs, save time, and grow with pre-vetted offshore pros — fully managed for you.
           </motion.span>
         </motion.div>
       </motion.div>
