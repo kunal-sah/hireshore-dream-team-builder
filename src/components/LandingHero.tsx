@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
-import { Phone, Users, Headphones } from "lucide-react";
+import { Phone, Users, Headphones, Pointer } from "lucide-react";
 
 const LandingHero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -230,16 +230,16 @@ const LandingHero = () => {
           Build your remote team of expert Cold Callers, Developers, Admins, Designers, Marketers fully managed, cost-effective, and ready in days.
         </motion.p>
         
+        {/* New single CTA button */}
         <motion.div 
-          className="flex flex-col lg:flex-row gap-6 justify-center items-center mb-6"
+          className="mb-12"
           custom={3}
           variants={textVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Primary CTA - Cold Callers */}
           <motion.button
-            className="inline-flex items-center justify-center h-14 gradient-btn text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-all hover:shadow-xl hover:shadow-blue-200/50 ripple-effect relative overflow-hidden min-w-[280px]"
+            className="inline-flex items-center justify-center h-16 gradient-btn bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-all hover:shadow-xl hover:shadow-blue-200/50 ripple-effect relative overflow-hidden min-w-[300px] md:min-w-[400px]"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 10px 25px -5px rgba(13, 110, 253, 0.3), 0 10px 10px -5px rgba(13, 110, 253, 0.2)"
@@ -247,17 +247,16 @@ const LandingHero = () => {
             whileTap={{ scale: 0.95 }}
             onMouseDown={createRipple}
             onClick={() => {
-              // TODO: Link to dedicated cold caller landing page
               const hireForm = document.getElementById('hire-form');
               if (hireForm) {
                 hireForm.scrollIntoView({ behavior: 'smooth' });
               }
             }}
           >
-            <Headphones className="mr-2 h-5 w-5" />
+            <Pointer className="mr-2 h-5 w-5" />
             <div className="flex flex-col items-start">
-              <span className="relative z-10 text-base font-bold">Hire Cold Callers / Setters</span>
-              <span className="relative z-10 text-xs opacity-90">Trained Telecalling Agents</span>
+              <span className="relative z-10 text-base font-bold">👉 Yes — I'm Ready to Scale Smarter</span>
+              <span className="relative z-10 text-xs opacity-90">Cut costs, save time, and grow with pre-vetted offshore pros — fully managed for you.</span>
             </div>
             <motion.span 
               className="absolute inset-0 bg-white/20"
@@ -267,60 +266,6 @@ const LandingHero = () => {
               style={{ borderRadius: 'inherit' }}
             />
           </motion.button>
-          
-          {/* Secondary CTA - Tech, Admin & Creative */}
-          <motion.div
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 10px 25px -5px rgba(13, 110, 253, 0.2), 0 10px 10px -5px rgba(13, 110, 253, 0.1)"
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="h-14 border-2 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd]/10 transition-all duration-300 ripple-effect relative overflow-hidden gradient-border min-w-[280px]"
-              onClick={() => {
-                const hireForm = document.getElementById('hire-form');
-                if (hireForm) {
-                  hireForm.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              onMouseDown={createRipple}
-            >
-              <Users className="mr-2 h-5 w-5" />
-              <div className="flex flex-col items-start">
-                <span className="relative z-10 text-base font-bold">Hire Tech, Admin or Creative Talent</span>
-                <span className="relative z-10 text-xs opacity-80">Developers & Operations Staff</span>
-              </div>
-              <motion.span 
-                className="absolute inset-0 bg-[#0d6efd]/10"
-                initial={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.4 }}
-                style={{ borderRadius: 'inherit' }}
-              />
-            </Button>
-          </motion.div>
-        </motion.div>
-
-        {/* Book a Call Button - Secondary positioning */}
-        <motion.div
-          className="mb-6"
-          custom={4}
-          variants={textVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <Button 
-            variant="ghost" 
-            size="lg" 
-            className="h-12 text-[#0d6efd] hover:bg-[#0d6efd]/5 transition-all duration-300 underline-offset-4 hover:underline"
-            onClick={scrollToBooking}
-          >
-            <Phone className="mr-2 h-4 w-4" />
-            Book a Free Call
-          </Button>
         </motion.div>
         
         <motion.div 
