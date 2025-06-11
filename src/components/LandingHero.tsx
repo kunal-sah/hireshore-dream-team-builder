@@ -110,7 +110,7 @@ const LandingHero = () => {
   };
 
   return (
-    <header ref={heroRef} className="w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-28 pb-20 md:pb-32 px-4 md:px-0 relative overflow-hidden spotlight" style={{
+    <header ref={heroRef} className="w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-28 pb-16 md:pb-20 px-4 md:px-0 relative overflow-hidden spotlight" style={{
       '--x': '50%',
       '--y': '50%',
     } as React.CSSProperties}>
@@ -228,7 +228,7 @@ const LandingHero = () => {
           initial="hidden"
           animate="visible"
         >
-          Build your remote team of expert Cold Callers, Developers, Admins, Designers, Marketers fully managed, cost-effective, and ready in days.
+          Build your remote team of expert Cold Callers, Developers, Admins, Designers, Marketers fully managed, cost-effective, and ready in 48 hours.
         </motion.p>
         
         {/* New single CTA button */}

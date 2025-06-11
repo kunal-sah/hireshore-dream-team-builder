@@ -1,14 +1,16 @@
+
 import React, { useEffect } from 'react';
 import NavBar from "../components/NavBar";
 import LandingHero from "../components/LandingHero";
 import BenefitsSection from "../components/BenefitsSection";
 import RolesSection from "../components/RolesSection";
-import TrustSection from "../components/TrustSection";
+import TrustedStartups from "../components/TrustedStartups";
 import TestimonialsSection from "../components/TestimonialsSection";
 import HiringFormSection from "../components/HiringFormSection";
 import SiteFooter from "../components/SiteFooter";
 import ReferralBanner from "../components/ReferralBanner";
 import ServicesSection from "../components/ServicesSection";
+import MediaFeatures from "../components/MediaFeatures";
 
 const Index = () => {
   // Add useEffect to load the popup form scripts
@@ -58,8 +60,9 @@ const Index = () => {
       <ReferralBanner />
       <NavBar />
       <LandingHero />
+      <TrustedStartups />
       <BenefitsSection />
-      <TrustSection />
+      <MediaFeatures />
       <ServicesSection />
       <RolesSection />
       <TestimonialsSection />
