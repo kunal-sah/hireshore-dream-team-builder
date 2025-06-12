@@ -35,14 +35,14 @@ const testimonials = [
 const TestimonialsSection = () => (
   <motion.section 
     id="testimonials" 
-    className="max-w-5xl mx-auto py-16 md:py-24 px-4"
+    className="max-w-5xl mx-auto py-12 px-4"
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5 }}
   >
     <motion.h2 
-      className="text-2xl md:text-3xl font-bold mb-10 text-center"
+      className="text-2xl md:text-3xl font-bold mb-8 text-center"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

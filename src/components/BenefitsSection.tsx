@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
@@ -55,7 +54,7 @@ const BenefitsSection = () => {
   };
 
   return (
-    <section id="benefits" className="relative py-20 md:py-24 px-4 mb-16">
+    <section id="benefits" className="relative py-12 px-4">
       {/* Container with max width to prevent wide screens from breaking the layout */}
       <div className="max-w-5xl mx-auto relative">
         {/* Gradient background effect */}
@@ -66,7 +65,7 @@ const BenefitsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="mb-16"
+          className="mb-12"
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center">
             <motion.span 

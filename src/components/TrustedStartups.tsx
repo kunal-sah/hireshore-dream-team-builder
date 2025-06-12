@@ -48,7 +48,7 @@ const TrustedStartups = () => {
 
   return (
     <motion.section 
-      className="max-w-5xl mx-auto py-8 md:py-12 px-4"
+      className="max-w-5xl mx-auto py-8 px-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}

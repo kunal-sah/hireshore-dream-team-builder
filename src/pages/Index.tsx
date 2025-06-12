@@ -60,13 +60,15 @@ const Index = () => {
       <ReferralBanner />
       <NavBar />
       <LandingHero />
-      <TrustedStartups />
-      <BenefitsSection />
-      <MediaFeatures />
-      <ServicesSection />
-      <RolesSection />
-      <TestimonialsSection />
-      <HiringFormSection />
+      <div className="space-y-12 md:space-y-16">
+        <TrustedStartups />
+        <BenefitsSection />
+        <MediaFeatures />
+        <ServicesSection />
+        <RolesSection />
+        <TestimonialsSection />
+        <HiringFormSection />
+      </div>
       <SiteFooter />
     </div>
   );
