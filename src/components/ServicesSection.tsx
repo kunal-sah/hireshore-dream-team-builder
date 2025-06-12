@@ -122,48 +122,10 @@ const ServicesSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
-          {/* Tech & Creative Roles Column */}
+          {/* Admin & Support Roles Column - Now on the LEFT */}
           <motion.div
             className="bg-white rounded-xl p-6 shadow-lg"
             initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center mb-6">
-              <div className="flex-shrink-0 bg-blue-50 rounded-full p-3">
-                <Briefcase className="w-8 h-8 text-[#0d6efd]" />
-              </div>
-              <h3 className="ml-4 text-2xl font-semibold text-gray-900">🛠️ Tech & Creative Roles</h3>
-            </div>
-            
-            <motion.div
-              className="space-y-6"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {techRoles.map((role, index) => (
-                <motion.div 
-                  key={index} 
-                  className="flex items-start" 
-                  variants={itemVariants}
-                >
-                  <div className="flex-shrink-0 mt-1">{role.icon}</div>
-                  <div className="ml-4">
-                    <h4 className="text-lg font-medium text-gray-900">{role.title}</h4>
-                    <p className="text-gray-600">{role.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-          
-          {/* Admin & Support Roles Column */}
-          <motion.div
-            className="bg-white rounded-xl p-6 shadow-lg"
-            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
@@ -176,7 +138,7 @@ const ServicesSection = () => {
             </div>
             
             <motion.div
-              className="space-y-6"
+              className="space-y-6 mb-6"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -196,6 +158,132 @@ const ServicesSection = () => {
                 </motion.div>
               ))}
             </motion.div>
+
+            {/* Admin & Support Buttons */}
+            <div className="flex gap-3">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button 
+                    variant="outline"
+                    className="flex-1 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd] hover:text-white"
+                  >
+                    Get Quote
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
+                  <div className="h-[600px] w-full">
+                    <iframe
+                      src="https://api.parracityweb.com/widget/form/shdOJ5vbCj1i9JYIQOyt"
+                      style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
+                      id="dialog-admin-support"
+                      title="Admin Support Form"
+                    ></iframe>
+                  </div>
+                </DialogContent>
+              </Dialog>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button 
+                    className="flex-1 bg-[#0d6efd] hover:bg-[#0b5cd5] text-white"
+                  >
+                    Start Now
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
+                  <div className="h-[600px] w-full">
+                    <iframe
+                      src="https://api.parracityweb.com/widget/booking/2bnjaAemKcwV8XCygK9C"
+                      style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
+                      id="dialog-admin-booking"
+                      title="Admin Support Booking"
+                    ></iframe>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
+          </motion.div>
+          
+          {/* Tech & Creative Roles Column - Now on the RIGHT */}
+          <motion.div
+            className="bg-white rounded-xl p-6 shadow-lg"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center mb-6">
+              <div className="flex-shrink-0 bg-blue-50 rounded-full p-3">
+                <Briefcase className="w-8 h-8 text-[#0d6efd]" />
+              </div>
+              <h3 className="ml-4 text-2xl font-semibold text-gray-900">🛠️ Tech & Creative Roles</h3>
+            </div>
+            
+            <motion.div
+              className="space-y-6 mb-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {techRoles.map((role, index) => (
+                <motion.div 
+                  key={index} 
+                  className="flex items-start" 
+                  variants={itemVariants}
+                >
+                  <div className="flex-shrink-0 mt-1">{role.icon}</div>
+                  <div className="ml-4">
+                    <h4 className="text-lg font-medium text-gray-900">{role.title}</h4>
+                    <p className="text-gray-600">{role.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Tech & Creative Buttons */}
+            <div className="flex gap-3">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button 
+                    variant="outline"
+                    className="flex-1 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd] hover:text-white"
+                  >
+                    Get Quote
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
+                  <div className="h-[600px] w-full">
+                    <iframe
+                      src="https://api.parracityweb.com/widget/form/shdOJ5vbCj1i9JYIQOyt"
+                      style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
+                      id="dialog-tech-creative"
+                      title="Tech Creative Form"
+                    ></iframe>
+                  </div>
+                </DialogContent>
+              </Dialog>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button 
+                    className="flex-1 bg-[#0d6efd] hover:bg-[#0b5cd5] text-white"
+                  >
+                    Start Now
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
+                  <div className="h-[600px] w-full">
+                    <iframe
+                      src="https://api.parracityweb.com/widget/booking/2bnjaAemKcwV8XCygK9C"
+                      style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
+                      id="dialog-tech-booking"
+                      title="Tech Creative Booking"
+                    ></iframe>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
           </motion.div>
         </div>
         
