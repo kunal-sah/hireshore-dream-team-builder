@@ -1,3 +1,4 @@
+
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -5,7 +6,7 @@ const clients = [
   {
     name: "Medz Media",
     url: "https://medzmediaagency.com.au/",
-    logo: "/lovable-uploads/d44ef2d1-ea46-4a06-8e1d-f8a836983722.png",
+    logo: "/lovable-uploads/b757a07c-9d5c-419d-9cc8-63208511c119.png",
   },
   {
     name: "Affective Health",
