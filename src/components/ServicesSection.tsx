@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Users, Calendar, Phone, Code, Pen, ShoppingCart, MessageSquare, User, Headphones, Search, FileEdit, Palette } from 'lucide-react';
@@ -159,49 +158,26 @@ const ServicesSection = () => {
               ))}
             </motion.div>
 
-            {/* Admin & Support Buttons */}
-            <div className="flex gap-3">
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button 
-                    variant="outline"
-                    className="flex-1 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd] hover:text-white"
-                  >
-                    Get Quote
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
-                  <div className="h-[600px] w-full">
-                    <iframe
-                      src="https://api.parracityweb.com/widget/form/shdOJ5vbCj1i9JYIQOyt"
-                      style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
-                      id="dialog-admin-support"
-                      title="Admin Support Form"
-                    ></iframe>
-                  </div>
-                </DialogContent>
-              </Dialog>
-
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button 
-                    className="flex-1 bg-[#0d6efd] hover:bg-[#0b5cd5] text-white"
-                  >
-                    Start Now
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
-                  <div className="h-[600px] w-full">
-                    <iframe
-                      src="https://api.parracityweb.com/widget/booking/2bnjaAemKcwV8XCygK9C"
-                      style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
-                      id="dialog-admin-booking"
-                      title="Admin Support Booking"
-                    ></iframe>
-                  </div>
-                </DialogContent>
-              </Dialog>
-            </div>
+            {/* Single Admin & Support Button */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button 
+                  className="w-full bg-[#0d6efd] hover:bg-[#0b5cd5] text-white"
+                >
+                  Get Started Today
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
+                <div className="h-[600px] w-full">
+                  <iframe
+                    src="https://api.parracityweb.com/widget/form/shdOJ5vbCj1i9JYIQOyt"
+                    style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
+                    id="dialog-admin-support"
+                    title="Admin Support Form"
+                  ></iframe>
+                </div>
+              </DialogContent>
+            </Dialog>
           </motion.div>
           
           {/* Tech & Creative Roles Column - Now on the RIGHT */}
@@ -241,49 +217,26 @@ const ServicesSection = () => {
               ))}
             </motion.div>
 
-            {/* Tech & Creative Buttons */}
-            <div className="flex gap-3">
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button 
-                    variant="outline"
-                    className="flex-1 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd] hover:text-white"
-                  >
-                    Get Quote
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
-                  <div className="h-[600px] w-full">
-                    <iframe
-                      src="https://api.parracityweb.com/widget/form/shdOJ5vbCj1i9JYIQOyt"
-                      style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
-                      id="dialog-tech-creative"
-                      title="Tech Creative Form"
-                    ></iframe>
-                  </div>
-                </DialogContent>
-              </Dialog>
-
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button 
-                    className="flex-1 bg-[#0d6efd] hover:bg-[#0b5cd5] text-white"
-                  >
-                    Start Now
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
-                  <div className="h-[600px] w-full">
-                    <iframe
-                      src="https://api.parracityweb.com/widget/booking/2bnjaAemKcwV8XCygK9C"
-                      style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
-                      id="dialog-tech-booking"
-                      title="Tech Creative Booking"
-                    ></iframe>
-                  </div>
-                </DialogContent>
-              </Dialog>
-            </div>
+            {/* Single Tech & Creative Button */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button 
+                  className="w-full bg-[#0d6efd] hover:bg-[#0b5cd5] text-white"
+                >
+                  Get Started Today
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
+                <div className="h-[600px] w-full">
+                  <iframe
+                    src="https://api.parracityweb.com/widget/form/shdOJ5vbCj1i9JYIQOyt"
+                    style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
+                    id="dialog-tech-creative"
+                    title="Tech Creative Form"
+                  ></iframe>
+                </div>
+              </DialogContent>
+            </Dialog>
           </motion.div>
         </div>
         
