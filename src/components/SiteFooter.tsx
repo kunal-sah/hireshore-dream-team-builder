@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MessageSquare, UserPlus } from 'lucide-react';
@@ -7,10 +8,12 @@ import ReferralDialog from "./ReferralDialog";
 const SiteFooter = () => {
   const [isReferralDialogOpen, setIsReferralDialogOpen] = useState(false);
 
-  // Add useEffect to load the Calendly script when component mounts
+  // Add useEffect to load the ParraCity Web script when component mounts
   useEffect(() => {
+    // Add ParraCity Web script
     const script = document.createElement('script');
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.src = "https://api.parracityweb.com/js/form_embed.js";
+    script.type = "text/javascript";
     script.async = true;
     document.body.appendChild(script);
 
@@ -32,8 +35,18 @@ const SiteFooter = () => {
     };
   }, []);
 
+  const openPopupForm = () => {
+    // Open the popup form by triggering the Cal Form
+    const iframe = document.getElementById('popup-shdOJ5vbCj1i9JYIQOyt');
+    if (iframe) {
+      // Trigger the popup form
+      const event = new Event('calFormShow');
+      window.dispatchEvent(event);
+    }
+  };
+
   const footerLinks = [
-    { icon: "📞", text: "Book a free strategy call", action: () => document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' }) },
+    { icon: "📞", text: "Book a free strategy call", action: openPopupForm },
     { icon: "📧", text: "kunal@hireshore.co", href: "mailto:kunal@hireshore.co" },
     { icon: "🌐", text: "www.hireshore.co", href: "https://www.hireshore.co", external: true },
   ];
@@ -89,7 +102,7 @@ const SiteFooter = () => {
           </Button>
         </motion.div>
         
-        {/* Calendly booking widget - Increased height and adjusted container */}
+        {/* ParraCity Web booking widget */}
         <motion.div 
           id="booking-form" 
           className="mb-12 shadow-lg rounded-xl overflow-hidden bg-white"
@@ -99,10 +112,12 @@ const SiteFooter = () => {
           transition={{ duration: 0.7 }}
           whileHover={{ boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
         >
-          <div 
-            className="calendly-inline-widget w-full" 
-            data-url="https://calendly.com/hireshore/30min?email_notifications[email]=wehireshore@gmail.com&hide_gdpr_banner=1&background_color=ffffff&text_color=333333&primary_color=7346e6" 
-            style={{ minWidth: "320px", height: "750px" }} 
+          <iframe 
+            src="https://api.parracityweb.com/widget/booking/2bnjaAemKcwV8XCygK9C" 
+            style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "750px" }} 
+            scrolling="no" 
+            id="2bnjaAemKcwV8XCygK9C_1749702216266"
+            title="Booking Form"
           />
         </motion.div>
 

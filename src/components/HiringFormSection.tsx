@@ -6,10 +6,13 @@ const HiringFormSection = () => {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   
-  const scrollToBooking = () => {
-    const footerCalendly = document.getElementById('booking-form');
-    if (footerCalendly) {
-      footerCalendly.scrollIntoView({ behavior: 'smooth' });
+  const openPopupForm = () => {
+    // Open the popup form by triggering the Cal Form
+    const iframe = document.getElementById('popup-shdOJ5vbCj1i9JYIQOyt');
+    if (iframe) {
+      // Trigger the popup form
+      const event = new Event('calFormShow');
+      window.dispatchEvent(event);
     }
   };
 
@@ -164,7 +167,7 @@ const HiringFormSection = () => {
             onMouseLeave={resetMouse}
           >
             <motion.button 
-              onClick={scrollToBooking}
+              onClick={openPopupForm}
               className="bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg relative overflow-hidden group ripple-effect magnetic-button"
               style={{
                 x: smoothX.get() * 0.1,

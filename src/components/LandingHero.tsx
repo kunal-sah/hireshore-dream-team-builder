@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
@@ -19,10 +18,13 @@ const LandingHero = () => {
   const springConfig = { damping: 25, stiffness: 700 };
   const smoothY = useSpring(y, springConfig);
 
-  const scrollToBooking = () => {
-    const footerCalendly = document.querySelector('.calendly-inline-widget');
-    if (footerCalendly) {
-      footerCalendly.scrollIntoView({ behavior: 'smooth' });
+  const openPopupForm = () => {
+    // Open the popup form by triggering the Cal Form
+    const iframe = document.getElementById('popup-shdOJ5vbCj1i9JYIQOyt');
+    if (iframe) {
+      // Trigger the popup form
+      const event = new Event('calFormShow');
+      window.dispatchEvent(event);
     }
   };
 
@@ -247,12 +249,7 @@ const LandingHero = () => {
             }}
             whileTap={{ scale: 0.95 }}
             onMouseDown={createRipple}
-            onClick={() => {
-              const hireForm = document.getElementById('hire-form');
-              if (hireForm) {
-                hireForm.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
+            onClick={openPopupForm}
           >
             <Pointer className="mr-2 h-5 w-5" />
             <span className="relative z-10 text-base font-bold">☝️ Yes — I'm Ready to Scale Smarter</span>
@@ -274,9 +271,9 @@ const LandingHero = () => {
           animate="visible"
         >
           <motion.span
-            className="neon-glow inline-block"
+            className="inline-block"
             animate={{ 
-              filter: ["drop-shadow(0 0 1px rgba(13, 110, 253, 0.5))", "drop-shadow(0 0 3px rgba(13, 110, 253, 0.7))", "drop-shadow(0 0 1px rgba(13, 110, 253, 0.5))"]
+              opacity: [0.8, 1, 0.8]
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
