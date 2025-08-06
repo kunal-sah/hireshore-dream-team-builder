@@ -13,6 +13,7 @@ import ServicesSection from "../components/ServicesSection";
 import MediaFeatures from "../components/MediaFeatures";
 import SharkTankSection from "../components/SharkTankSection";
 import SwimplySuccessSection from "../components/SwimplySuccessSection";
+import DigitalSixSuccessSection from "../components/DigitalSixSuccessSection";
 
 const Index = () => {
   // Add useEffect to load the popup form scripts
@@ -67,6 +68,7 @@ const Index = () => {
         <BenefitsSection />
         <MediaFeatures />
         <SwimplySuccessSection />
+        <DigitalSixSuccessSection />
         <SharkTankSection />
         <ServicesSection />
         <RolesSection />
