@@ -28,6 +28,11 @@ const clients = [
     url: "https://propertystack.ai/",
     logo: "/lovable-uploads/01309d50-9aad-4e5d-b846-f75569799366.png",
   },
+  {
+    name: "Swimply",
+    url: "https://swimply.com/",
+    logo: "/src/assets/swimply-logo.png",
+  },
 ];
 
 const mediaFeatures = [

@@ -11,6 +11,7 @@ import SiteFooter from "../components/SiteFooter";
 import ReferralBanner from "../components/ReferralBanner";
 import ServicesSection from "../components/ServicesSection";
 import MediaFeatures from "../components/MediaFeatures";
+import SharkTankSection from "../components/SharkTankSection";
 
 const Index = () => {
   // Add useEffect to load the popup form scripts
@@ -64,6 +65,7 @@ const Index = () => {
         <TrustedStartups />
         <BenefitsSection />
         <MediaFeatures />
+        <SharkTankSection />
         <ServicesSection />
         <RolesSection />
         <TestimonialsSection />
