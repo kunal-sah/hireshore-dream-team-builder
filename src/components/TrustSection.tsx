@@ -31,7 +31,7 @@ const clients = [
   {
     name: "Swimply",
     url: "https://swimply.com/",
-    logo: "/src/assets/swimply-logo.png",
+    logo: "/lovable-uploads/2999c320-31d3-437d-ac66-13dca87efa9b.png",
   },
 ];
 

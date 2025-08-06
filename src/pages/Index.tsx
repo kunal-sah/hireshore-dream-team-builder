@@ -12,6 +12,7 @@ import ReferralBanner from "../components/ReferralBanner";
 import ServicesSection from "../components/ServicesSection";
 import MediaFeatures from "../components/MediaFeatures";
 import SharkTankSection from "../components/SharkTankSection";
+import SwimplySuccessSection from "../components/SwimplySuccessSection";
 
 const Index = () => {
   // Add useEffect to load the popup form scripts
@@ -65,6 +66,7 @@ const Index = () => {
         <TrustedStartups />
         <BenefitsSection />
         <MediaFeatures />
+        <SwimplySuccessSection />
         <SharkTankSection />
         <ServicesSection />
         <RolesSection />
