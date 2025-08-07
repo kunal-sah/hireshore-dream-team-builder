@@ -16,6 +16,7 @@ import SwimplySuccessSection from "../components/SwimplySuccessSection";
 import DigitalSixSuccessSection from "../components/DigitalSixSuccessSection";
 import PropertyStackSuccessSection from "../components/PropertyStackSuccessSection";
 import MedzMediaSuccessSection from "../components/MedzMediaSuccessSection";
+import AffectiveCareSuccessSection from "../components/AffectiveCareSuccessSection";
 
 const Index = () => {
   // Add useEffect to load the popup form scripts
@@ -73,6 +74,7 @@ const Index = () => {
         <DigitalSixSuccessSection />
         <PropertyStackSuccessSection />
         <MedzMediaSuccessSection />
+        <AffectiveCareSuccessSection />
         <SharkTankSection />
         <ServicesSection />
         <RolesSection />
