@@ -17,6 +17,8 @@ import DigitalSixSuccessSection from "../components/DigitalSixSuccessSection";
 import PropertyStackSuccessSection from "../components/PropertyStackSuccessSection";
 import MedzMediaSuccessSection from "../components/MedzMediaSuccessSection";
 import AffectiveCareSuccessSection from "../components/AffectiveCareSuccessSection";
+import UncommonSolutionsSuccessSection from "../components/UncommonSolutionsSuccessSection";
+import CoveDigitalSuccessSection from "../components/CoveDigitalSuccessSection";
 
 const Index = () => {
   // Add useEffect to load the popup form scripts
@@ -75,6 +77,8 @@ const Index = () => {
         <PropertyStackSuccessSection />
         <MedzMediaSuccessSection />
         <AffectiveCareSuccessSection />
+        <UncommonSolutionsSuccessSection />
+        <CoveDigitalSuccessSection />
         <SharkTankSection />
         <ServicesSection />
         <RolesSection />
