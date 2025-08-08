@@ -107,7 +107,7 @@ const ServicesSection = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Services We Offer
+            Delivery Pods We Offer
           </motion.h2>
           <motion.p 
             className="text-lg text-gray-600 max-w-3xl mx-auto"
@@ -116,7 +116,7 @@ const ServicesSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            From technical expertise to essential support services, we provide a comprehensive range of roles to meet your business needs.
+            Pre-vetted, white-labeled pods for web, design, automation, marketing, and support—fully managed so you stay focused on growth.
           </motion.p>
         </div>
 

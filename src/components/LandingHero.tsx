@@ -201,14 +201,14 @@ const LandingHero = () => {
             initial="hidden"
             animate="visible"
           >
-            Be Part of the{" "}
+            Done‑For‑You {" "}
             <span 
               className="bg-[#1e3a8a] text-white px-4 py-2 rounded-lg font-bold relative inline-block"
               style={{
                 boxShadow: "0 4px 15px rgba(30, 58, 138, 0.4), 0 2px 8px rgba(30, 58, 138, 0.3)",
               }}
             >
-              Global Economy
+              Delivery Pods
             </span>
           </motion.span>
           <br />
@@ -219,7 +219,7 @@ const LandingHero = () => {
             initial="hidden"
             animate="visible"
           >
-            No Hiring, No Managing, No Wasted Time
+            Scale without chaos. No hiring. No chasing freelancers.
           </motion.span>
         </motion.h1>
         
@@ -230,7 +230,7 @@ const LandingHero = () => {
           initial="hidden"
           animate="visible"
         >
-          Build your remote team of expert Cold Callers, Developers, Admins, Designers, Marketers fully managed, cost-effective, and ready in 48 hours.
+          Plug-and-play dev, design, automation & support teams that integrate in 5–7 days.
         </motion.p>
         
         {/* New single CTA button */}
@@ -252,7 +252,7 @@ const LandingHero = () => {
             onClick={openPopupForm}
           >
             <Pointer className="mr-2 h-5 w-5" />
-            <span className="relative z-10 text-base font-bold">☝️ Yes — I'm Ready to Scale Smarter</span>
+            <span className="relative z-10 text-base font-bold">📞 Book a Free Strategy Session</span>
             <motion.span 
               className="absolute inset-0 bg-white/20"
               initial={{ scale: 0, opacity: 0 }}
@@ -277,7 +277,7 @@ const LandingHero = () => {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Cut costs, save time, and grow with pre-vetted offshore pros — fully managed for you.
+            Trusted across UK, AU, EU & US — 40+ pods launched • 100+ hires • $1M+ saved.
           </motion.span>
         </motion.div>
       </motion.div>

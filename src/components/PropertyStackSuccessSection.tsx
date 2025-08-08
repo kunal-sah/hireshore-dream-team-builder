@@ -229,18 +229,6 @@ const PropertyStackSuccessSection = () => {
             <div className="text-gray-600">Founder of PropertyStack</div>
           </div>
 
-          {/* Video Embed */}
-          <div className="max-w-2xl mx-auto">
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.youtube.com/embed/9xMVgH1j9XE"
-                title="PropertyStack Testimonial"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

@@ -185,37 +185,8 @@ const AffectiveCareSuccessSection = () => {
                 </li>
               </ul>
 
-              <div className="mt-8 p-6 bg-white/10 rounded-2xl backdrop-blur-sm">
-                <blockquote className="text-lg italic mb-4">
-                  "The team is proactive, fast, and deeply committed. Tasks that used to take weeks now get done in days. The ClickUp dashboard and WhatsApp communication make the whole process seamless. I'm extremely happy with the delivery, and the Shopify assistants have transformed how we manage our product catalog."
-                </blockquote>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-xl font-bold">M</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold">Marlon M.</p>
-                    <p className="text-white/80">Operations Manager, Affective Care</p>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-              <h4 className="text-xl font-bold mb-4">Watch Full Testimonial</h4>
-              <div className="aspect-video rounded-xl overflow-hidden bg-black/20">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  title="Affective Care Testimonial"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                ></iframe>
-              </div>
-            </div>
           </div>
 
           <div className="mt-12 p-6 bg-white/10 rounded-2xl backdrop-blur-sm">
