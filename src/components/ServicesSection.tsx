@@ -158,26 +158,6 @@ const ServicesSection = () => {
               ))}
             </motion.div>
 
-            {/* Single Admin & Support Button */}
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button 
-                  className="w-full bg-[#0d6efd] hover:bg-[#0b5cd5] text-white"
-                >
-                  Get Started Today
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
-                <div className="h-[600px] w-full">
-                  <iframe
-                    src="https://api.parracityweb.com/widget/form/shdOJ5vbCj1i9JYIQOyt"
-                    style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
-                    id="dialog-admin-support"
-                    title="Admin Support Form"
-                  ></iframe>
-                </div>
-              </DialogContent>
-            </Dialog>
           </motion.div>
           
           {/* Tech & Creative Roles Column - Now on the RIGHT */}
@@ -217,26 +197,6 @@ const ServicesSection = () => {
               ))}
             </motion.div>
 
-            {/* Single Tech & Creative Button */}
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button 
-                  className="w-full bg-[#0d6efd] hover:bg-[#0b5cd5] text-white"
-                >
-                  Get Started Today
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
-                <div className="h-[600px] w-full">
-                  <iframe
-                    src="https://api.parracityweb.com/widget/form/shdOJ5vbCj1i9JYIQOyt"
-                    style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
-                    id="dialog-tech-creative"
-                    title="Tech Creative Form"
-                  ></iframe>
-                </div>
-              </DialogContent>
-            </Dialog>
           </motion.div>
         </div>
         
@@ -248,9 +208,9 @@ const ServicesSection = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Button 
-                  className="bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-medium py-6 px-8 rounded-full text-lg hover:shadow-lg transition-all"
+                  className="bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-medium py-6 px-8 rounded-full text-lg hover:shadow-lg transition-all inline-flex items-center gap-2"
                 >
-                  Get Started Today
+                  Book a Free Strategy Session 👉
                 </Button>
               </motion.div>
             </DialogTrigger>

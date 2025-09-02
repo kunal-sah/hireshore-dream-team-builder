@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Clock, Zap, RotateCcw, DollarSign, Target } from 'lucide-react';
+import { CaseStudyLayout } from '@/components/ui/case-study-layout';
 
 const AffectiveCareSuccessSection = () => {
   const stats = [
@@ -40,36 +41,12 @@ const AffectiveCareSuccessSection = () => {
   ];
 
   return (
-    <motion.section 
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-blue-50"
+    <CaseStudyLayout
+      title="Scaling NDIS Service Delivery & E-Commerce Operations for Affective Care"
+      client="Affective Care"
+      industry="NDIS Service Provider"
+      location="Sydney, Australia"
     >
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        {/* Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
-            ✅ Case Study
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Scaling NDIS Service Delivery & E-Commerce Operations for Affective Care
-          </h2>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-gray-600">
-            <span className="font-semibold">Client: Affective Care</span>
-            <span className="hidden md:block">•</span>
-            <span>Industry: NDIS Service Provider</span>
-            <span className="hidden md:block">•</span>
-            <span>Location: Sydney, Australia</span>
-          </div>
-        </motion.div>
 
         {/* Stats Grid */}
         <motion.div 
@@ -196,8 +173,7 @@ const AffectiveCareSuccessSection = () => {
             </p>
           </div>
         </motion.div>
-      </div>
-    </motion.section>
+    </CaseStudyLayout>
   );
 };
 

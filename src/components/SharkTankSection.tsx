@@ -46,7 +46,7 @@ const SharkTankSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          Appeared on Shark Tank USA in 2022
+          As Featured On Shark Tank USA
         </motion.h2>
         <motion.p 
           className="text-gray-600 text-lg"
@@ -55,7 +55,7 @@ const SharkTankSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          Watch our pitch and see why the sharks were impressed
+          Our client was featured on Shark Tank USA in 2022. Watch their pitch and see why the sharks were impressed.
         </motion.p>
       </motion.div>
 

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Clock, Workflow, Users, Zap } from "lucide-react";
 import React from "react";
+import { CaseStudyLayout } from '@/components/ui/case-study-layout';
 
 const listItem = {
   hidden: { opacity: 0, y: 12 },
@@ -42,103 +43,25 @@ const UncommonSolutionsSuccessSection: React.FC = () => {
   ];
 
   return (
-    <motion.section
-      id="case-uncommon-solutions"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5 }}
-      className="py-20 bg-white"
+    <CaseStudyLayout
+      title="Streamlining Creative Delivery & Scaling Client Projects for Uncommon Solutions"
+      client="Uncommon Solutions"
+      industry="Digital Marketing & B2B Strategy"
+      location="Norway"
     >
-      <div className="container mx-auto px-6 max-w-6xl">
-        <motion.div
-          initial={{ y: 12, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-            <Zap className="h-4 w-4" /> Case Study
-          </span>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight">
-            ✅ Streamlining Creative Delivery for Uncommon Solutions
-          </h2>
-          <p className="mt-3 text-muted-foreground">
-            Client: Uncommon Solutions • Industry: Digital Marketing & B2B Strategy • Location: Norway
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          <motion.article
-            initial={{ y: 16, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            className="p-6 rounded-xl border bg-card text-card-foreground shadow-sm"
-          >
-            <h3 className="text-xl font-semibold flex items-center gap-2">
-              <Clock className="h-5 w-5" /> The Challenge
-            </h3>
-            <ul className="mt-3 space-y-2">
-              {challenge.map((item, i) => (
-                <motion.li
-                  key={i}
-                  variants={listItem}
-                  initial="hidden"
-                  whileInView="show"
-                  custom={i}
-                  viewport={{ once: true }}
-                  className="flex items-start gap-2"
-                >
-                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" />
-                  <span>{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.article>
-
-          <motion.article
-            initial={{ y: 16, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="p-6 rounded-xl border bg-card text-card-foreground shadow-sm"
-          >
-            <h3 className="text-xl font-semibold flex items-center gap-2">
-              <Users className="h-5 w-5" /> The Solution: Plug & Play Delivery Pod
-            </h3>
-            <ul className="mt-3 space-y-2">
-              {pod.map((item, i) => (
-                <motion.li
-                  key={i}
-                  variants={listItem}
-                  initial="hidden"
-                  whileInView="show"
-                  custom={i}
-                  viewport={{ once: true }}
-                  className="flex items-start gap-2"
-                >
-                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" />
-                  <span>{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.article>
-        </div>
-
+      <div className="grid md:grid-cols-2 gap-8">
         <motion.article
           initial={{ y: 16, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="mt-8 p-6 rounded-xl border bg-card text-card-foreground shadow-sm"
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="p-6 rounded-xl border bg-card text-card-foreground shadow-sm"
         >
           <h3 className="text-xl font-semibold flex items-center gap-2">
-            <Workflow className="h-5 w-5" /> Tools, Tech & Strategy
+            <Clock className="h-5 w-5" /> The Challenge
           </h3>
           <ul className="mt-3 space-y-2">
-            {tools.map((item, i) => (
+            {challenge.map((item, i) => (
               <motion.li
                 key={i}
                 variants={listItem}
@@ -159,12 +82,14 @@ const UncommonSolutionsSuccessSection: React.FC = () => {
           initial={{ y: 16, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-8 p-6 rounded-xl border bg-card text-card-foreground shadow-sm"
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="p-6 rounded-xl border bg-card text-card-foreground shadow-sm"
         >
-          <h3 className="text-xl font-semibold">Results</h3>
+          <h3 className="text-xl font-semibold flex items-center gap-2">
+            <Users className="h-5 w-5" /> The Solution: Plug & Play Delivery Pod
+          </h3>
           <ul className="mt-3 space-y-2">
-            {results.map((item, i) => (
+            {pod.map((item, i) => (
               <motion.li
                 key={i}
                 variants={listItem}
@@ -179,12 +104,67 @@ const UncommonSolutionsSuccessSection: React.FC = () => {
               </motion.li>
             ))}
           </ul>
-          <blockquote className="mt-6 border-l-4 pl-4 text-muted-foreground">
-            “The team is well-skilled, easy to work with, and they deliver on time. I get estimates upfront, so I can confidently promise timelines to my clients—and they’re met. I don’t need to search for freelancers anymore.” — Breearna Jope, Founder, Uncommon Solutions
-          </blockquote>
         </motion.article>
       </div>
-    </motion.section>
+
+      <motion.article
+        initial={{ y: 16, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.15 }}
+        className="mt-8 p-6 rounded-xl border bg-card text-card-foreground shadow-sm"
+      >
+        <h3 className="text-xl font-semibold flex items-center gap-2">
+          <Workflow className="h-5 w-5" /> Tools, Tech & Strategy
+        </h3>
+        <ul className="mt-3 space-y-2">
+          {tools.map((item, i) => (
+            <motion.li
+              key={i}
+              variants={listItem}
+              initial="hidden"
+              whileInView="show"
+              custom={i}
+              viewport={{ once: true }}
+              className="flex items-start gap-2"
+            >
+              <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" />
+              <span>{item}</span>
+            </motion.li>
+          ))}
+        </ul>
+      </motion.article>
+
+      <motion.article
+        initial={{ y: 16, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="mt-8 p-6 rounded-xl border bg-card text-card-foreground shadow-sm"
+      >
+        <h3 className="text-xl font-semibold">Results</h3>
+        <ul className="mt-3 space-y-2">
+          {results.map((item, i) => (
+            <motion.li
+              key={i}
+              variants={listItem}
+              initial="hidden"
+              whileInView="show"
+              custom={i}
+              viewport={{ once: true }}
+              className="flex items-start gap-2"
+            >
+              <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" />
+              <span>{item}</span>
+            </motion.li>
+          ))}
+        </ul>
+        <blockquote className="mt-6 border-l-4 pl-4 text-muted-foreground">
+          "The team is well-skilled, easy to work with, and they deliver on time. I get estimates upfront, so I can confidently promise timelines to my clients—and they're met. I don't need to search for freelancers anymore. Kunal and the Hireshore team help me pitch, plan, and deliver custom solutions for every client."
+          — Breearna Jope, Founder, Uncommon Solutions
+        </blockquote>
+      </motion.article>
+    </CaseStudyLayout>
   );
 };
 

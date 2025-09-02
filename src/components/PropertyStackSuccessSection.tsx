@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, CheckCircle, Clock, TrendingUp, DollarSign, Zap } from 'lucide-react';
+import { CaseStudyLayout } from '@/components/ui/case-study-layout';
 
 const PropertyStackSuccessSection = () => {
   const stats = [
@@ -41,30 +42,12 @@ const PropertyStackSuccessSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
-      
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <CheckCircle className="w-4 h-4" />
-            Case Study: PropertyStack
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Building a Scalable Product & Support Team for PropertyStack
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            SaaS Property Rental Management | Brisbane, Australia
-          </p>
-        </motion.div>
+    <CaseStudyLayout
+      title="Building a Scalable Product & Support Team for PropertyStack"
+      client="PropertyStack"
+      industry="SaaS Property Rental Management"
+      location="Brisbane, Australia"
+    >
 
         {/* Challenge Section */}
         <motion.div
@@ -230,8 +213,7 @@ const PropertyStackSuccessSection = () => {
           </div>
 
         </motion.div>
-      </div>
-    </section>
+    </CaseStudyLayout>
   );
 };
 
