@@ -5,7 +5,7 @@ const DigitalSixSuccessSection = () => {
   const stats = [
     {
       icon: Users,
-      number: "21→74",
+      number: "21→47",
       label: "Team Growth",
       description: "Scaled across Australia and Nepal"
     },
@@ -93,7 +93,7 @@ const DigitalSixSuccessSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          From unreliable freelancers to a dependable offshore team of 74 members, 
+          From unreliable freelancers to a dependable offshore team of 47 members, 
           saving over $1M monthly while improving delivery quality.
         </motion.p>
       </motion.div>
