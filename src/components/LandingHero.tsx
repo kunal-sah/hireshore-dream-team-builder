@@ -252,7 +252,7 @@ const LandingHero = () => {
             onClick={openPopupForm}
           >
             <Pointer className="mr-2 h-5 w-5" />
-            <span className="relative z-10 text-base font-bold">📞 Book a Free Strategy Session</span>
+            <span className="relative z-10 text-base font-bold">👉 Book a Free Strategy Session</span>
             <motion.span 
               className="absolute inset-0 bg-white/20"
               initial={{ scale: 0, opacity: 0 }}
