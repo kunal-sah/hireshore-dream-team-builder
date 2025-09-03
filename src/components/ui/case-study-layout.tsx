@@ -56,7 +56,7 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
             <Dialog>
               <DialogTrigger asChild>
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg text-lg font-medium inline-flex items-center gap-2">
-                  Book a Free Strategy Session 👉
+                  👉 Book a Free Strategy Session
                 </Button>
               </DialogTrigger>
               <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
