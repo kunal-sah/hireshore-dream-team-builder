@@ -39,7 +39,7 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            ✅ Case Study
+            Case Study
           </div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             {title}
@@ -55,7 +55,7 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
           {showCTA && (
             <Dialog>
               <DialogTrigger asChild>
-                <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg text-lg font-medium inline-flex items-center gap-2">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg text-lg font-medium inline-flex items-center gap-2">
                   Book a Free Strategy Session 👉
                 </Button>
               </DialogTrigger>

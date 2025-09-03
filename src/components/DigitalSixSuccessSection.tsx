@@ -196,7 +196,7 @@ const DigitalSixSuccessSection = () => {
           </div>
           
           <div className="text-center">
-            <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+            <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden w-full max-w-md mx-auto">
               <iframe
                 src="https://www.youtube.com/embed/yW90cSyX_iI"
                 title="Digital Six Testimonial"
