@@ -179,8 +179,8 @@ const DigitalSixSuccessSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.8 }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
             <blockquote className="text-lg text-gray-700 italic mb-4">
               "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal. 
