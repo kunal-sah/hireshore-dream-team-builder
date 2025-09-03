@@ -13,22 +13,34 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Alex J.",
-    title: "Founder @ Nutrogen",
-    text: "We saved over $850K hiring with Hireshore. Insanely good people, and no hiring headaches.",
+    name: "Aaron Erwich",
+    title: "Founder, Digital Six",
+    text: "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal. The WordPress guys are killing it. The SEO side is strong. This is way better than our past freelancer experience. I've already referred several people to Hireshore.",
     photo: "https://randomuser.me/api/portraits/men/32.jpg",
   },
   {
     name: "Marlon M.",
-    title: "CEO @ Medz Media",
-    text: "Our VA from Hireshore works across research, project management, and even Shopify tasks. We now save over 30 hours a week — for just $499/month.",
+    title: "Founder, Medz Media",
+    text: "The best experience I've had working with a remote team. Websites came out fantastic—fast, secure, beautifully designed. The team's energy, proactiveness, and suggestions make them feel like a real part of my business. I've worked with freelancers before—this is a whole different level.",
     photo: "https://randomuser.me/api/portraits/men/78.jpg",
   },
   {
-    name: "Rachel S.",
-    title: "Head of Ops @ Digital Six",
-    text: "The fastest hiring process I've experienced. We had a designer onboarded in 6 days — and she's a rockstar.",
+    name: "Ryan Jope",
+    title: "Founder, PropertyStack",
+    text: "We've hired over 15 people through Hireshore in just a year—and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality from Nepal has been significantly better.",
+    photo: "https://randomuser.me/api/portraits/men/45.jpg",
+  },
+  {
+    name: "Chloe Bundy",
+    title: "Founder, Cove Digital",
+    text: "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver—without compromise—is a game changer. I hand over the project and SOP, and it's done before the deadline.",
     photo: "https://randomuser.me/api/portraits/women/68.jpg",
+  },
+  {
+    name: "Breearna Jope",
+    title: "Founder, Uncommon Solutions",
+    text: "The team is well-skilled, easy to work with, and they deliver on time. I get estimates upfront, so I can confidently promise timelines to my clients—and they're met. I don't need to search for freelancers anymore. Kunal and the Hireshore team help me pitch, plan, and deliver custom solutions for every client.",
+    photo: "https://randomuser.me/api/portraits/women/42.jpg",
   },
 ];
 
