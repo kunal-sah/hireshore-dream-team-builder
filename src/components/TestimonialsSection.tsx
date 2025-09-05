@@ -34,7 +34,7 @@ const testimonials = [
     name: "Chloe Bundy",
     title: "Founder, Cove Digital",
     text: "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver—without compromise—is a game changer. I hand over the project and SOP, and it's done before the deadline.",
-    photo: "https://randomuser.me/api/portraits/women/68.jpg",
+    photo: "/lovable-uploads/a2773a93-5211-4d24-a4b1-ec9b04e22039.png",
   },
   {
     name: "Breearna Jope",
