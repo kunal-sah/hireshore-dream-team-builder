@@ -28,7 +28,7 @@ const testimonials = [
     name: "Ryan Jope",
     title: "Founder, PropertyStack",
     text: "We've hired over 15 people through Hireshore in just a year—and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality from Nepal has been significantly better.",
-    photo: "https://randomuser.me/api/portraits/men/45.jpg",
+    photo: "/lovable-uploads/d4be4a5a-7f58-4205-b403-c137a43e5d8b.png",
   },
   {
     name: "Chloe Bundy",
