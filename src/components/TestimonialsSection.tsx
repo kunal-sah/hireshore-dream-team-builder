@@ -10,14 +10,13 @@ import {
 
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import aaronErwichPhoto from "@/assets/aaron-erwich.png";
 
 const testimonials = [
   {
     name: "Aaron Erwich",
     title: "Founder, Digital Six",
     text: "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal. The WordPress guys are killing it. The SEO side is strong. This is way better than our past freelancer experience. I've already referred several people to Hireshore.",
-    photo: aaronErwichPhoto,
+    photo: "/lovable-uploads/8d290392-3676-42f7-91a8-d1bb48f6fca7.png",
   },
   {
     name: "Marlon M.",
