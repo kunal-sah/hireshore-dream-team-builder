@@ -40,7 +40,7 @@ const testimonials = [
     name: "Breearna Jope",
     title: "Founder, Uncommon Solutions",
     text: "The team is well-skilled, easy to work with, and they deliver on time. I get estimates upfront, so I can confidently promise timelines to my clients—and they're met. I don't need to search for freelancers anymore. Kunal and the Hireshore team help me pitch, plan, and deliver custom solutions for every client.",
-    photo: "https://randomuser.me/api/portraits/women/42.jpg",
+    photo: "/lovable-uploads/394a2ced-a988-4153-8ef9-1e99f76765fb.png",
   },
 ];
 
