@@ -22,7 +22,7 @@ const testimonials = [
     name: "Marlon M.",
     title: "Founder, Medz Media",
     text: "The best experience I've had working with a remote team. Websites came out fantastic—fast, secure, beautifully designed. The team's energy, proactiveness, and suggestions make them feel like a real part of my business. I've worked with freelancers before—this is a whole different level.",
-    photo: "https://randomuser.me/api/portraits/men/78.jpg",
+    photo: "/lovable-uploads/fbdcffaa-5b42-4efe-ae99-e7cec23a54c8.png",
   },
   {
     name: "Ryan Jope",
