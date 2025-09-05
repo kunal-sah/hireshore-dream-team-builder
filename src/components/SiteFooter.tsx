@@ -156,7 +156,7 @@ const SiteFooter = () => {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-700">HQ Office</p>
-                  <p className="text-sm text-gray-600">Nepal, Lalitpur, Krishna Galli</p>
+                  <p className="text-sm text-gray-600">Nepal, Lalitpur, Bagdole</p>
                 </div>
               </div>
             </motion.div>
