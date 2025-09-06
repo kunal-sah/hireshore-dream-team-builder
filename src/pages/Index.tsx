@@ -8,7 +8,6 @@ import TrustedStartups from "../components/TrustedStartups";
 import TestimonialsSection from "../components/TestimonialsSection";
 import HiringFormSection from "../components/HiringFormSection";
 import SiteFooter from "../components/SiteFooter";
-import ReferralBanner from "../components/ReferralBanner";
 import ServicesSection from "../components/ServicesSection";
 import MediaFeatures from "../components/MediaFeatures";
 import SharkTankSection from "../components/SharkTankSection";
@@ -22,10 +21,10 @@ import CoveDigitalSuccessSection from "../components/CoveDigitalSuccessSection";
 import WhyPodsSection from "../components/WhyPodsSection";
 import HowItWorksSection from "../components/HowItWorksSection";
 import ProofSection from "../components/ProofSection";
-import ConversionFormSection from "../components/ConversionFormSection";
+import CalendlySection from "../components/CalendlySection";
 
 const Index = () => {
-  // Add useEffect to load the popup form scripts and JSON-LD
+  // Add useEffect to add JSON-LD and scroll behavior
   useEffect(() => {
     // Add JSON-LD structured data for SEO
     const jsonLd = {
@@ -62,54 +61,59 @@ const Index = () => {
     jsonLdScript.textContent = JSON.stringify(jsonLd);
     document.head.appendChild(jsonLdScript);
 
-    // Clean up JSON-LD script
-    const cleanupJsonLd = () => {
-      document.head.removeChild(jsonLdScript);
+    // Smooth scroll behavior for all booking CTAs
+    const smoothScrollToBook = (e: Event) => {
+      e.preventDefault();
+      const el = document.getElementById('book');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
-    // Create and add the Cal Form iframe
-    const calIframe = document.createElement('iframe');
-    calIframe.src = "https://api.parracityweb.com/widget/form/shdOJ5vbCj1i9JYIQOyt";
-    calIframe.style.display = "none";
-    calIframe.style.width = "100%";
-    calIframe.style.height = "100%";
-    calIframe.style.border = "none";
-    calIframe.style.borderRadius = "3px";
-    calIframe.id = "popup-shdOJ5vbCj1i9JYIQOyt";
-    calIframe.setAttribute("data-layout", "{'id':'POPUP'}");
-    calIframe.setAttribute("data-trigger-type", "pageScroll");
-    calIframe.setAttribute("data-trigger-value", "20");
-    calIframe.setAttribute("data-activation-type", "alwaysActivated");
-    calIframe.setAttribute("data-activation-value", "");
-    calIframe.setAttribute("data-deactivation-type", "neverDeactivate");
-    calIframe.setAttribute("data-deactivation-value", "");
-    calIframe.setAttribute("data-form-name", "Cal Form");
-    calIframe.setAttribute("data-height", "430");
-    calIframe.setAttribute("data-layout-iframe-id", "popup-shdOJ5vbCj1i9JYIQOyt");
-    calIframe.setAttribute("data-form-id", "shdOJ5vbCj1i9JYIQOyt");
-    calIframe.title = "Cal Form";
-    document.body.appendChild(calIframe);
 
-    // Create and add the script
-    const formScript = document.createElement('script');
-    formScript.src = "https://api.parracityweb.com/js/form_embed.js";
-    formScript.async = true;
-    document.body.appendChild(formScript);
+    // Universal selector list for all booking-ish CTAs
+    const selectors = [
+      'a[href*="book"]',
+      'a[href*="schedule"]',
+      'a[href*="meeting"]',
+      'a[href*="demo"]',
+      'a[href*="strategy"]',
+      'a[href*="consult"]',
+      'button[data-action="book"]',
+      'button[data-action="schedule"]',
+      'button[data-action="demo"]',
+      '.js-book',
+      '.js-schedule',
+      '.btn-book',
+      '.btn-demo',
+      '.btn-call',
+      'a[href="#book"]',
+      'button[href="#book"]'
+    ];
 
-    // Cleanup function to remove the elements when component unmounts
+    // Attach scroll behavior
+    const nodes = document.querySelectorAll(selectors.join(','));
+    nodes.forEach((node) => {
+      // Neutralize any previous modal handlers
+      node.removeAttribute('data-modal-target');
+      node.removeAttribute('data-trigger');
+      (node as HTMLElement).onclick = smoothScrollToBook;
+      node.setAttribute('href', '#book');
+      node.setAttribute('aria-controls', 'book');
+    });
+
+    // Disable any existing openModal function
+    if ((window as any).openModal) {
+      (window as any).openModal = function() { /* disabled to force scroll to Calendly */ };
+    }
+
+    // Cleanup function
     return () => {
-      if (document.body.contains(calIframe)) {
-        document.body.removeChild(calIframe);
+      if (document.head.contains(jsonLdScript)) {
+        document.head.removeChild(jsonLdScript);
       }
-      if (document.body.contains(formScript)) {
-        document.body.removeChild(formScript);
-      }
-      cleanupJsonLd();
     };
   }, []);
 
   return (
     <div className="bg-white min-h-screen flex flex-col font-sans text-neutral-900 overflow-x-hidden">
-      <ReferralBanner />
       <NavBar />
       <LandingHero />
       <div className="space-y-12 md:space-y-16">
@@ -136,8 +140,7 @@ const Index = () => {
         <ServicesSection />
         <RolesSection />
         <TestimonialsSection />
-        <ConversionFormSection />
-        <HiringFormSection />
+        <CalendlySection />
       </div>
       <SiteFooter />
     </div>

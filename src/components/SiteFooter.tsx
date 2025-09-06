@@ -3,10 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MessageSquare, UserPlus } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import ReferralDialog from "./ReferralDialog";
+
 
 const SiteFooter = () => {
-  const [isReferralDialogOpen, setIsReferralDialogOpen] = useState(false);
 
   // Add useEffect to load the ParraCity Web script when component mounts
   useEffect(() => {
@@ -84,23 +83,6 @@ const SiteFooter = () => {
       </div>
       
       <div className="max-w-5xl mx-auto px-6 md:px-8 relative z-10">
-        {/* Refer a Friend button - visible in the footer */}
-        <motion.div
-          className="flex justify-center mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <Button 
-            onClick={() => setIsReferralDialogOpen(true)}
-            className="bg-[#f97316] hover:bg-[#ea580c] px-8 py-6 text-base rounded-lg"
-            size="lg"
-          >
-            <UserPlus className="mr-2" />
-            Refer a friend - Earn $100
-          </Button>
-        </motion.div>
         
         {/* ParraCity Web booking widget */}
         <motion.div 
@@ -285,8 +267,6 @@ const SiteFooter = () => {
         </div>
       </div>
 
-      {/* Referral Dialog */}
-      <ReferralDialog open={isReferralDialogOpen} onOpenChange={setIsReferralDialogOpen} />
     </footer>
   );
 };

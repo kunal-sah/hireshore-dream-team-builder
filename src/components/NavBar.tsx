@@ -38,7 +38,7 @@ const NavBar = () => {
   };
 
   const scrollToBooking = () => {
-    const bookingElement = document.getElementById('booking-form');
+    const bookingElement = document.getElementById('book');
     if (bookingElement) {
       bookingElement.scrollIntoView({ behavior: 'smooth' });
     }
@@ -143,14 +143,8 @@ const NavBar = () => {
           {/* Mobile Menu - Simplified */}
           <div className="flex lg:hidden items-center space-x-2">
             <motion.button
-              onClick={() => scrollToSection('hire-form')}
-              className="inline-flex items-center justify-center bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-bold py-2 px-3 rounded-md text-sm hover:shadow-md transition-all"
-            >
-              <Headphones className="h-4 w-4" />
-            </motion.button>
-            <motion.button
               onClick={scrollToBooking}
-              className="inline-flex items-center justify-center border-2 border-[#0d6efd] text-[#0d6efd] py-2 px-3 rounded-md text-sm transition-all"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-bold py-2 px-3 rounded-md text-sm hover:shadow-md transition-all"
             >
               <Phone className="h-4 w-4" />
             </motion.button>

@@ -19,13 +19,10 @@ const LandingHero = () => {
   const springConfig = { damping: 25, stiffness: 700 };
   const smoothY = useSpring(y, springConfig);
 
-  const openPopupForm = () => {
-    // Open the popup form by triggering the Cal Form
-    const iframe = document.getElementById('popup-shdOJ5vbCj1i9JYIQOyt');
-    if (iframe) {
-      // Trigger the popup form
-      const event = new Event('calFormShow');
-      window.dispatchEvent(event);
+  const scrollToCalendly = () => {
+    const element = document.getElementById('book');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -252,7 +249,7 @@ const LandingHero = () => {
             }}
             whileTap={{ scale: 0.95 }}
             onMouseDown={createRipple}
-            onClick={openPopupForm}
+            onClick={scrollToCalendly}
           >
             <Pointer className="mr-2 h-5 w-5" />
             <span className="relative z-10 text-base font-bold">Book a Free Strategy Session</span>

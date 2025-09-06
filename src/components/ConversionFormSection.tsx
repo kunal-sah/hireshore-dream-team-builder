@@ -17,11 +17,10 @@ const ConversionFormSection = () => {
     notes: ''
   });
 
-  const openPopupForm = () => {
-    const iframe = document.getElementById('popup-shdOJ5vbCj1i9JYIQOyt');
-    if (iframe) {
-      const event = new Event('calFormShow');
-      window.dispatchEvent(event);
+  const scrollToCalendly = () => {
+    const element = document.getElementById('book');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -144,7 +143,7 @@ const ConversionFormSection = () => {
               {/* Buttons */}
               <motion.div variants={itemVariants} className="space-y-4">
                 <Button
-                  onClick={openPopupForm}
+                  onClick={scrollToCalendly}
                   className="w-full h-14 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                   size="lg"
                 >

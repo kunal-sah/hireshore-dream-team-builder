@@ -2,11 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Users, Calendar, Phone, Code, Pen, ShoppingCart, MessageSquare, User, Headphones, Search, FileEdit, Palette } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 
 const ServicesSection = () => {
   const techRoles = [
@@ -201,30 +196,22 @@ const ServicesSection = () => {
         </div>
         
         <div className="text-center">
-          <Dialog>
-            <DialogTrigger asChild>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button 
-                  className="bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-medium py-6 px-8 rounded-full text-lg hover:shadow-lg transition-all inline-flex items-center gap-2"
-                >
-                  Book a Free Strategy Session 👉
-                </Button>
-              </motion.div>
-            </DialogTrigger>
-            <DialogContent className="p-0 border-none bg-transparent shadow-none max-w-3xl w-full">
-              <div className="h-[600px] w-full">
-                <iframe
-                  src="https://api.parracityweb.com/widget/form/shdOJ5vbCj1i9JYIQOyt"
-                  style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
-                  id="dialog-shdOJ5vbCj1i9JYIQOyt"
-                  title="Cal Form"
-                ></iframe>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button 
+              className="bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-medium py-6 px-8 rounded-full text-lg hover:shadow-lg transition-all inline-flex items-center gap-2"
+              onClick={() => {
+                const element = document.getElementById('book');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+            >
+              Book a Free Strategy Session 👉
+            </Button>
+          </motion.div>
         </div>
       </div>
     </section>
