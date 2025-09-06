@@ -204,56 +204,72 @@ const SiteFooter = () => {
             </motion.div>
           </div>
           
-          {/* Quick Links */}
-          <div className="flex justify-center mt-8 space-x-6">
-            {footerLinks.map((link, index) => (
-              link.href ? (
-                <motion.a
-                  key={link.text}
-                  className="text-gray-500 hover:text-[#7346e6] hover:underline flex items-center group"
-                  href={link.href}
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noopener noreferrer" : undefined}
-                  whileHover={{ x: link.external ? 5 : 0 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <motion.span 
-                    className="mr-2"
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ 
-                      duration: 1.5, 
-                      delay: index, 
-                      repeat: Infinity, 
-                      repeatDelay: 5 
-                    }}
+          {/* Company Links & Legal Links */}
+          <div className="flex flex-col md:flex-row justify-between items-center mt-8 space-y-4 md:space-y-0">
+            {/* Company Links */}
+            <div className="flex flex-wrap justify-center md:justify-start space-x-6">
+              {footerLinks.map((link, index) => (
+                link.href ? (
+                  <motion.a
+                    key={link.text}
+                    className="text-gray-500 hover:text-[#7346e6] hover:underline flex items-center group"
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    whileHover={{ x: link.external ? 5 : 0 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    {link.icon}
-                  </motion.span> 
-                  <span className="transition-all duration-300">{link.text}</span>
-                </motion.a>
-              ) : (
-                <motion.button
-                  key={link.text}
-                  className="text-[#7346e6] font-medium hover:underline flex items-center group"
-                  onClick={link.action}
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <motion.span 
-                    className="mr-2"
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ 
-                      duration: 1.5, 
-                      repeat: Infinity, 
-                      repeatDelay: 5 
-                    }}
+                    <motion.span 
+                      className="mr-2"
+                      animate={{ rotate: [0, 10, -10, 0] }}
+                      transition={{ 
+                        duration: 1.5, 
+                        delay: index, 
+                        repeat: Infinity, 
+                        repeatDelay: 5 
+                      }}
+                    >
+                      {link.icon}
+                    </motion.span> 
+                    <span className="transition-all duration-300">{link.text}</span>
+                  </motion.a>
+                ) : (
+                  <motion.button
+                    key={link.text}
+                    className="text-[#7346e6] font-medium hover:underline flex items-center group"
+                    onClick={link.action}
+                    whileHover={{ x: 5 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    {link.icon}
-                  </motion.span> 
-                  {link.text}
-                </motion.button>
-              )
-            ))}
+                    <motion.span 
+                      className="mr-2"
+                      animate={{ rotate: [0, 10, -10, 0] }}
+                      transition={{ 
+                        duration: 1.5, 
+                        repeat: Infinity, 
+                        repeatDelay: 5 
+                      }}
+                    >
+                      {link.icon}
+                    </motion.span> 
+                    {link.text}
+                  </motion.button>
+                )
+              ))}
+            </div>
+            
+            {/* Legal Links */}
+            <div className="flex flex-wrap justify-center space-x-4">
+              <a href="#privacy" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+                Privacy Policy
+              </a>
+              <a href="#terms" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+                Terms & Conditions
+              </a>
+              <a href="#legal" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+                Legal Mentions
+              </a>
+            </div>
           </div>
           
           {/* Copyright */}

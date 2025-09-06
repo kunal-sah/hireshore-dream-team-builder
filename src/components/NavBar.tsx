@@ -104,65 +104,39 @@ const NavBar = () => {
             </Link>
           </motion.div>
           
-          {/* Service-specific CTAs */}
-          <div className="hidden lg:flex items-center space-x-2">
-            {/* Cold Callers CTA - Primary */}
+          {/* Navigation Links */}
+          <div className="hidden lg:flex items-center space-x-6">
             <motion.button
-              className="inline-flex items-center justify-center h-9 bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-semibold px-3 py-2 rounded-md text-sm hover:shadow-md hover:shadow-blue-200/50 transition-all ripple-effect relative overflow-hidden"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              onClick={() => scrollToSection('how-it-works')}
+            >
+              How it Works
+            </motion.button>
+            
+            <motion.button
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              onClick={() => scrollToSection('why-pods')}
+            >
+              Why Pods
+            </motion.button>
+            
+            <motion.button
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              onClick={() => scrollToSection('proof')}
+            >
+              Case Studies/Proof
+            </motion.button>
+
+            {/* Book a Call - Primary CTA */}
+            <motion.button
+              className="inline-flex items-center justify-center h-10 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold px-6 py-2 rounded-lg text-sm hover:shadow-md hover:shadow-blue-200/50 transition-all ripple-effect relative overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onMouseDown={createRipple}
-              onClick={() => scrollToSection('hire-form')}
-            >
-              <Headphones className="mr-1.5 h-4 w-4" />
-              <span className="relative z-10">Cold Callers</span>
-            </motion.button>
-
-            {/* Tech Talent CTA */}
-            <motion.button
-              className="inline-flex items-center justify-center h-9 border-2 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd]/10 font-medium px-3 py-2 rounded-md text-sm transition-all ripple-effect relative overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onMouseDown={createRipple}
-              onClick={() => scrollToSection('hire-form')}
-            >
-              <Code className="mr-1.5 h-4 w-4" />
-              <span className="relative z-10">Tech</span>
-            </motion.button>
-
-            {/* Admin Talent CTA */}
-            <motion.button
-              className="inline-flex items-center justify-center h-9 border-2 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd]/10 font-medium px-3 py-2 rounded-md text-sm transition-all ripple-effect relative overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onMouseDown={createRipple}
-              onClick={() => scrollToSection('hire-form')}
-            >
-              <Users className="mr-1.5 h-4 w-4" />
-              <span className="relative z-10">Admin</span>
-            </motion.button>
-
-            {/* Creative Talent CTA */}
-            <motion.button
-              className="inline-flex items-center justify-center h-9 border-2 border-[#0d6efd] text-[#0d6efd] hover:bg-[#0d6efd]/10 font-medium px-3 py-2 rounded-md text-sm transition-all ripple-effect relative overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onMouseDown={createRipple}
-              onClick={() => scrollToSection('hire-form')}
-            >
-              <Palette className="mr-1.5 h-4 w-4" />
-              <span className="relative z-10">Creative</span>
-            </motion.button>
-
-            {/* Book a Call - Secondary CTA */}
-            <motion.button
-              className="inline-flex items-center justify-center h-9 text-[#0d6efd] hover:bg-[#0d6efd]/5 font-medium px-3 py-2 rounded-md text-sm transition-all"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               onClick={scrollToBooking}
             >
-              <Phone className="mr-1.5 h-4 w-4" />
-              <span>Book Call</span>
+              <Phone className="mr-2 h-4 w-4" />
+              <span className="relative z-10">Book Free Strategy Session</span>
             </motion.button>
           </div>
 

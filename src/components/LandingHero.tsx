@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
-import { Phone, Users, Headphones, Pointer } from "lucide-react";
+import { Phone, Users, Headphones, Pointer, ArrowDown } from "lucide-react";
+import heroImage from "../assets/hero-before-after.jpg";
 
 const LandingHero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -201,25 +202,7 @@ const LandingHero = () => {
             initial="hidden"
             animate="visible"
           >
-            Done‑For‑You {" "}
-            <span 
-              className="bg-[#1e3a8a] text-white px-4 py-2 rounded-lg font-bold relative inline-block"
-              style={{
-                boxShadow: "0 4px 15px rgba(30, 58, 138, 0.4), 0 2px 8px rgba(30, 58, 138, 0.3)",
-              }}
-            >
-              Delivery Pods
-            </span>
-          </motion.span>
-          <br />
-          <motion.span 
-            className="inline-block font-light italic text-3xl md:text-5xl mt-2"
-            custom={1}
-            variants={textVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            Scale without chaos. No hiring. No chasing freelancers.
+            Get Full-Time Capacity Without the Full-Time Overhead
           </motion.span>
         </motion.h1>
         
@@ -230,19 +213,39 @@ const LandingHero = () => {
           initial="hidden"
           animate="visible"
         >
-          Plug-and-play dev, design, automation & support teams that integrate in 5–7 days.
+          Whether you're an agency buried in client work or a startup racing to ship—our managed Delivery Pods give you the output of a full-time hire, with multiple skills, faster onboarding, and zero hiring headaches.
         </motion.p>
         
-        {/* New single CTA button */}
+        {/* Hero Visual */}
         <motion.div 
-          className="mb-12"
+          className="mb-8"
           custom={3}
           variants={textVariants}
           initial="hidden"
           animate="visible"
         >
+          <div className="relative max-w-4xl mx-auto">
+            <img 
+              src={heroImage} 
+              alt="Before and After: From chaos to clarity with Hireshore Delivery Pods"
+              className="w-full rounded-2xl shadow-2xl"
+            />
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-6 py-2 rounded-full text-sm font-medium">
+              From chaos to clarity in 7 days
+            </div>
+          </div>
+        </motion.div>
+
+        {/* CTAs */}
+        <motion.div 
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6"
+          custom={4}
+          variants={textVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <motion.button
-            className="inline-flex items-center justify-center h-16 gradient-btn bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-all hover:shadow-xl hover:shadow-blue-200/50 ripple-effect relative overflow-hidden min-w-[300px] md:min-w-[400px]"
+            className="inline-flex items-center justify-center h-16 gradient-btn bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-all hover:shadow-xl hover:shadow-blue-200/50 ripple-effect relative overflow-hidden min-w-[300px]"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 10px 25px -5px rgba(13, 110, 253, 0.3), 0 10px 10px -5px rgba(13, 110, 253, 0.2)"
@@ -261,23 +264,52 @@ const LandingHero = () => {
               style={{ borderRadius: 'inherit' }}
             />
           </motion.button>
+
+          <motion.button
+            className="inline-flex items-center justify-center h-16 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold py-4 px-8 rounded-xl text-lg transition-all min-w-[250px]"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              const element = document.getElementById('how-it-works');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            <ArrowDown className="mr-2 h-5 w-5" />
+            <span>See How Pods Work</span>
+          </motion.button>
         </motion.div>
-        
+
+        {/* Micro-reassurance */}
         <motion.div 
-          className="text-sm text-gray-600 max-w-2xl mx-auto"
+          className="mb-8"
           custom={5}
           variants={textVariants}
           initial="hidden"
           animate="visible"
         >
+          <p className="text-sm text-gray-600 font-medium">
+            No lock-in. ~30 seconds to book.
+          </p>
+        </motion.div>
+        
+        {/* Trust row */}
+        <motion.div 
+          className="text-sm text-gray-600 max-w-2xl mx-auto"
+          custom={6}
+          variants={textVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <motion.span
-            className="inline-block"
+            className="inline-block font-medium"
             animate={{ 
               opacity: [0.8, 1, 0.8]
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Trusted across UK, AU, EU & US — 40+ pods launched • 100+ hires • $1M+ saved.
+            Trusted by 25+ global startups & agencies
           </motion.span>
         </motion.div>
       </motion.div>
