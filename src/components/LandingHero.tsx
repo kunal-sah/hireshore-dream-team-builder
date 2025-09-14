@@ -213,7 +213,7 @@ const LandingHero = () => {
           Whether you're an agency buried in client work or a startup racing to ship—our managed Delivery Pods give you the output of a full-time hire, with multiple skills, faster onboarding, and zero hiring headaches.
         </motion.p>
         
-        {/* Hero Visual */}
+        {/* Audience Filter Buttons */}
         <motion.div 
           className="mb-8"
           custom={3}
@@ -221,38 +221,38 @@ const LandingHero = () => {
           initial="hidden"
           animate="visible"
         >
-          <div className="relative max-w-4xl mx-auto">
-            <img 
-              src={heroImage} 
-              alt="Before and After: From chaos to clarity with Hireshore Delivery Pods"
-              className="w-full rounded-2xl shadow-2xl"
-            />
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-6 py-2 rounded-full text-sm font-medium">
-              From chaos to clarity in 7 days
-            </div>
+          <div className="flex justify-center gap-2 mb-8">
+            <button className="px-6 py-2 bg-gray-900 text-white rounded-full text-sm font-medium">
+              All
+            </button>
+            <button className="px-6 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full text-sm font-medium transition-colors">
+              Agencies
+            </button>
+            <button className="px-6 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full text-sm font-medium transition-colors">
+              Startups
+            </button>
           </div>
         </motion.div>
 
         {/* CTAs */}
         <motion.div 
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
           custom={4}
           variants={textVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.button
-            className="inline-flex items-center justify-center h-16 gradient-btn bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg transition-all hover:shadow-xl hover:shadow-blue-200/50 ripple-effect relative overflow-hidden min-w-[300px]"
+            className="inline-flex items-center justify-center h-14 gradient-btn bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold py-4 px-8 rounded-xl shadow-lg text-base transition-all hover:shadow-xl ripple-effect relative overflow-hidden min-w-[280px]"
             whileHover={{ 
               scale: 1.05,
-              boxShadow: "0 10px 25px -5px rgba(13, 110, 253, 0.3), 0 10px 10px -5px rgba(13, 110, 253, 0.2)"
+              boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)"
             }}
             whileTap={{ scale: 0.95 }}
             onMouseDown={createRipple}
             onClick={scrollToCalendly}
           >
-            <Pointer className="mr-2 h-5 w-5" />
-            <span className="relative z-10 text-base font-bold">Book a Free Strategy Session</span>
+            <span className="relative z-10 text-base font-bold">Get My Delivery Pod</span>
             <motion.span 
               className="absolute inset-0 bg-white/20"
               initial={{ scale: 0, opacity: 0 }}
@@ -263,7 +263,7 @@ const LandingHero = () => {
           </motion.button>
 
           <motion.button
-            className="inline-flex items-center justify-center h-16 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold py-4 px-8 rounded-xl text-lg transition-all min-w-[250px]"
+            className="inline-flex items-center justify-center h-14 border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold py-4 px-8 rounded-xl text-base transition-all min-w-[220px]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
@@ -273,15 +273,34 @@ const LandingHero = () => {
               }
             }}
           >
-            <ArrowDown className="mr-2 h-5 w-5" />
             <span>See How Pods Work</span>
           </motion.button>
+        </motion.div>
+        
+        {/* Hero Visual */}
+        <motion.div 
+          className="mb-8"
+          custom={5}
+          variants={textVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="relative max-w-4xl mx-auto">
+            <img 
+              src={heroImage} 
+              alt="Before and After: From chaos to clarity with Hireshore Delivery Pods"
+              className="w-full rounded-2xl shadow-2xl"
+            />
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-900/90 text-white px-6 py-2 rounded-full text-sm font-medium">
+              From chaos to clarity in 7 days.
+            </div>
+          </div>
         </motion.div>
 
         {/* Micro-reassurance */}
         <motion.div 
           className="mb-8"
-          custom={5}
+          custom={6}
           variants={textVariants}
           initial="hidden"
           animate="visible"
@@ -294,7 +313,7 @@ const LandingHero = () => {
         {/* Trust row */}
         <motion.div 
           className="text-sm text-gray-600 max-w-2xl mx-auto"
-          custom={6}
+          custom={7}
           variants={textVariants}
           initial="hidden"
           animate="visible"
