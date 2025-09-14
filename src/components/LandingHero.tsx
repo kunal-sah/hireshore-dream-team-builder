@@ -6,6 +6,7 @@ import beforeAfterImage from "../assets/before-after-comparison.jpg";
 
 const LandingHero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [selectedAudience, setSelectedAudience] = useState<'all' | 'agencies' | 'startups'>('all');
   const { scrollY } = useScroll();
   const y = useMotionValue(0);
   const heroRef = useRef<HTMLElement>(null);
@@ -23,6 +24,18 @@ const LandingHero = () => {
     const element = document.getElementById('book');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  // Get subtitle text based on selected audience
+  const getSubtitleText = () => {
+    switch (selectedAudience) {
+      case 'agencies':
+        return "Agency buried in client work? Our managed Delivery Pods cut fulfillment by up to 80% in a week — no hiring, no freelancer chasing.";
+      case 'startups':
+        return "Building a product on a budget? Get the output of a full‑time hire with a managed, multi‑skill team that ships by Day 5.";
+      default:
+        return "Whether you're an agency buried in client work or a startup racing to ship—our managed Delivery Pods give you the output of a full-time hire, with multiple skills, faster onboarding, and zero hiring headaches.";
     }
   };
 
@@ -212,11 +225,11 @@ const LandingHero = () => {
               variants={textVariants}
               initial="hidden"
               animate="visible"
+              key={selectedAudience} // Add key to re-animate when audience changes
             >
-              Whether you're an agency buried in client work or a startup racing to ship—our managed Delivery Pods give you the output of a full-time hire, with multiple skills, faster onboarding, and zero hiring headaches.
+              {getSubtitleText()}
             </motion.p>
             
-            {/* Audience Filter Buttons */}
             <motion.div 
               className=""
               custom={3}
@@ -225,13 +238,34 @@ const LandingHero = () => {
               animate="visible"
             >
               <div className="flex justify-start gap-2 mb-6">
-                <button className="px-6 py-2 bg-gray-900 text-white rounded-full text-sm font-medium">
+                <button 
+                  className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+                    selectedAudience === 'all' 
+                      ? 'bg-gray-900 text-white' 
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                  onClick={() => setSelectedAudience('all')}
+                >
                   All
                 </button>
-                <button className="px-6 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full text-sm font-medium transition-colors">
+                <button 
+                  className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+                    selectedAudience === 'agencies' 
+                      ? 'bg-gray-900 text-white' 
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                  onClick={() => setSelectedAudience('agencies')}
+                >
                   Agencies
                 </button>
-                <button className="px-6 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full text-sm font-medium transition-colors">
+                <button 
+                  className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+                    selectedAudience === 'startups' 
+                      ? 'bg-gray-900 text-white' 
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                  onClick={() => setSelectedAudience('startups')}
+                >
                   Startups
                 </button>
               </div>
