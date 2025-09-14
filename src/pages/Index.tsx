@@ -1,23 +1,20 @@
 
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import NavBar from "../components/NavBar";
 import LandingHero from "../components/LandingHero";
 import BenefitsSection from "../components/BenefitsSection";
 import RolesSection from "../components/RolesSection";
 import TrustedStartups from "../components/TrustedStartups";
 import TestimonialsSection from "../components/TestimonialsSection";
-import HiringFormSection from "../components/HiringFormSection";
 import SiteFooter from "../components/SiteFooter";
 import ServicesSection from "../components/ServicesSection";
 import MediaFeatures from "../components/MediaFeatures";
 import SharkTankSection from "../components/SharkTankSection";
-import SwimplySuccessSection from "../components/SwimplySuccessSection";
 import DigitalSixSuccessSection from "../components/DigitalSixSuccessSection";
-import PropertyStackSuccessSection from "../components/PropertyStackSuccessSection";
 import MedzMediaSuccessSection from "../components/MedzMediaSuccessSection";
-import AffectiveCareSuccessSection from "../components/AffectiveCareSuccessSection";
-import UncommonSolutionsSuccessSection from "../components/UncommonSolutionsSuccessSection";
-import CoveDigitalSuccessSection from "../components/CoveDigitalSuccessSection";
 import WhyPodsSection from "../components/WhyPodsSection";
 import HowItWorksSection from "../components/HowItWorksSection";
 import ProofSection from "../components/ProofSection";
@@ -129,13 +126,35 @@ const Index = () => {
         </div>
         <BenefitsSection />
         <MediaFeatures />
-        <SwimplySuccessSection />
         <DigitalSixSuccessSection />
-        <PropertyStackSuccessSection />
         <MedzMediaSuccessSection />
-        <AffectiveCareSuccessSection />
-        <UncommonSolutionsSuccessSection />
-        <CoveDigitalSuccessSection />
+        
+        {/* View All Case Studies CTA */}
+        <section className="py-12 px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8"
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                See More Success Stories
+              </h3>
+              <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+                Discover how other agencies and startups transformed their operations with Hireshore's managed delivery pods
+              </p>
+              <Link 
+                to="/case-studies"
+                className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg"
+              >
+                View All Case Studies
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </motion.div>
+          </div>
+        </section>
         <SharkTankSection />
         <ServicesSection />
         <RolesSection />

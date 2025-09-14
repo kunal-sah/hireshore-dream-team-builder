@@ -124,8 +124,15 @@ const NavBar = () => {
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
               onClick={() => scrollToSection('proof')}
             >
-              Case Studies/Proof
+              Proof
             </motion.button>
+            
+            <Link
+              to="/case-studies"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              Case Studies
+            </Link>
 
             {/* Book a Call - Primary CTA */}
             <motion.button
