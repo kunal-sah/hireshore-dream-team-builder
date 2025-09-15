@@ -5,6 +5,15 @@ import NavBar from "../components/NavBar";
 import SiteFooter from "../components/SiteFooter";
 import { Button } from "@/components/ui/button";
 
+// Import thumbnails
+import digitalSixThumbnail from '../assets/thumbnails/digital-six-thumbnail.jpg';
+import medzMediaThumbnail from '../assets/thumbnails/medz-media-thumbnail.jpg';
+import swimplyThumbnail from '../assets/thumbnails/swimply-thumbnail.jpg';
+import propertyStackThumbnail from '../assets/thumbnails/propertystack-thumbnail.jpg';
+import affectiveCareThumbnail from '../assets/thumbnails/affective-care-thumbnail.jpg';
+import uncommonSolutionsThumbnail from '../assets/thumbnails/uncommon-solutions-thumbnail.jpg';
+import coveDigitalThumbnail from '../assets/thumbnails/cove-digital-thumbnail.jpg';
+
 interface CaseStudy {
   id: string;
   title: string;
@@ -21,86 +30,86 @@ interface CaseStudy {
 const caseStudies: CaseStudy[] = [
   {
     id: 'digital-six',
-    title: 'Digital Six: Scaling High-Performance Offshore Team',
+    title: 'Scaling High-Performance Offshore Team for Digital Six',
     client: 'Digital Six',
     industry: 'Marketing & Advertising',
     challenge: 'Replace unreliable freelancers with dependable offshore team',
     result: 'Scaled from 22 to 47 team members, saved $1M+ monthly',
     metrics: '250% team growth',
-    thumbnail: '/lovable-uploads/b757a07c-9d5c-419d-9cc8-63208511c119.png',
+    thumbnail: digitalSixThumbnail,
     tags: ['Team Scaling', 'Cost Reduction', 'Offshore Development'],
     readTime: '6 min'
   },
   {
     id: 'medz-media',
-    title: 'Medz Media: From Burnout to Work-Life Balance',
+    title: 'From Burnout to Work-Life Balance for Medz Media',
     client: 'Medz Media',
     industry: 'Digital Marketing',
     challenge: 'Founder working past 2 AM, struggling to scale operations',
     result: '40+ hours saved weekly, 50% client retention increase',
     metrics: '40+ hours saved weekly',
-    thumbnail: '/lovable-uploads/2999c320-31d3-437d-ac66-13dca87efa9b.png',
+    thumbnail: medzMediaThumbnail,
     tags: ['Work-Life Balance', 'Operations', 'Client Retention'],
     readTime: '5 min'
   },
   {
     id: 'swimply',
-    title: 'Swimply: From Shark Tank to Market Leader',
+    title: 'Powering Customer Success for Swimply',
     client: 'Swimply',
     industry: 'Marketplace Platform',
-    challenge: 'Scale platform development after Shark Tank appearance',
-    result: '300% increase in user engagement, robust platform architecture',
-    metrics: '300% user growth',
-    thumbnail: '/lovable-uploads/936ff4a8-e76e-467f-b57a-9df89f07ab2f.png',
-    tags: ['Platform Development', 'Scaling', 'Marketplace'],
+    challenge: 'Scale customer support operations with dedicated USA timezone reps',
+    result: '7 USA timezone reps delivering 95% CSAT scores and #1 leaderboard performance',
+    metrics: '95% CSAT Score',
+    thumbnail: swimplyThumbnail,
+    tags: ['Customer Support', 'USA Timezone', 'Performance'],
     readTime: '5 min'
   },
   {
     id: 'property-stack',
-    title: 'PropertyStack: Streamlined Real Estate Operations',
+    title: 'Building a Scalable Product & Support Team for PropertyStack',
     client: 'PropertyStack',
-    industry: 'PropTech',
-    challenge: 'Automate complex real estate workflows and data management',
-    result: 'Reduced processing time by 60%, improved accuracy',
-    metrics: '60% time reduction',
-    thumbnail: '/lovable-uploads/c7b9d56b-ffc4-4200-b765-496cd470a080.png',
-    tags: ['PropTech', 'Automation', 'Data Management'],
-    readTime: '4 min'
+    industry: 'SaaS Property Rental Management',
+    challenge: 'Build reliable in-house team without burning startup capital',
+    result: '15+ full-time hires onboarded, $1M+ annual savings vs local hiring',
+    metrics: '15+ Full-time Hires',
+    thumbnail: propertyStackThumbnail,
+    tags: ['Team Building', 'Cost Savings', 'PropertyTech'],
+    readTime: '6 min'
   },
   {
     id: 'affective-care',
-    title: 'Affective Care: Digital Health Innovation',
+    title: 'Scaling NDIS Service Delivery & E-Commerce for Affective Care',
     client: 'Affective Care',
-    industry: 'HealthTech',
-    challenge: 'Build scalable mental health platform with compliance',
-    result: 'HIPAA-compliant platform serving 10K+ users',
-    metrics: '10K+ active users',
-    thumbnail: '/lovable-uploads/ecf56630-afb3-4e7b-9ae6-94694f6f12a7.png',
-    tags: ['HealthTech', 'Compliance', 'Mental Health'],
+    industry: 'NDIS Service Provider',
+    challenge: 'Establish reliable delivery team for web development and e-commerce operations',
+    result: '40+ hours saved weekly, 5-day rebranding, 40+ Shopify pages optimized',
+    metrics: '40+ Hours Saved Weekly',
+    thumbnail: affectiveCareThumbnail,
+    tags: ['NDIS', 'E-commerce', 'Web Development'],
     readTime: '6 min'
   },
   {
     id: 'uncommon-solutions',
-    title: 'Uncommon Solutions: Enterprise Transformation',
+    title: 'Streamlining Creative Delivery & Scaling Client Projects for Uncommon Solutions',
     client: 'Uncommon Solutions',
-    industry: 'Enterprise Software',
-    challenge: 'Modernize legacy systems and improve user experience',
-    result: 'Complete digital transformation, 40% efficiency gain',
-    metrics: '40% efficiency increase',
-    thumbnail: '/lovable-uploads/d44ef2d1-ea46-4a06-8e1d-f8a836983722.png',
-    tags: ['Enterprise', 'Legacy Modernization', 'UX'],
+    industry: 'Digital Marketing & B2B Strategy',
+    challenge: 'Unpredictable timelines, unclear pricing, and delivery inconsistency',
+    result: '40+ hours/week saved in coordination, transparent delivery with pre-agreed timelines',
+    metrics: '40+ Hours Saved Weekly',
+    thumbnail: uncommonSolutionsThumbnail,
+    tags: ['Creative Delivery', 'Project Management', 'Efficiency'],
     readTime: '7 min'
   },
   {
     id: 'cove-digital',
-    title: 'Cove Digital: Agency Growth Acceleration',
+    title: 'Scaling Website Delivery for Cove Digital with Reliable Migration & SEO Support',
     client: 'Cove Digital',
-    industry: 'Digital Agency',
-    challenge: 'Scale operations while maintaining quality standards',
-    result: '200% capacity increase, maintained 98% client satisfaction',
-    metrics: '200% capacity growth',
-    thumbnail: '/lovable-uploads/39722330-5204-4d51-a69b-4979142e6e40.png',
-    tags: ['Agency Growth', 'Operations', 'Quality Management'],
+    industry: 'Digital Marketing Agency',
+    challenge: 'Scale website migration operations while maintaining quality and SEO rankings',
+    result: '40-page website migration in 2 weeks, 40+ hours/month saved for growth focus',
+    metrics: '2 Weeks for 40-Page Migration',
+    thumbnail: coveDigitalThumbnail,
+    tags: ['Website Migration', 'SEO', 'Agency Growth'],
     readTime: '5 min'
   }
 ];
