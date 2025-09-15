@@ -127,35 +127,48 @@ const Index = () => {
         <BenefitsSection />
         <MediaFeatures />
         
-        {/* View All Case Studies CTA */}
-        <section className="py-12 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8"
-            >
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                See Our Success Stories
-              </h3>
-              <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-                Discover how agencies and startups transformed their operations with Hireshore's managed delivery pods
-              </p>
-              <Link 
-                to="/case-studies"
-                className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg"
-              >
-                View All Case Studies
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </motion.div>
-          </div>
+        {/* Marlon's Medz Media Testimonial */}
+        <section className="max-w-6xl mx-auto py-12 px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 border"
+          >
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
+                <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-6">
+                  "The best experience I've had working with a remote team. Websites came out fantastic—fast, 
+                  secure, beautifully designed. The team's energy, proactiveness, and suggestions make them feel 
+                  like a real part of my business. I've worked with freelancers before—this is a whole different level. 
+                  I've referred Hireshore to friends, clients, and even my full-time employer. It's truly been a 
+                  game changer for both my business and personal life."
+                </blockquote>
+                <div className="flex items-center">
+                  <div>
+                    <p className="font-semibold text-gray-900">Marlon M.</p>
+                    <p className="text-sm text-gray-600">Founder, Medz Media</p>
+                  </div>
+                </div>
+              </div>
+              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/43qQdLve5Ps"
+                  title="Medz Media Testimonial - Marlon M."
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          </motion.div>
         </section>
-        <ServicesSection />
-        <RolesSection />
-        
+
         {/* Aaron's Digital Six Testimonial */}
         <section className="max-w-6xl mx-auto py-12 px-4">
           <motion.div
@@ -198,6 +211,34 @@ const Index = () => {
           </motion.div>
         </section>
 
+        {/* View All Case Studies CTA */}
+        <section className="py-12 px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8"
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                See Our Success Stories
+              </h3>
+              <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+                Discover how agencies and startups transformed their operations with Hireshore's managed delivery pods
+              </p>
+              <Link 
+                to="/case-studies"
+                className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg"
+              >
+                View All Case Studies
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+        <ServicesSection />
+        <RolesSection />
         <TestimonialsSection />
         <CalendlySection />
       </div>
