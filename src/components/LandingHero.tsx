@@ -327,24 +327,6 @@ const LandingHero = () => {
               </p>
             </motion.div>
             
-            {/* Trust row */}
-            <motion.div 
-              className="text-sm text-gray-600"
-              custom={7}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <motion.span
-                className="inline-block font-medium"
-                animate={{ 
-                  opacity: [0.8, 1, 0.8]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Trusted by 25+ global startups & agencies
-              </motion.span>
-            </motion.div>
           </motion.div>
           
           {/* Right side - Before/After Visual */}
