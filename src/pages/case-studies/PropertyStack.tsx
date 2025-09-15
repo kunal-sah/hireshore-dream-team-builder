@@ -9,38 +9,45 @@ const PropertyStackCaseStudy = () => {
     {
       icon: Users,
       number: "15+",
-      label: "Team Members Hired",
-      description: "High-quality hires across engineering, design, QA"
-    },
-    {
-      icon: Target,
-      number: "60%",
-      label: "Processing Time Reduced",
-      description: "Streamlined real estate workflows"
+      label: "Full-time Hires",
+      description: "Onboarded remotely from Nepal within 12 months"
     },
     {
       icon: Clock,
-      number: "1 Year",
-      label: "Partnership Duration",
-      description: "Long-term recruitment collaboration"
+      number: "<3",
+      label: "Weeks Hiring",
+      description: "Reduced from ~1.5 months to under 3 weeks"
+    },
+    {
+      icon: TrendingUp,
+      number: "$1M+",
+      label: "Annual Savings",
+      description: "Estimated cost savings vs local hiring"
     },
     {
       icon: Award,
       number: "100%",
-      label: "Quality Delivery",
-      description: "All hires met or exceeded expectations"
+      label: "Delivery Speed",
+      description: "Increased delivery speed & user satisfaction"
     }
   ];
 
-  const services = [
-    "Full-Stack Development",
-    "UI/UX Design",
-    "Quality Assurance",
-    "Client Success Management",
-    "Operations Support",
-    "Technical Screening",
-    "Video Profile Creation",
-    "Contract & Onboarding Assistance"
+  const keyRoles = [
+    "Full-stack & React Developers",
+    "QA Engineers (3+ hires)",
+    "UX/UI Designers",
+    "Client Success & Tech Support Agents",
+    "Data Entry & Admin Support",
+    "Executive Assistant",
+    "Engineering Team Lead"
+  ];
+
+  const processSteps = [
+    "Headhunting from internal talent pool, forums, and communities",
+    "Multi-stage technical screening with video intros and task assessments",
+    "Candidate shortlist presented with video profiles for faster reviews",
+    "Close sync with PropertyStack's CTO and support team lead",
+    "Assistance with contracts, onboarding, timezone alignment"
   ];
 
   useEffect(() => {
@@ -48,8 +55,8 @@ const PropertyStackCaseStudy = () => {
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "PropertyStack Case Study - Streamlined Real Estate Operations",
-      "description": "How PropertyStack hired 15+ team members and reduced processing time by 60% with Hireshore's recruitment-as-a-service solution",
+      "headline": "PropertyStack Case Study - Building a Scalable Product & Support Team",
+      "description": "How PropertyStack hired 15+ team members in under 3 weeks per hire and saved $1M+ annually with Hireshore's recruitment-as-a-service solution",
       "author": {
         "@type": "Organization",
         "name": "Hireshore"
@@ -79,8 +86,8 @@ const PropertyStackCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
-      <title>PropertyStack Case Study - Hireshore Success Story</title>
-      <meta name="description" content="See how PropertyStack hired 15+ team members and reduced processing time by 60% with Hireshore's recruitment-as-a-service solution. Real results, proven process." />
+      <title>PropertyStack Case Study - Building a Scalable Product & Support Team</title>
+      <meta name="description" content="See how PropertyStack hired 15+ team members in under 3 weeks per hire and saved $1M+ annually with Hireshore's recruitment-as-a-service solution." />
       
       <NavBar />
       
@@ -122,7 +129,7 @@ const PropertyStackCaseStudy = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Streamlined Real Estate Operations
+            Building a Scalable Product & Support Team
           </motion.h2>
           
           <motion.p 
@@ -131,8 +138,8 @@ const PropertyStackCaseStudy = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            How PropertyStack scaled from a 5-member startup to a robust team of 20+ with 
-            streamlined hiring processes and 60% faster workflows.
+            Our 15+ dedicated team members helped PropertyStack scale from a lean 5-member startup 
+            to a reliable in-house team without burning through limited startup capital.
           </motion.p>
         </motion.div>
 
@@ -169,32 +176,49 @@ const PropertyStackCaseStudy = () => {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-                The Challenge
-              </h3>
-              <div className="space-y-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <div className="text-gray-600">5-member startup team struggling to scale</div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <div className="text-gray-600">Inefficient freelancer coordination</div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <div className="text-gray-600">Need for quality technical talent</div>
-                </div>
+              <div className="mb-8">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  🚩 The Challenge
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  When PropertyStack first connected with Hireshore, they were a lean 5-member startup team, 
+                  using no-code tools and working with freelancers to build their MVP. As their platform evolved, 
+                  it became clear that scaling with freelancers and solo devs lacked long-term efficiency, quality, and cohesion.
+                </p>
+                <p className="text-gray-900 font-semibold">
+                  <strong>Goal:</strong> Build a reliable in-house team of developers, QA testers, support staff, 
+                  and admin specialists—without burning through limited startup capital.
+                </p>
               </div>
               
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Our Solution</h4>
-              <div className="grid grid-cols-2 gap-3">
-                {services.map((service, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{service}</span>
-                  </div>
-                ))}
+              <div className="mb-6">
+                <h4 className="text-xl font-bold text-gray-900 mb-4">
+                  The Solution: A Full Offshore Delivery & Support Pod
+                </h4>
+                <p className="text-gray-600 mb-4">
+                  Hireshore delivered a full-stack recruitment-as-a-service solution, helping PropertyStack 
+                  onboard 15+ high-quality team members across engineering, design, QA, client success, and operations.
+                </p>
+                
+                <h5 className="font-semibold text-gray-900 mb-3">Key Roles Hired:</h5>
+                <div className="grid grid-cols-1 gap-2 mb-4">
+                  {keyRoles.map((role, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></div>
+                      <span className="text-gray-700">{role}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <h5 className="font-semibold text-gray-900 mb-3">Our Process:</h5>
+                <div className="space-y-2">
+                  {processSteps.map((step, index) => (
+                    <div key={index} className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-sm text-gray-600">{step}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             
@@ -208,22 +232,74 @@ const PropertyStackCaseStudy = () => {
         </motion.div>
 
         <motion.div 
-          className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100"
+          className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12 mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            📈 Key Achievements & Long-Term Partnership
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-3">Key Achievements:</h4>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <Award className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700">QA team helped squash bugs and improve UX</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Award className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700">Support pod built SOPs and responded to clients faster</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Award className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700">Executive assistant freed up leadership time</span>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-3">Long-Term Partnership:</h4>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <TrendingUp className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700">PropertyStack has referred multiple clients to Hireshore</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <TrendingUp className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700">Plans for 10–20 more hires in 2025</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <TrendingUp className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700">Expanding across PropertyStack, Alara brands</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div 
+          className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
+        >
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-2">
+              💬 Client Testimonial
+            </h3>
             <blockquote className="text-lg text-gray-700 italic mb-6 max-w-4xl mx-auto">
               "We've hired over 15 people through Hireshore in just a year—and could've done 10 more. 
               The hiring process is much easier now with resume videos and pre-vetted candidates. 
-              Compared to freelancers or other markets, the quality from Nepal has been significantly better."
+              Compared to freelancers or other markets, the quality from Nepal has been significantly better. 
+              You guys have helped us grow fast and we've referred you to many of our partners."
             </blockquote>
             <div className="flex items-center justify-center gap-4">
               <div>
                 <div className="font-semibold text-gray-900">Ryan Jope</div>
-                <div className="text-gray-600">Founder, PropertyStack</div>
+                <div className="text-gray-600">Founder of PropertyStack</div>
               </div>
             </div>
           </div>
