@@ -8,39 +8,56 @@ const CoveDigitalCaseStudy = () => {
   const stats = [
     {
       icon: TrendingUp,
-      number: "200%",
-      label: "Capacity Growth",
-      description: "Massive expansion in service delivery"
+      number: "2",
+      label: "Weeks",
+      description: "40-page website migration delivered"
     },
     {
       icon: Target,
-      number: "98%",
-      label: "Client Satisfaction",
-      description: "Maintained quality at scale"
+      number: "3",
+      label: "Full Projects",
+      description: "Completed in just one month"
     },
     {
       icon: Users,
-      number: "3x",
-      label: "Team Scaling",
-      description: "From 5 to 15+ team members"
+      number: "40+",
+      label: "Hours Saved",
+      description: "Monthly time savings for growth focus"
     },
     {
       icon: Award,
       number: "100%",
-      label: "Quality Standards",
-      description: "Consistent delivery excellence"
+      label: "SEO Rankings",
+      description: "Maintained post-migration with QA checklists"
     }
   ];
 
-  const services = [
-    "WordPress Development",
-    "Wix Development", 
-    "Website Migration",
-    "SEO Implementation",
-    "Performance Optimization",
-    "Quality Assurance",
-    "Client Support",
-    "Project Management"
+  const deliveryPodServices = [
+    "WordPress & Wix development",
+    "Critical website migrations (10–40+ page sites)",
+    "Local SEO implementation", 
+    "QA & Project Management oversight"
+  ];
+
+  const complexTasks = [
+    "A 10-page window cleaning service website",
+    "A 40-page dental website migration", 
+    "Full Wix product store transfers"
+  ];
+
+  const toolsAndTech = [
+    "WordPress, Wix, Google Sheets, Loom",
+    "Internal SOPs and migration checklists",
+    "SEO audit sheets integrated into dev tasks",
+    "Loom videos for visual references and design inspiration",
+    "Content preservation: recreate or transfer missing content"
+  ];
+
+  const results = [
+    "Delivered a 40-page website migration in just 2 weeks",
+    "Completed 3 full website projects in a month",
+    "Maintained SEO rankings post-migration using checklist-driven QA",
+    "Chloe regained 40+ hours/month to focus on growth and client acquisition"
   ];
 
   useEffect(() => {
@@ -48,8 +65,8 @@ const CoveDigitalCaseStudy = () => {
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Cove Digital Case Study - Agency Growth Acceleration",
-      "description": "How Cove Digital achieved 200% capacity increase while maintaining 98% client satisfaction with Hireshore's managed delivery pods",
+      "headline": "Scaling Website Delivery for Cove Digital with Reliable Migration & SEO Support",
+      "description": "How Cove Digital scaled website delivery with Hireshore's dedicated migration pod, completing 40-page migrations in 2 weeks and saving 40+ hours monthly",
       "author": {
         "@type": "Organization",
         "name": "Hireshore"
@@ -79,8 +96,8 @@ const CoveDigitalCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
-      <title>Cove Digital Case Study - Hireshore Success Story</title>
-      <meta name="description" content="See how Cove Digital achieved 200% capacity increase while maintaining 98% client satisfaction with Hireshore's managed delivery pods. Agency scaling success." />
+      <title>Cove Digital Case Study - Website Migration & SEO Success Story</title>
+      <meta name="description" content="See how Cove Digital scaled website delivery with Hireshore's dedicated migration pod, completing 40-page migrations in 2 weeks and saving 40+ hours monthly." />
       
       <NavBar />
       
@@ -112,7 +129,7 @@ const CoveDigitalCaseStudy = () => {
           >
             <div className="bg-white rounded-xl px-8 py-4 shadow-lg border border-gray-100">
               <h1 className="text-2xl font-bold text-gray-900">Cove Digital</h1>
-              <p className="text-sm text-gray-600">Digital Agency • Website Development</p>
+              <p className="text-sm text-gray-600">Digital Marketing Agency • Newquay, Cornwall, UK</p>
             </div>
           </motion.div>
 
@@ -122,7 +139,7 @@ const CoveDigitalCaseStudy = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Agency Growth Acceleration
+            Scaling Website Delivery with Reliable Migration & SEO Support
           </motion.h2>
           
           <motion.p 
@@ -131,8 +148,7 @@ const CoveDigitalCaseStudy = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Scaling operations by 200% while maintaining exceptional quality standards and 
-            98% client satisfaction through dedicated migration pods.
+            Dedicated migration pod delivering complex website projects in record time while maintaining SEO rankings and quality standards.
           </motion.p>
         </motion.div>
 
@@ -161,6 +177,7 @@ const CoveDigitalCaseStudy = () => {
           ))}
         </motion.div>
 
+        {/* Solution Section */}
         <motion.div 
           className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 mb-8"
           initial={{ opacity: 0, y: 30 }}
@@ -172,27 +189,21 @@ const CoveDigitalCaseStudy = () => {
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                 Solution: Dedicated Migration Pod
               </h3>
-              <div className="space-y-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <div className="text-gray-600">Complete website migration services</div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <div className="text-gray-600">SEO preservation and enhancement</div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <div className="text-gray-600">Quality assurance and testing</div>
-                </div>
+              <div className="space-y-3 mb-6">
+                {deliveryPodServices.map((service, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="text-gray-600">{service}</div>
+                  </div>
+                ))}
               </div>
               
               <h4 className="text-xl font-bold text-gray-900 mb-4">Complex Tasks We Handled</h4>
-              <div className="grid grid-cols-2 gap-3">
-                {services.map((service, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{service}</span>
+              <div className="space-y-2">
+                {complexTasks.map((task, index) => (
+                  <div key={index} className="flex items-start gap-2">
+                    <Zap className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-700">{task}</span>
                   </div>
                 ))}
               </div>
@@ -200,13 +211,14 @@ const CoveDigitalCaseStudy = () => {
             
             <div className="text-center lg:text-right">
               <div className="inline-block bg-white rounded-xl p-6 shadow-lg mb-6">
-                <div className="text-4xl font-bold text-blue-600 mb-2">200%</div>
-                <div className="text-gray-600">Capacity increase achieved</div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">2</div>
+                <div className="text-gray-600">Weeks for 40-page migration</div>
               </div>
             </div>
           </div>
         </motion.div>
 
+        {/* Tools, Tech & Strategy */}
         <motion.div 
           className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100 mb-8"
           initial={{ opacity: 0, y: 30 }}
@@ -216,28 +228,18 @@ const CoveDigitalCaseStudy = () => {
           <div className="text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Tools, Tech & Strategy</h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-gray-50 rounded-xl p-6">
-                <Globe className="w-8 h-8 text-blue-600 mx-auto mb-3" />
-                <div className="font-semibold text-gray-900 mb-2">WordPress & Wix</div>
-                <div className="text-sm text-gray-600">Expert development on both platforms</div>
-              </div>
-              
-              <div className="bg-gray-50 rounded-xl p-6">
-                <Target className="w-8 h-8 text-green-600 mx-auto mb-3" />
-                <div className="font-semibold text-gray-900 mb-2">SEO Optimization</div>
-                <div className="text-sm text-gray-600">Search rankings preserved and improved</div>
-              </div>
-              
-              <div className="bg-gray-50 rounded-xl p-6">
-                <Award className="w-8 h-8 text-purple-600 mx-auto mb-3" />
-                <div className="font-semibold text-gray-900 mb-2">Quality Assurance</div>
-                <div className="text-sm text-gray-600">Rigorous testing and validation</div>
-              </div>
+            <div className="space-y-3 max-w-4xl mx-auto text-left">
+              {toolsAndTech.map((tool, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <Globe className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">{tool}</span>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>
 
+        {/* Results */}
         <motion.div 
           className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12 border border-green-100"
           initial={{ opacity: 0, y: 30 }}
@@ -246,16 +248,35 @@ const CoveDigitalCaseStudy = () => {
         >
           <div className="text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Results</h3>
-            <blockquote className="text-lg text-gray-700 italic mb-6 max-w-4xl mx-auto">
-              "Working with Hireshore's dedicated migration pod has been transformative for our agency. 
-              We've been able to take on significantly more clients without compromising on quality. 
-              The team handles complex migrations flawlessly, and our clients consistently praise the results. 
-              It's allowed us to focus on growth while maintaining the high standards our clients expect."
-            </blockquote>
-            <div className="flex items-center justify-center gap-4">
-              <div>
-                <div className="font-semibold text-gray-900">Chloe Bundy</div>
-                <div className="text-gray-600">Cove Digital</div>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="space-y-3">
+                {results.slice(0, 2).map((result, index) => (
+                  <div key={index} className="flex items-start gap-3 text-left">
+                    <Target className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">{result}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="space-y-3">
+                {results.slice(2).map((result, index) => (
+                  <div key={index + 2} className="flex items-start gap-3 text-left">
+                    <Target className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">{result}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 border border-green-200">
+              <blockquote className="text-lg text-gray-700 mb-6">
+                "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver—without compromise—is a game changer. I hand over the project and SOP, and it's done before the deadline and to the highest quality standard I could imagine."
+              </blockquote>
+              <div className="flex items-center justify-center gap-4">
+                <div>
+                  <div className="font-semibold text-gray-900">Chloe Bundy</div>
+                  <div className="text-gray-600">Founder, Cove Digital</div>
+                </div>
               </div>
             </div>
           </div>
