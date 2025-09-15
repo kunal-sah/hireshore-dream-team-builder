@@ -106,6 +106,13 @@ const NavBar = () => {
           
           {/* Navigation Links */}
           <div className="hidden lg:flex items-center space-x-6">
+            <Link
+              to="/about-us"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              About Us
+            </Link>
+            
             <motion.button
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
               onClick={() => scrollToSection('how-it-works')}
@@ -132,6 +139,13 @@ const NavBar = () => {
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
               Case Studies
+            </Link>
+
+            <Link
+              to="/contact-us"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              Contact Us
             </Link>
 
             {/* Book a Call - Primary CTA */}

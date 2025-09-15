@@ -6,13 +6,13 @@ import SiteFooter from "../components/SiteFooter";
 import { Button } from "@/components/ui/button";
 
 // Import thumbnails
-import digitalSixThumbnail from '../assets/thumbnails/digital-six-thumbnail.jpg';
-import medzMediaThumbnail from '../assets/thumbnails/medz-media-thumbnail.jpg';
-import swimplyThumbnail from '../assets/thumbnails/swimply-thumbnail.jpg';
-import propertyStackThumbnail from '../assets/thumbnails/propertystack-thumbnail.jpg';
-import affectiveCareThumbnail from '../assets/thumbnails/affective-care-thumbnail.jpg';
-import uncommonSolutionsThumbnail from '../assets/thumbnails/uncommon-solutions-thumbnail.jpg';
-import coveDigitalThumbnail from '../assets/thumbnails/cove-digital-thumbnail.jpg';
+import digitalSixThumbnail from '../assets/thumbnails/digital-six-thumbnail-v2.jpg';
+import medzMediaThumbnail from '../assets/thumbnails/medz-media-thumbnail-v2.jpg';
+import swimplyThumbnail from '../assets/thumbnails/swimply-thumbnail-v2.jpg';
+import propertyStackThumbnail from '../assets/thumbnails/propertystack-thumbnail-v2.jpg';
+import affectiveCareThumbnail from '../assets/thumbnails/affective-care-thumbnail-v2.jpg';
+import uncommonSolutionsThumbnail from '../assets/thumbnails/uncommon-solutions-thumbnail-v2.jpg';
+import coveDigitalThumbnail from '../assets/thumbnails/cove-digital-thumbnail-v2.jpg';
 
 interface CaseStudy {
   id: string;
