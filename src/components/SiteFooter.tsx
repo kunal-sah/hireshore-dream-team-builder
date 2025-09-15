@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MessageSquare, UserPlus } from 'lucide-react';
+import { Phone, MessageSquare, UserPlus, Linkedin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 
@@ -151,6 +151,18 @@ const SiteFooter = () => {
                 <div>
                   <p className="text-sm font-medium text-gray-700">Email</p>
                   <a href="mailto:kunal@hireshore.co" className="text-sm text-[#7346e6] hover:underline">kunal@hireshore.co</a>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-700">LinkedIn</p>
+                  <a 
+                    href="https://www.linkedin.com/in/digitalkunalsah/" 
+                    className="text-sm text-[#7346e6] hover:underline flex items-center"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <Linkedin size={16} className="mr-1" />
+                    Kunal Sah
+                  </a>
                 </div>
               </div>
             </motion.div>
