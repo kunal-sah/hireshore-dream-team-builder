@@ -20,6 +20,30 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
   {
+    id: 'digital-six',
+    title: 'Digital Six: Scaling High-Performance Offshore Team',
+    client: 'Digital Six',
+    industry: 'Marketing & Advertising',
+    challenge: 'Replace unreliable freelancers with dependable offshore team',
+    result: 'Scaled from 22 to 47 team members, saved $1M+ monthly',
+    metrics: '250% team growth',
+    thumbnail: '/lovable-uploads/b757a07c-9d5c-419d-9cc8-63208511c119.png',
+    tags: ['Team Scaling', 'Cost Reduction', 'Offshore Development'],
+    readTime: '6 min'
+  },
+  {
+    id: 'medz-media',
+    title: 'Medz Media: From Burnout to Work-Life Balance',
+    client: 'Medz Media',
+    industry: 'Digital Marketing',
+    challenge: 'Founder working past 2 AM, struggling to scale operations',
+    result: '40+ hours saved weekly, 50% client retention increase',
+    metrics: '40+ hours saved weekly',
+    thumbnail: '/lovable-uploads/2999c320-31d3-437d-ac66-13dca87efa9b.png',
+    tags: ['Work-Life Balance', 'Operations', 'Client Retention'],
+    readTime: '5 min'
+  },
+  {
     id: 'swimply',
     title: 'Swimply: From Shark Tank to Market Leader',
     client: 'Swimply',
@@ -256,6 +280,7 @@ const CaseStudies = () => {
                   <Button 
                     variant="outline" 
                     className="w-full group-hover:bg-blue-50 group-hover:border-blue-300 transition-colors"
+                    onClick={() => window.location.href = `/case-studies/${caseStudy.id}`}
                   >
                     Read Full Case Study
                     <ArrowRight className="ml-2 h-4 w-4" />

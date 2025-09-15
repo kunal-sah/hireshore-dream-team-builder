@@ -126,8 +126,6 @@ const Index = () => {
         </div>
         <BenefitsSection />
         <MediaFeatures />
-        <DigitalSixSuccessSection />
-        <MedzMediaSuccessSection />
         
         {/* View All Case Studies CTA */}
         <section className="py-12 px-4">
@@ -140,10 +138,10 @@ const Index = () => {
               className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8"
             >
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                See More Success Stories
+                See Our Success Stories
               </h3>
               <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-                Discover how other agencies and startups transformed their operations with Hireshore's managed delivery pods
+                Discover how agencies and startups transformed their operations with Hireshore's managed delivery pods
               </p>
               <Link 
                 to="/case-studies"
@@ -155,7 +153,6 @@ const Index = () => {
             </motion.div>
           </div>
         </section>
-        <SharkTankSection />
         <ServicesSection />
         <RolesSection />
         <TestimonialsSection />
