@@ -8,13 +8,13 @@ const AboutUs = () => {
   const stats = [
     {
       icon: Users,
-      number: "500+",
+      number: "300+",
       label: "Team Members",
       description: "Skilled professionals across multiple domains"
     },
     {
       icon: Globe,
-      number: "50+",
+      number: "5+",
       label: "Countries Served",
       description: "Global reach with local expertise"
     },
