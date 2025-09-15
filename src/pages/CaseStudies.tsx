@@ -13,7 +13,8 @@ import propertyStackThumbnail from '../assets/thumbnails/propertystack-thumbnail
 import affectiveCareThumbnail from '../assets/thumbnails/affective-care-thumbnail-v2.jpg';
 import uncommonSolutionsThumbnail from '../assets/thumbnails/uncommon-solutions-thumbnail-v2.jpg';
 import coveDigitalThumbnail from '../assets/thumbnails/cove-digital-thumbnail-v2.jpg';
-
+import digitalSixLogo from '../assets/digital-six-logo.png';
+ 
 interface CaseStudy {
   id: string;
   title: string;
@@ -260,6 +261,14 @@ const CaseStudies = () => {
                     <Clock className="h-3 w-3" />
                     {caseStudy.readTime}
                   </div>
+                  {caseStudy.id === 'digital-six' && (
+                    <img 
+                      src={digitalSixLogo}
+                      alt="Digital Six logo - case study thumbnail"
+                      className="absolute top-14 right-4 h-10 w-auto object-contain drop-shadow-md"
+                      loading="lazy"
+                    />
+                  )}
                 </div>
                 
                 <div className="p-6">
