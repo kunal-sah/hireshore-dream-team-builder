@@ -25,15 +25,16 @@ const SiteFooter = () => {
   }, []);
 
   const scrollToCalendly = () => {
-    // Scroll to Calendly section
     const calendlyElement = document.getElementById('book');
     if (calendlyElement) {
       calendlyElement.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/contact-us#book';
     }
   };
 
   const footerLinks = [
-    { icon: "📞", text: "Book a free strategy call", action: scrollToCalendly },
+    { icon: "📞", text: "Book a free strategy call", href: "/contact-us#book" },
     { icon: "📧", text: "kunal@hireshore.co", href: "mailto:kunal@hireshore.co" },
     { icon: "🌐", text: "www.hireshore.co", href: "https://www.hireshore.co", external: true },
   ];
@@ -198,10 +199,12 @@ const SiteFooter = () => {
                     <span className="transition-all duration-300">{link.text}</span>
                   </motion.a>
                 ) : (
-                  <motion.button
+                  <motion.a
                     key={link.text}
                     className="text-[#7346e6] font-medium hover:underline flex items-center group"
-                    onClick={link.action}
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
@@ -217,20 +220,20 @@ const SiteFooter = () => {
                       {link.icon}
                     </motion.span> 
                     {link.text}
-                  </motion.button>
+                  </motion.a>
                 )
               ))}
             </div>
             
             {/* Legal Links */}
             <div className="flex flex-wrap justify-center space-x-4">
-              <a href="#privacy" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+              <a href="/privacy" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
                 Privacy Policy
               </a>
-              <a href="#terms" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+              <a href="/terms" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
                 Terms & Conditions
               </a>
-              <a href="#legal" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+              <a href="/legal" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
                 Legal Mentions
               </a>
             </div>

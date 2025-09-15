@@ -15,6 +15,9 @@ import AffectiveCareCaseStudy from "./pages/case-studies/AffectiveCare";
 import UncommonSolutionsCaseStudy from "./pages/case-studies/UncommonSolutions";
 import CoveDigitalCaseStudy from "./pages/case-studies/CoveDigital";
 import NotFound from "./pages/NotFound";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import Legal from "./pages/Legal";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +39,9 @@ const App = () => (
           <Route path="/case-studies/affective-care" element={<AffectiveCareCaseStudy />} />
           <Route path="/case-studies/uncommon-solutions" element={<UncommonSolutionsCaseStudy />} />
           <Route path="/case-studies/cove-digital" element={<CoveDigitalCaseStudy />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/legal" element={<Legal />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

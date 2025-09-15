@@ -21,6 +21,8 @@ const ConversionFormSection = () => {
     const element = document.getElementById('book');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.location.href = '/contact-us#book';
     }
   };
 
@@ -166,7 +168,7 @@ const ConversionFormSection = () => {
               <motion.div variants={itemVariants} className="text-center">
                 <p className="text-sm text-gray-500">
                   By booking, you agree to our{" "}
-                  <a href="#privacy" className="text-blue-600 hover:underline">
+                  <a href="/privacy" className="text-blue-600 hover:underline">
                     Privacy Policy
                   </a>
                 </p>
