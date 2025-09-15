@@ -1,34 +1,34 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUp, Users, Zap, Target, Award, Code } from 'lucide-react';
+import { Star, Users, Clock, MessageSquare, Zap } from 'lucide-react';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
 
 const SwimplyCaseStudy = () => {
   const stats = [
     {
-      icon: TrendingUp,
-      number: "300%",
-      label: "User Growth",
-      description: "Increased user engagement after platform optimization"
-    },
-    {
       icon: Users,
-      number: "1M+",
-      label: "Active Users",
-      description: "Platform now serves over 1 million users"
+      number: "7",
+      label: "USA Timezone Reps",
+      description: "Dedicated customer representatives"
     },
     {
-      icon: Target,
-      number: "99.9%",
-      label: "Uptime",
-      description: "Robust platform architecture ensuring reliability"
+      icon: Star,
+      number: "#1",
+      label: "Top Performers",
+      description: "Leading the leaderboard consistently"
     },
     {
-      icon: Code,
-      number: "50+",
-      label: "Features Delivered",
-      description: "New platform features and enhancements"
+      icon: Clock,
+      number: "99%",
+      label: "Response Time",
+      description: "Industry-leading response rates"
+    },
+    {
+      icon: MessageSquare,
+      number: "95%",
+      label: "CSAT Score",
+      description: "Customer satisfaction rating"
     }
   ];
 
@@ -37,8 +37,8 @@ const SwimplyCaseStudy = () => {
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Swimply Case Study - From Shark Tank to Market Leader",
-      "description": "How Swimply scaled their platform development after Shark Tank appearance with 300% user growth and robust architecture",
+      "headline": "Swimply Case Study - Powering Customer Success",
+      "description": "How Hireshore's dedicated USA timezone customer representatives delivered exceptional support with 95% CSAT scores and top leaderboard performance",
       "author": {
         "@type": "Organization",
         "name": "Hireshore"
@@ -68,8 +68,8 @@ const SwimplyCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
-      <title>Swimply Case Study - From Shark Tank to Market Leader</title>
-      <meta name="description" content="See how Swimply scaled their platform development after Shark Tank appearance, achieving 300% user growth with Hireshore's managed delivery pods." />
+      <title>Swimply Case Study - Powering Customer Success</title>
+      <meta name="description" content="See how Hireshore's 7 dedicated USA timezone customer representatives delivered exceptional support for Swimply with 95% CSAT scores and top performance." />
       
       <NavBar />
       
@@ -85,12 +85,12 @@ const SwimplyCaseStudy = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <motion.span 
-            className="text-sm font-medium text-blue-600 uppercase tracking-wider inline-block mb-4"
+            <motion.span 
+            className="text-sm font-medium text-purple-600 uppercase tracking-wider inline-block mb-4"
             animate={{ y: [0, -3, 0] }}
             transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
           >
-            Case Study
+            Client Success Story
           </motion.span>
           
           <motion.div 
@@ -100,8 +100,12 @@ const SwimplyCaseStudy = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="bg-white rounded-xl px-8 py-4 shadow-lg border border-gray-100">
-              <h1 className="text-2xl font-bold text-gray-900">Swimply</h1>
-              <p className="text-sm text-gray-600">Marketplace Platform • As Featured on Shark Tank</p>
+              <img
+                src="/lovable-uploads/2999c320-31d3-437d-ac66-13dca87efa9b.png"
+                alt="Swimply logo"
+                className="h-12 object-contain"
+                loading="lazy"
+              />
             </div>
           </motion.div>
 
@@ -111,7 +115,7 @@ const SwimplyCaseStudy = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            From Shark Tank to Market Leader
+            Powering Swimply's Customer Success
           </motion.h2>
           
           <motion.p 
@@ -120,61 +124,17 @@ const SwimplyCaseStudy = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            How we helped Swimply scale their platform development after their successful Shark Tank appearance, 
-            achieving 300% user growth and building robust architecture.
+            Our 7 dedicated USA timezone customer representatives have been delivering exceptional support, 
+            maintaining top leaderboard positions with outstanding CSAT scores and response times.
           </motion.p>
         </motion.div>
 
-        {/* Shark Tank Video Section */}
-        <motion.div 
-          className="mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <div className="text-center mb-8">
-            <motion.div 
-              className="flex items-center justify-center mb-6"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="bg-white rounded-xl px-8 py-4 shadow-lg border border-gray-100">
-                <img
-                  src="/src/assets/shark-tank-logo.png"
-                  alt="Shark Tank USA logo"
-                  className="h-12 object-contain"
-                  loading="lazy"
-                />
-              </div>
-            </motion.div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-              As Featured On Shark Tank USA
-            </h3>
-            <p className="text-gray-600 text-lg">
-              Watch Swimply's pitch on Shark Tank USA and see why the sharks were impressed.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden shadow-2xl">
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/2CVHdT89xTI"
-                title="Shark Tank USA Appearance 2022"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        </motion.div>
 
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -182,11 +142,11 @@ const SwimplyCaseStudy = () => {
               className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4">
-                <stat.icon className="w-6 h-6 text-blue-600" />
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg mb-4">
+                <stat.icon className="w-6 h-6 text-purple-600" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
               <div className="text-lg font-semibold text-gray-700 mb-1">{stat.label}</div>
@@ -196,56 +156,44 @@ const SwimplyCaseStudy = () => {
         </motion.div>
 
         <motion.div 
-          className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 mb-8"
+          className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 md:p-12 mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.9 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-                The Challenge
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                Seamless Integration & Support
               </h3>
-              <div className="space-y-4 mb-6">
+              <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <div className="text-gray-600">Rapid scaling needed after Shark Tank exposure</div>
+                  <Zap className="w-5 h-5 text-purple-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold text-gray-900">Slack Integration</div>
+                    <div className="text-gray-600">Synced with Swimply's internal team for real-time collaboration</div>
+                  </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <div className="text-gray-600">Platform needed to handle massive user growth</div>
+                  <MessageSquare className="w-5 h-5 text-purple-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold text-gray-900">Zendesk Platform</div>
+                    <div className="text-gray-600">Utilizing Zendesk as support software for streamlined ticket management</div>
+                  </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <div className="text-gray-600">Required robust architecture and new features</div>
-                </div>
-              </div>
-              
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Our Solution</h4>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                  <span className="text-sm text-gray-700">Platform Architecture Optimization</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                  <span className="text-sm text-gray-700">User Experience Enhancement</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                  <span className="text-sm text-gray-700">Performance Monitoring</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                  <span className="text-sm text-gray-700">Feature Development</span>
+                  <Clock className="w-5 h-5 text-purple-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold text-gray-900">USA Timezone Coverage</div>
+                    <div className="text-gray-600">Round-the-clock support during peak business hours</div>
+                  </div>
                 </div>
               </div>
             </div>
-            
             <div className="text-center lg:text-right">
-              <div className="inline-block bg-white rounded-xl p-6 shadow-lg mb-6">
-                <div className="text-4xl font-bold text-blue-600 mb-2">300%</div>
-                <div className="text-gray-600">User engagement increase</div>
+              <div className="inline-block bg-white rounded-xl p-6 shadow-lg">
+                <div className="text-4xl font-bold text-purple-600 mb-2">Top Performers</div>
+                <div className="text-gray-600">Consistently ranking #1 on the leaderboard among all representatives</div>
               </div>
             </div>
           </div>
@@ -255,28 +203,28 @@ const SwimplyCaseStudy = () => {
           className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.1 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
         >
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">The Results</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Outstanding Customer Success Results</h3>
             <p className="text-lg text-gray-700 mb-6 max-w-3xl mx-auto">
-              After appearing on Shark Tank, Swimply needed to scale rapidly. Our managed delivery pods helped them 
-              build a robust platform that could handle the massive influx of users while maintaining excellent 
-              performance and user experience.
+              Our dedicated customer support team has consistently delivered exceptional results for Swimply, 
+              maintaining industry-leading performance metrics while providing seamless integration with their 
+              existing systems and workflows.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">1M+</div>
-                <div className="text-gray-600">Active Platform Users</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">95%</div>
+                <div className="text-gray-600">Customer Satisfaction Score</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">99.9%</div>
-                <div className="text-gray-600">Platform Uptime</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">99%</div>
+                <div className="text-gray-600">Response Time Achievement</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">50+</div>
-                <div className="text-gray-600">New Features Delivered</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">#1</div>
+                <div className="text-gray-600">Leaderboard Position</div>
               </div>
             </div>
           </div>
