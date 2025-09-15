@@ -4,6 +4,7 @@ import { TrendingUp, Users, DollarSign, Clock, Target, Zap } from 'lucide-react'
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
 import CaseStudyCTA from '../../components/CaseStudyCTA';
+import digitalSixLogo from '../../assets/digital-six-logo.png';
 
 const DigitalSixCaseStudy = () => {
   const stats = [
@@ -85,8 +86,31 @@ const DigitalSixCaseStudy = () => {
       
       <NavBar />
       
+      {/* Featured Image/Cover Section */}
       <motion.section 
-        className="max-w-6xl mx-auto py-28 px-4"
+        className="relative bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50 py-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="inline-block bg-white rounded-3xl p-12 shadow-2xl"
+          >
+            <img 
+              src={digitalSixLogo} 
+              alt="Digital Six Logo" 
+              className="h-20 md:h-24 w-auto mx-auto"
+            />
+          </motion.div>
+        </div>
+      </motion.section>
+      
+      <motion.section 
+        className="max-w-6xl mx-auto py-16 px-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}

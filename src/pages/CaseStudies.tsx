@@ -6,7 +6,7 @@ import SiteFooter from "../components/SiteFooter";
 import { Button } from "@/components/ui/button";
 
 // Import thumbnails
-import digitalSixThumbnail from '../assets/thumbnails/digital-six-thumbnail-v2.jpg';
+import digitalSixLogo from '../assets/digital-six-logo.png';
 import medzMediaThumbnail from '../assets/thumbnails/medz-media-thumbnail-v2.jpg';
 import swimplyThumbnail from '../assets/thumbnails/swimply-thumbnail-v2.jpg';
 import propertyStackThumbnail from '../assets/thumbnails/propertystack-thumbnail-v2.jpg';
@@ -36,7 +36,7 @@ const caseStudies: CaseStudy[] = [
     challenge: 'Replace unreliable freelancers with dependable offshore team',
     result: 'Scaled from 22 to 47 team members, saved $1M+ monthly',
     metrics: '250% team growth',
-    thumbnail: digitalSixThumbnail,
+    thumbnail: digitalSixLogo,
     tags: ['Team Scaling', 'Cost Reduction', 'Offshore Development'],
     readTime: '6 min'
   },
