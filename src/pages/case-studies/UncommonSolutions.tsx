@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { TrendingUp, Target, Zap, Users, Clock, Award } from 'lucide-react';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
+import CaseStudyCTA from '../../components/CaseStudyCTA';
 
 const UncommonSolutionsCaseStudy = () => {
   const challenges = [
@@ -261,6 +262,8 @@ const UncommonSolutionsCaseStudy = () => {
           </div>
         </motion.div>
       </motion.section>
+
+      <CaseStudyCTA />
 
       <SiteFooter />
     </div>

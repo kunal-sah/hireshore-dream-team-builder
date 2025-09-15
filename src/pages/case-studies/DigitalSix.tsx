@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { TrendingUp, Users, DollarSign, Clock, Target, Zap } from 'lucide-react';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
+import CaseStudyCTA from '../../components/CaseStudyCTA';
 
 const DigitalSixCaseStudy = () => {
   const stats = [
@@ -245,6 +246,8 @@ const DigitalSixCaseStudy = () => {
           </div>
         </motion.div>
       </motion.section>
+
+      <CaseStudyCTA />
 
       <SiteFooter />
     </div>

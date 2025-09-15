@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Clock, Users, TrendingUp, Heart, Zap, Target } from 'lucide-react';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
+import CaseStudyCTA from '../../components/CaseStudyCTA';
 
 const MedzMediaCaseStudy = () => {
   const stats = [
@@ -278,6 +279,8 @@ const MedzMediaCaseStudy = () => {
           </div>
         </motion.div>
       </motion.section>
+
+      <CaseStudyCTA />
 
       <SiteFooter />
     </div>

@@ -22,7 +22,12 @@ const CalendlySection = () => {
       <div className="max-w-4xl mx-auto px-4">
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Book Your Free Strategy Session</h2>
-          <p className="text-gray-600 text-lg">Get a custom plan for your business in 30 minutes</p>
+          <p className="text-muted-foreground text-lg">Get a custom plan for your business in 30 minutes</p>
+          <div className="mt-6">
+            <button className="bg-primary text-primary-foreground font-semibold py-3 px-8 rounded-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              Schedule Your Free Call
+            </button>
+          </div>
         </div>
         
         {/* Calendly inline widget */}

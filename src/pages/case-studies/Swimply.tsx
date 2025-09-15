@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Star, Users, Clock, MessageSquare, Zap } from 'lucide-react';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
+import CaseStudyCTA from '../../components/CaseStudyCTA';
 
 const SwimplyCaseStudy = () => {
   const stats = [
@@ -230,6 +231,8 @@ const SwimplyCaseStudy = () => {
           </div>
         </motion.div>
       </motion.section>
+
+      <CaseStudyCTA />
 
       <SiteFooter />
     </div>

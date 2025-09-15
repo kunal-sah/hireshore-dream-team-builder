@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Clock, Zap, RotateCcw, DollarSign, Target } from 'lucide-react';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
+import CaseStudyCTA from '../../components/CaseStudyCTA';
 
 const AffectiveCareCaseStudy = () => {
   const stats = [
@@ -256,6 +257,8 @@ const AffectiveCareCaseStudy = () => {
           </div>
         </motion.div>
       </motion.section>
+
+      <CaseStudyCTA />
 
       <SiteFooter />
     </div>

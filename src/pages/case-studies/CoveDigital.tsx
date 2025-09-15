@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { TrendingUp, Users, Target, Zap, Award, Globe } from 'lucide-react';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
+import CaseStudyCTA from '../../components/CaseStudyCTA';
 
 const CoveDigitalCaseStudy = () => {
   const stats = [
@@ -282,6 +283,8 @@ const CoveDigitalCaseStudy = () => {
           </div>
         </motion.div>
       </motion.section>
+
+      <CaseStudyCTA />
 
       <SiteFooter />
     </div>

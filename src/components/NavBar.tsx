@@ -107,50 +107,29 @@ const NavBar = () => {
           {/* Navigation Links */}
           <div className="hidden lg:flex items-center space-x-6">
             <Link
-              to="/about-us"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-            >
-              About Us
-            </Link>
-            
-            <motion.button
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              onClick={() => scrollToSection('how-it-works')}
-            >
-              How it Works
-            </motion.button>
-            
-            <motion.button
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              onClick={() => scrollToSection('why-pods')}
-            >
-              Why Pods
-            </motion.button>
-            
-            <motion.button
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              onClick={() => scrollToSection('proof')}
-            >
-              Proof
-            </motion.button>
-            
-            <Link
               to="/case-studies"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-foreground hover:text-primary font-medium transition-colors"
             >
               Case Studies
             </Link>
 
             <Link
+              to="/about-us"
+              className="text-foreground hover:text-primary font-medium transition-colors"
+            >
+              About Us
+            </Link>
+
+            <Link
               to="/contact-us"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-foreground hover:text-primary font-medium transition-colors"
             >
               Contact Us
             </Link>
 
             {/* Book a Call - Primary CTA */}
             <motion.button
-              className="inline-flex items-center justify-center h-10 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold px-6 py-2 rounded-lg text-sm hover:shadow-md hover:shadow-blue-200/50 transition-all ripple-effect relative overflow-hidden"
+              className="inline-flex items-center justify-center h-10 bg-primary text-primary-foreground font-semibold px-6 py-2 rounded-lg text-sm hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ripple-effect relative overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onMouseDown={createRipple}
@@ -165,7 +144,7 @@ const NavBar = () => {
           <div className="flex lg:hidden items-center space-x-2">
             <motion.button
               onClick={scrollToBooking}
-              className="inline-flex items-center justify-center bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-bold py-2 px-3 rounded-md text-sm hover:shadow-md transition-all"
+              className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold py-2 px-3 rounded-md text-sm hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               <Phone className="h-4 w-4" />
             </motion.button>
