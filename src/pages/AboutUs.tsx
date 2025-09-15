@@ -57,34 +57,29 @@ const AboutUs = () => {
 
   const timeline = [
     {
-      year: "2019",
-      title: "Founded",
-      description: "Started with a vision to transform offshore development"
-    },
-    {
-      year: "2020",
-      title: "First Delivery Pods",
-      description: "Launched our revolutionary pod-based delivery model"
-    },
-    {
-      year: "2021", 
-      title: "Global Expansion",
-      description: "Expanded to serve clients across USA, UK, and Australia"
+      year: "2021",
+      title: "Launched Locally in Nepal",
+      description: "Hireshore was founded with a mission to provide businesses with scalable, cost-effective offshore solutions, starting locally in Nepal."
     },
     {
       year: "2022",
-      title: "500+ Team Members",
-      description: "Grew to over 500 skilled professionals"
-    },
-    {
-      year: "2023",
-      title: "AI Integration",
-      description: "Integrated AI tools to accelerate delivery and quality"
+      title: "Expanded Globally",
+      description: "We expanded our recruitment services to hire top-tier talent from Nepal for businesses worldwide, enabling clients to scale efficiently without the overhead of hiring full-time, in-house teams."
     },
     {
       year: "2024",
-      title: "Market Leader",
-      description: "Recognized as a leading offshore delivery partner"
+      title: "Hired 300+ Talents",
+      description: "We successfully hired over 300 skilled professionals to support our growing client base and expand our service delivery capabilities."
+    },
+    {
+      year: "2024",
+      title: "Launched Hireshore Pod Model",
+      description: "Hireshore officially launched the Pod Model in 2024, providing clients with dedicated, cross-functional teams that seamlessly integrate into their operations for maximum efficiency."
+    },
+    {
+      year: "2025",
+      title: "Current State",
+      description: "Trusted across UK, AU, EU & US: Serving 25+ clients from multiple regions with tailored offshore solutions. 40+ Pods Launched: Providing businesses with scalable teams designed to meet specific needs. $1M+ Saved Annually per Business: Clients save significant costs per pod while maintaining high-quality service."
     }
   ];
 
@@ -249,7 +244,7 @@ const AboutUs = () => {
                 Our Journey
               </h2>
               <p className="text-xl text-gray-600">
-                From a small startup to a global delivery partner - here's how we've grown.
+                From a local startup to a growing global delivery partner, here's how Hireshore has evolved:
               </p>
             </motion.div>
 
