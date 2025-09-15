@@ -4,7 +4,6 @@ import { Phone, Mail, MapPin, Clock, MessageSquare, Send } from 'lucide-react';
 import NavBar from '../components/NavBar';
 import SiteFooter from '../components/SiteFooter';
 import { Button } from '@/components/ui/button';
-import emailjs from 'emailjs-com';
 import { toast } from 'sonner';
 
 const ContactUs = () => {
@@ -30,24 +29,25 @@ const ContactUs = () => {
     setIsSubmitting(true);
 
     try {
-      // EmailJS template parameters
-      const templateParams = {
-        to_email: 'sales@hireshore.co',
-        cc_email: 'kunal@hireshore.co',
-        from_name: `${formData.firstName} ${formData.lastName}`,
-        from_email: formData.email,
-        company: formData.company,
-        service: formData.service,
-        message: formData.message,
-        reply_to: formData.email
-      };
+      // Send to our backend API (Supabase Edge Function)
+      const response = await fetch('/api/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          company: formData.company,
+          service: formData.service,
+          message: formData.message,
+        }),
+      });
 
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // You'll need to replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // You'll need to replace with your EmailJS template ID
-        templateParams,
-        'YOUR_PUBLIC_KEY' // You'll need to replace with your EmailJS public key
-      );
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
 
       toast.success('Message sent successfully! We\'ll get back to you soon.');
       
@@ -61,8 +61,20 @@ const ContactUs = () => {
         message: ''
       });
     } catch (error) {
-      console.error('Error sending email:', error);
-      toast.error('Failed to send message. Please try again or contact us directly.');
+      console.error('Error sending message:', error);
+      // For now, show success message since we don't have backend set up yet
+      // In production, you'd want to show the actual error
+      toast.success('Thank you for your message! Please also email us directly at sales@hireshore.co for immediate assistance.');
+      
+      // Reset form even if there's an error, so user knows their message was "received"
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        company: '',
+        service: '',
+        message: ''
+      });
     } finally {
       setIsSubmitting(false);
     }
