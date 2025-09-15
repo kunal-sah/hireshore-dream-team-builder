@@ -155,6 +155,49 @@ const Index = () => {
         </section>
         <ServicesSection />
         <RolesSection />
+        
+        {/* Aaron's Digital Six Testimonial */}
+        <section className="max-w-6xl mx-auto py-12 px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
+                <blockquote className="text-lg text-gray-700 italic mb-4">
+                  "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal. 
+                  The WordPress guys are killing it. The SEO side is strong. This is way better than our past 
+                  freelancer experience. I've already referred several people to Hireshore."
+                </blockquote>
+                <div className="flex items-center gap-4">
+                  <div>
+                    <div className="font-semibold text-gray-900">Aaron Erwich</div>
+                    <div className="text-gray-600">Founder, Digital Six</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.youtube.com/embed/yW90cSyX_iI"
+                    title="Digital Six Testimonial - Aaron Erwich"
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p className="text-sm text-gray-600 mt-2">Watch Aaron's full testimonial</p>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
         <TestimonialsSection />
         <CalendlySection />
       </div>
