@@ -5,42 +5,45 @@ import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
 
 const UncommonSolutionsCaseStudy = () => {
-  const stats = [
-    {
-      icon: TrendingUp,
-      number: "40%",
-      label: "Efficiency Increase",
-      description: "Complete digital transformation results"
-    },
-    {
-      icon: Users,
-      number: "Full",
-      label: "Legacy System Modernization",
-      description: "Complete overhaul of outdated systems"
-    },
-    {
-      icon: Target,
-      number: "98%",
-      label: "User Satisfaction",
-      description: "Improved user experience ratings"
-    },
-    {
-      icon: Clock,
-      number: "50%",
-      label: "Faster Delivery",
-      description: "Predictable project timelines achieved"
-    }
+  const challenges = [
+    "Unpredictable delivery timelines",
+    "Unclear pricing and scope creep", 
+    "Delivery inconsistency across projects",
+    "No single point of accountability"
   ];
 
-  const services = [
-    "Legacy System Modernization",
-    "Enterprise Software Development",
-    "UI/UX Design & Optimization",
-    "Cloud Migration Services",
-    "Performance Optimization",
-    "Security Implementation",
-    "System Integration",
-    "Quality Assurance"
+  const deliveryPodServices = [
+    "Webflow developer",
+    "UI/UX designer", 
+    "GoHighLevel funnel builder",
+    "Project manager",
+    "QA support",
+    "Slack + project dashboard setup",
+    "Lead designer/devs to create product mockups and samples for sales"
+  ];
+
+  const toolsAndTech = [
+    "Webflow, Figma, GoHighLevel",
+    "AI-powered product generation tools",
+    "Video automation tools (fitness & jewelry content)",
+    "Paid media support & automation flows",
+    "Flexible pre-paid package: 160 hours (at $8/hour) valid over 3 months"
+  ];
+
+  const results = [
+    "Saved 40+ hours/week in coordination and delegation",
+    "Launched agency website and multiple client projects from scratch",
+    "Pitched more confidently using done-for-you mockups & samples",
+    "No longer reliant on juggling 4–5 freelancers—one pod, one system, one team",
+    "Cost-efficient & transparent delivery with pre-agreed timelines"
+  ];
+
+  const additionalServices = [
+    "Content calendar creation and scheduling",
+    "Urgent tender application support (35+ hours research)",
+    "24+ hours nonstop work across multiple departments",
+    "Property development real estate marketing tender",
+    "Sales and marketing AI automation to scale Uncommon"
   ];
 
   useEffect(() => {
@@ -48,8 +51,8 @@ const UncommonSolutionsCaseStudy = () => {
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Uncommon Solutions Case Study - Enterprise Transformation",
-      "description": "How Uncommon Solutions achieved 40% efficiency increase through complete digital transformation with Hireshore's managed delivery pods",
+      "headline": "Streamlining Creative Delivery & Scaling Client Projects for Uncommon Solutions",
+      "description": "How Uncommon Solutions streamlined creative delivery and scaled client projects with Hireshore's plug & play delivery pod solution, saving 40+ hours weekly",
       "author": {
         "@type": "Organization",
         "name": "Hireshore"
@@ -79,8 +82,8 @@ const UncommonSolutionsCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
-      <title>Uncommon Solutions Case Study - Hireshore Success Story</title>
-      <meta name="description" content="See how Uncommon Solutions achieved 40% efficiency increase through complete digital transformation with Hireshore's managed delivery pods. Enterprise modernization success." />
+      <title>Uncommon Solutions Case Study - Digital Marketing Success Story</title>
+      <meta name="description" content="See how Uncommon Solutions streamlined creative delivery and scaled client projects with Hireshore's plug & play delivery pod solution, saving 40+ hours weekly." />
       
       <NavBar />
       
@@ -112,7 +115,7 @@ const UncommonSolutionsCaseStudy = () => {
           >
             <div className="bg-white rounded-xl px-8 py-4 shadow-lg border border-gray-100">
               <h1 className="text-2xl font-bold text-gray-900">Uncommon Solutions</h1>
-              <p className="text-sm text-gray-600">Enterprise Software • Digital Transformation</p>
+              <p className="text-sm text-gray-600">Digital Marketing & B2B Strategy • Norway</p>
             </div>
           </motion.div>
 
@@ -122,7 +125,7 @@ const UncommonSolutionsCaseStudy = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Enterprise Transformation
+            Streamlining Creative Delivery & Scaling Client Projects
           </motion.h2>
           
           <motion.p 
@@ -131,130 +134,128 @@ const UncommonSolutionsCaseStudy = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Modernizing legacy systems and transforming user experience to achieve 40% efficiency 
-            gains and predictable project delivery timelines.
+            From unpredictable timelines to transparent delivery with a complete plug & play delivery pod solution.
           </motion.p>
         </motion.div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4">
-                <stat.icon className="w-6 h-6 text-blue-600" />
+        {/* Challenge & Solution */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl p-8 shadow-lg"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center">
+                <span className="text-red-600 font-bold">🚩</span>
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
-              <div className="text-lg font-semibold text-gray-700 mb-1">{stat.label}</div>
-              <div className="text-sm text-gray-500">{stat.description}</div>
-            </motion.div>
-          ))}
-        </motion.div>
+              <h3 className="text-2xl font-bold text-gray-900">The Challenge</h3>
+            </div>
+            <div className="space-y-4">
+              {challenges.map((challenge, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-600">{challenge}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
-        <motion.div 
-          className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 mb-8"
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl p-8 shadow-lg"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                <span className="text-green-600 font-bold">✅</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900">The Solution: Plug & Play Delivery Pod</h3>
+            </div>
+            <div className="space-y-3">
+              {deliveryPodServices.map((service, index) => (
+                <div key={index} className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <span className="text-gray-700">{service}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Tools, Tech & Strategy */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="bg-gray-50 rounded-2xl p-8 mb-16"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-                The Challenge
-              </h3>
-              <div className="space-y-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <div className="text-gray-600">Unpredictable delivery timelines</div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <div className="text-gray-600">Legacy systems holding back growth</div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <div className="text-gray-600">Poor user experience and efficiency</div>
-                </div>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Tools, Tech & Strategy</h3>
+          <div className="space-y-3">
+            {toolsAndTech.map((tool, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <Zap className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-700">{tool}</span>
               </div>
-              
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Our Solution: Plug & Play Delivery Pod</h4>
-              <div className="grid grid-cols-2 gap-3">
-                {services.map((service, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{service}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="text-center lg:text-right">
-              <div className="inline-block bg-white rounded-xl p-6 shadow-lg mb-6">
-                <div className="text-4xl font-bold text-blue-600 mb-2">40%</div>
-                <div className="text-gray-600">Efficiency improvement</div>
-              </div>
-            </div>
+            ))}
           </div>
         </motion.div>
 
-        <motion.div 
-          className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100 mb-8"
+        {/* Results */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 mb-16"
         >
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Tools, Tech & Strategy</h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-gray-50 rounded-xl p-6">
-                <Award className="w-8 h-8 text-blue-600 mx-auto mb-3" />
-                <div className="font-semibold text-gray-900 mb-2">Modern Tech Stack</div>
-                <div className="text-sm text-gray-600">Cloud-native architecture with scalable solutions</div>
-              </div>
-              
-              <div className="bg-gray-50 rounded-xl p-6">
-                <Target className="w-8 h-8 text-green-600 mx-auto mb-3" />
-                <div className="font-semibold text-gray-900 mb-2">User-Centric Design</div>
-                <div className="text-sm text-gray-600">Improved UX leading to 98% satisfaction</div>
-              </div>
-              
-              <div className="bg-gray-50 rounded-xl p-6">
-                <Clock className="w-8 h-8 text-purple-600 mx-auto mb-3" />
-                <div className="font-semibold text-gray-900 mb-2">Predictable Delivery</div>
-                <div className="text-sm text-gray-600">50% faster project completion times</div>
-              </div>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Results</h3>
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="space-y-3">
+              {results.slice(0, 3).map((result, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <Target className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">{result}</span>
+                </div>
+              ))}
+            </div>
+            <div className="space-y-3">
+              {results.slice(3).map((result, index) => (
+                <div key={index + 3} className="flex items-start gap-3">
+                  <Target className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">{result}</span>
+                </div>
+              ))}
             </div>
           </div>
-        </motion.div>
 
-        <motion.div 
-          className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12 border border-green-100"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.9 }}
-        >
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Results</h3>
-            <blockquote className="text-lg text-gray-700 italic mb-6 max-w-4xl mx-auto">
-              "The transformation was remarkable. What used to take months now takes weeks. Our team is more 
-              efficient, our users are happier, and we can finally predict our delivery timelines with confidence. 
-              The Plug & Play Delivery Pod approach eliminated all the uncertainty we had with previous vendors."
+          {/* Additional Services */}
+          <div className="bg-white/50 rounded-xl p-6 mb-8">
+            <h4 className="text-lg font-bold text-gray-900 mb-4">Additional Support Delivered:</h4>
+            <div className="space-y-2">
+              {additionalServices.map((service, index) => (
+                <div key={index} className="flex items-start gap-2">
+                  <Clock className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Client Testimonial */}
+          <div className="bg-white rounded-xl p-8 border border-green-200">
+            <blockquote className="text-lg text-gray-700 mb-6">
+              "The team is well-skilled, easy to work with, and they deliver on time. I get estimates upfront, so I can confidently promise timelines to my clients—and they're met. I don't need to search for freelancers anymore. Kunal and the Hireshore team help me pitch, plan, and deliver custom solutions for every client."
             </blockquote>
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex items-center gap-4">
               <div>
-                <div className="font-semibold text-gray-900">Client Representative</div>
-                <div className="text-gray-600">Uncommon Solutions</div>
+                <div className="font-semibold text-gray-900">Breearna Jope</div>
+                <div className="text-gray-600">Founder, Uncommon Solutions</div>
               </div>
             </div>
           </div>
