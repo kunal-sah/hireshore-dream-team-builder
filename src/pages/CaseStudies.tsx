@@ -233,44 +233,47 @@ const CaseStudies = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-gray-100 hover:border-blue-200"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-56 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100">
                   <img 
                     src={caseStudy.thumbnail} 
                     alt={`${caseStudy.client} case study thumbnail`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 mix-blend-multiply"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   <div className="absolute top-4 left-4">
-                    <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-white/95 backdrop-blur-sm text-gray-800 px-3 py-1.5 rounded-full text-sm font-semibold shadow-sm">
                       {caseStudy.industry}
                     </span>
                   </div>
-                  <div className="absolute top-4 right-4 flex items-center gap-1 bg-white/90 text-gray-600 px-2 py-1 rounded-full text-xs">
+                  <div className="absolute top-4 right-4 flex items-center gap-1 bg-black/80 text-white px-3 py-1.5 rounded-full text-xs font-medium backdrop-blur-sm">
                     <Clock className="h-3 w-3" />
                     {caseStudy.readTime}
                   </div>
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                    {caseStudy.title}
-                  </h3>
-                  
-                  <div className="text-sm text-gray-600 mb-4">
-                    <strong>Challenge:</strong> {caseStudy.challenge}
+                  <div className="mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                      {caseStudy.title}
+                    </h3>
                   </div>
                   
-                  <div className="flex items-center gap-2 text-green-600 font-semibold mb-4">
+                  <div className="text-sm text-gray-600 mb-4 leading-relaxed">
+                    <strong className="text-gray-800">Challenge:</strong> {caseStudy.challenge}
+                  </div>
+                  
+                  <div className="flex items-center gap-2 text-emerald-600 font-bold mb-4 bg-emerald-50 px-3 py-2 rounded-lg">
                     <TrendingUp className="h-4 w-4" />
-                    {caseStudy.metrics}
+                    <span className="text-sm">{caseStudy.metrics}</span>
                   </div>
                   
-                  <div className="flex flex-wrap gap-1 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {caseStudy.tags.slice(0, 2).map((tag) => (
                       <span 
                         key={tag}
-                        className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs"
+                        className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors"
                       >
                         {tag}
                       </span>
@@ -279,11 +282,11 @@ const CaseStudies = () => {
                   
                   <Button 
                     variant="outline" 
-                    className="w-full group-hover:bg-blue-50 group-hover:border-blue-300 transition-colors"
+                    className="w-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 font-semibold py-2.5"
                     onClick={() => window.location.href = `/case-studies/${caseStudy.id}`}
                   >
                     Read Full Case Study
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
               </motion.div>
@@ -323,10 +326,8 @@ const CaseStudies = () => {
               size="lg"
               className="bg-gray-900 hover:bg-gray-800"
               onClick={() => {
-                const element = document.getElementById('book');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                // Navigate to homepage and scroll to Calendly section
+                window.location.href = '/#book';
               }}
             >
               Book Your Free Strategy Session

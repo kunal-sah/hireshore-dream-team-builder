@@ -7,15 +7,8 @@ import { Button } from "@/components/ui/button";
 
 const SiteFooter = () => {
 
-  // Add useEffect to load the ParraCity Web script when component mounts
+  // Add useEffect to load chat widget only
   useEffect(() => {
-    // Add ParraCity Web script
-    const script = document.createElement('script');
-    script.src = "https://api.parracityweb.com/js/form_embed.js";
-    script.type = "text/javascript";
-    script.async = true;
-    document.body.appendChild(script);
-
     // Add LeadConnector chat widget script
     const chatScript = document.createElement('script');
     chatScript.src = "https://widgets.leadconnectorhq.com/loader.js";
@@ -25,27 +18,22 @@ const SiteFooter = () => {
 
     return () => {
       // Clean up scripts when component unmounts
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
       if (document.body.contains(chatScript)) {
         document.body.removeChild(chatScript);
       }
     };
   }, []);
 
-  const openPopupForm = () => {
-    // Open the popup form by triggering the Cal Form
-    const iframe = document.getElementById('popup-shdOJ5vbCj1i9JYIQOyt');
-    if (iframe) {
-      // Trigger the popup form
-      const event = new Event('calFormShow');
-      window.dispatchEvent(event);
+  const scrollToCalendly = () => {
+    // Scroll to Calendly section
+    const calendlyElement = document.getElementById('book');
+    if (calendlyElement) {
+      calendlyElement.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const footerLinks = [
-    { icon: "📞", text: "Book a free strategy call", action: openPopupForm },
+    { icon: "📞", text: "Book a free strategy call", action: scrollToCalendly },
     { icon: "📧", text: "kunal@hireshore.co", href: "mailto:kunal@hireshore.co" },
     { icon: "🌐", text: "www.hireshore.co", href: "https://www.hireshore.co", external: true },
   ];
@@ -84,24 +72,6 @@ const SiteFooter = () => {
       
       <div className="max-w-5xl mx-auto px-6 md:px-8 relative z-10">
         
-        {/* ParraCity Web booking widget */}
-        <motion.div 
-          id="booking-form" 
-          className="mb-12 shadow-lg rounded-xl overflow-hidden bg-white"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.7 }}
-          whileHover={{ boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
-        >
-          <iframe 
-            src="https://api.parracityweb.com/widget/booking/2bnjaAemKcwV8XCygK9C" 
-            style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "750px" }} 
-            scrolling="no" 
-            id="2bnjaAemKcwV8XCygK9C_1749702216266"
-            title="Booking Form"
-          />
-        </motion.div>
 
         {/* Standard Footer Format */}
         <div className="border-t border-gray-200 pt-8">
