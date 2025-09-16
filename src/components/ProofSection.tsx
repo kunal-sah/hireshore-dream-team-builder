@@ -99,45 +99,6 @@ const ProofSection = () => {
             })}
           </div>
         </motion.div>
-
-        {/* Testimonial Section */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="text-center"
-        >
-          <motion.div 
-            variants={itemVariants}
-            className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100 max-w-4xl mx-auto relative overflow-hidden"
-          >
-            {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full opacity-50 transform translate-x-16 -translate-y-16"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-purple-100 to-pink-100 rounded-full opacity-50 transform -translate-x-12 translate-y-12"></div>
-            
-            <div className="relative z-10">
-              <div className="flex justify-center mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              
-              <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 italic">
-                "We cut 70% of weekly fulfillment in week one. Communication is crisp, QA is tight, and clients are happier."
-              </blockquote>
-              
-              <div className="flex items-center justify-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-white font-bold text-lg">J</span>
-                </div>
-                <div className="text-left">
-                  <div className="font-semibold text-gray-900">James</div>
-                  <div className="text-gray-600">Digital Agency Owner</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );
