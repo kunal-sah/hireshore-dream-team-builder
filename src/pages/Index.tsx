@@ -19,6 +19,10 @@ import WhyPodsSection from "../components/WhyPodsSection";
 import HowItWorksSection from "../components/HowItWorksSection";
 import ProofSection from "../components/ProofSection";
 import CalendlySection from "../components/CalendlySection";
+import DeliveryPodDefinition from "../components/DeliveryPodDefinition";
+import PodAtAGlance from "../components/PodAtAGlance";
+import InsideDeliveryPod from "../components/InsideDeliveryPod";
+import FAQSection from "../components/FAQSection";
 
 const Index = () => {
   // Add useEffect to add JSON-LD and scroll behavior
@@ -113,13 +117,16 @@ const Index = () => {
     <div className="bg-white min-h-screen flex flex-col font-sans text-neutral-900 overflow-x-hidden">
       <NavBar />
       <LandingHero />
+      <DeliveryPodDefinition />
       <div className="space-y-12 md:space-y-16">
         <TrustedStartups />
-        <div id="why-pods">
-          <WhyPodsSection />
-        </div>
+        <PodAtAGlance />
+        <InsideDeliveryPod />
         <div id="how-it-works">
           <HowItWorksSection />
+        </div>
+        <div id="why-pods">
+          <WhyPodsSection />
         </div>
         <div id="proof">
           <ProofSection />
@@ -240,6 +247,7 @@ const Index = () => {
         <ServicesSection />
         <RolesSection />
         <TestimonialsSection />
+        <FAQSection />
         <CalendlySection />
       </div>
       <SiteFooter />

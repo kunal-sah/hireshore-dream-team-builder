@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Users, Clock, Shield, TrendingUp, AlertTriangle, User } from 'lucide-react';
+import { Users, Clock, Shield, TrendingUp, AlertTriangle, User, CheckCircle } from 'lucide-react';
 
 const WhyPodsSection = () => {
   const ref = useRef<HTMLElement>(null);
@@ -26,9 +26,52 @@ const WhyPodsSection = () => {
     }
   };
 
+  const comparisonData = [
+    {
+      criteria: "Skill Coverage",
+      fullTime: "1 person",
+      freelancers: "Fragmented",
+      agency: "Good but siloed",
+      pod: "Multi-skill, stable team",
+      podAdvantage: true
+    },
+    {
+      criteria: "Management",
+      fullTime: "You",
+      freelancers: "You (heavy)",
+      agency: "Shared/variable",
+      pod: "Included (PM + QA)",
+      podAdvantage: true
+    },
+    {
+      criteria: "Speed to Start",
+      fullTime: "4–8 weeks",
+      freelancers: "1–2 weeks",
+      agency: "2–4 weeks",
+      pod: "5 days to ship",
+      podAdvantage: true
+    },
+    {
+      criteria: "Risk",
+      fullTime: "High",
+      freelancers: "High inconsistency",
+      agency: "Contract lock-in",
+      pod: "Low, flexible scale",
+      podAdvantage: true
+    },
+    {
+      criteria: "Cost Efficiency",
+      fullTime: "Salary + overhead",
+      freelancers: "Per task",
+      agency: "Retainer/mark-ups",
+      pod: "Full-time output for less",
+      podAdvantage: true
+    }
+  ];
+
   return (
     <section ref={ref} className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-6xl mx-auto px-6 md:px-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -39,87 +82,90 @@ const WhyPodsSection = () => {
             variants={itemVariants}
             className="text-3xl md:text-4xl font-bold mb-6"
           >
-            Why Pods vs Full-Time Hire?
+            Why a Pod Instead of a Full-Time Hire or Freelancers?
           </motion.h2>
           <motion.p 
             variants={itemVariants}
             className="text-lg text-gray-600 max-w-3xl mx-auto"
           >
-            Compare the traditional hiring approach with our managed Delivery Pod solution
+            See how Delivery Pods compare to traditional staffing approaches
           </motion.p>
         </motion.div>
 
-        <motion.div 
-          variants={containerVariants}
+        <motion.div
+          variants={itemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 gap-8"
+          className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
         >
-          {/* Full-Time Hire Card */}
-          <motion.div 
-            variants={itemVariants}
-            className="bg-white rounded-xl p-8 shadow-lg border border-gray-200 relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 w-full h-1 bg-red-400"></div>
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mr-4">
-                <User className="w-6 h-6 text-red-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">Full-Time Hire</h3>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="flex items-center">
-                <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0" />
-                <span className="text-gray-700">1 person, limited skill coverage</span>
-              </div>
-              <div className="flex items-center">
-                <Clock className="w-5 h-5 text-red-500 mr-3 flex-shrink-0" />
-                <span className="text-gray-700">Hiring risk & 2-4 week ramp time</span>
-              </div>
-              <div className="flex items-center">
-                <Users className="w-5 h-5 text-red-500 mr-3 flex-shrink-0" />
-                <span className="text-gray-700">Management overhead & training</span>
-              </div>
-              <div className="flex items-center">
-                <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0" />
-                <span className="text-gray-700">Single-point dependency risk</span>
-              </div>
-            </div>
-          </motion.div>
+          {/* Desktop Table */}
+          <div className="hidden md:block overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-gray-50 border-b border-gray-200">
+                  <th className="text-left py-4 px-6 font-semibold text-gray-900">Criteria</th>
+                  <th className="text-center py-4 px-6 font-semibold text-gray-900">Full-Time Hire</th>
+                  <th className="text-center py-4 px-6 font-semibold text-gray-900">Freelancers</th>
+                  <th className="text-center py-4 px-6 font-semibold text-gray-900">Traditional Agency</th>
+                  <th className="text-center py-4 px-6 font-semibold text-blue-600 bg-blue-50">Delivery Pod (You)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((row, index) => (
+                  <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-25'}>
+                    <td className="py-4 px-6 font-medium text-gray-900 border-r border-gray-100">
+                      {row.criteria}
+                    </td>
+                    <td className="py-4 px-6 text-center text-gray-600 border-r border-gray-100">
+                      {row.fullTime}
+                    </td>
+                    <td className="py-4 px-6 text-center text-gray-600 border-r border-gray-100">
+                      {row.freelancers}
+                    </td>
+                    <td className="py-4 px-6 text-center text-gray-600 border-r border-gray-100">
+                      {row.agency}
+                    </td>
+                    <td className="py-4 px-6 text-center bg-blue-50 border-l-2 border-blue-200">
+                      <span className="inline-flex items-center font-medium text-blue-700">
+                        <CheckCircle className="w-4 h-4 mr-2 text-blue-600" />
+                        {row.pod}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-          {/* Hireshore Delivery Pod Card */}
-          <motion.div 
-            variants={itemVariants}
-            className="bg-white rounded-xl p-8 shadow-lg border border-blue-200 relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mr-4">
-                <Users className="w-6 h-6 text-white" />
+          {/* Mobile Cards */}
+          <div className="md:hidden p-6 space-y-6">
+            {comparisonData.map((row, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg p-4">
+                <h4 className="font-semibold text-gray-900 mb-4">{row.criteria}</h4>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Full-Time Hire:</span>
+                    <span className="text-sm font-medium text-gray-900">{row.fullTime}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Freelancers:</span>
+                    <span className="text-sm font-medium text-gray-900">{row.freelancers}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Traditional Agency:</span>
+                    <span className="text-sm font-medium text-gray-900">{row.agency}</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-blue-50 rounded px-3 py-2 border-l-2 border-blue-200">
+                    <span className="text-sm font-medium text-blue-700">Delivery Pod:</span>
+                    <div className="flex items-center">
+                      <CheckCircle className="w-4 h-4 mr-1 text-blue-600" />
+                      <span className="text-sm font-medium text-blue-700">{row.pod}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Hireshore Delivery Pod</h3>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="flex items-center">
-                <TrendingUp className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                <span className="text-gray-700">Multi-skill team (PM + ICs)</span>
-              </div>
-              <div className="flex items-center">
-                <Clock className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                <span className="text-gray-700">Ships by Day 5, zero ramp time</span>
-              </div>
-              <div className="flex items-center">
-                <Shield className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                <span className="text-gray-700">Managed process & built-in QA</span>
-              </div>
-              <div className="flex items-center">
-                <TrendingUp className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                <span className="text-gray-700">Flexible scale, no lock-in</span>
-              </div>
-            </div>
-          </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
