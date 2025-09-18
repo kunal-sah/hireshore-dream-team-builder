@@ -191,8 +191,58 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Our Values */}
+        {/* Video Section */}
         <section className="py-20">
+          <div className="max-w-6xl mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                How We Help You Scale
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Watch this video to understand how agency owners can delegate and scale their operations 
+                without the overhead of hiring full-time staff.
+              </p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto"
+            >
+              <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
+                <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
+                  <iframe
+                    src="https://www.youtube.com/embed/hCa98Yfnt-U"
+                    title="How Agency Owners Can Delegate & Scale Without Hiring Full-Time Staff"
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <div className="mt-4 text-center">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    How Agency Owners Can Delegate & Scale Without Hiring Full-Time Staff
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Learn the strategies and frameworks we use to help agencies scale efficiently
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Our Values */}
+        <section className="py-20 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
