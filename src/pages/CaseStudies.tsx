@@ -194,7 +194,7 @@ const CaseStudies = () => {
       <NavBar />
       
       {/* Breadcrumb */}
-      <div className="bg-white border-b border-gray-100">
+      <div className="bg-white border-b border-gray-100 pt-20">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <Breadcrumb>
             <BreadcrumbList>
