@@ -117,9 +117,9 @@ const Index = () => {
     <div className="bg-white min-h-screen flex flex-col font-sans text-neutral-900 overflow-x-hidden">
       <NavBar />
       <LandingHero />
-      <DeliveryPodDefinition />
       <div className="space-y-12 md:space-y-16">
         <TrustedStartups />
+        <DeliveryPodDefinition />
         <PodAtAGlance />
         <InsideDeliveryPod />
         <div id="how-it-works">
