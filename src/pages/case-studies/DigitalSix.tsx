@@ -5,6 +5,14 @@ import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
 import CaseStudyCTA from '../../components/CaseStudyCTA';
 import digitalSixLogo from '../../assets/digital-six-logo.png';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const DigitalSixCaseStudy = () => {
   const stats = [
@@ -85,6 +93,27 @@ const DigitalSixCaseStudy = () => {
       <meta name="description" content="See how Digital Six scaled from 22 to 47 team members and saved over $1M monthly with Hireshore's managed delivery pods. Real results, measurable outcomes." />
       
       <NavBar />
+      
+      {/* Breadcrumb */}
+      <div className="bg-white border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/case-studies">Case Studies</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Digital Six</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
       
       {/* Featured Image/Cover Section */}
       <motion.section 

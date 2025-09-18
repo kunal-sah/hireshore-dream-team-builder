@@ -3,6 +3,14 @@ import { motion } from 'framer-motion';
 import { Users, Target, Award, Globe, Heart, Zap, Shield, TrendingUp } from 'lucide-react';
 import NavBar from '../components/NavBar';
 import SiteFooter from '../components/SiteFooter';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const AboutUs = () => {
   const stats = [
@@ -91,6 +99,22 @@ const AboutUs = () => {
       <NavBar />
       
       <main className="flex-1">
+        {/* Breadcrumb */}
+        <div className="bg-white border-b border-gray-100">
+          <div className="max-w-6xl mx-auto px-4 py-4">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>About Us</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+          </div>
+        </div>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20">
           <div className="max-w-6xl mx-auto px-4">

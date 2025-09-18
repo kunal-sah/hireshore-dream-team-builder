@@ -4,6 +4,14 @@ import { Search, Filter, ArrowRight, Clock, Users, TrendingUp } from 'lucide-rea
 import NavBar from "../components/NavBar";
 import SiteFooter from "../components/SiteFooter";
 import { Button } from "@/components/ui/button";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 // Import thumbnails
 import digitalSixThumbnail from '../assets/digital-six-thumbnail.jpg';
@@ -184,6 +192,23 @@ const CaseStudies = () => {
       <meta name="keywords" content="case studies, managed delivery pods, agency solutions, startup success, white-label services, Hireshore proof" />
       
       <NavBar />
+      
+      {/* Breadcrumb */}
+      <div className="bg-white border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Case Studies</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
       
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-gray-50 to-white pt-28 pb-16 px-4">

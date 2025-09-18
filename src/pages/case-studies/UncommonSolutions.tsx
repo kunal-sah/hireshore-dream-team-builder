@@ -4,6 +4,14 @@ import { TrendingUp, Target, Zap, Users, Clock, Award } from 'lucide-react';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
 import CaseStudyCTA from '../../components/CaseStudyCTA';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const UncommonSolutionsCaseStudy = () => {
   const challenges = [
@@ -88,7 +96,28 @@ const UncommonSolutionsCaseStudy = () => {
       
       <NavBar />
       
-      <motion.section 
+      {/* Breadcrumb */}
+      <div className="bg-white border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/case-studies">Case Studies</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Uncommon Solutions</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
+      
+      <motion.section
         className="max-w-6xl mx-auto py-28 px-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

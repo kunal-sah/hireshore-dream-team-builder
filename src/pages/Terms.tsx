@@ -1,6 +1,14 @@
 import React from 'react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const Terms = () => {
   return (
@@ -10,6 +18,22 @@ const Terms = () => {
       <link rel="canonical" href="/terms" />
       <NavBar />
       <main className="flex-1">
+        {/* Breadcrumb */}
+        <div className="bg-white border-b border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 py-4">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Terms & Conditions</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+          </div>
+        </div>
         <header className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-16">
           <div className="max-w-4xl mx-auto px-4">
             <h1 className="text-4xl font-bold text-gray-900">Terms & Conditions</h1>
