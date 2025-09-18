@@ -297,11 +297,25 @@ const PropertyStackCaseStudy = () => {
               Compared to freelancers or other markets, the quality from Nepal has been significantly better. 
               You guys have helped us grow fast and we've referred you to many of our partners."
             </blockquote>
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex items-center justify-center gap-4 mb-8">
               <div>
                 <div className="font-semibold text-gray-900">Ryan Jope</div>
                 <div className="text-gray-600">Founder of PropertyStack</div>
               </div>
+            </div>
+            
+            <div className="max-w-4xl mx-auto">
+              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                <iframe
+                  src="https://www.youtube.com/embed/9xMVgH1j9XE"
+                  title="PropertyStack Testimonial - Ryan Jope"
+                  className="w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <p className="text-sm text-gray-600 mt-2">Watch Ryan's full testimonial about working with Hireshore</p>
             </div>
           </div>
         </motion.div>
