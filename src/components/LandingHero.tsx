@@ -31,11 +31,11 @@ const LandingHero = () => {
   const getSubtitleText = () => {
     switch (selectedAudience) {
       case 'agencies':
-        return "Agency buried in client work? Our managed Delivery Pods cut fulfillment by up to 80% in a week — no hiring, no freelancer chasing.";
+        return "Agency buried in client work? Our managed Delivery Pods cut fulfillment by up to 80% in a week - no hiring, no freelancer chasing.";
       case 'startups':
         return "Building a product on a budget? Get the output of a full‑time hire with a managed, multi‑skill team that ships by Day 5.";
       default:
-        return "Whether you're an agency buried in client work or a startup racing to ship—our managed Delivery Pods give you the output of a full-time hire, with multiple skills, faster onboarding, and zero hiring headaches.";
+        return "Whether you're an agency buried in client work or a startup racing to ship, our managed Delivery Pods give you the output of a full-time hire, with multiple skills, faster onboarding, and zero hiring headaches.";
     }
   };
 

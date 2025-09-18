@@ -153,7 +153,7 @@ const HiringFormSection = () => {
             variants={itemVariants}
             className="text-gray-600 mb-8 text-center max-w-xl mx-auto relative z-10"
           >
-            Whether you're hiring a VA or a full tech squad — we've got you. Free hiring consultation, 
+            Whether you're hiring a VA or a full tech squad - we've got you. Free hiring consultation, 
             shortlist in 48 hours, onboard in 14 days. <b>Pay only after onboarding.</b>
           </motion.p>
           

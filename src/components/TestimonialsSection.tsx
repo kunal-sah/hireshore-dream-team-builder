@@ -21,25 +21,25 @@ const testimonials = [
   {
     name: "Marlon M.",
     title: "Founder, Medz Media",
-    text: "The best experience I've had working with a remote team. Websites came out fantastic—fast, secure, beautifully designed. The team's energy, proactiveness, and suggestions make them feel like a real part of my business. I've worked with freelancers before—this is a whole different level.",
+    text: "The best experience I've had working with a remote team. Websites came out fantastic - fast, secure, beautifully designed. The team's energy, proactiveness, and suggestions make them feel like a real part of my business. I've worked with freelancers before - this is a whole different level.",
     photo: "/lovable-uploads/fbdcffaa-5b42-4efe-ae99-e7cec23a54c8.png",
   },
   {
     name: "Ryan Jope",
     title: "Founder, PropertyStack",
-    text: "We've hired over 15 people through Hireshore in just a year—and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality from Nepal has been significantly better.",
+    text: "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality from Nepal has been significantly better.",
     photo: "/lovable-uploads/d4be4a5a-7f58-4205-b403-c137a43e5d8b.png",
   },
   {
     name: "Chloe Bundy",
     title: "Founder, Cove Digital",
-    text: "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver—without compromise—is a game changer. I hand over the project and SOP, and it's done before the deadline.",
+    text: "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver without compromise is a game changer. I hand over the project and SOP, and it's done before the deadline.",
     photo: "/lovable-uploads/a2773a93-5211-4d24-a4b1-ec9b04e22039.png",
   },
   {
     name: "Breearna Jope",
     title: "Founder, Uncommon Solutions",
-    text: "The team is well-skilled, easy to work with, and they deliver on time. I get estimates upfront, so I can confidently promise timelines to my clients—and they're met. I don't need to search for freelancers anymore. Kunal and the Hireshore team help me pitch, plan, and deliver custom solutions for every client.",
+    text: "The team is well-skilled, easy to work with, and they deliver on time. I get estimates upfront, so I can confidently promise timelines to my clients - and they're met. I don't need to search for freelancers anymore. Kunal and the Hireshore team help me pitch, plan, and deliver custom solutions for every client.",
     photo: "/lovable-uploads/394a2ced-a988-4153-8ef9-1e99f76765fb.png",
   },
 ];

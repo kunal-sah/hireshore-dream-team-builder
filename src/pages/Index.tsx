@@ -147,9 +147,9 @@ const Index = () => {
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
                 <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-6">
-                  "The best experience I've had working with a remote team. Websites came out fantastic—fast, 
+                  "The best experience I've had working with a remote team. Websites came out fantastic - fast, 
                   secure, beautifully designed. The team's energy, proactiveness, and suggestions make them feel 
-                  like a real part of my business. I've worked with freelancers before—this is a whole different level. 
+                  like a real part of my business. I've worked with freelancers before - this is a whole different level. 
                   I've referred Hireshore to friends, clients, and even my full-time employer. It's truly been a 
                   game changer for both my business and personal life."
                 </blockquote>

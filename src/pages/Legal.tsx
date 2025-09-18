@@ -19,7 +19,7 @@ const Legal = () => {
         <section className="py-12">
           <article className="max-w-4xl mx-auto px-4 prose prose-slate">
             <h2>Company</h2>
-            <p>Hireshore, LLC — 800 North King Street, Wilmington, DE 19801 US</p>
+            <p>Hireshore, LLC - 800 North King Street, Wilmington, DE 19801 US</p>
             <h2>Contact</h2>
             <p>Email: <a href="mailto:sales@hireshore.co">sales@hireshore.co</a></p>
             <h2>Intellectual Property</h2>

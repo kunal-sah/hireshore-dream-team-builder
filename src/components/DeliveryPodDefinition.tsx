@@ -16,7 +16,7 @@ const DeliveryPodDefinition = () => {
         >
           <h2 className="text-2xl font-bold text-gray-900 mb-4">What's a Delivery Pod?</h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            A Delivery Pod is a small, managed, cross-functional team (PM + specialists) that plugs into your tools and ships client work by Day 5—giving you the output of a full-time hire without the overhead.
+            A Delivery Pod is a small, managed, cross-functional team (PM + specialists) that plugs into your tools and ships client work by Day 5, giving you the output of a full-time hire without the overhead.
           </p>
         </motion.div>
       </div>

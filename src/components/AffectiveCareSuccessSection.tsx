@@ -89,7 +89,7 @@ const AffectiveCareSuccessSection = () => {
             </div>
             <div className="space-y-4 text-gray-600">
               <p>
-                Affective Care was growing rapidly, but managing digital assets across multiple service lines and stores became increasingly difficult. The team relied on freelancers for WordPress landing page development and GoHighLevel automation—often billed hourly at inflated rates, with delayed delivery and lack of transparency.
+                Affective Care was growing rapidly, but managing digital assets across multiple service lines and stores became increasingly difficult. The team relied on freelancers for WordPress landing page development and GoHighLevel automation - often billed hourly at inflated rates, with delayed delivery and lack of transparency.
               </p>
               <p>
                 Their visual assets came from a Malaysian subscription design service, but it was costly and limited in flexibility and output. Managing their Shopify store with over 4,000 products was becoming a daily bottleneck.
@@ -119,7 +119,7 @@ const AffectiveCareSuccessSection = () => {
                 A Custom Delivery Pod + Shopify Support Team
               </p>
               <p>
-                Hireshore deployed a dedicated delivery pod to manage all of Affective Care's tech and marketing execution—under one flat monthly subscription.
+                Hireshore deployed a dedicated delivery pod to manage all of Affective Care's tech and marketing execution under one flat monthly subscription.
               </p>
               <div className="space-y-2">
                 <p className="font-semibold text-gray-800">Services Included:</p>

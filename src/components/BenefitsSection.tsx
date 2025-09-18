@@ -11,7 +11,7 @@ const benefits = [
   {
     emoji: "💸",
     title: "Massive Cost Advantage",
-    desc: "Save up to 80–90% vs. local hires. Pros from $800/month. Grow lean — without compromise.",
+    desc: "Save up to 80-90% vs. local hires. Pros from $800/month. Grow lean without compromise.",
   },
   {
     emoji: "⚡️",
@@ -21,7 +21,7 @@ const benefits = [
   {
     emoji: "🔁",
     title: "Zero Risk Hiring Guarantee",
-    desc: "If it's not a fit, we'll replace them free — within 90 days. Your success, guaranteed.",
+    desc: "If it's not a fit, we'll replace them free within 90 days. Your success, guaranteed.",
   },
   {
     emoji: "💰",
@@ -31,7 +31,7 @@ const benefits = [
   {
     emoji: "🤝",
     title: "Personalized Support",
-    desc: "From custom role scoping to post-hire support — we act as your extended hiring team.",
+    desc: "From custom role scoping to post-hire support, we act as your extended hiring team.",
   }
 ];
 

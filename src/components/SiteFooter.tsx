@@ -88,7 +88,7 @@ const SiteFooter = () => {
               <h4 className="text-lg font-medium text-gray-800 mb-4">🤝 Backed by Real People, Real Results</h4>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
                 Hireshore is founded by a global team in Nepal, dedicated to helping startups and agencies grow lean and smart.
-                You're not talking to a faceless recruiter — you're partnering with a founder who's built and scaled remote teams.
+                You're not talking to a faceless recruiter - you're partnering with a founder who's built and scaled remote teams.
               </p>
             </motion.div>
             

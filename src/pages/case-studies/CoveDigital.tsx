@@ -271,7 +271,7 @@ const CoveDigitalCaseStudy = () => {
 
             <div className="bg-white rounded-xl p-8 border border-green-200">
               <blockquote className="text-lg text-gray-700 mb-6">
-                "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver—without compromise—is a game changer. I hand over the project and SOP, and it's done before the deadline and to the highest quality standard I could imagine."
+                "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver without compromise is a game changer. I hand over the project and SOP, and it's done before the deadline and to the highest quality standard I could imagine."
               </blockquote>
               <div className="flex items-center justify-center gap-4">
                 <div>

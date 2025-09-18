@@ -188,7 +188,7 @@ const PropertyStackCaseStudy = () => {
                 </p>
                 <p className="text-gray-900 font-semibold">
                   <strong>Goal:</strong> Build a reliable in-house team of developers, QA testers, support staff, 
-                  and admin specialists—without burning through limited startup capital.
+                  and admin specialists without burning through limited startup capital.
                 </p>
               </div>
               
@@ -292,7 +292,7 @@ const PropertyStackCaseStudy = () => {
               💬 Client Testimonial
             </h3>
             <blockquote className="text-lg text-gray-700 italic mb-6 max-w-4xl mx-auto">
-              "We've hired over 15 people through Hireshore in just a year—and could've done 10 more. 
+              "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. 
               The hiring process is much easier now with resume videos and pre-vetted candidates. 
               Compared to freelancers or other markets, the quality from Nepal has been significantly better. 
               You guys have helped us grow fast and we've referred you to many of our partners."

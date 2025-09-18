@@ -26,7 +26,7 @@ const FAQSection = () => {
     },
     {
       question: "Do Pods replace my team?",
-      answer: "No, Pods extend your team's capacity and focus on tactical work while your team handles strategy and client relationships. Think of us as your execution arm—we handle the building while you focus on growing your business."
+      answer: "No, Pods extend your team's capacity and focus on tactical work while your team handles strategy and client relationships. Think of us as your execution arm - we handle the building while you focus on growing your business."
     },
     {
       question: "How quickly can we get started?",

@@ -9,7 +9,7 @@ const roles = [
   "QA Engineers & DevOps",
   "Shopify / WordPress Experts",
   "Customer Support Reps (Email, Chat, Phone)",
-  "More — tailored for your needs"
+  "More - tailored for your needs"
 ];
 
 const RolesSection = () => {

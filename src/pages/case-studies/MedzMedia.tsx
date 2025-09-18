@@ -187,8 +187,8 @@ const MedzMediaCaseStudy = () => {
               🚩 The Challenge
             </h3>
             <p className="text-gray-600 leading-relaxed">
-              When Marlon, founder of Medz Media, reached out to Hireshore, he was juggling every role—designer, 
-              developer, strategist, and sales lead—often working late into the night to keep things afloat. While 
+              When Marlon, founder of Medz Media, reached out to Hireshore, he was juggling every role - designer, 
+              developer, strategist, and sales lead - often working late into the night to keep things afloat. While 
               he had tried using freelance platforms and subscription-based services, the constant coordination, 
               lack of quality control, and communication gaps made scaling impossible.
             </p>
@@ -233,9 +233,9 @@ const MedzMediaCaseStudy = () => {
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-6">
-                "The best experience I've had working with a remote team. Websites came out fantastic—fast, 
+                "The best experience I've had working with a remote team. Websites came out fantastic - fast, 
                 secure, beautifully designed. The team's energy, proactiveness, and suggestions make them feel 
-                like a real part of my business. I've worked with freelancers before—this is a whole different level. 
+                like a real part of my business. I've worked with freelancers before - this is a whole different level. 
                 I've referred Hireshore to friends, clients, and even my full-time employer. It's truly been a 
                 game changer for both my business and personal life."
               </blockquote>
@@ -273,7 +273,7 @@ const MedzMediaCaseStudy = () => {
             <p className="text-gray-600 leading-relaxed">
               Marlon is now working closely with Hireshore not just for Medz Media, but also for new service 
               lines across Australia and South America. With plans to add SEO and automation specialists, this 
-              partnership continues to evolve beyond a simple outsourcing model—it's a full growth alliance, 
+              partnership continues to evolve beyond a simple outsourcing model - it's a full growth alliance, 
               including a new white-label collaboration: CrewLinker, powered by Hireshore's backend delivery.
             </p>
           </div>

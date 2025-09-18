@@ -155,8 +155,8 @@ const CoveDigitalSuccessSection: React.FC = () => {
           ))}
         </ul>
         <blockquote className="mt-6 border-l-4 pl-4 text-muted-foreground">
-          "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver—without compromise—is a game changer. I hand over the project and SOP, and it's done before the deadline and to the highest quality standard I could imagine."
-          — Chloe Bundy, Founder, Cove Digital
+          "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver without compromise is a game changer. I hand over the project and SOP, and it's done before the deadline and to the highest quality standard I could imagine."
+          - Chloe Bundy, Founder, Cove Digital
         </blockquote>
       </motion.article>
     </CaseStudyLayout>

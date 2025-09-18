@@ -35,7 +35,7 @@ const UncommonSolutionsCaseStudy = () => {
     "Saved 40+ hours/week in coordination and delegation",
     "Launched agency website and multiple client projects from scratch",
     "Pitched more confidently using done-for-you mockups & samples",
-    "No longer reliant on juggling 4–5 freelancers—one pod, one system, one team",
+    "No longer reliant on juggling 4-5 freelancers - one pod, one system, one team",
     "Cost-efficient & transparent delivery with pre-agreed timelines"
   ];
 
@@ -251,7 +251,7 @@ const UncommonSolutionsCaseStudy = () => {
           {/* Client Testimonial */}
           <div className="bg-white rounded-xl p-8 border border-green-200">
             <blockquote className="text-lg text-gray-700 mb-6">
-              "The team is well-skilled, easy to work with, and they deliver on time. I get estimates upfront, so I can confidently promise timelines to my clients—and they're met. I don't need to search for freelancers anymore. Kunal and the Hireshore team help me pitch, plan, and deliver custom solutions for every client."
+              "The team is well-skilled, easy to work with, and they deliver on time. I get estimates upfront, so I can confidently promise timelines to my clients - and they're met. I don't need to search for freelancers anymore. Kunal and the Hireshore team help me pitch, plan, and deliver custom solutions for every client."
             </blockquote>
             <div className="flex items-center gap-4">
               <div>

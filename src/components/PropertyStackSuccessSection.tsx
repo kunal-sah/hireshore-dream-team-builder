@@ -67,7 +67,7 @@ const PropertyStackSuccessSection = () => {
             When PropertyStack first connected with Hireshore, they were a lean 5-member startup team, using no-code tools and working with freelancers to build their MVP. As their platform evolved, it became clear that scaling with freelancers and solo devs lacked long-term efficiency, quality, and cohesion.
           </p>
           <p className="text-gray-700 text-lg leading-relaxed mt-4 font-semibold">
-            Goal: Build a reliable in-house team of developers, QA testers, support staff, and admin specialists—without burning through limited startup capital.
+            Goal: Build a reliable in-house team of developers, QA testers, support staff, and admin specialists without burning through limited startup capital.
           </p>
         </motion.div>
 
@@ -204,7 +204,7 @@ const PropertyStackSuccessSection = () => {
           </div>
           
           <blockquote className="text-xl md:text-2xl text-gray-700 text-center leading-relaxed mb-8 italic">
-            "We've hired over 15 people through Hireshore in just a year—and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality from Nepal has been significantly better. You guys have helped us grow fast and we've referred you to many of our partners."
+            "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality from Nepal has been significantly better. You guys have helped us grow fast and we've referred you to many of our partners."
           </blockquote>
           
           <div className="text-center mb-8">

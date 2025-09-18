@@ -111,7 +111,7 @@ const ServicesSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Pre-vetted, white-labeled pods for web, design, automation, marketing, and support—fully managed so you stay focused on growth.
+            Pre-vetted, white-labeled pods for web, design, automation, marketing, and support - fully managed so you stay focused on growth.
           </motion.p>
         </div>
 
