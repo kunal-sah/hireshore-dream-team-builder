@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import { Headphones, Users, Phone, Palette, Code } from "lucide-react";
+import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import { Headphones, Users, Phone, Palette, Code, Menu, X } from "lucide-react";
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
@@ -140,29 +141,72 @@ const NavBar = () => {
             </motion.button>
           </div>
 
-          {/* Mobile Menu */}
-          <div className="flex lg:hidden items-center space-x-3">
-            <Link
-              to="/case-studies"
-              className="text-foreground hover:text-primary font-medium transition-colors text-sm"
-            >
-              Cases
-            </Link>
-            <Link
-              to="/contact-us"
-              className="text-foreground hover:text-primary font-medium transition-colors text-sm"
-            >
-              Contact
-            </Link>
+          {/* Mobile Menu Button */}
+          <div className="flex lg:hidden">
             <motion.button
-              onClick={scrollToBooking}
-              className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold py-2 px-4 rounded-md text-sm hover:bg-primary/90 transition-all duration-300"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary hover:bg-gray-100 transition-all duration-300"
+              whileTap={{ scale: 0.95 }}
             >
-              <Phone className="h-4 w-4 mr-1" />
-              <span className="hidden sm:inline">Book</span>
+              <span className="sr-only">Open main menu</span>
+              {mobileMenuOpen ? (
+                <X className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              )}
             </motion.button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="lg:hidden bg-white border-t border-gray-200 shadow-lg"
+            >
+              <div className="px-2 pt-2 pb-3 space-y-1">
+                <Link
+                  to="/case-studies"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Case Studies
+                </Link>
+                <Link
+                  to="/about-us"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About Us
+                </Link>
+                <Link
+                  to="/contact-us"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact Us
+                </Link>
+                <motion.button
+                  className="w-full mt-4 inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold px-4 py-3 rounded-lg text-base hover:bg-primary/90 transition-all duration-300 shadow-lg"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onMouseDown={createRipple}
+                  onClick={() => {
+                    scrollToBooking();
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  <Phone className="mr-2 h-5 w-5" />
+                  Book Free Strategy Session
+                </motion.button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   );
