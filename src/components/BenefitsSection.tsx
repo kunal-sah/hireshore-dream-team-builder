@@ -54,7 +54,7 @@ const BenefitsSection = () => {
   };
 
   return (
-    <section id="benefits" className="relative py-12 px-4">
+    <section id="benefits" className="relative py-8 sm:py-12 px-4">
       {/* Container with max width to prevent wide screens from breaking the layout */}
       <div className="max-w-5xl mx-auto relative">
         {/* Gradient background effect */}
@@ -65,9 +65,9 @@ const BenefitsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="mb-12"
+          className="mb-8 sm:mb-12"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-center">
             <motion.span 
               className="inline-block relative"
               whileInView={{ 
@@ -85,13 +85,13 @@ const BenefitsSection = () => {
               />
             </motion.span>
           </h2>
-          <p className="text-lg text-center text-gray-600 mt-4 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-center text-gray-600 mt-4 max-w-2xl mx-auto px-4">
             We're not just recruiters. We're an extension of your founding team.
           </p>
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
           variants={container}
           initial="hidden"
           whileInView="show"

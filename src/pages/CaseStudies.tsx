@@ -259,9 +259,9 @@ const CaseStudies = () => {
       </section>
 
       {/* Case Studies Grid */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredCases.map((caseStudy, index) => (
               <motion.div
                 key={caseStudy.id}
@@ -270,7 +270,7 @@ const CaseStudies = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-gray-100 hover:border-blue-200"
               >
-                <div className="relative h-56 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100">
+                <div className="relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100">
                   <img 
                     src={caseStudy.thumbnail} 
                     alt={`${caseStudy.client} case study thumbnail`}

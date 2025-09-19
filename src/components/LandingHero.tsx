@@ -123,7 +123,7 @@ const LandingHero = () => {
   };
 
   return (
-    <header ref={heroRef} className="w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-28 pb-16 md:pb-20 px-4 md:px-0 relative overflow-hidden spotlight" style={{
+    <header ref={heroRef} className="w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-20 sm:pt-28 pb-12 sm:pb-16 md:pb-20 px-4 relative overflow-hidden spotlight" style={{
       '--x': '50%',
       '--y': '50%',
     } as React.CSSProperties}>
@@ -194,7 +194,7 @@ const LandingHero = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Side-by-side layout */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[600px]">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[500px] sm:min-h-[600px]">
           {/* Left side - Content */}
           <motion.div 
             className="space-y-8"
@@ -203,7 +203,7 @@ const LandingHero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -220,7 +220,7 @@ const LandingHero = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-lg md:text-xl text-gray-700 max-w-2xl"
+              className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl"
               custom={2}
               variants={textVariants}
               initial="hidden"
@@ -237,9 +237,9 @@ const LandingHero = () => {
               initial="hidden"
               animate="visible"
             >
-              <div className="flex justify-start gap-2 mb-6">
+              <div className="flex flex-wrap justify-start gap-2 mb-6">
                 <button 
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                     selectedAudience === 'all' 
                       ? 'bg-gray-900 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -249,7 +249,7 @@ const LandingHero = () => {
                   All
                 </button>
                 <button 
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                     selectedAudience === 'agencies' 
                       ? 'bg-gray-900 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -259,7 +259,7 @@ const LandingHero = () => {
                   Agencies
                 </button>
                 <button 
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                     selectedAudience === 'startups' 
                       ? 'bg-gray-900 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -273,14 +273,14 @@ const LandingHero = () => {
 
             {/* CTAs */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 mb-6"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6"
               custom={4}
               variants={textVariants}
               initial="hidden"
               animate="visible"
             >
               <motion.button
-                className="inline-flex items-center justify-center h-14 gradient-btn bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold py-4 px-8 rounded-xl shadow-lg text-base transition-all hover:shadow-xl ripple-effect relative overflow-hidden min-w-[280px]"
+                className="inline-flex items-center justify-center h-12 sm:h-14 gradient-btn bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg text-sm sm:text-base transition-all hover:shadow-xl ripple-effect relative overflow-hidden w-full sm:min-w-[280px]"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)"
@@ -300,7 +300,7 @@ const LandingHero = () => {
               </motion.button>
 
               <motion.button
-                className="inline-flex items-center justify-center h-14 border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold py-4 px-8 rounded-xl text-base transition-all min-w-[220px]"
+                className="inline-flex items-center justify-center h-12 sm:h-14 border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-sm sm:text-base transition-all w-full sm:min-w-[220px]"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {

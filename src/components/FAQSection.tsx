@@ -39,16 +39,16 @@ const FAQSection = () => {
   ];
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-6 md:px-8">
+    <section ref={ref} className="py-12 sm:py-16 md:py-24 bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             Common questions about working with Delivery Pods
           </p>
         </motion.div>
@@ -57,15 +57,15 @@ const FAQSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
+          className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 lg:p-8"
         >
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border border-gray-100 rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold text-gray-900 py-4">
+              <AccordionItem key={index} value={`item-${index}`} className="border border-gray-100 rounded-lg px-4 sm:px-6">
+                <AccordionTrigger className="text-left font-semibold text-gray-900 py-3 sm:py-4 text-sm sm:text-base">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pb-4 leading-relaxed">
+                <AccordionContent className="text-gray-600 pb-3 sm:pb-4 leading-relaxed text-sm sm:text-base">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

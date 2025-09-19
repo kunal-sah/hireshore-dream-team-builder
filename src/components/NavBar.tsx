@@ -140,13 +140,26 @@ const NavBar = () => {
             </motion.button>
           </div>
 
-          {/* Mobile Menu - Simplified */}
-          <div className="flex lg:hidden items-center space-x-2">
+          {/* Mobile Menu */}
+          <div className="flex lg:hidden items-center space-x-3">
+            <Link
+              to="/case-studies"
+              className="text-foreground hover:text-primary font-medium transition-colors text-sm"
+            >
+              Cases
+            </Link>
+            <Link
+              to="/contact-us"
+              className="text-foreground hover:text-primary font-medium transition-colors text-sm"
+            >
+              Contact
+            </Link>
             <motion.button
               onClick={scrollToBooking}
-              className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold py-2 px-3 rounded-md text-sm hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold py-2 px-4 rounded-md text-sm hover:bg-primary/90 transition-all duration-300"
             >
-              <Phone className="h-4 w-4" />
+              <Phone className="h-4 w-4 mr-1" />
+              <span className="hidden sm:inline">Book</span>
             </motion.button>
           </div>
         </div>

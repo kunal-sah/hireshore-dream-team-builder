@@ -116,7 +116,7 @@ const AboutUs = () => {
           </div>
         </div>
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20">
+        <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-12 sm:py-16 lg:py-20">
           <div className="max-w-6xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -124,10 +124,10 @@ const AboutUs = () => {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 About Hireshore
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8 px-4">
                 We're on a mission to help businesses scale efficiently through dedicated offshore delivery pods. 
                 Our approach combines the best talent with proven processes to deliver exceptional results.
               </p>
@@ -136,10 +136,10 @@ const AboutUs = () => {
         </section>
 
         {/* Stats Section */}
-        <section className="py-20">
+        <section className="py-12 sm:py-16 lg:py-20">
           <div className="max-w-6xl mx-auto px-4">
             <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -164,7 +164,7 @@ const AboutUs = () => {
         </section>
 
         {/* Our Story */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -173,7 +173,7 @@ const AboutUs = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                   Our Story
                 </h2>
                 <div className="space-y-4 text-gray-600">

@@ -51,23 +51,23 @@ const HowItWorksSection = () => {
   };
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6 md:px-8">
+    <section ref={ref} className="py-12 sm:py-16 md:py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-3xl md:text-4xl font-bold mb-6"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6"
           >
             How It Works
           </motion.h2>
           <motion.p 
             variants={itemVariants}
-            className="text-lg text-gray-600 max-w-3xl mx-auto"
+            className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4"
           >
             From intake to delivery in just 5 days - here's our proven process
           </motion.p>
@@ -77,7 +77,7 @@ const HowItWorksSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
         >
           {steps.map((step, index) => {
             const IconComponent = step.icon;
@@ -94,17 +94,17 @@ const HowItWorksSection = () => {
                 
                 <div className="relative z-10">
                   <motion.div 
-                    className={`w-16 h-16 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg`}
+                    className={`w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg`}
                     whileHover={{ scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    <IconComponent className="w-8 h-8 text-white" />
+                    <IconComponent className="w-6 sm:w-8 h-6 sm:h-8 text-white" />
                   </motion.div>
                   
-                  <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 group-hover:shadow-xl transition-shadow duration-300">
-                    <div className="text-sm font-semibold text-blue-600 mb-2">{step.day}</div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                  <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg border border-gray-100 group-hover:shadow-xl transition-shadow duration-300">
+                    <div className="text-xs sm:text-sm font-semibold text-blue-600 mb-2">{step.day}</div>
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900">{step.title}</h3>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{step.description}</p>
                   </div>
                 </div>
               </motion.div>

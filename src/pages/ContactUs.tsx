@@ -112,7 +112,7 @@ const ContactUs = () => {
           </div>
         </div>
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20">
+        <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-12 sm:py-16 lg:py-20">
           <div className="max-w-6xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -120,10 +120,10 @@ const ContactUs = () => {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Get In Touch
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
                 Ready to scale your business with our delivery pods? Let's discuss how we can help you achieve your goals.
               </p>
             </motion.div>
@@ -131,9 +131,9 @@ const ContactUs = () => {
         </section>
 
         {/* Contact Options */}
-        <section className="py-20">
+        <section className="py-12 sm:py-16 lg:py-20">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Contact Information */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -143,7 +143,7 @@ const ContactUs = () => {
                 className="space-y-8"
               >
                 <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Let's Start a Conversation</h2>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Let's Start a Conversation</h2>
                   <p className="text-gray-600 mb-8">
                     We're here to help you build and scale your offshore team. Reach out to us using any of the methods below.
                   </p>
@@ -212,15 +212,15 @@ const ContactUs = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
+                className="bg-white rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg border border-gray-100"
               >
                 <div className="flex items-center gap-3 mb-6">
                   <MessageSquare className="w-6 h-6 text-blue-600" />
-                  <h3 className="text-2xl font-bold text-gray-900">Send us a Message</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Send us a Message</h3>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         First Name
@@ -331,7 +331,7 @@ const ContactUs = () => {
         </section>
 
         {/* CTA Section */}
-        <section id="book" className="bg-gradient-to-r from-blue-600 to-purple-700 py-20">
+        <section id="book" className="bg-gradient-to-r from-blue-600 to-purple-700 py-12 sm:py-16 lg:py-20">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -339,19 +339,19 @@ const ContactUs = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
                 Ready to Get Started?
               </h2>
-              <p className="text-xl text-white/90 mb-8">
+              <p className="text-lg sm:text-xl text-white/90 mb-8 px-4">
                 Book a free 30-minute strategy session to discuss your needs and see how we can help.
               </p>
               
               {/* Calendly Widget Placeholder */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white">
-                <h3 className="text-xl font-semibold mb-4">Book Your Free Strategy Session</h3>
-                <p className="mb-6">Choose a time that works for you - we'll discuss your project and how our delivery pods can help you scale.</p>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 text-white">
+                <h3 className="text-lg sm:text-xl font-semibold mb-4">Book Your Free Strategy Session</h3>
+                <p className="mb-6 text-sm sm:text-base">Choose a time that works for you - we'll discuss your project and how our delivery pods can help you scale.</p>
                 <Button 
-                  className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-3"
+                  className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-6 sm:px-8 py-3 text-sm sm:text-base"
                   onClick={() => window.open('https://calendly.com/hireshore', '_blank')}
                 >
                   Schedule Now

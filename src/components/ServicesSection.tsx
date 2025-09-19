@@ -92,11 +92,11 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -105,7 +105,7 @@ const ServicesSection = () => {
             Delivery Pods We Offer
           </motion.h2>
           <motion.p 
-            className="text-lg text-gray-600 max-w-3xl mx-auto"
+            className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -115,10 +115,10 @@ const ServicesSection = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 mb-12 sm:mb-16">
           {/* Admin & Support Roles Column - Now on the LEFT */}
           <motion.div
-            className="bg-white rounded-xl p-6 shadow-lg"
+            className="bg-white rounded-xl p-4 sm:p-6 shadow-lg"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -128,11 +128,11 @@ const ServicesSection = () => {
               <div className="flex-shrink-0 bg-blue-50 rounded-full p-3">
                 <Users className="w-8 h-8 text-[#0d6efd]" />
               </div>
-              <h3 className="ml-4 text-2xl font-semibold text-gray-900">☎️ Admin & Support Roles</h3>
+              <h3 className="ml-3 sm:ml-4 text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900">☎️ Admin & Support Roles</h3>
             </div>
             
             <motion.div
-              className="space-y-6 mb-6"
+              className="space-y-4 sm:space-y-6 mb-6"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -145,9 +145,9 @@ const ServicesSection = () => {
                   variants={itemVariants}
                 >
                   <div className="flex-shrink-0 mt-1">{role.icon}</div>
-                  <div className="ml-4">
-                    <h4 className="text-lg font-medium text-gray-900">{role.title}</h4>
-                    <p className="text-gray-600">{role.description}</p>
+                  <div className="ml-3 sm:ml-4">
+                    <h4 className="text-base sm:text-lg font-medium text-gray-900">{role.title}</h4>
+                    <p className="text-sm sm:text-base text-gray-600">{role.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -157,7 +157,7 @@ const ServicesSection = () => {
           
           {/* Tech & Creative Roles Column - Now on the RIGHT */}
           <motion.div
-            className="bg-white rounded-xl p-6 shadow-lg"
+            className="bg-white rounded-xl p-4 sm:p-6 shadow-lg"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -167,11 +167,11 @@ const ServicesSection = () => {
               <div className="flex-shrink-0 bg-blue-50 rounded-full p-3">
                 <Briefcase className="w-8 h-8 text-[#0d6efd]" />
               </div>
-              <h3 className="ml-4 text-2xl font-semibold text-gray-900">🛠️ Tech & Creative Roles</h3>
+              <h3 className="ml-3 sm:ml-4 text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900">🛠️ Tech & Creative Roles</h3>
             </div>
             
             <motion.div
-              className="space-y-6 mb-6"
+              className="space-y-4 sm:space-y-6 mb-6"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -184,9 +184,9 @@ const ServicesSection = () => {
                   variants={itemVariants}
                 >
                   <div className="flex-shrink-0 mt-1">{role.icon}</div>
-                  <div className="ml-4">
-                    <h4 className="text-lg font-medium text-gray-900">{role.title}</h4>
-                    <p className="text-gray-600">{role.description}</p>
+                  <div className="ml-3 sm:ml-4">
+                    <h4 className="text-base sm:text-lg font-medium text-gray-900">{role.title}</h4>
+                    <p className="text-sm sm:text-base text-gray-600">{role.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -201,7 +201,7 @@ const ServicesSection = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Button 
-              className="bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-medium py-6 px-8 rounded-full text-lg hover:shadow-lg transition-all inline-flex items-center gap-2"
+              className="bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-medium py-4 sm:py-6 px-6 sm:px-8 rounded-full text-base sm:text-lg hover:shadow-lg transition-all inline-flex items-center gap-2"
               onClick={() => {
                 const element = document.getElementById('book');
                 if (element) {

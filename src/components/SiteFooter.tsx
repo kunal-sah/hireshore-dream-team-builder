@@ -40,7 +40,7 @@ const SiteFooter = () => {
   ];
 
   return (
-    <footer className="w-full py-12 md:py-16 bg-gradient-to-t from-[#e7e9f9] to-transparent mt-8 md:mt-12 relative">
+    <footer className="w-full py-8 sm:py-12 md:py-16 bg-gradient-to-t from-[#e7e9f9] to-transparent mt-6 sm:mt-8 md:mt-12 relative">
       {/* Animated background elements */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <motion.div 
@@ -71,12 +71,12 @@ const SiteFooter = () => {
         />
       </div>
       
-      <div className="max-w-5xl mx-auto px-6 md:px-8 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         
 
         {/* Standard Footer Format */}
-        <div className="border-t border-gray-200 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="border-t border-gray-200 pt-6 sm:pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Company Info Column */}
             <motion.div 
               className="text-gray-600"
@@ -85,8 +85,8 @@ const SiteFooter = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h4 className="text-lg font-medium text-gray-800 mb-4">🤝 Backed by Real People, Real Results</h4>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              <h4 className="text-base sm:text-lg font-medium text-gray-800 mb-3 sm:mb-4">🤝 Backed by Real People, Real Results</h4>
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
                 Hireshore is founded by a global team in Nepal, dedicated to helping startups and agencies grow lean and smart.
                 You're not talking to a faceless recruiter - you're partnering with a founder who's built and scaled remote teams.
               </p>
@@ -100,8 +100,8 @@ const SiteFooter = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <h4 className="text-lg font-medium text-gray-800 mb-4">Contact Us</h4>
-              <div className="space-y-3">
+              <h4 className="text-base sm:text-lg font-medium text-gray-800 mb-3 sm:mb-4">Contact Us</h4>
+              <div className="space-y-2 sm:space-y-3">
                 <div>
                   <p className="text-sm font-medium text-gray-700">Hireshore, LLC</p>
                   <p className="text-sm text-gray-600">800 North King Street</p>
@@ -122,8 +122,8 @@ const SiteFooter = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h4 className="text-lg font-medium text-gray-800 mb-4">Get in Touch</h4>
-              <div className="space-y-3">
+              <h4 className="text-base sm:text-lg font-medium text-gray-800 mb-3 sm:mb-4">Get in Touch</h4>
+              <div className="space-y-2 sm:space-y-3">
                 <div>
                   <p className="text-sm font-medium text-gray-700">Representative</p>
                   <p className="text-sm text-gray-600">Kunal Sah</p>
@@ -170,7 +170,7 @@ const SiteFooter = () => {
           </div>
           
           {/* Company Links & Legal Links */}
-          <div className="flex flex-col md:flex-row justify-between items-center mt-8 space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row justify-between items-center mt-6 sm:mt-8 space-y-4 md:space-y-0">
             {/* Company Links */}
             <div className="flex flex-wrap justify-center md:justify-start space-x-6">
               {footerLinks.map((link, index) => (
@@ -226,7 +226,7 @@ const SiteFooter = () => {
             </div>
             
             {/* Legal Links */}
-            <div className="flex flex-wrap justify-center space-x-4">
+            <div className="flex flex-wrap justify-center space-x-3 sm:space-x-4">
               <a href="/privacy" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
                 Privacy Policy
               </a>

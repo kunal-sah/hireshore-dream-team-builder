@@ -47,14 +47,14 @@ const testimonials = [
 const TestimonialsSection = () => (
   <motion.section 
     id="testimonials" 
-    className="max-w-5xl mx-auto py-12 px-4"
+    className="max-w-5xl mx-auto py-8 sm:py-12 px-4"
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5 }}
   >
     <motion.h2 
-      className="text-2xl md:text-3xl font-bold mb-8 text-center"
+      className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-center"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -72,7 +72,7 @@ const TestimonialsSection = () => (
     >
       <CarouselContent className="py-4">
         {testimonials.map((testimonial, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem key={index} className="basis-full sm:basis-1/2 lg:basis-1/3">
             <motion.div 
               className="p-1"
               initial={{ opacity: 0, y: 20 }}
