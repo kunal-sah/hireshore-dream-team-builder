@@ -23,10 +23,6 @@ import Terms from "./pages/Terms";
 import Legal from "./pages/Legal";
 import Industries from "./pages/Industries";
 import Resources from "./pages/Resources";
-import Guides from "./pages/resources/Guides";
-import Templates from "./pages/resources/Templates";
-import CaseNotes from "./pages/resources/CaseNotes";
-import Webinars from "./pages/resources/Webinars";
 import FAQs from "./pages/resources/FAQs";
 import DeliveryPodsPlaybook from "./pages/resources/DeliveryPodsPlaybook";
 import WebLaunchChecklist from "./pages/resources/WebLaunchChecklist";
@@ -35,9 +31,12 @@ import CreativeBriefTemplate from "./pages/resources/CreativeBriefTemplate";
 import GuidesLibrary from "./pages/resources/GuidesLibrary";
 import TemplatesLibrary from "./pages/resources/TemplatesLibrary";
 import CaseNotesLibrary from "./pages/resources/CaseNotesLibrary";
+import AutomationGuide from "./pages/resources/guides/AutomationGuide";
+import OutreachGuide from "./pages/resources/guides/OutreachGuide";
 import FunnelGuide from "./pages/resources/guides/FunnelGuide";
 import ContentCalendarTemplate from "./pages/resources/templates/ContentCalendarTemplate";
 import WebinarsLibrary from "./pages/resources/WebinarsLibrary";
+import NDISAutomation from "./pages/resources/case-notes/NDISAutomation";
 import UGCBriefTemplate from "./pages/resources/UGCBriefTemplate";
 import SEOBasicsGuide from "./pages/resources/SEOBasicsGuide";
 
@@ -66,22 +65,27 @@ const App = () => (
           <Route path="/case-studies/affective-care" element={<AffectiveCareCaseStudy />} />
           <Route path="/case-studies/uncommon-solutions" element={<UncommonSolutionsCaseStudy />} />
           <Route path="/case-studies/cove-digital" element={<CoveDigitalCaseStudy />} />
-          <Route path="/resources/guides" element={<Guides />} />
-          <Route path="/resources/templates" element={<Templates />} />
-          <Route path="/resources/case-notes" element={<CaseNotes />} />
-        <Route path="/resources/webinars" element={<WebinarsLibrary />} />
-        <Route path="/resources/faqs" element={<FAQs />} />
-        <Route path="/resources/delivery-pods-playbook" element={<DeliveryPodsPlaybook />} />
-        <Route path="/resources/web-launch-checklist" element={<WebLaunchChecklist />} />
-        <Route path="/resources/cost-calculator" element={<CostCalculator />} />
-        <Route path="/resources/creative-brief-template" element={<CreativeBriefTemplate />} />
-        <Route path="/resources/guides" element={<GuidesLibrary />} />
-        <Route path="/resources/templates" element={<TemplatesLibrary />} />
-        <Route path="/resources/case-notes" element={<CaseNotesLibrary />} />
-        <Route path="/resources/guides/funnels" element={<FunnelGuide />} />
-        <Route path="/resources/templates/content-calendar" element={<ContentCalendarTemplate />} />
-        <Route path="/resources/templates/ugc-brief" element={<UGCBriefTemplate />} />
-        <Route path="/resources/guides/seo-basics" element={<SEOBasicsGuide />} />
+          <Route path="/resources/guides" element={<GuidesLibrary />} />
+          <Route path="/resources/templates" element={<TemplatesLibrary />} />
+          <Route path="/resources/case-notes" element={<CaseNotesLibrary />} />
+          <Route path="/resources/webinars" element={<WebinarsLibrary />} />
+          <Route path="/resources/faqs" element={<FAQs />} />
+          <Route path="/resources/delivery-pods-playbook" element={<DeliveryPodsPlaybook />} />
+          <Route path="/resources/web-launch-checklist" element={<WebLaunchChecklist />} />
+          <Route path="/resources/cost-calculator" element={<CostCalculator />} />
+          <Route path="/resources/creative-brief-template" element={<CreativeBriefTemplate />} />
+          <Route path="/resources/guides/funnels" element={<FunnelGuide />} />
+          <Route path="/resources/guides/seo-basics" element={<SEOBasicsGuide />} />
+          <Route path="/resources/guides/automation-starters" element={<AutomationGuide />} />
+          <Route path="/resources/guides/outreach-systems" element={<OutreachGuide />} />
+          <Route path="/resources/templates/content-calendar" element={<ContentCalendarTemplate />} />
+          <Route path="/resources/templates/ugc-brief" element={<UGCBriefTemplate />} />
+          <Route path="/resources/case-notes/ndis-admin-automation" element={<NDISAutomation />} />
+          <Route path="/resources/case-notes/ads-leads-gap-funnel" element={<CaseNotesLibrary />} />
+          <Route path="/resources/case-notes/cold-outreach-automation" element={<CaseNotesLibrary />} />
+          <Route path="/resources/case-notes/shopify-fulfillment-automation" element={<CaseNotesLibrary />} />
+          <Route path="/resources/case-notes/coaching-booking-optimization" element={<CaseNotesLibrary />} />
+          <Route path="/resources/case-notes/real-estate-lead-nurture" element={<CaseNotesLibrary />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/legal" element={<Legal />} />

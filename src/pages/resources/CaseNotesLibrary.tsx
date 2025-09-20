@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { StickyCTA } from "@/components/ui/sticky-cta";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
+import { useNavigate } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -16,6 +17,8 @@ import {
 import { FileText, ArrowRight, TrendingUp, Clock, Target, Users, DollarSign, Zap } from "lucide-react";
 
 const CaseNotesLibrary = () => {
+  const navigate = useNavigate();
+  
   const caseNotes = [
     {
       id: "ndis-admin-automation",
@@ -234,7 +237,7 @@ const CaseNotesLibrary = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 group cursor-pointer" onClick={() => window.location.href = note.href}>
+                <Card className="h-full hover:shadow-lg transition-all duration-300 group cursor-pointer" onClick={() => navigate(note.href)}>
                   <CardHeader className="pb-4">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex gap-2 flex-wrap">
