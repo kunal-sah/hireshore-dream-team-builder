@@ -11,17 +11,14 @@ import {
   Users, 
   CheckCircle,
   ArrowRight,
-  Phone
+  Phone,
+  Code,
+  Briefcase
 } from "lucide-react";
 
 const Services = () => {
-  const scrollToBooking = () => {
-    const bookingElement = document.getElementById('book');
-    if (bookingElement) {
-      bookingElement.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.location.href = '/#book';
-    }
+  const bookCall = () => {
+    window.open('https://calendly.com/hireshore/intro-call', '_blank');
   };
 
   const deliveryAreas = [
@@ -49,6 +46,68 @@ const Services = () => {
       icon: Users,
       title: "Admin & Recruitment",
       description: "Data entry, CRM hygiene, list building, telecalling, RPO (sourcing, screening, onboarding)."
+    }
+  ];
+
+  const techHiringRoles = [
+    {
+      category: "Engineering",
+      roles: "Frontend, Backend, Full‑stack, Mobile (iOS/Android), Data, ML/AI, MLOps, DevOps/SRE, QA & SDET, Automation QA"
+    },
+    {
+      category: "Product",
+      roles: "Product Managers, Product Owners, Technical Program Managers, Business Analysts"
+    },
+    {
+      category: "Design",
+      roles: "UI/UX Designers, Design Systems, UX Writers"
+    },
+    {
+      category: "Architecture & Security",
+      roles: "Solution Architects, Cloud Architects, SecOps"
+    }
+  ];
+
+  const hiringSteps = [
+    {
+      step: "1",
+      title: "Intake",
+      description: "Role scorecard, stack, seniority, timezone overlap, budget"
+    },
+    {
+      step: "2",
+      title: "Shortlist",
+      description: "3–5 vetted candidates in 5–10 business days"
+    },
+    {
+      step: "3",
+      title: "Vetting",
+      description: "Tech tests, pair‑programming or code review, culture screen"
+    },
+    {
+      step: "4",
+      title: "Trial Sprint (optional)",
+      description: "1–2 weeks inside your workflow"
+    },
+    {
+      step: "5",
+      title: "Hire & Onboard",
+      description: "Offer, paperwork, device & access, 30/60/90 plan"
+    }
+  ];
+
+  const engagementOptions = [
+    {
+      title: "Direct Hire (Recruitment)",
+      description: "One‑time fee; replacement guarantee"
+    },
+    {
+      title: "Staff Aug (Contract‑to‑Hire)",
+      description: "Monthly rate on Hireshore payroll; convert anytime"
+    },
+    {
+      title: "Managed Pod",
+      description: "We provide leadership (Tech Lead/PM) and delivery SLAs"
     }
   ];
 
@@ -140,7 +199,7 @@ const Services = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" onClick={scrollToBooking} className="text-lg px-8 py-6">
+            <Button size="lg" onClick={bookCall} className="text-lg px-8 py-6">
               <Phone className="mr-2 h-5 w-5" />
               Book an intro call
             </Button>
@@ -189,8 +248,99 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Why Agencies Use Us */}
+      {/* Tech Hiring & Staff Augmentation */}
       <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Tech Hiring & Staff Augmentation (Full‑Time)</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Build product teams without the recruiting overhead. We help you <strong>hire and manage full‑time technical talent</strong> under your brand or on Hireshore payroll.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold mb-6 flex items-center">
+                <Code className="h-8 w-8 text-primary mr-3" />
+                Roles we place
+              </h3>
+              <div className="space-y-4">
+                {techHiringRoles.map((role, index) => (
+                  <div key={role.category} className="border-l-4 border-primary pl-4">
+                    <h4 className="font-semibold text-lg mb-2">{role.category}</h4>
+                    <p className="text-muted-foreground">{role.roles}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold mb-6 flex items-center">
+                <Briefcase className="h-8 w-8 text-primary mr-3" />
+                How it works
+              </h3>
+              <div className="space-y-4">
+                {hiringSteps.map((step, index) => (
+                  <div key={step.step} className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                      {step.step}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-1">{step.title}</h4>
+                      <p className="text-sm text-muted-foreground">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold mb-6 text-center">Engagement options</h3>
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              {engagementOptions.map((option, index) => (
+                <Card key={option.title}>
+                  <CardContent className="p-6 text-center">
+                    <h4 className="font-semibold text-lg mb-3">{option.title}</h4>
+                    <p className="text-muted-foreground">{option.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-background rounded-lg p-6"
+          >
+            <p className="text-center text-muted-foreground">
+              <strong>Assurance:</strong> Replacement within <strong>5–7 days</strong>, timezone overlap guaranteed, NDAs and IP protection.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why Agencies Use Us */}
+      <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -220,7 +370,7 @@ const Services = () => {
       </section>
 
       {/* Proof & Use Cases */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-muted/20">
         <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -261,7 +411,7 @@ const Services = () => {
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-16 px-4 bg-muted/20">
+      <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -288,7 +438,7 @@ const Services = () => {
       </section>
 
       {/* Tech We Work With */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-muted/20">
         <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -321,7 +471,7 @@ const Services = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 px-4 bg-muted/20">
+      <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -329,7 +479,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
-            How It Works
+            How It Works (Intake → Design → Review → Deliver)
           </motion.h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
@@ -355,7 +505,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-background rounded-lg p-6"
+            className="bg-muted/20 rounded-lg p-6"
           >
             <div className="grid md:grid-cols-2 gap-6">
               <div>
@@ -376,7 +526,7 @@ const Services = () => {
       </section>
 
       {/* Team & Capacity */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-muted/20">
         <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -384,7 +534,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
-            Team & Capacity
+            Team & Capacity (Snapshot)
           </motion.h2>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -417,7 +567,7 @@ const Services = () => {
       </section>
 
       {/* Engagement Models */}
-      <section className="py-16 px-4 bg-muted/20">
+      <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -432,7 +582,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-6 mb-8"
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
           >
             <Card>
               <CardContent className="p-6 text-center">
@@ -452,18 +602,25 @@ const Services = () => {
                 <p className="text-sm text-muted-foreground">(flex capacity)</p>
               </CardContent>
             </Card>
+            <Card>
+              <CardContent className="p-6 text-center">
+                <h3 className="font-semibold mb-2">Full‑Time Staffing</h3>
+                <p className="text-sm text-muted-foreground">(direct hire or on Hireshore payroll)</p>
+              </CardContent>
+            </Card>
           </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="space-y-4"
           >
-            <Button size="lg" onClick={scrollToBooking} className="text-lg px-8 py-6">
+            <Button size="lg" onClick={bookCall} className="text-lg px-8 py-6">
               <Phone className="mr-2 h-5 w-5" />
               Book an intro call
             </Button>
-            <p className="text-sm text-muted-foreground mt-4">
+            <p className="text-muted-foreground">
               Get a pilot sprint plan in 24–48 hrs.
             </p>
           </motion.div>
@@ -471,7 +628,7 @@ const Services = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-muted/20">
         <div className="max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -512,18 +669,18 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold mb-4"
           >
-            "Stop juggling freelancers. Plug in a pod and ship."
+            Stop juggling freelancers. Plug in a pod and ship.
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.1 }}
           >
             <Button 
               size="lg" 
               variant="secondary"
-              onClick={scrollToBooking}
+              onClick={bookCall}
               className="text-lg px-8 py-6"
             >
               <Phone className="mr-2 h-5 w-5" />

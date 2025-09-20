@@ -10,17 +10,14 @@ import {
   Calendar,
   Zap,
   Phone,
-  MessageSquare
+  MessageSquare,
+  Users,
+  DollarSign
 } from "lucide-react";
 
 const Pricing = () => {
-  const scrollToBooking = () => {
-    const bookingElement = document.getElementById('book');
-    if (bookingElement) {
-      bookingElement.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.location.href = '/#book';
-    }
+  const bookCall = () => {
+    window.open('https://calendly.com/hireshore/intro-call', '_blank');
   };
 
   const plans = [
@@ -75,6 +72,39 @@ const Pricing = () => {
     }
   ];
 
+  const salaryBands = [
+    { role: "Frontend / Backend / Full‑stack", junior: "$800–$1,200", mid: "$1,200–$2,000", senior: "$2,000–$3,200", lead: "$3,200–$4,500" },
+    { role: "Mobile (iOS/Android/Flutter/React Native)", junior: "$900–$1,300", mid: "$1,300–$2,200", senior: "$2,200–$3,500", lead: "$3,500–$4,800" },
+    { role: "QA / SDET (Manual + Automation)", junior: "$700–$1,000", mid: "$1,000–$1,800", senior: "$1,800–$2,800", lead: "$2,800–$3,800" },
+    { role: "DevOps / SRE (AWS/GCP/Azure, IaC, CI/CD)", junior: "$1,400–$2,200", mid: "$2,200–$3,200", senior: "$3,200–$4,800", lead: "$4,800–$6,000" },
+    { role: "Data / ML / AI (Python, ETL, LLMOps, MLOps)", junior: "$1,500–$2,400", mid: "$2,400–$3,500", senior: "$3,500–$5,200", lead: "$5,200–$6,500" },
+    { role: "Product (PM/PO/TPM)", junior: "$1,200–$1,800", mid: "$1,800–$2,800", senior: "$2,800–$4,200", lead: "$4,200–$5,200" },
+    { role: "UI/UX (Product Design, Systems)", junior: "$1,000–$1,500", mid: "$1,500–$2,400", senior: "$2,400–$3,600", lead: "$3,600–$4,800" },
+    { role: "Solution / Cloud Architect", junior: "—", mid: "—", senior: "$4,000–$5,500", lead: "$5,500–$7,000" },
+    { role: "SecOps / AppSec", junior: "—", mid: "$2,200–$3,200", senior: "$3,200–$4,800", lead: "$4,800–$6,000" }
+  ];
+
+  const billRates = [
+    { level: "Junior", rate: "$12–$18 / hour" },
+    { level: "Mid", rate: "$18–$28 / hour" },
+    { level: "Senior", rate: "$28–$45 / hour" },
+    { level: "Lead / Architect", rate: "$45–$60 / hour" }
+  ];
+
+  const costComparison = [
+    { region: "UK (London)", localCost: "$140k–$170k", hireshoreCost: "~$67k", savings: "52–60%" },
+    { region: "EU (Western Tier)", localCost: "$120k–$150k", hireshoreCost: "~$67k", savings: "44–55%" },
+    { region: "AU (Sydney/Melbourne)", localCost: "$130k–$160k", hireshoreCost: "~$67k", savings: "48–58%" }
+  ];
+
+  const directHireComparison = [
+    { item: "Base Salary (Senior FE/BE)", local: "$110k–$140k", hireshore: "$24k–$42k" },
+    { item: "Employer Taxes/Benefits (20–30%)", local: "$22k–$42k", hireshore: "$4k–$9k" },
+    { item: "Recruiter Fee", local: "$13k–$21k", hireshore: "$0" },
+    { item: "Year‑1 Total", local: "$145k–$203k", hireshore: "$28k–$51k" },
+    { item: "Savings", local: "", hireshore: "65–85%" }
+  ];
+
   const includedFeatures = [
     "Project Manager + QA + reporting",
     "Slack + ClickUp (or your tools)",
@@ -104,7 +134,9 @@ const Pricing = () => {
     { q: "Can we pause?", a: "Flex Hours can pause within the 3‑month window. Monthly is continuous." },
     { q: "How do you report time?", a: "Daily summaries + weekly roll‑ups with links to work." },
     { q: "What if someone isn't a fit?", a: "We replace within 5–7 days—no extra cost." },
-    { q: "Is this truly white‑label?", a: "100%. We never face your client." }
+    { q: "Is this truly white‑label?", a: "100%. We never face your client." },
+    { q: "Do we pay employer taxes or a recruitment fee to Hireshore?", a: "No. Our invoices are all‑inclusive service fees—no employer taxes/benefits payable to us and recruitment fee is $0 (waived)." },
+    { q: "Any volume benefits?", a: "Yes—when you hire 5+ developers, we include a dedicated PM + QA at no additional cost." }
   ];
 
   return (
@@ -137,11 +169,11 @@ const Pricing = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" onClick={scrollToBooking} className="text-lg px-8 py-6">
+            <Button size="lg" onClick={bookCall} className="text-lg px-8 py-6">
               <Phone className="mr-2 h-5 w-5" />
               Start with a pilot
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6" onClick={scrollToBooking}>
+            <Button variant="outline" size="lg" className="text-lg px-8 py-6" onClick={bookCall}>
               <MessageSquare className="mr-2 h-5 w-5" />
               Talk to a strategist
             </Button>
@@ -232,6 +264,353 @@ const Pricing = () => {
         </div>
       </section>
 
+      {/* Full-Time Tech Staffing */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Full‑Time Tech Staffing (Monthly Rates)</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Build long‑term product teams with <strong>full‑time hires</strong> or <strong>staff‑augmentation</strong> under your brand.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-3">Role families:</h3>
+                  <p className="text-sm text-muted-foreground">Frontend • Backend • Full‑stack • Mobile • QA/SDET • DevOps/SRE • Data/AI/ML • PM/TPM • UI/UX • Solution/Cloud Architect • SecOps</p>
+                </CardContent>
+              </Card>
+              
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-3">Engagement models:</h3>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Direct Hire (Recruitment)</li>
+                    <li>• Staff Aug (Contract‑to‑Hire)</li>
+                    <li>• Managed Tech Pod</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-3">What's included:</h3>
+                  <p className="text-sm text-muted-foreground">Vetting, reference checks, security & NDA docs, onboarding checklist, device/access setup guidance, weekly performance cadence.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </motion.div>
+
+          {/* Salary Bands Table */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h3 className="text-2xl font-bold mb-6 text-center flex items-center justify-center">
+              <DollarSign className="h-8 w-8 text-primary mr-3" />
+              Sample Monthly Salary Bands (USD, Nepal‑based remote)
+            </h3>
+            <p className="text-center text-muted-foreground mb-6 italic">
+              Indicative ranges. Final offers vary by stack, seniority, complexity, and overlap requirements.
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-background rounded-lg overflow-hidden">
+                <thead>
+                  <tr className="bg-primary text-primary-foreground">
+                    <th className="text-left p-4 font-semibold">Role</th>
+                    <th className="text-left p-4 font-semibold">Junior</th>
+                    <th className="text-left p-4 font-semibold">Mid</th>
+                    <th className="text-left p-4 font-semibold">Senior</th>
+                    <th className="text-left p-4 font-semibold">Lead/Architect</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {salaryBands.map((row, index) => (
+                    <tr key={index} className="border-b border-border">
+                      <td className="p-4 font-medium">{row.role}</td>
+                      <td className="p-4 text-muted-foreground">{row.junior}</td>
+                      <td className="p-4 text-muted-foreground">{row.mid}</td>
+                      <td className="p-4 text-muted-foreground">{row.senior}</td>
+                      <td className="p-4 text-muted-foreground">{row.lead}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+
+          {/* Bill Rates */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h3 className="text-2xl font-bold mb-6 text-center">Staff Aug / Contract‑to‑Hire Bill Rates (USD)</h3>
+            <p className="text-center text-muted-foreground mb-6 italic">
+              Applies when talent is on Hireshore payroll. Effective rates align with salary bands, benefits, and management overhead.
+            </p>
+            <div className="max-w-2xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-4">
+                {billRates.map((rate, index) => (
+                  <Card key={index}>
+                    <CardContent className="p-6 text-center">
+                      <h4 className="font-semibold text-lg mb-2">{rate.level}</h4>
+                      <p className="text-primary font-bold">{rate.rate}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Premiums & Adjusters */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-background rounded-lg p-6 mb-12"
+          >
+            <h4 className="font-semibold mb-4">Premiums & Adjusters:</h4>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-start space-x-2">
+                <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <span>Guaranteed <strong>US/UK/EU prime‑time overlap:</strong> +$2–$5/hour</span>
+              </li>
+              <li className="flex items-start space-x-2">
+                <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <span>Niche stacks (Rust, Elixir, low‑latency, advanced LLM/RAG, CUDA): custom quote</span>
+              </li>
+              <li className="flex items-start space-x-2">
+                <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <span>Security clearance / enterprise compliance: custom quote</span>
+              </li>
+            </ul>
+            <p className="mt-4 text-sm font-medium">
+              <strong>No extra taxes or recruiter fees:</strong> Our invoice is all‑inclusive—<strong>you do not pay employer taxes/benefits to us</strong>, and <strong>there's no recruitment fee</strong> for staff‑aug placements.
+            </p>
+          </motion.div>
+
+          {/* Direct-Hire Recruitment Fees */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h3 className="text-2xl font-bold mb-6 text-center">Direct‑Hire Recruitment Fees</h3>
+            <div className="max-w-2xl mx-auto bg-background rounded-lg p-6">
+              <ul className="space-y-3">
+                <li className="flex justify-between items-center">
+                  <span className="font-medium">Junior/Mid:</span>
+                  <span className="text-primary font-bold">$0 (waived)</span>
+                </li>
+                <li className="flex justify-between items-center">
+                  <span className="font-medium">Senior/Lead/Architect:</span>
+                  <span className="text-primary font-bold">$0 (waived)</span>
+                </li>
+                <li className="flex justify-between items-center">
+                  <span className="font-medium">Guarantee:</span>
+                  <span>60‑day replacement</span>
+                </li>
+              </ul>
+              <p className="mt-4 text-sm text-muted-foreground">
+                <strong>Volume Bonus:</strong> Hire <strong>5+ developers</strong> and receive a <strong>dedicated PM + QA at no additional cost</strong> to coordinate delivery and quality.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Cost Savings Comparison */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-center mb-12"
+          >
+            Cost Savings: Local Hiring vs Hireshore
+          </motion.h2>
+          
+          <p className="text-center text-muted-foreground mb-8 italic">
+            Illustrative comparison. Adjust for city, stack, and level. Assumes US/EU/AU hiring with typical overheads.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* US Example */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card>
+                <CardHeader>
+                  <h3 className="text-xl font-bold">Total Cost of a Local Full‑Time Engineer (US example)</h3>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex justify-between">
+                      <span>Base salary (Senior Full‑stack):</span>
+                      <span>$120,000/year</span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Employer taxes & benefits (~25%):</span>
+                      <span>$30,000</span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Overheads (equipment, office/SaaS, misc. ~10%):</span>
+                      <span>$12,000</span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Recruiter fee (15% one‑time):</span>
+                      <span className="font-bold">$18,000</span>
+                    </li>
+                    <li className="flex justify-between border-t pt-2 font-bold">
+                      <span>Total Year‑1 Cost:</span>
+                      <span className="text-red-600">$180,000</span>
+                    </li>
+                    <li className="flex justify-between text-muted-foreground">
+                      <span>Average monthly:</span>
+                      <span>$15,000/month</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Hireshore Staff Aug */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card className="ring-2 ring-primary">
+                <CardHeader>
+                  <h3 className="text-xl font-bold">Hireshore Staff Aug (Senior Full‑stack)</h3>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex justify-between">
+                      <span>Bill rate:</span>
+                      <span>$35/hour (illustrative within senior band)</span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Monthly (160 hrs):</span>
+                      <span className="font-bold text-primary">$5,600</span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Yearly:</span>
+                      <span className="font-bold text-primary">$67,200</span>
+                    </li>
+                    <li className="flex justify-between border-t pt-2 font-bold">
+                      <span>Savings vs local Year‑1:</span>
+                      <span className="text-green-600">~62%</span>
+                    </li>
+                    <li className="text-xs text-muted-foreground">
+                      Notes: No recruiter fee, no employment taxes; easy scale up/down.
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+
+          {/* Regional Comparison */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h3 className="text-2xl font-bold mb-6 text-center">UK / EU / AU Snapshots (Senior Level)</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-background rounded-lg overflow-hidden">
+                <thead>
+                  <tr className="bg-primary text-primary-foreground">
+                    <th className="text-left p-4 font-semibold">Region</th>
+                    <th className="text-left p-4 font-semibold">Typical Local Year‑1 (all‑in)</th>
+                    <th className="text-left p-4 font-semibold">Hireshore Yearly</th>
+                    <th className="text-left p-4 font-semibold">Savings</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {costComparison.map((row, index) => (
+                    <tr key={index} className="border-b border-border">
+                      <td className="p-4 font-medium">{row.region}</td>
+                      <td className="p-4">{row.localCost}</td>
+                      <td className="p-4 text-primary font-medium">{row.hireshoreCost}</td>
+                      <td className="p-4 text-green-600 font-bold">{row.savings}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+
+          {/* Direct-Hire Comparison */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-8"
+          >
+            <h3 className="text-2xl font-bold mb-6 text-center">Direct‑Hire Comparison</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-background rounded-lg overflow-hidden">
+                <thead>
+                  <tr className="bg-primary text-primary-foreground">
+                    <th className="text-left p-4 font-semibold">Item</th>
+                    <th className="text-left p-4 font-semibold">Local Hire</th>
+                    <th className="text-left p-4 font-semibold">Hireshore Direct‑Hire (Nepal‑based)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {directHireComparison.map((row, index) => (
+                    <tr key={index} className="border-b border-border">
+                      <td className="p-4 font-medium">{row.item}</td>
+                      <td className="p-4">{row.local}</td>
+                      <td className={`p-4 ${row.item === 'Savings' ? 'text-green-600 font-bold text-xl' : 'text-primary font-medium'}`}>
+                        {row.hireshore}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-background rounded-lg p-6"
+          >
+            <p className="text-center text-muted-foreground">
+              <strong>Why it's lower:</strong> Nepal‑based salaries, centralized ops, and efficient pods. You still get structured delivery, timezone overlap, and replacements in <strong>5–7 days</strong>. <strong>Plus:</strong> Hire <strong>5+ devs</strong>, get <strong>PM + QA free</strong>.
+            </p>
+            <p className="text-center text-muted-foreground mt-4">
+              <strong>Customize this on your call:</strong> We'll map cost bands to your exact stack, level, and overlap needs and provide a role‑by‑role savings sheet.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* All Plans Include */}
       <section className="py-16 px-4 bg-muted/20">
         <div className="max-w-4xl mx-auto">
@@ -280,7 +659,7 @@ const Pricing = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
-            What We Can Do With 160 Hours
+            What We Can Do With 160 Hours (Examples)
           </motion.h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -451,7 +830,7 @@ const Pricing = () => {
             <Button 
               size="lg" 
               variant="secondary"
-              onClick={scrollToBooking}
+              onClick={bookCall}
               className="text-lg px-8 py-6"
             >
               <Phone className="mr-2 h-5 w-5" />
@@ -460,7 +839,7 @@ const Pricing = () => {
             <Button 
               size="lg" 
               variant="outline"
-              onClick={scrollToBooking}
+              onClick={bookCall}
               className="text-lg px-8 py-6 bg-transparent border-white text-white hover:bg-white hover:text-primary"
             >
               Get a sample sprint plan
