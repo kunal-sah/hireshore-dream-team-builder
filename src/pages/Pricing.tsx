@@ -4,6 +4,14 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { 
   CheckCircle,
   Clock,
@@ -142,6 +150,21 @@ const Pricing = () => {
   return (
     <div className="min-h-screen bg-background">
       <NavBar />
+      
+      {/* Breadcrumb */}
+      <div className="container mx-auto px-4 py-4">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Pricing</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
       
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 px-4 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
