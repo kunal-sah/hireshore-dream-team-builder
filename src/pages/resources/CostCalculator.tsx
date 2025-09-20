@@ -18,11 +18,11 @@ import { Calculator, DollarSign, TrendingDown, Users, Clock } from "lucide-react
 import { useState, useEffect } from "react";
 
 const CostCalculator = () => {
-  const [localSalary, setLocalSalary] = useState<number>(80000);
-  const [remoteSalary, setRemoteSalary] = useState<number>(35000);
-  const [teamSize, setTeamSize] = useState<number>(3);
+  const [localSalary, setLocalSalary] = useState<string>("80000");
+  const [remoteSalary, setRemoteSalary] = useState<string>("35000");
+  const [teamSize, setTeamSize] = useState<string>("3");
   const [location, setLocation] = useState<string>("us");
-  const [benefits, setBenefits] = useState<number>(25);
+  const [benefits, setBenefits] = useState<string>("25");
 
   const bookCall = () => {
     window.open('https://calendly.com/hireshore/30min', '_blank');
@@ -38,23 +38,24 @@ const CostCalculator = () => {
     "nl": { local: 0.75, name: "Netherlands" }
   };
 
-  const adjustedLocalSalary = localSalary * locationMultipliers[location].local;
-  const localTotalCost = (adjustedLocalSalary + (adjustedLocalSalary * benefits / 100)) * teamSize;
-  const remoteTotalCost = remoteSalary * teamSize;
+  const adjustedLocalSalary = parseInt(localSalary) * locationMultipliers[location].local;
+  const localTotalCost = (adjustedLocalSalary + (adjustedLocalSalary * parseInt(benefits) / 100)) * parseInt(teamSize);
+  const remoteTotalCost = parseInt(remoteSalary) * parseInt(teamSize);
   const annualSavings = localTotalCost - remoteTotalCost;
   const savingsPercentage = Math.round(((annualSavings / localTotalCost) * 100));
 
+  const teamSizeNum = parseInt(teamSize);
   const additionalCosts = {
     local: {
-      office: 12000 * teamSize,
-      equipment: 3000 * teamSize,
-      training: 2000 * teamSize,
-      turnover: 15000 * teamSize * 0.2 // 20% annual turnover cost
+      office: 12000 * teamSizeNum,
+      equipment: 3000 * teamSizeNum,
+      training: 2000 * teamSizeNum,
+      turnover: 15000 * teamSizeNum * 0.2 // 20% annual turnover cost
     },
     remote: {
       management: 6000,
-      tools: 1200 * teamSize,
-      training: 500 * teamSize
+      tools: 1200 * teamSizeNum,
+      training: 500 * teamSizeNum
     }
   };
 
@@ -154,50 +155,71 @@ const CostCalculator = () => {
 
                   <div>
                     <Label htmlFor="team-size">Team Size</Label>
-                    <Input
-                      id="team-size"
-                      type="number"
-                      value={teamSize}
-                      onChange={(e) => setTeamSize(parseInt(e.target.value) || 1)}
-                      min="1"
-                      max="20"
-                    />
+                    <Select value={teamSize} onValueChange={setTeamSize}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1">1 person</SelectItem>
+                        <SelectItem value="2">2 people</SelectItem>
+                        <SelectItem value="3">3 people</SelectItem>
+                        <SelectItem value="4">4 people</SelectItem>
+                        <SelectItem value="5">5 people</SelectItem>
+                        <SelectItem value="7">7 people</SelectItem>
+                        <SelectItem value="10">10 people</SelectItem>
+                        <SelectItem value="15">15 people</SelectItem>
+                        <SelectItem value="20">20+ people</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div>
                     <Label htmlFor="local-salary">Average Local Salary (USD)</Label>
-                    <Input
-                      id="local-salary"
-                      type="number"
-                      value={localSalary}
-                      onChange={(e) => setLocalSalary(parseInt(e.target.value) || 0)}
-                      min="0"
-                      step="1000"
-                    />
+                    <Select value={localSalary} onValueChange={setLocalSalary}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="45000">$45,000 - Junior</SelectItem>
+                        <SelectItem value="60000">$60,000 - Mid-level</SelectItem>
+                        <SelectItem value="80000">$80,000 - Senior</SelectItem>
+                        <SelectItem value="100000">$100,000 - Lead</SelectItem>
+                        <SelectItem value="120000">$120,000 - Principal</SelectItem>
+                        <SelectItem value="150000">$150,000+ - Director</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div>
                     <Label htmlFor="remote-salary">Remote Pod Member Salary (USD)</Label>
-                    <Input
-                      id="remote-salary"
-                      type="number"
-                      value={remoteSalary}
-                      onChange={(e) => setRemoteSalary(parseInt(e.target.value) || 0)}
-                      min="0"
-                      step="1000"
-                    />
+                    <Select value={remoteSalary} onValueChange={setRemoteSalary}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="25000">$25,000 - Junior</SelectItem>
+                        <SelectItem value="30000">$30,000 - Mid-level</SelectItem>
+                        <SelectItem value="35000">$35,000 - Senior</SelectItem>
+                        <SelectItem value="45000">$45,000 - Lead</SelectItem>
+                        <SelectItem value="55000">$55,000 - Specialist</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div>
                     <Label htmlFor="benefits">Benefits & Overhead (%)</Label>
-                    <Input
-                      id="benefits"
-                      type="number"
-                      value={benefits}
-                      onChange={(e) => setBenefits(parseInt(e.target.value) || 0)}
-                      min="0"
-                      max="100"
-                    />
+                    <Select value={benefits} onValueChange={setBenefits}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="15">15% - Minimal</SelectItem>
+                        <SelectItem value="25">25% - Standard</SelectItem>
+                        <SelectItem value="35">35% - Comprehensive</SelectItem>
+                        <SelectItem value="45">45% - Premium</SelectItem>
+                        <SelectItem value="60">60% - Full package</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </CardContent>
               </Card>
