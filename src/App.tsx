@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import CaseStudies from "./pages/CaseStudies";
 import ContactUs from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
+import Services from "./pages/Services";
+import Pricing from "./pages/Pricing";
 import DigitalSixCaseStudy from "./pages/case-studies/DigitalSix";
 import MedzMediaCaseStudy from "./pages/case-studies/MedzMedia";
 import SwimplyCaseStudy from "./pages/case-studies/Swimply";
@@ -31,6 +33,8 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/about-us" element={<AboutUs />} />

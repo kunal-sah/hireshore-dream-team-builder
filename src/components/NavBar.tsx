@@ -108,10 +108,17 @@ const NavBar = () => {
           {/* Navigation Links */}
           <div className="hidden lg:flex items-center space-x-6">
             <Link
-              to="/case-studies"
+              to="/services"
               className="text-foreground hover:text-primary font-medium transition-colors"
             >
-              Case Studies
+              Services
+            </Link>
+
+            <Link
+              to="/pricing"
+              className="text-foreground hover:text-primary font-medium transition-colors"
+            >
+              Pricing
             </Link>
 
             <Link
@@ -119,6 +126,13 @@ const NavBar = () => {
               className="text-foreground hover:text-primary font-medium transition-colors"
             >
               About Us
+            </Link>
+
+            <Link
+              to="/case-studies"
+              className="text-foreground hover:text-primary font-medium transition-colors"
+            >
+              Case Studies
             </Link>
 
             <Link
@@ -170,11 +184,18 @@ const NavBar = () => {
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
                 <Link
-                  to="/case-studies"
+                  to="/services"
                   className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Case Studies
+                  Services
+                </Link>
+                <Link
+                  to="/pricing"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Pricing
                 </Link>
                 <Link
                   to="/about-us"
@@ -182,6 +203,13 @@ const NavBar = () => {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   About Us
+                </Link>
+                <Link
+                  to="/case-studies"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Case Studies
                 </Link>
                 <Link
                   to="/contact-us"
