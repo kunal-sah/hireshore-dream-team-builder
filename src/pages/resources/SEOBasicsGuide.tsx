@@ -371,7 +371,7 @@ const SEOBasicsGuide = () => {
             {/* Table of Contents */}
             <div className="lg:col-span-1">
               <div className="sticky top-24">
-                <TableOfContents sections={tocSections} />
+                <TableOfContents />
               </div>
             </div>
 

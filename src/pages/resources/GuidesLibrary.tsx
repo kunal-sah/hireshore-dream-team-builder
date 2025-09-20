@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { StickyCTA } from "@/components/ui/sticky-cta";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
+import { useNavigate } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -16,6 +17,12 @@ import {
 import { BookOpen, ArrowRight, TrendingUp, Search, Zap, MessageSquare, Clock, Target } from "lucide-react";
 
 const GuidesLibrary = () => {
+  const navigate = useNavigate();
+  
+  const bookCall = () => {
+    window.open('https://calendly.com/hireshore/30min', '_blank');
+  };
+
   const guides = [
     {
       id: "funnels",
