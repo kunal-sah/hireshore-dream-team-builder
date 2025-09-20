@@ -152,7 +152,7 @@ const Pricing = () => {
       <NavBar />
       
       {/* Breadcrumb */}
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-4 pt-20">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
