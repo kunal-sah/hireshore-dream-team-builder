@@ -34,6 +34,9 @@ import CostCalculator from "./pages/resources/CostCalculator";
 import CreativeBriefTemplate from "./pages/resources/CreativeBriefTemplate";
 import GuidesLibrary from "./pages/resources/GuidesLibrary";
 import TemplatesLibrary from "./pages/resources/TemplatesLibrary";
+import FunnelGuide from "./pages/resources/guides/FunnelGuide";
+import ContentCalendarTemplate from "./pages/resources/templates/ContentCalendarTemplate";
+import CaseNotesLibrary from "./pages/resources/CaseNotesLibrary";
 
 const queryClient = new QueryClient();
 
@@ -71,6 +74,9 @@ const App = () => (
         <Route path="/resources/creative-brief-template" element={<CreativeBriefTemplate />} />
         <Route path="/resources/guides" element={<GuidesLibrary />} />
         <Route path="/resources/templates" element={<TemplatesLibrary />} />
+        <Route path="/resources/case-notes" element={<CaseNotesLibrary />} />
+        <Route path="/resources/guides/funnels" element={<FunnelGuide />} />
+        <Route path="/resources/templates/content-calendar" element={<ContentCalendarTemplate />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/legal" element={<Legal />} />
