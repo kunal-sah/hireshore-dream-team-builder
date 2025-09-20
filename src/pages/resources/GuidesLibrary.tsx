@@ -160,7 +160,7 @@ const GuidesLibrary = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 group cursor-pointer" onClick={() => window.location.href = guide.href}>
+                <Card className="h-full hover:shadow-lg transition-all duration-300 group cursor-pointer" onClick={() => navigate(guide.href)}>
                   <CardHeader className="pb-4">
                     <div className="flex items-start justify-between mb-4">
                       <div className="p-3 bg-primary/10 rounded-lg">

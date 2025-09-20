@@ -34,9 +34,9 @@ import CostCalculator from "./pages/resources/CostCalculator";
 import CreativeBriefTemplate from "./pages/resources/CreativeBriefTemplate";
 import GuidesLibrary from "./pages/resources/GuidesLibrary";
 import TemplatesLibrary from "./pages/resources/TemplatesLibrary";
-import FunnelGuide from "./pages/resources/guides/FunnelGuide";
-import ContentCalendarTemplate from "./pages/resources/templates/ContentCalendarTemplate";
-import CaseNotesLibrary from "./pages/resources/CaseNotesLibrary";
+import WebinarsLibrary from "./pages/resources/WebinarsLibrary";
+import UGCBriefTemplate from "./pages/resources/UGCBriefTemplate";
+import SEOBasicsGuide from "./pages/resources/SEOBasicsGuide";
 
 const queryClient = new QueryClient();
 
@@ -66,7 +66,7 @@ const App = () => (
           <Route path="/resources/guides" element={<Guides />} />
           <Route path="/resources/templates" element={<Templates />} />
           <Route path="/resources/case-notes" element={<CaseNotes />} />
-          <Route path="/resources/webinars" element={<Webinars />} />
+        <Route path="/resources/webinars" element={<WebinarsLibrary />} />
         <Route path="/resources/faqs" element={<FAQs />} />
         <Route path="/resources/delivery-pods-playbook" element={<DeliveryPodsPlaybook />} />
         <Route path="/resources/web-launch-checklist" element={<WebLaunchChecklist />} />
@@ -77,6 +77,8 @@ const App = () => (
         <Route path="/resources/case-notes" element={<CaseNotesLibrary />} />
         <Route path="/resources/guides/funnels" element={<FunnelGuide />} />
         <Route path="/resources/templates/content-calendar" element={<ContentCalendarTemplate />} />
+        <Route path="/resources/templates/ugc-brief" element={<UGCBriefTemplate />} />
+        <Route path="/resources/guides/seo-basics" element={<SEOBasicsGuide />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/legal" element={<Legal />} />

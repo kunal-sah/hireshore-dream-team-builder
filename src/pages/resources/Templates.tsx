@@ -12,15 +12,14 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { 
+import {
   Clipboard,
   ArrowRight,
   Phone,
   Calendar,
   FileText,
   CheckSquare,
-  Video,
-  Download
+  Video
 } from "lucide-react";
 
 const Templates = () => {
@@ -168,8 +167,7 @@ const Templates = () => {
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-muted-foreground">{template.format}</span>
                       <div className="flex items-center text-primary text-sm group-hover:translate-x-1 transition-transform">
-                        <Download className="mr-1 h-4 w-4" />
-                        <span>Download</span>
+                        <span>Use Template</span>
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </div>
                     </div>

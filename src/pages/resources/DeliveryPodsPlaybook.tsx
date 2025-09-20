@@ -14,16 +14,11 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { BookOpen, Clock, Users, CheckCircle, ArrowRight, Download } from "lucide-react";
+import { BookOpen, Clock, Users, CheckCircle, ArrowRight } from "lucide-react";
 
 const DeliveryPodsPlaybook = () => {
   const bookCall = () => {
     window.open('https://calendly.com/hireshore/30min', '_blank');
-  };
-
-  const downloadPlaybook = () => {
-    // In a real implementation, this would download the actual playbook
-    console.log("Download playbook");
   };
 
   const chapters = [

@@ -12,7 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { CheckSquare, Download, Gauge, Search, BarChart3, Shield } from "lucide-react";
+import { CheckSquare, Gauge, Search, BarChart3, Shield, Printer } from "lucide-react";
 import { useState } from "react";
 
 const WebLaunchChecklist = () => {
@@ -22,8 +22,8 @@ const WebLaunchChecklist = () => {
     window.open('https://calendly.com/hireshore/30min', '_blank');
   };
 
-  const downloadChecklist = () => {
-    console.log("Download checklist");
+  const printChecklist = () => {
+    window.print();
   };
 
   const handleCheck = (itemId: string) => {
@@ -157,10 +157,10 @@ const WebLaunchChecklist = () => {
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
-              onClick={downloadChecklist}
+              onClick={printChecklist}
             >
-              <Download className="mr-2 h-5 w-5" />
-              Download Checklist
+              <Printer className="mr-2 h-5 w-5" />
+              Print Checklist
             </Button>
             <Button 
               size="lg" 

@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
+import { useNavigate } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -33,6 +34,7 @@ import { useState } from "react";
 
 const Resources = () => {
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const bookCall = () => {
     window.open('https://calendly.com/hireshore/30min', '_blank');
@@ -199,10 +201,10 @@ const Resources = () => {
                 <Card 
                   className="h-full hover:shadow-lg transition-shadow duration-300 group cursor-pointer"
                   onClick={() => {
-                    if (resource.title.includes("Playbook")) window.location.href = '/resources/delivery-pods-playbook';
-                    else if (resource.title.includes("Template")) window.location.href = '/resources/creative-brief-template';
-                    else if (resource.title.includes("Checklist")) window.location.href = '/resources/web-launch-checklist';
-                    else if (resource.title.includes("Calculator")) window.location.href = '/resources/cost-calculator';
+                    if (resource.title.includes("Playbook")) navigate('/resources/delivery-pods-playbook');
+                    else if (resource.title.includes("Template")) navigate('/resources/creative-brief-template');
+                    else if (resource.title.includes("Checklist")) navigate('/resources/web-launch-checklist');
+                    else if (resource.title.includes("Calculator")) navigate('/resources/cost-calculator');
                   }}
                 >
                   <CardHeader className="pb-4">
@@ -258,11 +260,11 @@ const Resources = () => {
                   className="h-full hover:shadow-lg transition-shadow duration-300 group cursor-pointer"
                   onClick={() => {
                     const categoryTitle = category.title.toLowerCase();
-                    if (categoryTitle === 'guides') window.location.href = '/resources/guides';
-                    else if (categoryTitle === 'templates') window.location.href = '/resources/templates';
-                    else if (categoryTitle === 'case notes') window.location.href = '/resources/case-notes';
-                    else if (categoryTitle === 'webinars') window.location.href = '/resources/webinars';
-                    else if (categoryTitle === 'faqs') window.location.href = '/resources/faqs';
+                    if (categoryTitle === 'guides') navigate('/resources/guides');
+                    else if (categoryTitle === 'templates') navigate('/resources/templates');
+                    else if (categoryTitle === 'case notes') navigate('/resources/case-notes');
+                    else if (categoryTitle === 'webinars') navigate('/resources/webinars');
+                    else if (categoryTitle === 'faqs') navigate('/resources/faqs');
                   }}
                 >
                   <CardContent className="p-6">

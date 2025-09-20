@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { StickyCTA } from "@/components/ui/sticky-cta";
@@ -16,6 +17,12 @@ import {
 import { FileText, ArrowRight, Calendar, Video, Zap, FileCheck } from "lucide-react";
 
 const TemplatesLibrary = () => {
+  const navigate = useNavigate();
+  
+  const bookCall = () => {
+    window.open('https://calendly.com/hireshore/30min', '_blank');
+  };
+
   const templates = [
     {
       id: "content-calendar",
@@ -156,7 +163,7 @@ const TemplatesLibrary = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 group cursor-pointer" onClick={() => window.location.href = template.href}>
+                <Card className="h-full hover:shadow-lg transition-all duration-300 group cursor-pointer" onClick={() => navigate(template.href)}>
                   <CardHeader className="pb-4">
                     <div className="flex items-start justify-between mb-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
