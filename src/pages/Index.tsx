@@ -218,6 +218,47 @@ const Index = () => {
           </motion.div>
         </section>
 
+        {/* Ryan's PropertyStack Testimonial */}
+        <section className="max-w-6xl mx-auto py-12 px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12 border"
+          >
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
+                <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-6">
+                  "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. 
+                  The hiring process is much easier now with resume videos and pre-vetted candidates. 
+                  Compared to freelancers or other markets, the quality from Nepal has been significantly better. 
+                  You guys have helped us grow fast and we've referred you to many of our partners."
+                </blockquote>
+                <div className="flex items-center">
+                  <div>
+                    <p className="font-semibold text-gray-900">Ryan Jope</p>
+                    <p className="text-sm text-gray-600">Founder of PropertyStack</p>
+                  </div>
+                </div>
+              </div>
+              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/9xMVgH1j9XE"
+                  title="PropertyStack Testimonial - Ryan Jope"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
         {/* View All Case Studies CTA */}
         <section className="py-12 px-4">
           <div className="max-w-4xl mx-auto text-center">
