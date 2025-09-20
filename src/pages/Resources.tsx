@@ -196,7 +196,15 @@ const Resources = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300 group cursor-pointer">
+                <Card 
+                  className="h-full hover:shadow-lg transition-shadow duration-300 group cursor-pointer"
+                  onClick={() => {
+                    if (resource.title.includes("Playbook")) window.open('#', '_blank');
+                    else if (resource.title.includes("Template")) window.location.href = '/resources/templates';
+                    else if (resource.title.includes("Checklist")) window.open('#', '_blank');
+                    else if (resource.title.includes("Calculator")) window.open('#', '_blank');
+                  }}
+                >
                   <CardHeader className="pb-4">
                     <div className="flex items-start justify-between mb-3">
                       <div className="p-3 bg-primary/10 rounded-lg">
@@ -246,7 +254,17 @@ const Resources = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300 group cursor-pointer">
+                <Card 
+                  className="h-full hover:shadow-lg transition-shadow duration-300 group cursor-pointer"
+                  onClick={() => {
+                    const categoryTitle = category.title.toLowerCase();
+                    if (categoryTitle === 'guides') window.location.href = '/resources/guides';
+                    else if (categoryTitle === 'templates') window.location.href = '/resources/templates';
+                    else if (categoryTitle === 'case notes') window.location.href = '/resources/case-notes';
+                    else if (categoryTitle === 'webinars') window.location.href = '/resources/webinars';
+                    else if (categoryTitle === 'faqs') window.location.href = '/resources/faqs';
+                  }}
+                >
                   <CardContent className="p-6">
                     <div className="flex items-center mb-4">
                       <div className="p-3 bg-primary/10 rounded-lg mr-4">

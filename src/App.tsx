@@ -23,6 +23,11 @@ import Terms from "./pages/Terms";
 import Legal from "./pages/Legal";
 import Industries from "./pages/Industries";
 import Resources from "./pages/Resources";
+import Guides from "./pages/resources/Guides";
+import Templates from "./pages/resources/Templates";
+import CaseNotes from "./pages/resources/CaseNotes";
+import Webinars from "./pages/resources/Webinars";
+import FAQs from "./pages/resources/FAQs";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +54,11 @@ const App = () => (
           <Route path="/case-studies/affective-care" element={<AffectiveCareCaseStudy />} />
           <Route path="/case-studies/uncommon-solutions" element={<UncommonSolutionsCaseStudy />} />
           <Route path="/case-studies/cove-digital" element={<CoveDigitalCaseStudy />} />
+          <Route path="/resources/guides" element={<Guides />} />
+          <Route path="/resources/templates" element={<Templates />} />
+          <Route path="/resources/case-notes" element={<CaseNotes />} />
+          <Route path="/resources/webinars" element={<Webinars />} />
+          <Route path="/resources/faqs" element={<FAQs />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/legal" element={<Legal />} />
