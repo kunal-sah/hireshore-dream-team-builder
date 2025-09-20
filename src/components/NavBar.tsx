@@ -122,6 +122,20 @@ const NavBar = () => {
             </Link>
 
             <Link
+              to="/industries"
+              className="text-foreground hover:text-primary font-medium transition-colors"
+            >
+              Industries
+            </Link>
+
+            <Link
+              to="/resources"
+              className="text-foreground hover:text-primary font-medium transition-colors"
+            >
+              Resources
+            </Link>
+
+            <Link
               to="/about-us"
               className="text-foreground hover:text-primary font-medium transition-colors"
             >
@@ -196,6 +210,20 @@ const NavBar = () => {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Pricing
+                </Link>
+                <Link
+                  to="/industries"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Industries
+                </Link>
+                <Link
+                  to="/resources"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Resources
                 </Link>
                 <Link
                   to="/about-us"
