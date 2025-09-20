@@ -26,7 +26,7 @@ import {
 
 const Services = () => {
   const bookCall = () => {
-    window.open('https://calendly.com/hireshore/intro-call', '_blank');
+    window.open('https://calendly.com/hireshore/30min', '_blank');
   };
 
   const deliveryAreas = [

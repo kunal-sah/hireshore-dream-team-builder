@@ -352,7 +352,7 @@ const ContactUs = () => {
                 <p className="mb-6 text-sm sm:text-base">Choose a time that works for you - we'll discuss your project and how our delivery pods can help you scale.</p>
                 <Button 
                   className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-6 sm:px-8 py-3 text-sm sm:text-base"
-                  onClick={() => window.open('https://calendly.com/hireshore', '_blank')}
+                  onClick={() => window.open('https://calendly.com/hireshore/30min', '_blank')}
                 >
                   Schedule Now
                 </Button>
