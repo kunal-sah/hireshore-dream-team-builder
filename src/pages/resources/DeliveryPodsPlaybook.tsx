@@ -648,37 +648,38 @@ Success indicators for evolution:
                   </AccordionContent>
                 </AccordionItem>
               ))}
-              </Accordion>
-            </section>
+            </Accordion>
+          </motion.div>
+        </div>
+      </section>
 
-            {/* Related Resources */}
-            <section id="related-resources" className="mt-16">
-              <h2 className="text-3xl font-bold mb-6 text-primary">Related Resources</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card className="p-6 hover:shadow-lg transition-shadow">
-                  <h3 className="font-semibold mb-2">Creative Brief Template</h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Structure your projects with clear goals, audience definition, and creative direction.
-                  </p>
-                  <Button variant="outline" size="sm" asChild>
-                    <a href="/resources/creative-brief-template">View Template</a>
-                  </Button>
-                </Card>
-                
-                <Card className="p-6 hover:shadow-lg transition-shadow">
-                  <h3 className="font-semibold mb-2">Web Launch Checklist</h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Ensure every web project meets performance, SEO, and quality standards.
-                  </p>
-                  <Button variant="outline" size="sm" asChild>
-                    <a href="/resources/web-launch-checklist">View Checklist</a>
-                  </Button>
-                </Card>
-              </div>
-            </section>
+      {/* Related Resources */}
+      <section id="related-resources" className="py-20 bg-background">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-6 text-primary">Related Resources</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <h3 className="font-semibold mb-2">Creative Brief Template</h3>
+              <p className="text-muted-foreground text-sm mb-4">
+                Structure your projects with clear goals, audience definition, and creative direction.
+              </p>
+              <Button variant="outline" size="sm" asChild>
+                <a href="/resources/creative-brief-template">View Template</a>
+              </Button>
+            </Card>
+            
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <h3 className="font-semibold mb-2">Web Launch Checklist</h3>
+              <p className="text-muted-foreground text-sm mb-4">
+                Ensure every web project meets performance, SEO, and quality standards.
+              </p>
+              <Button variant="outline" size="sm" asChild>
+                <a href="/resources/web-launch-checklist">View Checklist</a>
+              </Button>
+            </Card>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* CTA */}
       <section className="py-20 bg-background">
