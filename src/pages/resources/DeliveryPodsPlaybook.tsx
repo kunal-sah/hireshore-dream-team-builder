@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { TableOfContents } from "@/components/ui/table-of-contents";
+import { StickyCTA } from "@/components/ui/sticky-cta";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import {
@@ -489,10 +491,9 @@ Success indicators for evolution:
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
-              onClick={downloadPlaybook}
+              onClick={() => document.getElementById('overview')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Download className="mr-2 h-5 w-5" />
-              Download PDF
+              Start Reading
             </Button>
             <Button 
               size="lg" 
@@ -647,10 +648,37 @@ Success indicators for evolution:
                   </AccordionContent>
                 </AccordionItem>
               ))}
-            </Accordion>
-          </motion.div>
+              </Accordion>
+            </section>
+
+            {/* Related Resources */}
+            <section id="related-resources" className="mt-16">
+              <h2 className="text-3xl font-bold mb-6 text-primary">Related Resources</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <Card className="p-6 hover:shadow-lg transition-shadow">
+                  <h3 className="font-semibold mb-2">Creative Brief Template</h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Structure your projects with clear goals, audience definition, and creative direction.
+                  </p>
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="/resources/creative-brief-template">View Template</a>
+                  </Button>
+                </Card>
+                
+                <Card className="p-6 hover:shadow-lg transition-shadow">
+                  <h3 className="font-semibold mb-2">Web Launch Checklist</h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Ensure every web project meets performance, SEO, and quality standards.
+                  </p>
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="/resources/web-launch-checklist">View Checklist</a>
+                  </Button>
+                </Card>
+              </div>
+            </section>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* CTA */}
       <section className="py-20 bg-background">
@@ -676,6 +704,7 @@ Success indicators for evolution:
         </div>
       </section>
 
+      <StickyCTA />
       <SiteFooter />
     </div>
   );

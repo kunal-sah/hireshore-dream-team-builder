@@ -31,6 +31,9 @@ import FAQs from "./pages/resources/FAQs";
 import DeliveryPodsPlaybook from "./pages/resources/DeliveryPodsPlaybook";
 import WebLaunchChecklist from "./pages/resources/WebLaunchChecklist";
 import CostCalculator from "./pages/resources/CostCalculator";
+import CreativeBriefTemplate from "./pages/resources/CreativeBriefTemplate";
+import GuidesLibrary from "./pages/resources/GuidesLibrary";
+import TemplatesLibrary from "./pages/resources/TemplatesLibrary";
 
 const queryClient = new QueryClient();
 
@@ -65,6 +68,9 @@ const App = () => (
         <Route path="/resources/delivery-pods-playbook" element={<DeliveryPodsPlaybook />} />
         <Route path="/resources/web-launch-checklist" element={<WebLaunchChecklist />} />
         <Route path="/resources/cost-calculator" element={<CostCalculator />} />
+        <Route path="/resources/creative-brief-template" element={<CreativeBriefTemplate />} />
+        <Route path="/resources/guides" element={<GuidesLibrary />} />
+        <Route path="/resources/templates" element={<TemplatesLibrary />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/legal" element={<Legal />} />

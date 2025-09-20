@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
-import { Headphones, Users, Phone, Palette, Code, Menu, X } from "lucide-react";
+import { Headphones, Users, Phone, Palette, Code, Menu, X, ChevronDown, BookOpen, FileText, CheckSquare, Calculator, Video, MessageCircle } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -13,6 +22,18 @@ const NavBar = () => {
   const springConfig = { damping: 25, stiffness: 700 };
   const springX = useSpring(mouseX, springConfig);
   const springY = useSpring(mouseY, springConfig);
+
+  const resourceItems = [
+    { title: "Delivery Pods Playbook", href: "/resources/delivery-pods-playbook", icon: BookOpen },
+    { title: "Creative Brief Template", href: "/resources/creative-brief-template", icon: FileText },
+    { title: "Web Launch Checklist", href: "/resources/web-launch-checklist", icon: CheckSquare },
+    { title: "Cost Calculator", href: "/resources/cost-calculator", icon: Calculator },
+    { title: "Guides Library", href: "/resources/guides", icon: BookOpen },
+    { title: "Templates Library", href: "/resources/templates", icon: FileText },
+    { title: "Case Notes", href: "/resources/case-notes", icon: FileText },
+    { title: "Webinars", href: "/resources/webinars", icon: Video },
+    { title: "FAQs", href: "/resources/faqs", icon: MessageCircle },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -105,69 +126,114 @@ const NavBar = () => {
             </Link>
           </motion.div>
           
-          {/* Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-6">
-            <Link
-              to="/services"
-              className="text-foreground hover:text-primary font-medium transition-colors"
-            >
-              Services
-            </Link>
+            {/* Navigation Links */}
+            <div className="hidden lg:flex items-center space-x-6">
+              <Link
+                to="/services"
+                className="text-foreground hover:text-primary font-medium transition-colors"
+              >
+                Services
+              </Link>
 
-            <Link
-              to="/pricing"
-              className="text-foreground hover:text-primary font-medium transition-colors"
-            >
-              Pricing
-            </Link>
+              <Link
+                to="/pricing"
+                className="text-foreground hover:text-primary font-medium transition-colors"
+              >
+                Pricing
+              </Link>
 
-            <Link
-              to="/industries"
-              className="text-foreground hover:text-primary font-medium transition-colors"
-            >
-              Industries
-            </Link>
+              <Link
+                to="/industries"
+                className="text-foreground hover:text-primary font-medium transition-colors"
+              >
+                Industries
+              </Link>
 
-            <Link
-              to="/resources"
-              className="text-foreground hover:text-primary font-medium transition-colors"
-            >
-              Resources
-            </Link>
+              {/* Resources Dropdown */}
+              <div className="relative group">
+                <button className="flex items-center text-foreground hover:text-primary font-medium transition-colors">
+                  Resources
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                
+                {/* Dropdown Menu */}
+                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-4">
+                    <div className="mb-4">
+                      <Link
+                        to="/resources"
+                        className="flex items-center p-3 rounded-lg hover:bg-muted/50 transition-colors"
+                      >
+                        <BookOpen className="h-5 w-5 mr-3 text-primary" />
+                        <div>
+                          <div className="font-medium">Resource Hub</div>
+                          <div className="text-sm text-muted-foreground">All guides, templates, and tools</div>
+                        </div>
+                      </Link>
+                    </div>
+                    
+                    <div className="grid gap-1">
+                      {resourceItems.slice(0, 4).map((item) => (
+                        <Link
+                          key={item.title}
+                          to={item.href}
+                          className="flex items-center p-2 rounded-md hover:bg-muted/50 transition-colors"
+                        >
+                          <item.icon className="h-4 w-4 mr-3 text-muted-foreground" />
+                          <span className="text-sm">{item.title}</span>
+                        </Link>
+                      ))}
+                    </div>
+                    
+                    <div className="border-t mt-2 pt-2">
+                      {resourceItems.slice(4).map((item) => (
+                        <Link
+                          key={item.title}
+                          to={item.href}
+                          className="flex items-center p-2 rounded-md hover:bg-muted/50 transition-colors"
+                        >
+                          <item.icon className="h-4 w-4 mr-3 text-muted-foreground" />
+                          <span className="text-sm">{item.title}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-            <Link
-              to="/about-us"
-              className="text-foreground hover:text-primary font-medium transition-colors"
-            >
-              About Us
-            </Link>
+              <Link
+                to="/about-us"
+                className="text-foreground hover:text-primary font-medium transition-colors"
+              >
+                About Us
+              </Link>
 
-            <Link
-              to="/case-studies"
-              className="text-foreground hover:text-primary font-medium transition-colors"
-            >
-              Case Studies
-            </Link>
+              <Link
+                to="/case-studies"
+                className="text-foreground hover:text-primary font-medium transition-colors"
+              >
+                Case Studies
+              </Link>
 
-            <Link
-              to="/contact-us"
-              className="text-foreground hover:text-primary font-medium transition-colors"
-            >
-              Contact Us
-            </Link>
+              <Link
+                to="/contact-us"
+                className="text-foreground hover:text-primary font-medium transition-colors"
+              >
+                Contact Us
+              </Link>
 
-            {/* Book a Call - Primary CTA */}
-            <motion.button
-              className="inline-flex items-center justify-center h-10 bg-primary text-primary-foreground font-semibold px-6 py-2 rounded-lg text-sm hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ripple-effect relative overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onMouseDown={createRipple}
-              onClick={scrollToBooking}
-            >
-              <Phone className="mr-2 h-4 w-4" />
-              <span className="relative z-10">Book Free Strategy Session</span>
-            </motion.button>
-          </div>
+              {/* Book a Call - Primary CTA */}
+              <motion.button
+                className="inline-flex items-center justify-center h-10 bg-primary text-primary-foreground font-semibold px-6 py-2 rounded-lg text-sm hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ripple-effect relative overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onMouseDown={createRipple}
+                onClick={() => window.open('https://calendly.com/hireshore/30min', '_blank')}
+              >
+                <Phone className="mr-2 h-4 w-4" />
+                <span className="relative z-10">Book Free Strategy Session</span>
+              </motion.button>
+            </div>
 
           {/* Mobile Menu Button */}
           <div className="flex lg:hidden">
@@ -225,6 +291,21 @@ const NavBar = () => {
                 >
                   Resources
                 </Link>
+                
+                {/* Mobile Resources Submenu */}
+                <div className="pl-6 space-y-1">
+                  {resourceItems.slice(0, 5).map((item) => (
+                    <Link
+                      key={item.title}
+                      to={item.href}
+                      className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <item.icon className="h-4 w-4 mr-2" />
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
                 <Link
                   to="/about-us"
                   className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
@@ -252,7 +333,7 @@ const NavBar = () => {
                   whileTap={{ scale: 0.98 }}
                   onMouseDown={createRipple}
                   onClick={() => {
-                    scrollToBooking();
+                    window.open('https://calendly.com/hireshore/30min', '_blank');
                     setMobileMenuOpen(false);
                   }}
                 >

@@ -200,7 +200,7 @@ const Resources = () => {
                   className="h-full hover:shadow-lg transition-shadow duration-300 group cursor-pointer"
                   onClick={() => {
                     if (resource.title.includes("Playbook")) window.location.href = '/resources/delivery-pods-playbook';
-                    else if (resource.title.includes("Template")) window.location.href = '/resources/templates';
+                    else if (resource.title.includes("Template")) window.location.href = '/resources/creative-brief-template';
                     else if (resource.title.includes("Checklist")) window.location.href = '/resources/web-launch-checklist';
                     else if (resource.title.includes("Calculator")) window.location.href = '/resources/cost-calculator';
                   }}
