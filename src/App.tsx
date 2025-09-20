@@ -28,6 +28,9 @@ import Templates from "./pages/resources/Templates";
 import CaseNotes from "./pages/resources/CaseNotes";
 import Webinars from "./pages/resources/Webinars";
 import FAQs from "./pages/resources/FAQs";
+import DeliveryPodsPlaybook from "./pages/resources/DeliveryPodsPlaybook";
+import WebLaunchChecklist from "./pages/resources/WebLaunchChecklist";
+import CostCalculator from "./pages/resources/CostCalculator";
 
 const queryClient = new QueryClient();
 
@@ -58,7 +61,10 @@ const App = () => (
           <Route path="/resources/templates" element={<Templates />} />
           <Route path="/resources/case-notes" element={<CaseNotes />} />
           <Route path="/resources/webinars" element={<Webinars />} />
-          <Route path="/resources/faqs" element={<FAQs />} />
+        <Route path="/resources/faqs" element={<FAQs />} />
+        <Route path="/resources/delivery-pods-playbook" element={<DeliveryPodsPlaybook />} />
+        <Route path="/resources/web-launch-checklist" element={<WebLaunchChecklist />} />
+        <Route path="/resources/cost-calculator" element={<CostCalculator />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/legal" element={<Legal />} />
