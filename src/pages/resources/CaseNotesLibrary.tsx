@@ -28,6 +28,34 @@ const CaseNotesLibrary = () => {
       problem: "NDIS provider spending 15+ hours weekly on manual admin tasks, client intake forms, and compliance documentation",
       solution: "Custom client portal with automated form workflows, CRM integration, and Slack notification system",
       outcome: "Reduced admin time by 67% (10+ hours/week), improved client experience, 100% compliance tracking",
+      tags: ["Automation", "Healthcare", "Portal", "CRM Integration"],
+      readTime: "4 min read",
+      slug: "ndis-automation"
+    },
+    {
+      id: "ecommerce-replatform",
+      title: "Legacy Platform → Shopify Plus → 312% Revenue Growth",
+      industry: "E-commerce",
+      timeframe: "8 weeks",
+      problem: "Established e-commerce brand stuck on legacy platform with 3.2% conversion rate, slow load times, and limited mobile experience",
+      solution: "Complete migration to Shopify Plus with custom theme, advanced filtering, subscription integration, and mobile-first optimization",
+      outcome: "Conversion rate increased to 8.7%, page load time reduced to 1.8 seconds, revenue grew 312% to $8.2M in first year",
+      tags: ["E-commerce", "Migration", "Performance", "Mobile-First"],
+      readTime: "6 min read",
+      slug: "ecommerce-replatform"
+    },
+    {
+      id: "saas-onboarding",
+      title: "23% Churn → Interactive Onboarding → 91% Activation Rate",
+      industry: "SaaS",
+      timeframe: "5 weeks", 
+      problem: "B2B SaaS with complex features experiencing 23% monthly churn, only 34% of users completed setup within first week",
+      solution: "Interactive onboarding system with progressive disclosure, smart defaults, sample data, and contextual guidance",
+      outcome: "First-week activation increased to 91%, monthly churn reduced to 8.2%, time-to-value decreased from 12 days to 2.5 days",
+      tags: ["SaaS", "UX Design", "Churn Reduction", "User Onboarding"],
+      readTime: "5 min read",
+      slug: "saas-onboarding"
+    }
       metrics: {
         timeSaved: "10+ hours/week",
         efficiency: "67% reduction",

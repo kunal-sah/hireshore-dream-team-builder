@@ -37,6 +37,8 @@ import FunnelGuide from "./pages/resources/guides/FunnelGuide";
 import ContentCalendarTemplate from "./pages/resources/templates/ContentCalendarTemplate";
 import WebinarsLibrary from "./pages/resources/WebinarsLibrary";
 import NDISAutomation from "./pages/resources/case-notes/NDISAutomation";
+import EcommerceReplatform from "./pages/resources/case-notes/EcommerceReplatform";
+import SaaSOnboarding from "./pages/resources/case-notes/SaaSOnboarding";
 import UGCBriefTemplate from "./pages/resources/UGCBriefTemplate";
 import SEOBasicsGuide from "./pages/resources/SEOBasicsGuide";
 
@@ -80,7 +82,9 @@ const App = () => (
           <Route path="/resources/guides/outreach-systems" element={<OutreachGuide />} />
           <Route path="/resources/templates/content-calendar" element={<ContentCalendarTemplate />} />
           <Route path="/resources/templates/ugc-brief" element={<UGCBriefTemplate />} />
-          <Route path="/resources/case-notes/ndis-admin-automation" element={<NDISAutomation />} />
+        <Route path="/resources/case-notes/ndis-automation" element={<NDISAutomation />} />
+        <Route path="/resources/case-notes/ecommerce-replatform" element={<EcommerceReplatform />} />
+        <Route path="/resources/case-notes/saas-onboarding" element={<SaaSOnboarding />} />
           <Route path="/resources/case-notes/ads-leads-gap-funnel" element={<CaseNotesLibrary />} />
           <Route path="/resources/case-notes/cold-outreach-automation" element={<CaseNotesLibrary />} />
           <Route path="/resources/case-notes/shopify-fulfillment-automation" element={<CaseNotesLibrary />} />
