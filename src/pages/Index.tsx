@@ -7,6 +7,7 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import { LazyYouTube } from '../components/LazyYouTube';
 import { CriticalContentOptimizer } from '../components/CriticalContentOptimizer';
 import { queueAfterInteractive } from '../utils/interactivityOptimizer';
+import { queueNonBlockingTask, breakUpOperation } from '../utils/blockingTimeOptimizer';
 
 // Critical above-the-fold components - load immediately
 import NavBar from "../components/NavBar";
@@ -115,21 +116,31 @@ const Index = () => {
       'button[href="#book"]'
     ];
 
-    // Attach scroll behavior
-    const nodes = document.querySelectorAll(selectors.join(','));
-    nodes.forEach((node) => {
-      // Neutralize any previous modal handlers
-      node.removeAttribute('data-modal-target');
-      node.removeAttribute('data-trigger');
-      (node as HTMLElement).onclick = smoothScrollToBook;
-      node.setAttribute('href', '#book');
-      node.setAttribute('aria-controls', 'book');
-    });
+    // Optimize scroll behavior using non-blocking task scheduling
+    queueNonBlockingTask(() => {
+      // Break up event listener attachment to prevent TBT blocking
+      const attachScrollBehavior = async () => {
+        const nodes = document.querySelectorAll(selectors.join(','));
+        
+        // Process in small batches to prevent blocking
+        await breakUpOperation(Array.from(nodes), (node) => {
+          // Neutralize any previous modal handlers
+          node.removeAttribute('data-modal-target');
+          node.removeAttribute('data-trigger');
+          (node as HTMLElement).onclick = smoothScrollToBook;
+          node.setAttribute('href', '#book');
+          node.setAttribute('aria-controls', 'book');
+        }, 3);
+      };
 
-    // Disable any existing openModal function
-    if ((window as any).openModal) {
-      (window as any).openModal = function() { /* disabled to force scroll to Calendly */ };
-    }
+      // Execute attachment with scheduling
+      attachScrollBehavior();
+
+      // Disable any existing openModal function
+      if ((window as any).openModal) {
+        (window as any).openModal = function() { /* disabled to force scroll to Calendly */ };
+      }
+    }, 'background');
 
     // Cleanup function
     return () => {
@@ -310,7 +321,7 @@ const Index = () => {
             <SiteFooter />
           </LazySection>
         </div>
-    </div>
+      </div>
     </CriticalContentOptimizer>
   );
 };

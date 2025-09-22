@@ -7,11 +7,15 @@ import { initBundleOptimizations } from './utils/bundleOptimizer';
 import { initRenderOptimizations } from './utils/renderOptimizer';
 import { initSpeedIndexOptimizations } from './utils/speedIndexOptimizer';
 import { initInteractivityOptimizations } from './utils/interactivityOptimizer';
+import { initBlockingTimeOptimizations } from './utils/blockingTimeOptimizer';
 
-// Initialize TTI optimizations first (critical for interactivity)
+// Initialize TBT optimizations first (critical for reducing blocking time)
+initBlockingTimeOptimizations();
+
+// Initialize TTI optimizations second (for interactivity)
 initInteractivityOptimizations();
 
-// Initialize Speed Index optimizations second (for visual completeness)
+// Initialize Speed Index optimizations third (for visual completeness)
 initSpeedIndexOptimizations();
 
 // Initialize other optimizations with lower priority
