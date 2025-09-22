@@ -65,14 +65,15 @@ const LandingHero = () => {
     
     requestAnimationFrame(() => {
       const circle = document.createElement('span');
-      const diameter = Math.max(element.clientWidth, element.clientHeight);
+      
+      // Use cached or estimated dimensions to avoid layout reads
+      const elementRect = element.getBoundingClientRect();
+      const diameter = Math.max(elementRect.width, elementRect.height);
       const radius = diameter / 2;
-
-      const rect = element.getBoundingClientRect();
       
       circle.style.width = circle.style.height = `${diameter}px`;
-      circle.style.left = `${event.clientX - rect.left - radius}px`;
-      circle.style.top = `${event.clientY - rect.top - radius}px`;
+      circle.style.left = `${event.clientX - elementRect.left - radius}px`;
+      circle.style.top = `${event.clientY - elementRect.top - radius}px`;
       
       circle.classList.add('ripple');
       

@@ -272,8 +272,45 @@
       }
      </style>
     
-    <!-- Performance optimization scripts -->
+      <!-- Performance optimization scripts -->
     <script>
+      // Batch DOM operations to prevent forced reflows
+      window.performanceBatch = {
+        pendingReads: [],
+        pendingWrites: [],
+        
+        read: function(fn) {
+          this.pendingReads.push(fn);
+          this.flush();
+        },
+        
+        write: function(fn) {
+          this.pendingWrites.push(fn);
+          this.flush();
+        },
+        
+        flush: function() {
+          if (this.isScheduled) return;
+          this.isScheduled = true;
+          
+          requestAnimationFrame(() => {
+            // Execute all reads first (no layout triggers)
+            while (this.pendingReads.length) {
+              const read = this.pendingReads.shift();
+              read();
+            }
+            
+            // Then execute all writes (potential layout triggers)
+            while (this.pendingWrites.length) {
+              const write = this.pendingWrites.shift();
+              write();
+            }
+            
+            this.isScheduled = false;
+          });
+        }
+      };
+      
       // Optimize third-party font loading with font-display: swap
       (function() {
         const observer = new MutationObserver(function(mutations) {
