@@ -204,12 +204,8 @@ const WebinarsLibrary = () => {
                     <div className="space-y-4">
                       <div className="flex items-center gap-4 text-sm text-muted-foreground">
                         <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          {webinar.date}
-                        </div>
-                        <div className="flex items-center gap-1">
                           <Clock className="h-4 w-4" />
-                          {webinar.time}
+                          {webinar.duration}
                         </div>
                       </div>
                       
