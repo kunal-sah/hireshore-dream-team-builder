@@ -66,8 +66,24 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
-    <!-- Fallback font loading optimization -->
+    <!-- Global font optimization and third-party font handling -->
     <style>
+      /* Comprehensive font-display optimization for all fonts */
+      @supports (font-display: swap) {
+        @font-face {
+          font-family: 'Roboto';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap !important;
+          src: local('Roboto'), local('Roboto-Regular');
+        }
+        
+        /* Global override for any dynamically loaded fonts */
+        * {
+          font-display: swap !important;
+        }
+      }
+      
       /* Font fallback with metric overrides to reduce layout shift */
       @font-face {
         font-family: 'Inter-fallback';
@@ -80,6 +96,18 @@
         size-adjust: 107%;
       }
       
+      @font-face {
+        font-family: 'Roboto-fallback';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local('Arial'), local('Helvetica'), local('sans-serif');
+        ascent-override: 92%;
+        descent-override: 24%;
+        line-gap-override: 0%;
+        size-adjust: 100%;
+      }
+      
       /* Ensure consistent font display across all fonts including third-party */
       * {
         font-display: swap;
@@ -87,6 +115,11 @@
       
       /* Global font-display override for all font-face declarations */
       @font-face {
+        font-display: swap !important;
+      }
+      
+      /* CSS override to intercept and optimize third-party font loading */
+      [style*="font-family"] {
         font-display: swap !important;
       }
     </style>
@@ -237,7 +270,46 @@
         0% { background-position: 200% 0; }
         100% { background-position: -200% 0; }
       }
-    </style>
+     </style>
+    
+    <!-- Performance optimization scripts -->
+    <script>
+      // Optimize third-party font loading with font-display: swap
+      (function() {
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+              if (node.nodeType === 1) { // Element node
+                // Check for dynamically added stylesheets
+                if (node.tagName === 'LINK' && node.rel === 'stylesheet') {
+                  const href = node.href;
+                  if (href && href.includes('fonts.bunny.net')) {
+                    // Add font-display parameter if not present
+                    if (!href.includes('display=')) {
+                      node.href = href + (href.includes('?') ? '&' : '?') + 'display=swap';
+                    }
+                  }
+                }
+                // Check for style elements containing font-face rules
+                if (node.tagName === 'STYLE') {
+                  const content = node.textContent || node.innerHTML;
+                  if (content.includes('@font-face') && !content.includes('font-display')) {
+                    node.textContent = content.replace(/(@font-face\s*{[^}]*)(})/g, '$1font-display: swap; $2');
+                  }
+                }
+              }
+            });
+          });
+        });
+        
+        observer.observe(document.head, { childList: true, subtree: true });
+        
+        // Also observe body for dynamically inserted content
+        document.addEventListener('DOMContentLoaded', function() {
+          observer.observe(document.body, { childList: true, subtree: true });
+        });
+      })();
+    </script>
     
     <!-- Load main stylesheet asynchronously to prevent render blocking -->
     <link rel="preload" href="/assets/index-RHy9OfMu.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
