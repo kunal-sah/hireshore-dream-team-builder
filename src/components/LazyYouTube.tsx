@@ -42,7 +42,7 @@ export const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, classN
             loadVideo();
           }
         }}
-        aria-label={`Play video: ${title}`}
+        aria-label={`Click to play video: ${title}`}
       >
         <img
           src={thumbnailUrl}
