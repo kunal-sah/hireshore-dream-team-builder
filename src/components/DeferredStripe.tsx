@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { scriptManager } from '../utils/scriptManager';
 
 interface DeferredStripeProps {
   children: React.ReactNode;
@@ -20,25 +21,22 @@ export const DeferredStripe: React.FC<DeferredStripeProps> = ({ children, defer 
       return;
     }
 
-    const loadStripe = () => {
-      // Only load if not already loaded
-      const existingScript = document.querySelector('script[src*="js.stripe.com"]');
-      if (existingScript) {
+    const loadStripe = async () => {
+      try {
+        await scriptManager.loadScript(
+          'https://js.stripe.com/v3/',
+          { 'data-manual-load': 'true' }
+        );
         setIsStripeLoaded(true);
-        return;
+      } catch (error) {
+        console.warn('Failed to load Stripe:', error);
       }
-
-      const script = document.createElement('script');
-      script.src = 'https://js.stripe.com/v3/';
-      script.async = true;
-      script.onload = () => setIsStripeLoaded(true);
-      document.head.appendChild(script);
     };
 
     // Defer Stripe loading until interaction or idle time
     const deferredLoad = () => {
       if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(loadStripe, { timeout: 3000 });
+        window.requestIdleCallback(() => loadStripe(), { timeout: 3000 });
       } else {
         setTimeout(loadStripe, 1000);
       }

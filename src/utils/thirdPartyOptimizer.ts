@@ -1,3 +1,5 @@
+import { scriptManager } from './scriptManager';
+
 /**
  * Third-party script optimization utilities
  * Reduces main-thread blocking by deferring non-critical scripts
@@ -100,18 +102,22 @@ export const deferWidgetUntilInteraction = (
 };
 
 /**
- * Initialize chat widget with performance optimizations
+ * Initialize chat widget with performance optimizations using script manager
  */
 export const initializeChatWidget = (): void => {
-  const loadChatWidget = () => {
-    loadScriptOnIdle({
-      src: 'https://widgets.leadconnectorhq.com/loader.js',
-      id: 'chat-widget-loader',
-      attributes: {
-        'data-resources-url': 'https://widgets.leadconnectorhq.com/chat-widget/loader.js',
-        'data-widget-id': '68298cb376ba227d5563113e'
-      }
-    }).catch(console.error);
+  const loadChatWidget = async () => {
+    try {
+      await scriptManager.loadScript(
+        'https://widgets.leadconnectorhq.com/loader.js',
+        {
+          'data-resources-url': 'https://widgets.leadconnectorhq.com/chat-widget/loader.js',
+          'data-widget-id': '68298cb376ba227d5563113e',
+          'data-manual-load': 'true'
+        }
+      );
+    } catch (error) {
+      console.warn('Failed to load chat widget:', error);
+    }
   };
 
   // Defer chat widget until user interaction

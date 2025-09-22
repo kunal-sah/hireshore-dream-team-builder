@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { scriptManager } from '../utils/scriptManager';
 
 interface LazyCalendlyProps {
   className?: string;
@@ -29,34 +30,33 @@ export const LazyCalendly: React.FC<LazyCalendlyProps> = ({ className = "" }) =>
 
   useEffect(() => {
     if (isVisible && !isScriptLoaded) {
-      // Use requestIdleCallback to defer script loading even further
-      const loadCalendlyAssets = () => {
-        const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-        if (existingScript) {
+      // Use script manager to prevent duplicate loading
+      const loadCalendlyAssets = async () => {
+        try {
+          // Load CSS first (non-blocking)
+          const cssLink = document.createElement('link');
+          cssLink.rel = 'stylesheet';
+          cssLink.href = 'https://assets.calendly.com/assets/booking/css/booking-3c803e311.css';
+          cssLink.media = 'print';
+          cssLink.onload = function(this: HTMLLinkElement) { 
+            this.media = 'all'; 
+          };
+          document.head.appendChild(cssLink);
+
+          // Load JavaScript using script manager
+          await scriptManager.loadScript(
+            'https://assets.calendly.com/assets/external/widget.js',
+            { 'data-manual-load': 'true' }
+          );
+          
           setIsScriptLoaded(true);
-          return;
+        } catch (error) {
+          console.warn('Failed to load Calendly assets:', error);
         }
-
-        // Load CSS first to prevent FOUC
-        const cssLink = document.createElement('link');
-        cssLink.rel = 'stylesheet';
-        cssLink.href = 'https://assets.calendly.com/assets/booking/css/booking-3c803e311.css';
-        cssLink.media = 'print';
-        cssLink.onload = function(this: HTMLLinkElement) { 
-          this.media = 'all'; 
-        };
-        document.head.appendChild(cssLink);
-
-        // Then load the JavaScript
-        const script = document.createElement('script');
-        script.src = 'https://assets.calendly.com/assets/external/widget.js';
-        script.async = true;
-        script.onload = () => setIsScriptLoaded(true);
-        document.head.appendChild(script);
       };
 
       if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(loadCalendlyAssets, { timeout: 2000 });
+        window.requestIdleCallback(() => loadCalendlyAssets(), { timeout: 2000 });
       } else {
         setTimeout(loadCalendlyAssets, 500);
       }

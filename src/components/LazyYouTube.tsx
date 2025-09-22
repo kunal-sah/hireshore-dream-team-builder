@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { Play } from 'lucide-react';
+import { scriptManager } from '../utils/scriptManager';
 
 interface LazyYouTubeProps {
   videoId: string;
@@ -12,8 +13,16 @@ export const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, classN
   const [hasClicked, setHasClicked] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  const loadVideo = useCallback(() => {
+  const loadVideo = useCallback(async () => {
     setHasClicked(true);
+    
+    // Prevent duplicate YouTube API loading
+    try {
+      await scriptManager.loadYouTubePlayer();
+    } catch (error) {
+      console.warn('YouTube API loading failed, falling back to iframe');
+    }
+    
     // Small delay to ensure smooth UX transition
     setTimeout(() => setIsLoaded(true), 100);
   }, []);
