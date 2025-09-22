@@ -1,29 +1,37 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+
+// Critical above-fold components - load immediately
 import NavBar from "../components/NavBar";
 import LandingHero from "../components/LandingHero";
-import BenefitsSection from "../components/BenefitsSection";
-import RolesSection from "../components/RolesSection";
 import TrustedStartups from "../components/TrustedStartups";
-import TestimonialsSection from "../components/TestimonialsSection";
-import SiteFooter from "../components/SiteFooter";
-import ServicesSection from "../components/ServicesSection";
-import MediaFeatures from "../components/MediaFeatures";
-import SharkTankSection from "../components/SharkTankSection";
-import DigitalSixSuccessSection from "../components/DigitalSixSuccessSection";
-import MedzMediaSuccessSection from "../components/MedzMediaSuccessSection";
-import WhyPodsSection from "../components/WhyPodsSection";
-import HowItWorksSection from "../components/HowItWorksSection";
-import ProofSection from "../components/ProofSection";
-import CalendlySection from "../components/CalendlySection";
 import DeliveryPodDefinition from "../components/DeliveryPodDefinition";
-import PodAtAGlance from "../components/PodAtAGlance";
-import InsideDeliveryPod from "../components/InsideDeliveryPod";
-import FAQSection from "../components/FAQSection";
+import SiteFooter from "../components/SiteFooter";
 import YouTubeFacade from "../components/ui/youtube-facade";
+
+// Lazy load below-fold components to reduce initial bundle
+const PodAtAGlance = lazy(() => import("../components/PodAtAGlance"));
+const InsideDeliveryPod = lazy(() => import("../components/InsideDeliveryPod"));
+const HowItWorksSection = lazy(() => import("../components/HowItWorksSection"));
+const WhyPodsSection = lazy(() => import("../components/WhyPodsSection"));
+const ProofSection = lazy(() => import("../components/ProofSection"));
+const BenefitsSection = lazy(() => import("../components/BenefitsSection"));
+const MediaFeatures = lazy(() => import("../components/MediaFeatures"));
+const ServicesSection = lazy(() => import("../components/ServicesSection"));
+const RolesSection = lazy(() => import("../components/RolesSection"));
+const TestimonialsSection = lazy(() => import("../components/TestimonialsSection"));
+const FAQSection = lazy(() => import("../components/FAQSection"));
+const CalendlySection = lazy(() => import("../components/CalendlySection"));
+
+// Component loader for better UX
+const ComponentLoader = () => (
+  <div className="py-8 flex justify-center">
+    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-400"></div>
+  </div>
+);
 
 const Index = () => {
   // Add useEffect to add JSON-LD and scroll behavior
@@ -121,19 +129,33 @@ const Index = () => {
       <div className="space-y-12 md:space-y-16">
         <TrustedStartups />
         <DeliveryPodDefinition />
-        <PodAtAGlance />
-        <InsideDeliveryPod />
+        <Suspense fallback={<ComponentLoader />}>
+          <PodAtAGlance />
+        </Suspense>
+        <Suspense fallback={<ComponentLoader />}>
+          <InsideDeliveryPod />
+        </Suspense>
         <div id="how-it-works">
-          <HowItWorksSection />
+          <Suspense fallback={<ComponentLoader />}>
+            <HowItWorksSection />
+          </Suspense>
         </div>
         <div id="why-pods">
-          <WhyPodsSection />
+          <Suspense fallback={<ComponentLoader />}>
+            <WhyPodsSection />
+          </Suspense>
         </div>
         <div id="proof">
-          <ProofSection />
+          <Suspense fallback={<ComponentLoader />}>
+            <ProofSection />
+          </Suspense>
         </div>
-        <BenefitsSection />
-        <MediaFeatures />
+        <Suspense fallback={<ComponentLoader />}>
+          <BenefitsSection />
+        </Suspense>
+        <Suspense fallback={<ComponentLoader />}>
+          <MediaFeatures />
+        </Suspense>
         
         {/* Marlon's Medz Media Testimonial */}
         <section className="max-w-6xl mx-auto py-12 px-4">
@@ -273,11 +295,21 @@ const Index = () => {
             </motion.div>
           </div>
         </section>
-        <ServicesSection />
-        <RolesSection />
-        <TestimonialsSection />
-        <FAQSection />
-        <CalendlySection />
+        <Suspense fallback={<ComponentLoader />}>
+          <ServicesSection />
+        </Suspense>
+        <Suspense fallback={<ComponentLoader />}>
+          <RolesSection />
+        </Suspense>
+        <Suspense fallback={<ComponentLoader />}>
+          <TestimonialsSection />
+        </Suspense>
+        <Suspense fallback={<ComponentLoader />}>
+          <FAQSection />
+        </Suspense>
+        <Suspense fallback={<ComponentLoader />}>
+          <CalendlySection />
+        </Suspense>
       </div>
       <SiteFooter />
     </div>
