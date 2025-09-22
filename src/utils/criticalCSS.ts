@@ -5,6 +5,7 @@
 
 /**
  * Remove render-blocking CSS by ensuring all stylesheets load asynchronously
+ * But preserve critical app styles
  */
 export const eliminateRenderBlockingCSS = (): void => {
   if (typeof window === 'undefined') return;
@@ -12,6 +13,16 @@ export const eliminateRenderBlockingCSS = (): void => {
   // Function to convert synchronous CSS to async
   const makeStylesheetAsync = (link: HTMLLinkElement) => {
     if (link.rel === 'stylesheet' && !link.hasAttribute('data-async-converted')) {
+      // Skip main app stylesheets, critical styles, and fonts
+      if (link.hasAttribute('data-critical') || 
+          link.href.includes('fonts.googleapis.com') ||
+          link.href.includes('fonts.gstatic.com') ||
+          link.href.includes('index') ||
+          link.href.includes('main') ||
+          link.href.includes('app')) {
+        return; // Don't convert critical stylesheets
+      }
+      
       const newLink = document.createElement('link');
       newLink.rel = 'preload';
       newLink.href = link.href;
@@ -34,12 +45,7 @@ export const eliminateRenderBlockingCSS = (): void => {
     const stylesheets = document.querySelectorAll('link[rel="stylesheet"]:not([data-async-converted])');
     stylesheets.forEach((link) => {
       const htmlLink = link as HTMLLinkElement;
-      // Skip if it's already marked as critical or if it's from our async loading
-      if (!htmlLink.hasAttribute('data-critical') && 
-          !htmlLink.href.includes('fonts.googleapis.com') &&
-          !htmlLink.href.includes('fonts.gstatic.com')) {
-        makeStylesheetAsync(htmlLink);
-      }
+      makeStylesheetAsync(htmlLink);
     });
   };
 

@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
+import './index.css';
 import { initThirdPartyOptimizations } from './utils/thirdPartyOptimizer';
 import { initCSSOptimizations } from './utils/criticalCSS';
 import { initBundleOptimizations } from './utils/bundleOptimizer';
@@ -40,25 +41,5 @@ initSpeedIndexOptimizations();
 initRenderOptimizations();
 initThirdPartyOptimizations();
 initBundleOptimizations();
-
-// Load main CSS asynchronously after critical rendering
-const loadMainCSS = async () => {
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = new URL('./index.css', import.meta.url).href;
-  link.media = 'print';
-  link.onload = () => { link.media = 'all'; };
-  document.head.appendChild(link);
-  
-  // Fallback
-  setTimeout(() => { if (link.media === 'print') link.media = 'all'; }, 3000);
-};
-
-// Defer main CSS loading
-if ('requestIdleCallback' in window) {
-  requestIdleCallback(loadMainCSS, { timeout: 1000 });
-} else {
-  setTimeout(loadMainCSS, 100);
-}
 
 createRoot(document.getElementById("root")!).render(<App />);
