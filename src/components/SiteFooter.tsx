@@ -226,14 +226,14 @@ const SiteFooter = () => {
             </div>
             
             {/* Legal Links */}
-            <div className="flex flex-wrap justify-center space-x-3 sm:space-x-4">
-              <a href="/privacy" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+            <div className="flex flex-wrap justify-center space-x-4 sm:space-x-6">
+              <a href="/privacy" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm py-2 px-1 min-h-[24px] flex items-center">
                 Privacy Policy
               </a>
-              <a href="/terms" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+              <a href="/terms" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm py-2 px-1 min-h-[24px] flex items-center">
                 Terms & Conditions
               </a>
-              <a href="/legal" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+              <a href="/legal" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm py-2 px-1 min-h-[24px] flex items-center">
                 Legal Mentions
               </a>
             </div>
