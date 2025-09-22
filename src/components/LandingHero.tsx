@@ -42,37 +42,63 @@ const LandingHero = () => {
     }
   };
 
-  // Preload the hero image for faster display
+  // Preload the hero image for faster display - defer to improve FID
   useEffect(() => {
-    const img = new Image();
-    img.onload = () => setImageLoaded(true);
-    img.src = beforeAfterImage;
+    const deferImageLoad = () => {
+      const img = new Image();
+      img.onload = () => setImageLoaded(true);
+      img.src = beforeAfterImage;
+    };
+    
+    // Defer image preloading until browser is idle
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(deferImageLoad, { timeout: 1000 });
+    } else {
+      setTimeout(deferImageLoad, 50);
+    }
   }, []);
 
-  // Optimized mouse tracking to prevent forced reflows
+  // Defer mouse tracking to improve FID
   useEffect(() => {
     let rafId: number;
+    let isIdle = false;
     
-    const handleMouseMove = (e: MouseEvent) => {
-      if (rafId) return; // Skip if animation frame is already pending
-      
-      rafId = requestAnimationFrame(() => {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
+    const setupMouseTracking = () => {
+      const handleMouseMove = (e: MouseEvent) => {
+        if (rafId || !isIdle) return; // Skip if not idle or animation frame pending
         
-        document.documentElement.style.setProperty('--mouse-x', x.toString());
-        document.documentElement.style.setProperty('--mouse-y', y.toString());
-        
-        setMousePosition({ x: e.clientX, y: e.clientY });
-        rafId = 0;
-      });
+        rafId = requestAnimationFrame(() => {
+          const x = e.clientX / window.innerWidth;
+          const y = e.clientY / window.innerHeight;
+          
+          document.documentElement.style.setProperty('--mouse-x', x.toString());
+          document.documentElement.style.setProperty('--mouse-y', y.toString());
+          
+          setMousePosition({ x: e.clientX, y: e.clientY });
+          rafId = 0;
+        });
+      };
+
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        if (rafId) cancelAnimationFrame(rafId);
+      };
     };
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      if (rafId) cancelAnimationFrame(rafId);
-    };
+    // Defer mouse tracking until browser is idle to improve FID
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        isIdle = true;
+        setupMouseTracking();
+      }, { timeout: 2000 });
+    } else {
+      // Fallback for browsers without requestIdleCallback
+      setTimeout(() => {
+        isIdle = true;
+        setupMouseTracking();
+      }, 100);
+    }
   }, []);
 
   // Optimized spotlight effect to prevent forced reflows

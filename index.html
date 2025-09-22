@@ -89,6 +89,28 @@
         contain: layout;
       }
     </style>
+    
+    <!-- Script to improve FID by deferring non-critical tasks -->
+    <script>
+      // Polyfill for requestIdleCallback to improve FID
+      window.requestIdleCallback = window.requestIdleCallback || function(handler, options) {
+        var startTime = Date.now();
+        options = options || {};
+        
+        return setTimeout(function() {
+          handler({
+            didTimeout: false,
+            timeRemaining: function() {
+              return Math.max(0, 50.0 - (Date.now() - startTime));
+            }
+          });
+        }, options.timeout || 1);
+      };
+      
+      window.cancelIdleCallback = window.cancelIdleCallback || function(id) {
+        clearTimeout(id);
+      };
+    </script>
   </head>
   <body>
     <div id="root"></div>
