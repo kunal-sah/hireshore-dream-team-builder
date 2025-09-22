@@ -120,6 +120,22 @@ const LandingHero = () => {
             <h1 
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight hero-text hero-text-priority"
               data-critical="true"
+              style={{ 
+                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif',
+                fontSize: 'clamp(1.875rem, 5vw, 3.75rem)',
+                fontWeight: '700',
+                color: '#1f2937',
+                lineHeight: '1.1',
+                letterSpacing: '-0.025em',
+                margin: '0',
+                padding: '0',
+                opacity: '1',
+                transform: 'none',
+                animation: 'none',
+                transition: 'none',
+                visibility: 'visible',
+                display: 'block'
+              }}
             >
               <span className="inline-block">
                 Get Full-Time Capacity Without the Full-Time Overhead
