@@ -1,5 +1,5 @@
 
-import React, { useRef } from "react";
+import React, { useRef, useCallback } from "react";
 import { motion, useInView, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 
 const HiringFormSection = () => {
@@ -13,15 +13,23 @@ const HiringFormSection = () => {
     }
   };
 
-  // Mouse tracking for magnetic button effect
+  // Optimized mouse tracking for magnetic effect
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-    mouseX.set(e.clientX - left - width / 2);
-    mouseY.set(e.clientY - top - height / 2);
-  };
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.currentTarget;
+    let rafId: number;
+    
+    if (rafId) return;
+    
+    rafId = requestAnimationFrame(() => {
+      const { left, top, width, height } = target.getBoundingClientRect();
+      mouseX.set(e.clientX - left - width / 2);
+      mouseY.set(e.clientY - top - height / 2);
+      rafId = 0;
+    });
+  }, [mouseX, mouseY]);
   
   const resetMouse = () => {
     mouseX.set(0);

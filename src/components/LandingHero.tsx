@@ -39,42 +39,73 @@ const LandingHero = () => {
     }
   };
 
-  // Parallax effect for background elements
+  // Optimized mouse tracking to prevent forced reflows
   useEffect(() => {
+    let rafId: number;
+    
     const handleMouseMove = (e: MouseEvent) => {
-      const x = e.clientX / window.innerWidth;
-      const y = e.clientY / window.innerHeight;
+      if (rafId) return; // Skip if animation frame is already pending
       
-      document.documentElement.style.setProperty('--mouse-x', x.toString());
-      document.documentElement.style.setProperty('--mouse-y', y.toString());
-      
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      rafId = requestAnimationFrame(() => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        
+        document.documentElement.style.setProperty('--mouse-x', x.toString());
+        document.documentElement.style.setProperty('--mouse-y', y.toString());
+        
+        setMousePosition({ x: e.clientX, y: e.clientY });
+        rafId = 0;
+      });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
-  // Spotlight effect for hero section
+  // Optimized spotlight effect to prevent forced reflows
   useEffect(() => {
     if (!heroRef.current) return;
     
-    const updateSpotlight = (e: MouseEvent) => {
-      if (!heroRef.current) return;
-      
-      const rect = heroRef.current.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      
-      heroRef.current.style.setProperty('--x', `${x}%`);
-      heroRef.current.style.setProperty('--y', `${y}%`);
+    let rafId: number;
+    let cachedRect: DOMRect | null = null;
+    
+    const updateRect = () => {
+      if (heroRef.current) {
+        cachedRect = heroRef.current.getBoundingClientRect();
+      }
     };
     
-    heroRef.current.addEventListener('mousemove', updateSpotlight);
+    const updateSpotlight = (e: MouseEvent) => {
+      if (!heroRef.current || !cachedRect) return;
+      
+      if (rafId) return; // Skip if animation frame is already pending
+      
+      rafId = requestAnimationFrame(() => {
+        if (!heroRef.current || !cachedRect) return;
+        
+        const x = ((e.clientX - cachedRect.left) / cachedRect.width) * 100;
+        const y = ((e.clientY - cachedRect.top) / cachedRect.height) * 100;
+        
+        heroRef.current.style.setProperty('--x', `${x}%`);
+        heroRef.current.style.setProperty('--y', `${y}%`);
+        rafId = 0;
+      });
+    };
+    
+    // Cache initial rect and update on resize
+    updateRect();
+    window.addEventListener('resize', updateRect, { passive: true });
+    
+    heroRef.current.addEventListener('mousemove', updateSpotlight, { passive: true });
     return () => {
       if (heroRef.current) {
         heroRef.current.removeEventListener('mousemove', updateSpotlight);
       }
+      window.removeEventListener('resize', updateRect);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, [heroRef]);
   

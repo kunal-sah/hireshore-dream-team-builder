@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 const roles = [
@@ -42,22 +42,29 @@ const RolesSection = () => {
     }
   };
 
-  // Track mouse movement for card movement
+  // Optimized mouse tracking for card animations
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.currentTarget;
+    let rafId: number;
     
-    // Calculate distance from center (normalized to -1 to 1)
-    const moveX = (e.clientX - centerX) / (rect.width / 2) * 5; // Max 5px movement
-    const moveY = (e.clientY - centerY) / (rect.height / 2) * 5; // Max 5px movement
+    if (rafId) return;
     
-    x.set(moveX);
-    y.set(moveY);
-  };
+    rafId = requestAnimationFrame(() => {
+      const rect = target.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      const moveX = (e.clientX - centerX) / (rect.width / 2) * 5;
+      const moveY = (e.clientY - centerY) / (rect.height / 2) * 5;
+      
+      x.set(moveX);
+      y.set(moveY);
+      rafId = 0;
+    });
+  }, [x, y]);
   
   // Smooth out the mouse movement with springs
   const springConfig = { damping: 25, stiffness: 300 };
