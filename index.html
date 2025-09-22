@@ -36,100 +36,168 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Optimize font loading to reduce request chains and defer non-critical fonts -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <!-- Defer Playfair Display as it's not critical for above-the-fold content -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></noscript>
+    <!-- Optimize font loading to reduce request chains and eliminate render blocking -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-      // Critical CSS for initial render and LCP optimization
-      <style>
-        /* Critical above-the-fold styles for immediate render */
-        body { 
-          margin: 0; 
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-          line-height: 1.6;
-        }
-        #root { min-height: 100vh; }
-        
-        /* LCP-optimized hero styles - ensure immediate visibility */
-        .hero-container { 
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-        }
-        .hero-text { 
-          color: #1f2937;
-          font-weight: 700;
-          font-size: clamp(1.875rem, 5vw, 3.75rem);
-          line-height: 1.1;
-          letter-spacing: -0.025em;
-        }
-        .hero-text-priority {
-          opacity: 1 !important; /* Force immediate visibility for LCP */
-          transform: none !important; /* Prevent animation delays */
-          will-change: auto; /* Optimize rendering */
-        }
-        .hero-subtitle {
-          color: #374151;
-          font-size: clamp(1rem, 2.5vw, 1.25rem);
-          line-height: 1.6;
-          margin-top: 1rem;
-        }
-        
-        /* Defer non-critical animations */
-        .defer-animation {
-          will-change: auto;
-        }
-        
-        /* Prevent layout shifts */
-        .video-container {
-          aspect-ratio: 16/9;
-          width: 100%;
-          height: auto;
-        }
-        
-        /* Block third-party stylesheets from auto-loading */
-        link[href*="calendly.com"]:not([data-manual-load]),
-        link[href*="youtube.com"]:not([data-manual-load]) {
-          display: none !important;
-        }
-        
-        /* Block third-party scripts from auto-loading */
-        script[src*="youtube.com"]:not([data-manual-load]),
-        script[src*="calendly.com"]:not([data-manual-load]),
-        script[src*="stripe.com"]:not([data-manual-load]) {
-          display: none !important;
-        }
-        
-        /* Optimize iframe loading */
-        iframe {
-          content-visibility: auto;
-          contain: layout;
-        }
-        
-        /* Ensure images are properly sized to prevent waste */
-        img {
-          max-width: 100%;
-          height: auto;
-        }
-        
-        /* Testimonial images optimization */
-        .testimonial-avatar {
-          width: 48px !important;
-          height: 48px !important;
-          max-width: 48px !important;
-          max-height: 48px !important;
-        }
-        
-        /* Logo images optimization */
-        .logo-image {
-          max-width: 100px !important;
-          max-height: 32px !important;
-        }
-      </style>
+    <!-- Preload critical font files directly to avoid render blocking -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Load Google Fonts CSS asynchronously to prevent render blocking -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Fallbacks for browsers without JavaScript -->
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    </noscript>
+    
+    <!-- Critical CSS for initial render and LCP optimization - Inlined to prevent render blocking -->
+    <style>
+      /* Critical above-the-fold styles for immediate render */
+      body { 
+        margin: 0; 
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+        line-height: 1.6;
+        background-color: #ffffff;
+      }
+      #root { 
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      /* Critical navigation styles */
+      nav {
+        background-color: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      
+      /* LCP-optimized hero styles - ensure immediate visibility */
+      .hero-container { 
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+      }
+      .hero-text { 
+        color: #1f2937;
+        font-weight: 700;
+        font-size: clamp(1.875rem, 5vw, 3.75rem);
+        line-height: 1.1;
+        letter-spacing: -0.025em;
+      }
+      .hero-text-priority {
+        opacity: 1 !important; /* Force immediate visibility for LCP */
+        transform: none !important; /* Prevent animation delays */
+        will-change: auto; /* Optimize rendering */
+      }
+      .hero-subtitle {
+        color: #374151;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        line-height: 1.6;
+        margin-top: 1rem;
+      }
+      
+      /* Critical button styles */
+      .btn-primary {
+        background-color: #3b82f6;
+        color: #ffffff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.2s;
+      }
+      .btn-primary:hover {
+        background-color: #2563eb;
+      }
+      
+      /* Critical layout utilities */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .flex { display: flex; }
+      .flex-col { flex-direction: column; }
+      .items-center { align-items: center; }
+      .justify-center { justify-content: center; }
+      .text-center { text-align: center; }
+      .hidden { display: none; }
+      
+      /* Defer non-critical animations */
+      .defer-animation {
+        will-change: auto;
+      }
+      
+      /* Prevent layout shifts */
+      .video-container {
+        aspect-ratio: 16/9;
+        width: 100%;
+        height: auto;
+      }
+      
+      /* Block third-party stylesheets from auto-loading */
+      link[href*="calendly.com"]:not([data-manual-load]),
+      link[href*="youtube.com"]:not([data-manual-load]) {
+        display: none !important;
+      }
+      
+      /* Block third-party scripts from auto-loading */
+      script[src*="youtube.com"]:not([data-manual-load]),
+      script[src*="calendly.com"]:not([data-manual-load]),
+      script[src*="stripe.com"]:not([data-manual-load]) {
+        display: none !important;
+      }
+      
+      /* Optimize iframe loading */
+      iframe {
+        content-visibility: auto;
+        contain: layout;
+      }
+      
+      /* Ensure images are properly sized to prevent waste */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      /* Testimonial images optimization */
+      .testimonial-avatar {
+        width: 48px !important;
+        height: 48px !important;
+        max-width: 48px !important;
+        max-height: 48px !important;
+      }
+      
+      /* Logo images optimization */
+      .logo-image {
+        max-width: 100px !important;
+        max-height: 32px !important;
+      }
+      
+      /* Loading states */
+      .loading-skeleton {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+    </style>
+    
+    <!-- Load main stylesheet asynchronously to prevent render blocking -->
+    <link rel="preload" href="/assets/index-RHy9OfMu.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/index-RHy9OfMu.css"></noscript>
     
     <!-- Optimize JavaScript loading for better performance -->
     <link rel="modulepreload" href="/src/components/NavBar.tsx">
