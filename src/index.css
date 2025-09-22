@@ -3,6 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ensure all fonts use swap display for better performance */
+@font-face {
+  font-display: swap;
+}
+
+* {
+  font-display: swap;
+}
+
 .shadow-glass {
   box-shadow: 0 8px 32px 0 rgba(90, 89, 171, 0.13), 0 1.5px 7.5px 0 rgba(41, 65, 124, 0.10);
 }
