@@ -1,12 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, lazy, Suspense } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
 import { Phone, Users, Headphones, Pointer, ArrowDown } from "lucide-react";
-import beforeAfterImage from "../assets/before-after-comparison.jpg";
+
+// Defer non-critical image loading for better FCP
+const beforeAfterImage = "/src/assets/before-after-comparison.jpg";
 
 const LandingHero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [selectedAudience, setSelectedAudience] = useState<'all' | 'agencies' | 'startups'>('all');
+  const [imageLoaded, setImageLoaded] = useState(false);
   const { scrollY } = useScroll();
   const y = useMotionValue(0);
   const heroRef = useRef<HTMLElement>(null);
@@ -38,6 +41,13 @@ const LandingHero = () => {
         return "Whether you're an agency buried in client work or a startup racing to ship, our managed Delivery Pods give you the output of a full-time hire, with multiple skills, faster onboarding, and zero hiring headaches.";
     }
   };
+
+  // Preload the hero image for faster display
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => setImageLoaded(true);
+    img.src = beforeAfterImage;
+  }, []);
 
   // Optimized mouse tracking to prevent forced reflows
   useEffect(() => {
@@ -376,6 +386,7 @@ const LandingHero = () => {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
+                  loading="lazy"
                 ></iframe>
               </div>
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-900/90 text-white px-6 py-3 rounded-full text-sm font-medium">

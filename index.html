@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Done-For-You Delivery Pods | Scale With Hireshore</title>
-    <meta name="description" content="Scale without chaos with Hireshore’s vetted delivery pods for dev, design, automation & support. Real case studies. Book a free strategy call." />
+    <meta name="description" content="Scale without chaos with Hireshore's vetted delivery pods for dev, design, automation & support. Real case studies. Book a free strategy call." />
     <meta name="author" content="HireShore" />
     <meta property="og:title" content="Done-For-You Delivery Pods | Scale With Hireshore" />
     <meta property="og:description" content="Plug-and-play delivery pods for development, design, automation, and support. Trusted case studies. Free strategy session." />
@@ -14,14 +13,36 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@hireshore" />
     <meta name="twitter:image" content="/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png" />
+    
     <!-- Favicon -->
     <link rel="icon" href="/lovable-uploads/c0e6ad17-860c-47d5-9ff6-d397535dfe0b.png" type="image/png">
+    
+    <!-- Critical resource preloading for FCP optimization -->
+    <link rel="preload" href="/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png" as="image" fetchpriority="high">
+    <link rel="preload" href="/src/assets/before-after-comparison.jpg" as="image" fetchpriority="high">
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://www.youtube.com">
+    
     <!-- Preconnect to Google Fonts for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google Fonts: Inter & Playfair Display - Optimized loading -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Critical Google Fonts with optimized loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Critical CSS for initial render -->
+    <style>
+      /* Critical above-the-fold styles */
+      body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+      #root { min-height: 100vh; }
+      .hero-container { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+      .hero-text { color: white; font-weight: 700; }
+    </style>
   </head>
   <body>
     <div id="root"></div>

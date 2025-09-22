@@ -12,6 +12,45 @@
   font-display: swap;
 }
 
+/* Critical above-the-fold styles for FCP optimization */
+.hero-loading {
+  min-height: 100vh;
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-foreground)) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.hero-text-loading {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Defer non-critical animations */
+.defer-animation {
+  will-change: auto;
+}
+
+/* Optimize video loading */
+iframe {
+  content-visibility: auto;
+}
+
 .shadow-glass {
   box-shadow: 0 8px 32px 0 rgba(90, 89, 171, 0.13), 0 1.5px 7.5px 0 rgba(41, 65, 124, 0.10);
 }
