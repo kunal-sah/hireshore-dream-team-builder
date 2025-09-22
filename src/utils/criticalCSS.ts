@@ -26,28 +26,65 @@ export const deferNonCriticalCSS = (): void => {
     document.head.appendChild(link);
   };
 
-  // Defer loading of non-critical stylesheets after page load
+  // Remove duplicate CSS files to prevent unused CSS loading
+  const removeDuplicateCSS = () => {
+    const cssLinks = document.querySelectorAll('link[rel="stylesheet"]');
+    const seenHrefs = new Set<string>();
+    
+    cssLinks.forEach(link => {
+      const href = (link as HTMLLinkElement).href;
+      if (seenHrefs.has(href)) {
+        // Remove duplicate
+        link.remove();
+      } else {
+        seenHrefs.add(href);
+      }
+    });
+  };
+
+  // Defer loading of non-critical stylesheets after critical content renders
+  const deferStyles = () => {
+    // Remove any duplicate CSS first
+    removeDuplicateCSS();
+    
+    // Defer non-critical font loading
+    const nonCriticalStyles = [
+      'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'
+    ];
+
+    nonCriticalStyles.forEach(href => {
+      // Check if not already loaded
+      if (!document.querySelector(`link[href="${href}"]`)) {
+        deferCSS(href);
+      }
+    });
+
+    // Defer any CSS that's not critical for LCP
+    const existingCSS = document.querySelectorAll('link[rel="stylesheet"]:not([data-critical])');
+    existingCSS.forEach((link) => {
+      const htmlLink = link as HTMLLinkElement;
+      // If it's a large CSS file and not marked as critical, defer it
+      if (htmlLink.href && !htmlLink.hasAttribute('data-critical')) {
+        const newLink = deferCSS(htmlLink.href);
+        // Remove the original to prevent duplication
+        htmlLink.remove();
+      }
+    });
+  };
+
+  // Run immediately for critical optimizations
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', deferStyles);
+  } else {
+    deferStyles();
+  }
+
+  // Also run after window load for any remaining optimizations
   window.addEventListener('load', () => {
-    // Use requestIdleCallback to defer even further
-    const deferStyles = () => {
-      // Defer any large CSS files that aren't critical for above-the-fold content
-      const nonCriticalStyles = [
-        'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap',
-        // Add other non-critical stylesheets here
-      ];
-
-      nonCriticalStyles.forEach(href => {
-        // Check if not already loaded
-        if (!document.querySelector(`link[href="${href}"]`)) {
-          deferCSS(href);
-        }
-      });
-    };
-
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(deferStyles, { timeout: 2000 });
+      window.requestIdleCallback(removeDuplicateCSS, { timeout: 1000 });
     } else {
-      setTimeout(deferStyles, 100);
+      setTimeout(removeDuplicateCSS, 100);
     }
   });
 };
