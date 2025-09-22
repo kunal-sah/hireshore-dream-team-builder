@@ -169,6 +169,7 @@ const Index = () => {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
+                  loading="lazy"
                   className="w-full h-full"
                 />
               </div>
@@ -210,6 +211,7 @@ const Index = () => {
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                   ></iframe>
                 </div>
                 <p className="text-sm text-gray-600 mt-2">Watch Aaron's full testimonial</p>
@@ -252,6 +254,7 @@ const Index = () => {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
+                  loading="lazy"
                   className="w-full h-full"
                 />
               </div>
