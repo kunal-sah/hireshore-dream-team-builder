@@ -85,7 +85,7 @@ const SiteFooter = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h4 className="text-base sm:text-lg font-medium text-gray-800 mb-3 sm:mb-4">🤝 Backed by Real People, Real Results</h4>
+              <h3 className="text-base sm:text-lg font-medium text-gray-800 mb-3 sm:mb-4">🤝 Backed by Real People, Real Results</h3>
               <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
                 Hireshore is founded by a global team in Nepal, dedicated to helping startups and agencies grow lean and smart.
                 You're not talking to a faceless recruiter - you're partnering with a founder who's built and scaled remote teams.
@@ -100,7 +100,7 @@ const SiteFooter = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <h4 className="text-base sm:text-lg font-medium text-gray-800 mb-3 sm:mb-4">Contact Us</h4>
+              <h3 className="text-base sm:text-lg font-medium text-gray-800 mb-3 sm:mb-4">Contact Us</h3>
               <div className="space-y-2 sm:space-y-3">
                 <div>
                   <p className="text-sm font-medium text-gray-700">Hireshore, LLC</p>
@@ -122,7 +122,7 @@ const SiteFooter = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h4 className="text-base sm:text-lg font-medium text-gray-800 mb-3 sm:mb-4">Get in Touch</h4>
+              <h3 className="text-base sm:text-lg font-medium text-gray-800 mb-3 sm:mb-4">Get in Touch</h3>
               <div className="space-y-2 sm:space-y-3">
                 <div>
                   <p className="text-sm font-medium text-gray-700">Representative</p>
