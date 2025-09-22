@@ -8,9 +8,6 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    headers: {
-      'Content-Type': 'application/javascript; charset=utf-8'
-    }
   },
   plugins: [
     react(),
@@ -32,7 +29,14 @@ export default defineConfig(({ mode }) => ({
         format: 'es',
         entryFileNames: 'assets/[name]-[hash].js',
         chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
+        assetFileNames: (assetInfo) => {
+          // Ensure all compiled assets use appropriate extensions
+          const extType = assetInfo.name?.split('.').pop() || '';
+          if (['tsx', 'ts', 'jsx', 'js'].includes(extType)) {
+            return 'assets/[name]-[hash].js';
+          }
+          return 'assets/[name]-[hash].[ext]';
+        }
       }
     },
     assetsInlineLimit: 0,
