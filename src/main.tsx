@@ -1,9 +1,31 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
+import ErrorBoundary from './components/ErrorBoundary';
 import './index.css';
 
 // Render the app immediately to avoid any blank-page issues
-createRoot(document.getElementById("root")!).render(<App />);
+const rootEl = document.getElementById("root")!;
+console.log('[App] Bootstrapping...');
+createRoot(rootEl).render(
+  <ErrorBoundary>
+    <App />
+  </ErrorBoundary>
+);
+
+// Failsafe: force-visibility for deferred sections
+if (typeof window !== 'undefined') {
+  const style = document.createElement('style');
+  style.textContent = '.below-fold,[data-lazy-load],[data-defer-processing]{content-visibility:visible !important;contain-intrinsic-size:auto !important;}';
+  document.head.appendChild(style);
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.below-fold,[data-lazy-load],[data-defer-processing]').forEach((el) => {
+      const h = el as HTMLElement;
+      h.style.contentVisibility = 'visible';
+      h.style.containIntrinsicSize = 'auto';
+      h.classList.add('visible');
+    });
+  });
+}
 
 // Defer non-critical optimizations to idle time to prevent blocking initial render
 const runOptimizations = async () => {
