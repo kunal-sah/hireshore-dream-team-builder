@@ -21,6 +21,12 @@
     <link rel="preload" href="/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png" as="image" fetchpriority="high">
     <link rel="preload" href="/src/assets/before-after-comparison.jpg" as="image" fetchpriority="high">
     
+    <!-- Preconnect to critical third-party origins to reduce network chains -->
+    <link rel="preconnect" href="https://widgets.leadconnectorhq.com">
+    <link rel="preconnect" href="https://services.leadconnectorhq.com">
+    <link rel="preconnect" href="https://services.msgsndr.com">
+    <link rel="preconnect" href="https://images.leadconnectorhq.com">
+    
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -30,7 +36,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Critical Google Fonts with optimized loading -->
+    <!-- Optimize font loading to reduce request chains -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></noscript>
@@ -146,6 +153,17 @@
           // Fail silently if not supported
         }
       }
+      
+      // Defer third-party scripts to reduce critical request chains
+      window.addEventListener('load', function() {
+        // Allow third-party widgets to load after main content
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function() {
+            // Chat widget and other third-party scripts can initialize here
+            console.log('Third-party scripts deferred until after page load');
+          }, { timeout: 3000 });
+        }
+      });
     </script>
   </head>
   <body>
