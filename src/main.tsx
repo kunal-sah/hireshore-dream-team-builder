@@ -13,33 +13,29 @@ import { initNetworkOptimizations } from './utils/networkOptimizer';
 import { initLayoutOptimizations } from './utils/layoutOptimizer';
 import { accessibilityEnhancer } from './utils/accessibilityEnhancer';
 
-// Initialize CSS optimizations FIRST to prevent render-blocking
-initCSSOptimizations();
-
-// Initialize layout optimizations to prevent forced reflows
-initLayoutOptimizations();
-
-// Initialize network optimizations second (critical for reducing request chains)
-initNetworkOptimizations();
-
-// Initialize cache optimizations third (improves repeat visits)
-initCacheOptimizations();
-
-// Initialize accessibility enhancements (critical for SEO)
-accessibilityEnhancer.initialize();
-
-// Initialize TBT optimizations (critical for reducing blocking time)
-initBlockingTimeOptimizations();
-
-// Initialize TTI optimizations (for interactivity)
-initInteractivityOptimizations();
-
-// Initialize Speed Index optimizations (for visual completeness)
-initSpeedIndexOptimizations();
-
-// Initialize other optimizations with lower priority
-initRenderOptimizations();
-initThirdPartyOptimizations();
-initBundleOptimizations();
-
+// Render the app immediately to avoid any blank-page issues
 createRoot(document.getElementById("root")!).render(<App />);
+
+// Defer non-critical optimizations to idle time to prevent blocking initial render
+const runOptimizations = () => {
+  try { initCSSOptimizations(); } catch (e) { console.warn('CSS optimizations failed:', e); }
+  try { initLayoutOptimizations(); } catch (e) { console.warn('Layout optimizations failed:', e); }
+  try { initNetworkOptimizations(); } catch (e) { console.warn('Network optimizations failed:', e); }
+  try { initCacheOptimizations(); } catch (e) { console.warn('Cache optimizations failed:', e); }
+  try { accessibilityEnhancer.initialize(); } catch (e) { console.warn('Accessibility enhancer failed:', e); }
+  try { initBlockingTimeOptimizations(); } catch (e) { console.warn('Blocking time optimizations failed:', e); }
+  try { initInteractivityOptimizations(); } catch (e) { console.warn('Interactivity optimizations failed:', e); }
+  try { initSpeedIndexOptimizations(); } catch (e) { console.warn('Speed index optimizations failed:', e); }
+  try { initRenderOptimizations(); } catch (e) { console.warn('Render optimizations failed:', e); }
+  try { initThirdPartyOptimizations(); } catch (e) { console.warn('Third-party optimizations failed:', e); }
+  try { initBundleOptimizations(); } catch (e) { console.warn('Bundle optimizations failed:', e); }
+};
+
+if (typeof window !== 'undefined') {
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(runOptimizations, { timeout: 200 });
+  } else {
+    setTimeout(runOptimizations, 0);
+  }
+}
+

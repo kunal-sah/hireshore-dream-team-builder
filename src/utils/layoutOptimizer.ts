@@ -10,7 +10,12 @@ class LayoutOptimizer {
   private pendingReads: (() => void)[] = [];
   private pendingWrites: (() => void)[] = [];
 
-  constructor() {
+  constructor() {}
+
+  /**
+   * Initialize optimizations (defer heavy overrides until explicitly called)
+   */
+  public init(): void {
     this.setupResizeObserver();
     this.batchLayoutOperations();
   }
@@ -168,12 +173,11 @@ export const layoutOptimizer = new LayoutOptimizer();
 export const initLayoutOptimizations = (): void => {
   if (typeof window !== 'undefined') {
     // Apply optimizations on page load
+    const start = () => layoutOptimizer.init();
     if (document.readyState === 'complete') {
-      layoutOptimizer;
+      start();
     } else {
-      window.addEventListener('load', () => {
-        layoutOptimizer;
-      });
+      window.addEventListener('load', start);
     }
   }
 };
