@@ -10,7 +10,7 @@ export const preconnectOrigins = [
 ];
 
 export const dnsPreconnectOrigins = [
-  'https://www.youtube.com',
+  'https://www.youtube-nocookie.com',
   'https://calendly.com',
   'https://polyfill.io'
 ];

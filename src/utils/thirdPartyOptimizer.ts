@@ -133,7 +133,7 @@ export const initThirdPartyOptimizations = (): void => {
   // Prevent any immediate third-party script loading
   const deferAllScripts = () => {
     // Remove any existing third-party scripts that might auto-load
-    const autoLoadScripts = document.querySelectorAll('script[src*="youtube.com"], script[src*="calendly.com"], script[src*="stripe.com"]');
+    const autoLoadScripts = document.querySelectorAll('script[src*="youtube.com"], script[src*="youtube-nocookie.com"], script[src*="calendly.com"], script[src*="stripe.com"]');
     autoLoadScripts.forEach(script => {
       if (script.parentNode) {
         script.parentNode.removeChild(script);
@@ -166,7 +166,7 @@ export const initThirdPartyOptimizations = (): void => {
           // Monitor resource timing for third-party scripts
           if (entry.entryType === 'resource' && entry.duration > 100) {
             const url = (entry as PerformanceResourceTiming).name;
-            if (url.includes('youtube.com') || url.includes('calendly.com') || url.includes('stripe.com')) {
+            if (url.includes('youtube.com') || url.includes('youtube-nocookie.com') || url.includes('calendly.com') || url.includes('stripe.com')) {
               console.warn('Slow third-party resource:', {
                 url,
                 duration: entry.duration,
