@@ -3,90 +3,74 @@
  * Extracts and inlines critical above-the-fold CSS while deferring non-critical styles
  */
 
-export const deferNonCriticalCSS = (): void => {
+/**
+ * Remove render-blocking CSS by ensuring all stylesheets load asynchronously
+ */
+export const eliminateRenderBlockingCSS = (): void => {
   if (typeof window === 'undefined') return;
 
-  // Function to defer CSS loading
-  const deferCSS = (href: string, media = 'all') => {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    link.media = 'print'; // Load as print media to avoid blocking
-    link.onload = function(this: HTMLLinkElement) { 
-      this.media = media; // Switch to target media once loaded
-    };
-    
-    // Fallback for older browsers
-    setTimeout(() => {
-      if (link.media === 'print') {
-        link.media = media;
-      }
-    }, 3000);
-    
-    document.head.appendChild(link);
+  // Function to convert synchronous CSS to async
+  const makeStylesheetAsync = (link: HTMLLinkElement) => {
+    if (link.rel === 'stylesheet' && !link.hasAttribute('data-async-converted')) {
+      const newLink = document.createElement('link');
+      newLink.rel = 'preload';
+      newLink.href = link.href;
+      newLink.as = 'style';
+      newLink.setAttribute('data-async-converted', 'true');
+      newLink.onload = function(this: HTMLLinkElement) {
+        this.onload = null;
+        this.rel = 'stylesheet';
+      };
+      
+      // Insert the new async link before the original
+      link.parentNode?.insertBefore(newLink, link);
+      // Remove the original synchronous link
+      link.remove();
+    }
   };
 
-  // Remove duplicate CSS files to prevent unused CSS loading
-  const removeDuplicateCSS = () => {
-    const cssLinks = document.querySelectorAll('link[rel="stylesheet"]');
-    const seenHrefs = new Set<string>();
-    
-    cssLinks.forEach(link => {
-      const href = (link as HTMLLinkElement).href;
-      if (seenHrefs.has(href)) {
-        // Remove duplicate
-        link.remove();
-      } else {
-        seenHrefs.add(href);
-      }
-    });
-  };
-
-  // Defer loading of non-critical stylesheets after critical content renders
-  const deferStyles = () => {
-    // Remove any duplicate CSS first
-    removeDuplicateCSS();
-    
-    // Defer non-critical font loading
-    const nonCriticalStyles = [
-      'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'
-    ];
-
-    nonCriticalStyles.forEach(href => {
-      // Check if not already loaded
-      if (!document.querySelector(`link[href="${href}"]`)) {
-        deferCSS(href);
-      }
-    });
-
-    // Defer any CSS that's not critical for LCP
-    const existingCSS = document.querySelectorAll('link[rel="stylesheet"]:not([data-critical])');
-    existingCSS.forEach((link) => {
+  // Convert any existing synchronous stylesheets
+  const convertExistingCSS = () => {
+    const stylesheets = document.querySelectorAll('link[rel="stylesheet"]:not([data-async-converted])');
+    stylesheets.forEach((link) => {
       const htmlLink = link as HTMLLinkElement;
-      // If it's a large CSS file and not marked as critical, defer it
-      if (htmlLink.href && !htmlLink.hasAttribute('data-critical')) {
-        const newLink = deferCSS(htmlLink.href);
-        // Remove the original to prevent duplication
-        htmlLink.remove();
+      // Skip if it's already marked as critical or if it's from our async loading
+      if (!htmlLink.hasAttribute('data-critical') && 
+          !htmlLink.href.includes('fonts.googleapis.com') &&
+          !htmlLink.href.includes('fonts.gstatic.com')) {
+        makeStylesheetAsync(htmlLink);
       }
     });
   };
 
-  // Run immediately for critical optimizations
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', deferStyles);
+  // Observer to catch dynamically added stylesheets
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === 1 && (node as Element).tagName === 'LINK') {
+          const link = node as HTMLLinkElement;
+          if (link.rel === 'stylesheet' && !link.hasAttribute('data-async-converted')) {
+            // Delay slightly to allow the element to be fully processed
+            setTimeout(() => makeStylesheetAsync(link), 0);
+          }
+        }
+      });
+    });
+  });
+
+  // Start observing
+  observer.observe(document.head, { childList: true, subtree: true });
+
+  // Convert existing CSS immediately if DOM is ready
+  if (document.readyState !== 'loading') {
+    convertExistingCSS();
   } else {
-    deferStyles();
+    document.addEventListener('DOMContentLoaded', convertExistingCSS);
   }
 
-  // Also run after window load for any remaining optimizations
-  window.addEventListener('load', () => {
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(removeDuplicateCSS, { timeout: 1000 });
-    } else {
-      setTimeout(removeDuplicateCSS, 100);
-    }
-  });
+  // Also run after a brief delay to catch any CSS loaded by modules
+  setTimeout(convertExistingCSS, 100);
+  setTimeout(convertExistingCSS, 500);
 };
 
 /**
@@ -139,7 +123,8 @@ export const removeUnusedCSS = (): void => {
  * Initialize all CSS optimizations
  */
 export const initCSSOptimizations = (): void => {
-  deferNonCriticalCSS();
+  // Eliminate render-blocking CSS first
+  eliminateRenderBlockingCSS();
   
   // Defer advanced optimizations until after initial render
   window.addEventListener('load', () => {

@@ -11,28 +11,30 @@ import { initCacheOptimizations } from './utils/cacheOptimizer';
 import { initNetworkOptimizations } from './utils/networkOptimizer';
 import { accessibilityEnhancer } from './utils/accessibilityEnhancer';
 
-// Initialize network optimizations first (critical for reducing request chains)
+// Initialize CSS optimizations FIRST to prevent render-blocking
+initCSSOptimizations();
+
+// Initialize network optimizations second (critical for reducing request chains)
 initNetworkOptimizations();
 
-// Initialize cache optimizations second (improves repeat visits)
+// Initialize cache optimizations third (improves repeat visits)
 initCacheOptimizations();
 
 // Initialize accessibility enhancements (critical for SEO)
 accessibilityEnhancer.initialize();
 
-// Initialize TBT optimizations second (critical for reducing blocking time)
+// Initialize TBT optimizations (critical for reducing blocking time)
 initBlockingTimeOptimizations();
 
-// Initialize TTI optimizations third (for interactivity)
+// Initialize TTI optimizations (for interactivity)
 initInteractivityOptimizations();
 
-// Initialize Speed Index optimizations fourth (for visual completeness)
+// Initialize Speed Index optimizations (for visual completeness)
 initSpeedIndexOptimizations();
 
 // Initialize other optimizations with lower priority
 initRenderOptimizations();
 initThirdPartyOptimizations();
-initCSSOptimizations();
 initBundleOptimizations();
 
 // Load main CSS asynchronously after critical rendering
