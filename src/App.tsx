@@ -35,11 +35,11 @@ import AutomationGuide from "./pages/resources/guides/AutomationGuide";
 import OutreachGuide from "./pages/resources/guides/OutreachGuide";
 import FunnelGuide from "./pages/resources/guides/FunnelGuide";
 import ContentCalendarTemplate from "./pages/resources/templates/ContentCalendarTemplate";
+import SprintPlanTemplate from "./pages/resources/templates/SprintPlanTemplate";
 import WebinarsLibrary from "./pages/resources/WebinarsLibrary";
 import NDISAutomation from "./pages/resources/case-notes/NDISAutomation";
 import EcommerceReplatform from "./pages/resources/case-notes/EcommerceReplatform";
 import SaaSOnboarding from "./pages/resources/case-notes/SaaSOnboarding";
-import UGCBriefTemplate from "./pages/resources/UGCBriefTemplate";
 import SEOBasicsGuide from "./pages/resources/SEOBasicsGuide";
 
 const queryClient = new QueryClient();
@@ -81,7 +81,7 @@ const App = () => (
           <Route path="/resources/guides/automation-starters" element={<AutomationGuide />} />
           <Route path="/resources/guides/outreach-systems" element={<OutreachGuide />} />
           <Route path="/resources/templates/content-calendar" element={<ContentCalendarTemplate />} />
-          <Route path="/resources/templates/ugc-brief" element={<UGCBriefTemplate />} />
+          <Route path="/resources/templates/sprint-plan" element={<SprintPlanTemplate />} />
         <Route path="/resources/case-notes/ndis-automation" element={<NDISAutomation />} />
         <Route path="/resources/case-notes/ecommerce-replatform" element={<EcommerceReplatform />} />
         <Route path="/resources/case-notes/saas-onboarding" element={<SaaSOnboarding />} />
