@@ -35,6 +35,7 @@
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://fonts.bunny.net">
     <link rel="dns-prefetch" href="https://www.youtube.com">
     <link rel="dns-prefetch" href="https://static.doubleclick.net">
     <link rel="dns-prefetch" href="https://m.stripe.network">
@@ -79,9 +80,14 @@
         size-adjust: 107%;
       }
       
-      /* Ensure consistent font display across all fonts */
+      /* Ensure consistent font display across all fonts including third-party */
       * {
         font-display: swap;
+      }
+      
+      /* Global font-display override for all font-face declarations */
+      @font-face {
+        font-display: swap !important;
       }
     </style>
     
