@@ -9,9 +9,13 @@ import { initSpeedIndexOptimizations } from './utils/speedIndexOptimizer';
 import { initInteractivityOptimizations } from './utils/interactivityOptimizer';
 import { initBlockingTimeOptimizations } from './utils/blockingTimeOptimizer';
 import { initCacheOptimizations } from './utils/cacheOptimizer';
+import { accessibilityEnhancer } from './utils/accessibilityEnhancer';
 
 // Initialize cache optimizations first (improves repeat visits)
 initCacheOptimizations();
+
+// Initialize accessibility enhancements (critical for SEO)
+accessibilityEnhancer.initialize();
 
 // Initialize TBT optimizations second (critical for reducing blocking time)
 initBlockingTimeOptimizations();
