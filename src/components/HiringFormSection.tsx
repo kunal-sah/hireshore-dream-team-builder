@@ -1,5 +1,5 @@
 
-import React, { useRef, useCallback } from "react";
+import React, { useRef } from "react";
 import { motion, useInView, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 
 const HiringFormSection = () => {
@@ -13,31 +13,15 @@ const HiringFormSection = () => {
     }
   };
 
-  // Optimized mouse tracking for magnetic effect
+  // Mouse tracking for magnetic button effect
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const target = e.currentTarget;
-    
-    // Use cached rect to avoid repeated getBoundingClientRect calls
-    if (!target.dataset.cachedRect) {
-      const rect = target.getBoundingClientRect();
-      target.dataset.cachedRect = JSON.stringify({
-        left: rect.left,
-        top: rect.top,
-        width: rect.width,
-        height: rect.height
-      });
-    }
-    
-    const cachedRect = JSON.parse(target.dataset.cachedRect);
-    
-    requestAnimationFrame(() => {
-      mouseX.set(e.clientX - cachedRect.left - cachedRect.width / 2);
-      mouseY.set(e.clientY - cachedRect.top - cachedRect.height / 2);
-    });
-  }, [mouseX, mouseY]);
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    mouseX.set(e.clientX - left - width / 2);
+    mouseY.set(e.clientY - top - height / 2);
+  };
   
   const resetMouse = () => {
     mouseX.set(0);
@@ -79,36 +63,33 @@ const HiringFormSection = () => {
     }
   };
   
-  // Create ripple effect - optimized to reduce forced reflows
+  // Create ripple effect
   const createRipple = (event: React.MouseEvent<HTMLButtonElement>) => {
     const button = event.currentTarget;
-    
-    requestAnimationFrame(() => {
-      const circle = document.createElement('span');
-      const diameter = Math.max(button.offsetWidth, button.offsetHeight);
-      const radius = diameter / 2;
+    const circle = document.createElement('span');
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
 
-      const rect = button.getBoundingClientRect();
-      
-      circle.style.width = circle.style.height = `${diameter}px`;
-      circle.style.left = `${event.clientX - rect.left - radius}px`;
-      circle.style.top = `${event.clientY - rect.top - radius}px`;
-      
-      circle.classList.add('ripple');
-      
-      const ripple = button.querySelector('.ripple');
-      if (ripple) {
-        ripple.remove();
+    const rect = button.getBoundingClientRect();
+    
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - rect.left - radius}px`;
+    circle.style.top = `${event.clientY - rect.top - radius}px`;
+    
+    circle.classList.add('ripple');
+    
+    const ripple = button.querySelector('.ripple');
+    if (ripple) {
+      ripple.remove();
+    }
+    
+    button.appendChild(circle);
+    
+    setTimeout(() => {
+      if (circle.parentElement) {
+        circle.parentElement.removeChild(circle);
       }
-      
-      button.appendChild(circle);
-      
-      setTimeout(() => {
-        if (circle.parentElement) {
-          circle.parentElement.removeChild(circle);
-        }
-      }, 800);
-    });
+    }, 800);
   };
 
   return (

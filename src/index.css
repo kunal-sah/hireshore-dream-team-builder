@@ -3,74 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ensure all fonts use swap display for better performance */
-@font-face {
-  font-display: swap;
-}
-
-* {
-  font-display: swap;
-}
-
-/* Critical above-the-fold styles for FCP optimization */
-.hero-loading {
-  min-height: 100vh;
-  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-foreground)) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.hero-text-loading {
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  opacity: 0;
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Defer non-critical animations */
-.defer-animation {
-  will-change: auto;
-}
-
-/* Optimize video loading for LCP */
-iframe {
-  content-visibility: auto;
-  contain: layout style;
-}
-
-/* LCP optimization - prioritize hero text rendering */
-.hero-text-priority {
-  font-size: clamp(1.875rem, 5vw, 3.75rem);
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  font-weight: 700;
-  color: #1f2937;
-  opacity: 1; /* Ensure immediate visibility */
-}
-
-/* Reduce layout shifts */
-.video-placeholder {
-  aspect-ratio: 16/9;
-  background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .shadow-glass {
   box-shadow: 0 8px 32px 0 rgba(90, 89, 171, 0.13), 0 1.5px 7.5px 0 rgba(41, 65, 124, 0.10);
 }
@@ -86,14 +18,14 @@ iframe {
   --animate-duration: 0.8s;
   --animate-delay: 0.2s;
   
-  /* Brand Colors - Updated for WCAG AA compliance */
+  /* Brand Colors */
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
   --card: 0 0% 100%;
   --card-foreground: 222.2 84% 4.9%;
   --popover: 0 0% 100%;
   --popover-foreground: 222.2 84% 4.9%;
-  --primary: 215 100% 35%;
+  --primary: 215 100% 52%;
   --primary-foreground: 210 40% 98%;
   --secondary: 210 40% 96%;
   --secondary-foreground: 222.2 84% 4.9%;

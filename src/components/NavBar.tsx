@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { Headphones, Users, Phone, Palette, Code, Menu, X, ChevronDown, BookOpen, FileText, CheckSquare, Calculator, Video, MessageCircle } from "lucide-react";
-import { CacheOptimizedImage } from "./CacheOptimizedImage";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -67,37 +66,34 @@ const NavBar = () => {
     }
   };
 
-  // Create ripple effect for buttons - optimized for performance
+  // Create ripple effect for buttons
   const createRipple = (event: React.MouseEvent<HTMLButtonElement>) => {
     const button = event.currentTarget;
-    
-    requestAnimationFrame(() => {
-      const circle = document.createElement('span');
-      const diameter = Math.max(button.offsetWidth, button.offsetHeight);
-      const radius = diameter / 2;
+    const circle = document.createElement('span');
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
 
-      const rect = button.getBoundingClientRect();
-      
-      circle.style.width = circle.style.height = `${diameter}px`;
-      circle.style.left = `${event.clientX - rect.left - radius}px`;
-      circle.style.top = `${event.clientY - rect.top - radius}px`;
-      
-      circle.classList.add('ripple');
-      
-      const ripple = button.querySelector('.ripple');
-      if (ripple) {
-        ripple.remove();
+    const rect = button.getBoundingClientRect();
+    
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - rect.left - radius}px`;
+    circle.style.top = `${event.clientY - rect.top - radius}px`;
+    
+    circle.classList.add('ripple');
+    
+    const ripple = button.querySelector('.ripple');
+    if (ripple) {
+      ripple.remove();
+    }
+    
+    button.appendChild(circle);
+    
+    // Remove the span after the animation completes
+    setTimeout(() => {
+      if (circle.parentElement) {
+        circle.parentElement.removeChild(circle);
       }
-      
-      button.appendChild(circle);
-      
-      // Remove the span after the animation completes
-      setTimeout(() => {
-        if (circle.parentElement) {
-          circle.parentElement.removeChild(circle);
-        }
-      }, 800);
-    });
+    }, 800);
   };
 
   return (
@@ -119,17 +115,13 @@ const NavBar = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Link to="/" className="flex items-center">
-              <CacheOptimizedImage 
+              <motion.img 
                 src="/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png" 
                 alt="HireShore Logo" 
                 className="h-10 w-auto" 
-                width={158}
-                height={40}
-                displayWidth={158}
-                displayHeight={40}
-                fetchpriority="high"
-                loading="eager"
-                decoding="async"
+                initial={{ opacity: 0, rotateY: 90 }}
+                animate={{ opacity: 1, rotateY: 0 }}
+                transition={{ duration: 0.8, type: "spring" }}
               />
             </Link>
           </motion.div>

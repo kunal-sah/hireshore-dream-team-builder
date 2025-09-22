@@ -1,55 +1,28 @@
 
-import React, { useEffect, lazy, Suspense } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import ErrorBoundary from '../components/ErrorBoundary';
-import { LazyYouTube } from '../components/LazyYouTube';
-import { CriticalContentOptimizer } from '../components/CriticalContentOptimizer';
-import { queueAfterInteractive } from '../utils/interactivityOptimizer';
-import { queueNonBlockingTask, breakUpOperation } from '../utils/blockingTimeOptimizer';
-
-// Critical above-the-fold components - load immediately
 import NavBar from "../components/NavBar";
 import LandingHero from "../components/LandingHero";
+import BenefitsSection from "../components/BenefitsSection";
+import RolesSection from "../components/RolesSection";
 import TrustedStartups from "../components/TrustedStartups";
-
-// Lazy load below-the-fold components to reduce main-thread work
-const BenefitsSection = lazy(() => import("../components/BenefitsSection"));
-const RolesSection = lazy(() => import("../components/RolesSection"));
-const TestimonialsSection = lazy(() => import("../components/TestimonialsSection"));
-const SiteFooter = lazy(() => import("../components/SiteFooter"));
-const ServicesSection = lazy(() => import("../components/ServicesSection"));
-const MediaFeatures = lazy(() => import("../components/MediaFeatures"));
-const SharkTankSection = lazy(() => import("../components/SharkTankSection"));
-const DigitalSixSuccessSection = lazy(() => import("../components/DigitalSixSuccessSection"));
-const MedzMediaSuccessSection = lazy(() => import("../components/MedzMediaSuccessSection"));
-const WhyPodsSection = lazy(() => import("../components/WhyPodsSection"));
-const HowItWorksSection = lazy(() => import("../components/HowItWorksSection"));
-const ProofSection = lazy(() => import("../components/ProofSection"));
-const CalendlySection = lazy(() => import("../components/CalendlySection"));
-const DeliveryPodDefinition = lazy(() => import("../components/DeliveryPodDefinition"));
-const PodAtAGlance = lazy(() => import("../components/PodAtAGlance"));
-const InsideDeliveryPod = lazy(() => import("../components/InsideDeliveryPod"));
-const FAQSection = lazy(() => import("../components/FAQSection"));
-
-// Lightweight loading component to prevent layout shifts and TTI blocking
-const SectionLoader = () => (
-  <div className="min-h-[200px] flex items-center justify-center" data-defer-animation="true">
-    <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin loading-skeleton"></div>
-  </div>
-);
-
-// Wrapper for lazy components with error boundary and TTI optimization
-const LazySection: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <ErrorBoundary>
-    <Suspense fallback={<SectionLoader />}>
-      <div data-defer-processing="true" className="below-fold">
-        {children}
-      </div>
-    </Suspense>
-  </ErrorBoundary>
-);
+import TestimonialsSection from "../components/TestimonialsSection";
+import SiteFooter from "../components/SiteFooter";
+import ServicesSection from "../components/ServicesSection";
+import MediaFeatures from "../components/MediaFeatures";
+import SharkTankSection from "../components/SharkTankSection";
+import DigitalSixSuccessSection from "../components/DigitalSixSuccessSection";
+import MedzMediaSuccessSection from "../components/MedzMediaSuccessSection";
+import WhyPodsSection from "../components/WhyPodsSection";
+import HowItWorksSection from "../components/HowItWorksSection";
+import ProofSection from "../components/ProofSection";
+import CalendlySection from "../components/CalendlySection";
+import DeliveryPodDefinition from "../components/DeliveryPodDefinition";
+import PodAtAGlance from "../components/PodAtAGlance";
+import InsideDeliveryPod from "../components/InsideDeliveryPod";
+import FAQSection from "../components/FAQSection";
 
 const Index = () => {
   // Add useEffect to add JSON-LD and scroll behavior
@@ -116,31 +89,21 @@ const Index = () => {
       'button[href="#book"]'
     ];
 
-    // Optimize scroll behavior using non-blocking task scheduling
-    queueNonBlockingTask(() => {
-      // Break up event listener attachment to prevent TBT blocking
-      const attachScrollBehavior = async () => {
-        const nodes = document.querySelectorAll(selectors.join(','));
-        
-        // Process in small batches to prevent blocking
-        await breakUpOperation(Array.from(nodes), (node) => {
-          // Neutralize any previous modal handlers
-          node.removeAttribute('data-modal-target');
-          node.removeAttribute('data-trigger');
-          (node as HTMLElement).onclick = smoothScrollToBook;
-          node.setAttribute('href', '#book');
-          node.setAttribute('aria-controls', 'book');
-        }, 3);
-      };
+    // Attach scroll behavior
+    const nodes = document.querySelectorAll(selectors.join(','));
+    nodes.forEach((node) => {
+      // Neutralize any previous modal handlers
+      node.removeAttribute('data-modal-target');
+      node.removeAttribute('data-trigger');
+      (node as HTMLElement).onclick = smoothScrollToBook;
+      node.setAttribute('href', '#book');
+      node.setAttribute('aria-controls', 'book');
+    });
 
-      // Execute attachment with scheduling
-      attachScrollBehavior();
-
-      // Disable any existing openModal function
-      if ((window as any).openModal) {
-        (window as any).openModal = function() { /* disabled to force scroll to Calendly */ };
-      }
-    }, 'background');
+    // Disable any existing openModal function
+    if ((window as any).openModal) {
+      (window as any).openModal = function() { /* disabled to force scroll to Calendly */ };
+    }
 
     // Cleanup function
     return () => {
@@ -151,178 +114,185 @@ const Index = () => {
   }, []);
 
   return (
-    <CriticalContentOptimizer>
-      <div className="bg-white min-h-screen flex flex-col font-sans text-neutral-900 overflow-x-hidden">
-        <NavBar />
-        <LandingHero />
-        <div className="space-y-12 md:space-y-16" data-lazy-load="true">
-          <TrustedStartups />
-        
-        <LazySection>
-          <DeliveryPodDefinition />
-        </LazySection>
-        
-        <LazySection>
-          <PodAtAGlance />
-        </LazySection>
-        
-        <LazySection>
-          <InsideDeliveryPod />
-        </LazySection>
-        
+    <div className="bg-white min-h-screen flex flex-col font-sans text-neutral-900 overflow-x-hidden">
+      <NavBar />
+      <LandingHero />
+      <div className="space-y-12 md:space-y-16">
+        <TrustedStartups />
+        <DeliveryPodDefinition />
+        <PodAtAGlance />
+        <InsideDeliveryPod />
         <div id="how-it-works">
-          <LazySection>
-            <HowItWorksSection />
-          </LazySection>
+          <HowItWorksSection />
         </div>
-        
         <div id="why-pods">
-          <LazySection>
-            <WhyPodsSection />
-          </LazySection>
+          <WhyPodsSection />
         </div>
-        
         <div id="proof">
-          <LazySection>
-            <ProofSection />
-          </LazySection>
+          <ProofSection />
         </div>
+        <BenefitsSection />
+        <MediaFeatures />
         
-        <LazySection>
-          <BenefitsSection />
-        </LazySection>
-        
-        <LazySection>
-          <MediaFeatures />
-        </LazySection>
-        
-        {/* Consolidated Video Testimonials */}
+        {/* Marlon's Medz Media Testimonial */}
         <section className="max-w-6xl mx-auto py-12 px-4">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">What Our Clients Say</h3>
-            <p className="text-gray-600">Real stories from founders who transformed their operations</p>
-          </div>
-          <div className="grid gap-8 lg:gap-12">
-            {/* Medz Media */}
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 md:p-8 border">
-              <div className="grid lg:grid-cols-2 gap-6 items-center">
-                <div>
-                  <blockquote className="text-lg text-gray-900 leading-relaxed mb-4">
-                    "The best experience I've had working with a remote team. This is a whole different level from freelancers. 
-                    It's been a game changer for both my business and personal life."
-                  </blockquote>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 border"
+          >
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
+                <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-6">
+                  "The best experience I've had working with a remote team. Websites came out fantastic - fast, 
+                  secure, beautifully designed. The team's energy, proactiveness, and suggestions make them feel 
+                  like a real part of my business. I've worked with freelancers before - this is a whole different level. 
+                  I've referred Hireshore to friends, clients, and even my full-time employer. It's truly been a 
+                  game changer for both my business and personal life."
+                </blockquote>
+                <div className="flex items-center">
                   <div>
                     <p className="font-semibold text-gray-900">Marlon M.</p>
                     <p className="text-sm text-gray-600">Founder, Medz Media</p>
                   </div>
                 </div>
-                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                  <LazyYouTube
-                    videoId="43qQdLve5Ps"
-                    title="Medz Media Success Story"
-                    className="w-full h-full"
-                  />
-                </div>
+              </div>
+              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/43qQdLve5Ps"
+                  title="Medz Media Testimonial - Marlon M."
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
               </div>
             </div>
-            
-            {/* Digital Six */}
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border">
-              <div className="grid lg:grid-cols-2 gap-6 items-center">
-                <div>
-                  <blockquote className="text-lg text-gray-700 mb-4">
-                    "Now there are 47 people across Australia and Nepal. Way better than our past freelancer experience. 
-                    I've already referred several people to Hireshore."
-                  </blockquote>
+          </motion.div>
+        </section>
+
+        {/* Aaron's Digital Six Testimonial */}
+        <section className="max-w-6xl mx-auto py-12 px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
+                <blockquote className="text-lg text-gray-700 italic mb-4">
+                  "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal. 
+                  The WordPress guys are killing it. The SEO side is strong. This is way better than our past 
+                  freelancer experience. I've already referred several people to Hireshore."
+                </blockquote>
+                <div className="flex items-center gap-4">
                   <div>
-                    <p className="font-semibold text-gray-900">Aaron Erwich</p>
-                    <p className="text-sm text-gray-600">Founder, Digital Six</p>
+                    <div className="font-semibold text-gray-900">Aaron Erwich</div>
+                    <div className="text-gray-600">Founder, Digital Six</div>
                   </div>
                 </div>
-                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                  <LazyYouTube
-                    videoId="yW90cSyX_iI"
-                    title="Digital Six Success Story"
+              </div>
+              
+              <div className="text-center">
+                <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.youtube.com/embed/yW90cSyX_iI"
+                    title="Digital Six Testimonial - Aaron Erwich"
                     className="w-full h-full"
-                  />
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 </div>
+                <p className="text-sm text-gray-600 mt-2">Watch Aaron's full testimonial</p>
               </div>
             </div>
-            
-            {/* PropertyStack */}
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 md:p-8 border">
-              <div className="grid lg:grid-cols-2 gap-6 items-center">
-                <div>
-                  <blockquote className="text-lg text-gray-900 leading-relaxed mb-4">
-                    "We've hired over 15 people through Hireshore in just a year. The quality from Nepal has been 
-                    significantly better than freelancers or other markets."
-                  </blockquote>
+          </motion.div>
+        </section>
+
+        {/* Ryan's PropertyStack Testimonial */}
+        <section className="max-w-6xl mx-auto py-12 px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12 border"
+          >
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
+                <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-6">
+                  "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. 
+                  The hiring process is much easier now with resume videos and pre-vetted candidates. 
+                  Compared to freelancers or other markets, the quality from Nepal has been significantly better. 
+                  You guys have helped us grow fast and we've referred you to many of our partners."
+                </blockquote>
+                <div className="flex items-center">
                   <div>
                     <p className="font-semibold text-gray-900">Ryan Jope</p>
-                    <p className="text-sm text-gray-600">Founder, PropertyStack</p>
+                    <p className="text-sm text-gray-600">Founder of PropertyStack</p>
                   </div>
                 </div>
-                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                  <LazyYouTube
-                    videoId="9xMVgH1j9XE"
-                    title="PropertyStack Success Story"
-                    className="w-full h-full"
-                  />
-                </div>
+              </div>
+              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/9xMVgH1j9XE"
+                  title="PropertyStack Testimonial - Ryan Jope"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* View All Case Studies CTA */}
         <section className="py-12 px-4">
-          <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              See Our Success Stories
-            </h3>
-            <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-              Discover how agencies and startups transformed their operations with Hireshore's managed delivery pods
-            </p>
-            <Link 
-              to="/case-studies"
-              className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg"
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8"
             >
-              View All Case Studies
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                See Our Success Stories
+              </h3>
+              <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+                Discover how agencies and startups transformed their operations with Hireshore's managed delivery pods
+              </p>
+              <Link 
+                to="/case-studies"
+                className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg"
+              >
+                View All Case Studies
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </motion.div>
           </div>
         </section>
-        <LazySection>
-          <ServicesSection />
-        </LazySection>
-        
-        <LazySection>
-          <RolesSection />
-        </LazySection>
-        
-        <LazySection>
-          <TestimonialsSection />
-        </LazySection>
-        
-          <div data-lazy-layout="true">
-            <LazySection>
-              <FAQSection />
-            </LazySection>
-          </div>
-          
-          <div data-lazy-layout="true" className="below-fold">
-            <LazySection>
-              <CalendlySection />
-            </LazySection>
-          </div>
-        </div>
-        <div data-lazy-layout="true" className="below-fold">
-          <LazySection>
-            <SiteFooter />
-          </LazySection>
-        </div>
+        <ServicesSection />
+        <RolesSection />
+        <TestimonialsSection />
+        <FAQSection />
+        <CalendlySection />
       </div>
-    </CriticalContentOptimizer>
+      <SiteFooter />
+    </div>
   );
 };
 

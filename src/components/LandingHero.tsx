@@ -1,16 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
-import { motion, useMotionValue, useTransform, useSpring, useScroll } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
 import { Phone, Users, Headphones, Pointer, ArrowDown } from "lucide-react";
-import { LazyYouTube } from './LazyYouTube';
-
-// Defer non-critical image loading for better FCP
-const beforeAfterImage = "/src/assets/before-after-comparison.jpg";
+import beforeAfterImage from "../assets/before-after-comparison.jpg";
 
 const LandingHero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [selectedAudience, setSelectedAudience] = useState<'all' | 'agencies' | 'startups'>('all');
-  const [imageLoaded, setImageLoaded] = useState(false);
   const { scrollY } = useScroll();
   const y = useMotionValue(0);
   const heroRef = useRef<HTMLElement>(null);
@@ -43,180 +39,313 @@ const LandingHero = () => {
     }
   };
 
-  // Preload the hero image for faster display - defer to improve FID
+  // Parallax effect for background elements
   useEffect(() => {
-    const deferImageLoad = () => {
-      const img = new Image();
-      img.onload = () => setImageLoaded(true);
-      img.src = beforeAfterImage;
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      
+      document.documentElement.style.setProperty('--mouse-x', x.toString());
+      document.documentElement.style.setProperty('--mouse-y', y.toString());
+      
+      setMousePosition({ x: e.clientX, y: e.clientY });
     };
-    
-    // Defer image preloading until browser is idle
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(deferImageLoad, { timeout: 1000 });
-    } else {
-      setTimeout(deferImageLoad, 50);
-    }
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Create ripple effect - Modified to handle both button and anchor elements, optimized for performance
+  // Spotlight effect for hero section
+  useEffect(() => {
+    if (!heroRef.current) return;
+    
+    const updateSpotlight = (e: MouseEvent) => {
+      if (!heroRef.current) return;
+      
+      const rect = heroRef.current.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      
+      heroRef.current.style.setProperty('--x', `${x}%`);
+      heroRef.current.style.setProperty('--y', `${y}%`);
+    };
+    
+    heroRef.current.addEventListener('mousemove', updateSpotlight);
+    return () => {
+      if (heroRef.current) {
+        heroRef.current.removeEventListener('mousemove', updateSpotlight);
+      }
+    };
+  }, [heroRef]);
+  
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({ 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        delay: i * 0.2,
+        duration: 0.8,
+        type: "spring",
+        stiffness: 100,
+        damping: 20
+      }
+    }),
+  };
+  
+  // Create ripple effect - Modified to handle both button and anchor elements
   const createRipple = (event: React.MouseEvent<Element>) => {
     const element = event.currentTarget;
+    const circle = document.createElement('span');
+    const diameter = Math.max(element.clientWidth, element.clientHeight);
+    const radius = diameter / 2;
+
+    const rect = element.getBoundingClientRect();
     
-    requestAnimationFrame(() => {
-      const circle = document.createElement('span');
-      
-      // Use cached or estimated dimensions to avoid layout reads
-      const elementRect = element.getBoundingClientRect();
-      const diameter = Math.max(elementRect.width, elementRect.height);
-      const radius = diameter / 2;
-      
-      circle.style.width = circle.style.height = `${diameter}px`;
-      circle.style.left = `${event.clientX - elementRect.left - radius}px`;
-      circle.style.top = `${event.clientY - elementRect.top - radius}px`;
-      
-      circle.classList.add('ripple');
-      
-      const ripple = element.querySelector('.ripple');
-      if (ripple) {
-        ripple.remove();
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - rect.left - radius}px`;
+    circle.style.top = `${event.clientY - rect.top - radius}px`;
+    
+    circle.classList.add('ripple');
+    
+    const ripple = element.querySelector('.ripple');
+    if (ripple) {
+      ripple.remove();
+    }
+    
+    element.appendChild(circle);
+    
+    setTimeout(() => {
+      if (circle.parentElement) {
+        circle.parentElement.removeChild(circle);
       }
-      
-      element.appendChild(circle);
-      
-      setTimeout(() => {
-        if (circle.parentElement) {
-          circle.parentElement.removeChild(circle);
-        }
-      }, 800);
-    });
+    }, 800);
   };
 
   return (
-    <header 
-      ref={heroRef} 
-      className="hero-container w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-20 sm:pt-28 pb-12 sm:pb-16 md:pb-20 px-4 relative overflow-hidden spotlight" 
-      data-critical="true"
-      style={{
-        '--x': '50%',
-        '--y': '50%',
-      } as React.CSSProperties}
-    >
-      {/* Simplified background elements for Speed Index */}
-      <div className="absolute inset-0 w-full h-full">
-        <div 
-          className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-blue-200 to-purple-200 opacity-20 blur-3xl below-fold"
+    <header ref={heroRef} className="w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-20 sm:pt-28 pb-12 sm:pb-16 md:pb-20 px-4 relative overflow-hidden spotlight" style={{
+      '--x': '50%',
+      '--y': '50%',
+    } as React.CSSProperties}>
+      {/* Animated morphing background elements */}
+      <motion.div 
+        className="absolute inset-0 w-full h-full"
+        style={{ opacity }}
+      >
+        <motion.div 
+          className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-blue-200 to-purple-200 opacity-20 blur-3xl morphing-shape" 
+          style={{ y: bgY1 }}
+          animate={{ 
+            x: [0, 10, 0],
+            scale: [1, 1.05, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            repeatType: "reverse"
+          }}
         />
-        <div 
-          className="absolute bottom-20 right-[15%] w-80 h-80 rounded-full bg-gradient-to-tr from-blue-200 to-indigo-200 opacity-20 blur-3xl below-fold"
+        <motion.div 
+          className="absolute bottom-20 right-[15%] w-80 h-80 rounded-full bg-gradient-to-tr from-blue-200 to-indigo-200 opacity-20 blur-3xl morphing-shape"
+          style={{ y: bgY2 }}
+          animate={{
+            x: [0, -15, 0],
+            scale: [1, 1.07, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: 1
+          }}
         />
-      </div>
+        
+        {/* Add more subtle floating elements */}
+        <motion.div 
+          className="absolute top-[30%] right-[25%] w-24 h-24 rounded-full bg-gradient-to-r from-cyan-200 to-blue-200 opacity-10 blur-xl"
+          animate={{
+            y: [0, -20, 0],
+            x: [0, 10, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: 0.5
+          }}
+        />
+        
+        <motion.div 
+          className="absolute bottom-[40%] left-[20%] w-32 h-32 rounded-full bg-gradient-to-r from-purple-200 to-pink-200 opacity-10 blur-xl"
+          animate={{
+            y: [0, 15, 0],
+            x: [0, -10, 0],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: 2
+          }}
+        />
+      </motion.div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Side-by-side layout */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[500px] sm:min-h-[600px]">
           {/* Left side - Content */}
-          <div className="space-y-8">
-            <h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight hero-text hero-text-priority"
-              data-critical="true"
+          <motion.div 
+            className="space-y-8"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.h1 
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <span className="inline-block">
+              <motion.span 
+                className="inline-block"
+                custom={0}
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+              >
                 Get Full-Time Capacity Without the Full-Time Overhead
-              </span>
-            </h1>
+              </motion.span>
+            </motion.h1>
             
-            <p 
-              className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl hero-subtitle"
-              data-critical="true"
+            <motion.p 
+              className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl"
+              custom={2}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+              key={selectedAudience} // Add key to re-animate when audience changes
             >
               {getSubtitleText()}
-            </p>
+            </motion.p>
             
-            <div className="">
+            <motion.div 
+              className=""
+              custom={3}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+            >
               <div className="flex flex-wrap justify-start gap-2 mb-6">
                 <button 
-                  className={`px-4 sm:px-6 py-4 min-h-[44px] rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                     selectedAudience === 'all' 
                       ? 'bg-gray-900 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                   onClick={() => setSelectedAudience('all')}
-                  style={{ minHeight: '44px', minWidth: '44px' }}
                 >
                   All
                 </button>
                 <button 
-                  className={`px-4 sm:px-6 py-4 min-h-[44px] rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                     selectedAudience === 'agencies' 
                       ? 'bg-gray-900 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                   onClick={() => setSelectedAudience('agencies')}
-                  style={{ minHeight: '44px', minWidth: '44px' }}
                 >
                   Agencies
                 </button>
                 <button 
-                  className={`px-4 sm:px-6 py-4 min-h-[44px] rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                     selectedAudience === 'startups' 
                       ? 'bg-gray-900 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                   onClick={() => setSelectedAudience('startups')}
-                  style={{ minHeight: '44px', minWidth: '44px' }}
                 >
                   Startups
                 </button>
               </div>
-            </div>
+            </motion.div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6">
-              <button
-                className="btn-primary inline-flex items-center justify-center h-12 sm:h-14 gradient-btn bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg text-sm sm:text-base transition-all hover:shadow-xl ripple-effect relative overflow-hidden w-full sm:min-w-[280px]"
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6"
+              custom={4}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.button
+                className="inline-flex items-center justify-center h-12 sm:h-14 gradient-btn bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg text-sm sm:text-base transition-all hover:shadow-xl ripple-effect relative overflow-hidden w-full sm:min-w-[280px]"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)"
+                }}
+                whileTap={{ scale: 0.95 }}
                 onMouseDown={createRipple}
                 onClick={scrollToCalendly}
               >
                 <span className="relative z-10 text-base font-bold">Get My Delivery Pod</span>
-              </button>
+                <motion.span 
+                  className="absolute inset-0 bg-white/20"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileHover={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.4 }}
+                  style={{ borderRadius: 'inherit' }}
+                />
+              </motion.button>
 
-              <button
-                className="inline-flex items-center justify-center h-12 sm:h-14 min-h-[48px] border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold px-6 sm:px-8 rounded-xl text-sm sm:text-base transition-all w-full sm:min-w-[220px]"
+              <motion.button
+                className="inline-flex items-center justify-center h-12 sm:h-14 border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-sm sm:text-base transition-all w-full sm:min-w-[220px]"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => {
                   const element = document.getElementById('how-it-works');
                   if (element) {
                     element.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                style={{ minHeight: '48px' }}
               >
                 <span>See How Pods Work</span>
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
             
             {/* Micro-reassurance */}
-            <div className="mb-6">
+            <motion.div 
+              className="mb-6"
+              custom={6}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+            >
               <p className="text-sm text-gray-600 font-medium">
                 No lock-in. ~30 seconds to book.
               </p>
-            </div>
-          </div>
+            </motion.div>
+            
+          </motion.div>
           
-          {/* Right side - Video with lazy loading */}
+          {/* Right side - Video */}
           <motion.div 
-            className="relative below-fold"
+            className="relative"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           >
             <div className="relative bg-white rounded-2xl shadow-2xl p-4">
-              <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden relative">
-                <LazyYouTube
-                  videoId="kdXYdRxr4qA"
+              <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
+                <iframe
+                  src="https://www.youtube.com/embed/kdXYdRxr4qA"
                   title="Stop Chasing Updates: Organize Tasks & Teams in One Place"
                   className="w-full h-full"
-                />
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-900/90 text-white px-6 py-3 rounded-full text-sm font-medium">
                 Stop chasing updates. Get organized.

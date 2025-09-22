@@ -1,8 +1,4 @@
-import React, { 
-  useRef, 
-  useState, 
-  useCallback 
-} from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 const roles = [
@@ -46,36 +42,22 @@ const RolesSection = () => {
     }
   };
 
-  // Optimized mouse tracking for card animations
+  // Track mouse movement for card movement
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const target = e.currentTarget;
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
     
-    // Use cached rect to avoid repeated getBoundingClientRect calls
-    if (!target.dataset.cachedRect) {
-      const rect = target.getBoundingClientRect();
-      target.dataset.cachedRect = JSON.stringify({
-        left: rect.left,
-        top: rect.top,
-        width: rect.width,
-        height: rect.height
-      });
-    }
+    // Calculate distance from center (normalized to -1 to 1)
+    const moveX = (e.clientX - centerX) / (rect.width / 2) * 5; // Max 5px movement
+    const moveY = (e.clientY - centerY) / (rect.height / 2) * 5; // Max 5px movement
     
-    const cachedRect = JSON.parse(target.dataset.cachedRect);
-    const centerX = cachedRect.left + cachedRect.width / 2;
-    const centerY = cachedRect.top + cachedRect.height / 2;
-    
-    requestAnimationFrame(() => {
-      const moveX = (e.clientX - centerX) / (cachedRect.width / 2) * 5;
-      const moveY = (e.clientY - centerY) / (cachedRect.height / 2) * 5;
-      
-      x.set(moveX);
-      y.set(moveY);
-    });
-  }, [x, y]);
+    x.set(moveX);
+    y.set(moveY);
+  };
   
   // Smooth out the mouse movement with springs
   const springConfig = { damping: 25, stiffness: 300 };

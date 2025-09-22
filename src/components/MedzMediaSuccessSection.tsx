@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Clock, Users, TrendingUp, Heart, Zap, Target } from "lucide-react";
 import { CaseStudyLayout } from '@/components/ui/case-study-layout';
-import { LazyYouTube } from './LazyYouTube';
 
 const MedzMediaSuccessSection = () => {
   const stats = [
@@ -164,9 +163,14 @@ const MedzMediaSuccessSection = () => {
             </div>
           </div>
           <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-            <LazyYouTube
-              videoId="43qQdLve5Ps"
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/43qQdLve5Ps"
               title="Medz Media Testimonial"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
               className="w-full h-full"
             />
           </div>
