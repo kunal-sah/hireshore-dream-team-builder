@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ErrorBoundary from '../components/ErrorBoundary';
 import { LazyYouTube } from '../components/LazyYouTube';
+import { CriticalContentOptimizer } from '../components/CriticalContentOptimizer';
 
 // Critical above-the-fold components - load immediately
 import NavBar from "../components/NavBar";
@@ -136,11 +137,12 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen flex flex-col font-sans text-neutral-900 overflow-x-hidden">
-      <NavBar />
-      <LandingHero />
-      <div className="space-y-12 md:space-y-16">
-        <TrustedStartups />
+    <CriticalContentOptimizer>
+      <div className="bg-white min-h-screen flex flex-col font-sans text-neutral-900 overflow-x-hidden">
+        <NavBar />
+        <LandingHero />
+        <div className="space-y-12 md:space-y-16" data-lazy-load="true">
+          <TrustedStartups />
         
         <LazySection>
           <DeliveryPodDefinition />
@@ -300,6 +302,7 @@ const Index = () => {
         <SiteFooter />
       </LazySection>
     </div>
+    </CriticalContentOptimizer>
   );
 };
 

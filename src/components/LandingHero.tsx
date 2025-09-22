@@ -226,35 +226,19 @@ const LandingHero = () => {
           }}
         />
         
-        {/* Add more subtle floating elements */}
+        {/* Defer smaller floating elements */}
         <motion.div 
-          className="absolute top-[30%] right-[25%] w-24 h-24 rounded-full bg-gradient-to-r from-cyan-200 to-blue-200 opacity-10 blur-xl"
-          animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            repeatType: "reverse",
-            delay: 0.5
-          }}
+          className="absolute top-[30%] right-[25%] w-24 h-24 rounded-full bg-gradient-to-r from-cyan-200 to-blue-200 opacity-10 blur-xl below-fold"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.1 }}
+          transition={{ delay: 1.0, duration: 0.3 }}
         />
         
         <motion.div 
-          className="absolute bottom-[40%] left-[20%] w-32 h-32 rounded-full bg-gradient-to-r from-purple-200 to-pink-200 opacity-10 blur-xl"
-          animate={{
-            y: [0, 15, 0],
-            x: [0, -10, 0],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            repeatType: "reverse",
-            delay: 2
-          }}
+          className="absolute bottom-[40%] left-[20%] w-32 h-32 rounded-full bg-gradient-to-r from-purple-200 to-pink-200 opacity-10 blur-xl below-fold"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.1 }}
+          transition={{ delay: 1.2, duration: 0.3 }}
         />
       </motion.div>
 
@@ -280,12 +264,10 @@ const LandingHero = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl"
-              custom={2}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              key={selectedAudience} // Add key to re-animate when audience changes
+              className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl hero-subtitle"
+              initial={{ opacity: 1 }} // Remove delay for critical content
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0 }} // Instant render for Speed Index
             >
               {getSubtitleText()}
             </motion.p>
@@ -334,10 +316,9 @@ const LandingHero = () => {
             {/* CTAs */}
             <motion.div 
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6"
-              custom={4}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
+              initial={{ opacity: 1 }} // Remove delay for CTA visibility
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0 }} // Instant render for critical CTA
             >
               <motion.button
                 className="inline-flex items-center justify-center h-12 sm:h-14 gradient-btn bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg text-sm sm:text-base transition-all hover:shadow-xl ripple-effect relative overflow-hidden w-full sm:min-w-[280px]"
@@ -377,10 +358,9 @@ const LandingHero = () => {
             {/* Micro-reassurance */}
             <motion.div 
               className="mb-6"
-              custom={6}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
+              initial={{ opacity: 1 }} // Remove delay for reassurance content
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0 }} // Instant render
             >
               <p className="text-sm text-gray-600 font-medium">
                 No lock-in. ~30 seconds to book.

@@ -5,8 +5,12 @@ import { initThirdPartyOptimizations } from './utils/thirdPartyOptimizer';
 import { initCSSOptimizations } from './utils/criticalCSS';
 import { initBundleOptimizations } from './utils/bundleOptimizer';
 import { initRenderOptimizations } from './utils/renderOptimizer';
+import { initSpeedIndexOptimizations } from './utils/speedIndexOptimizer';
 
-// Initialize all optimizations
+// Initialize Speed Index optimizations first (highest priority)
+initSpeedIndexOptimizations();
+
+// Initialize other optimizations
 initRenderOptimizations();
 initThirdPartyOptimizations();
 initCSSOptimizations();
