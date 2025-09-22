@@ -1,28 +1,49 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import ErrorBoundary from '../components/ErrorBoundary';
+
+// Critical above-the-fold components - load immediately
 import NavBar from "../components/NavBar";
 import LandingHero from "../components/LandingHero";
-import BenefitsSection from "../components/BenefitsSection";
-import RolesSection from "../components/RolesSection";
 import TrustedStartups from "../components/TrustedStartups";
-import TestimonialsSection from "../components/TestimonialsSection";
-import SiteFooter from "../components/SiteFooter";
-import ServicesSection from "../components/ServicesSection";
-import MediaFeatures from "../components/MediaFeatures";
-import SharkTankSection from "../components/SharkTankSection";
-import DigitalSixSuccessSection from "../components/DigitalSixSuccessSection";
-import MedzMediaSuccessSection from "../components/MedzMediaSuccessSection";
-import WhyPodsSection from "../components/WhyPodsSection";
-import HowItWorksSection from "../components/HowItWorksSection";
-import ProofSection from "../components/ProofSection";
-import CalendlySection from "../components/CalendlySection";
-import DeliveryPodDefinition from "../components/DeliveryPodDefinition";
-import PodAtAGlance from "../components/PodAtAGlance";
-import InsideDeliveryPod from "../components/InsideDeliveryPod";
-import FAQSection from "../components/FAQSection";
+
+// Lazy load below-the-fold components to reduce main-thread work
+const BenefitsSection = lazy(() => import("../components/BenefitsSection"));
+const RolesSection = lazy(() => import("../components/RolesSection"));
+const TestimonialsSection = lazy(() => import("../components/TestimonialsSection"));
+const SiteFooter = lazy(() => import("../components/SiteFooter"));
+const ServicesSection = lazy(() => import("../components/ServicesSection"));
+const MediaFeatures = lazy(() => import("../components/MediaFeatures"));
+const SharkTankSection = lazy(() => import("../components/SharkTankSection"));
+const DigitalSixSuccessSection = lazy(() => import("../components/DigitalSixSuccessSection"));
+const MedzMediaSuccessSection = lazy(() => import("../components/MedzMediaSuccessSection"));
+const WhyPodsSection = lazy(() => import("../components/WhyPodsSection"));
+const HowItWorksSection = lazy(() => import("../components/HowItWorksSection"));
+const ProofSection = lazy(() => import("../components/ProofSection"));
+const CalendlySection = lazy(() => import("../components/CalendlySection"));
+const DeliveryPodDefinition = lazy(() => import("../components/DeliveryPodDefinition"));
+const PodAtAGlance = lazy(() => import("../components/PodAtAGlance"));
+const InsideDeliveryPod = lazy(() => import("../components/InsideDeliveryPod"));
+const FAQSection = lazy(() => import("../components/FAQSection"));
+
+// Lightweight loading component to prevent layout shifts
+const SectionLoader = () => (
+  <div className="min-h-[200px] flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+  </div>
+);
+
+// Wrapper for lazy components with error boundary
+const LazySection: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <ErrorBoundary>
+    <Suspense fallback={<SectionLoader />}>
+      {children}
+    </Suspense>
+  </ErrorBoundary>
+);
 
 const Index = () => {
   // Add useEffect to add JSON-LD and scroll behavior
@@ -119,20 +140,44 @@ const Index = () => {
       <LandingHero />
       <div className="space-y-12 md:space-y-16">
         <TrustedStartups />
-        <DeliveryPodDefinition />
-        <PodAtAGlance />
-        <InsideDeliveryPod />
+        
+        <LazySection>
+          <DeliveryPodDefinition />
+        </LazySection>
+        
+        <LazySection>
+          <PodAtAGlance />
+        </LazySection>
+        
+        <LazySection>
+          <InsideDeliveryPod />
+        </LazySection>
+        
         <div id="how-it-works">
-          <HowItWorksSection />
+          <LazySection>
+            <HowItWorksSection />
+          </LazySection>
         </div>
+        
         <div id="why-pods">
-          <WhyPodsSection />
+          <LazySection>
+            <WhyPodsSection />
+          </LazySection>
         </div>
+        
         <div id="proof">
-          <ProofSection />
+          <LazySection>
+            <ProofSection />
+          </LazySection>
         </div>
-        <BenefitsSection />
-        <MediaFeatures />
+        
+        <LazySection>
+          <BenefitsSection />
+        </LazySection>
+        
+        <LazySection>
+          <MediaFeatures />
+        </LazySection>
         
         {/* Consolidated Video Testimonials */}
         <section className="max-w-6xl mx-auto py-12 px-4">
@@ -239,13 +284,29 @@ const Index = () => {
             </Link>
           </div>
         </section>
-        <ServicesSection />
-        <RolesSection />
-        <TestimonialsSection />
-        <FAQSection />
-        <CalendlySection />
+        <LazySection>
+          <ServicesSection />
+        </LazySection>
+        
+        <LazySection>
+          <RolesSection />
+        </LazySection>
+        
+        <LazySection>
+          <TestimonialsSection />
+        </LazySection>
+        
+        <LazySection>
+          <FAQSection />
+        </LazySection>
+        
+        <LazySection>
+          <CalendlySection />
+        </LazySection>
       </div>
-      <SiteFooter />
+      <LazySection>
+        <SiteFooter />
+      </LazySection>
     </div>
   );
 };

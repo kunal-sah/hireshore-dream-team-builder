@@ -90,7 +90,18 @@
       }
     </style>
     
-    <!-- Script to improve FID by deferring non-critical tasks -->
+    <!-- Optimize JavaScript loading for better performance -->
+    <link rel="modulepreload" href="/src/components/NavBar.tsx">
+    <link rel="modulepreload" href="/src/components/LandingHero.tsx">
+    <link rel="modulepreload" href="/src/components/TrustedStartups.tsx">
+    
+    <!-- Defer non-critical resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://www.youtube.com">
+    <link rel="dns-prefetch" href="https://calendly.com">
+    
+    <!-- Script to improve FID and minimize main-thread work -->
     <script>
       // Polyfill for requestIdleCallback to improve FID
       window.requestIdleCallback = window.requestIdleCallback || function(handler, options) {
@@ -110,6 +121,31 @@
       window.cancelIdleCallback = window.cancelIdleCallback || function(id) {
         clearTimeout(id);
       };
+      
+      // Intersection Observer polyfill for older browsers
+      if (!window.IntersectionObserver) {
+        var script = document.createElement('script');
+        script.src = 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver';
+        script.async = true;
+        document.head.appendChild(script);
+      }
+      
+      // Performance monitoring
+      if ('PerformanceObserver' in window) {
+        try {
+          var observer = new PerformanceObserver(function(list) {
+            var entries = list.getEntries();
+            entries.forEach(function(entry) {
+              if (entry.entryType === 'longtask') {
+                console.warn('Long task detected:', entry.duration + 'ms');
+              }
+            });
+          });
+          observer.observe({ entryTypes: ['longtask'] });
+        } catch (e) {
+          // Fail silently if not supported
+        }
+      }
     </script>
   </head>
   <body>
