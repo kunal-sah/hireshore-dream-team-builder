@@ -1,14 +1,5 @@
 
 import React from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-
-import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
 const testimonials = [
@@ -63,60 +54,31 @@ const TestimonialsSection = () => (
       Why Founders & Agencies Rely on Hireshore
     </motion.h2>
     
-    <Carousel
-      opts={{
-        align: "start",
-        loop: true,
-      }}
-      className="w-full"
-    >
-      <CarouselContent className="py-4">
-        {testimonials.map((testimonial, index) => (
-          <CarouselItem key={index} className="basis-full sm:basis-1/2 lg:basis-1/3">
-            <motion.div 
-              className="p-1"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-            >
-              <Card className="border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:border-purple-200">
-                <CardContent className="flex flex-col gap-4 p-6">
+        <div className="space-y-6">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="p-1">
+              <div className="border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:border-purple-200 rounded-lg">
+                <div className="flex flex-col gap-4 p-6">
                   <div className="flex items-center gap-4">
-                    <motion.img 
+                    <img 
                       src={testimonial.photo} 
                       alt={testimonial.name} 
                       className="w-12 h-12 rounded-full object-cover ring-2 ring-transparent hover:ring-[#8b5cf6] transition-all duration-300"
-                      initial={{ scale: 0.9 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      whileHover={{ scale: 1.1 }}
+                      loading="lazy"
                     />
                     <div>
                       <p className="font-medium text-gray-900">{testimonial.name}</p>
                       <p className="text-sm text-gray-500">{testimonial.title}</p>
                     </div>
                   </div>
-                  <motion.p 
-                    className="text-gray-700 italic"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
+                  <p className="text-gray-700 italic">
                     "{testimonial.text}"
-                  </motion.p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <div className="flex justify-center gap-2 mt-6">
-        <CarouselPrevious className="static transform-none mx-2 hover:bg-[#8b5cf6]/10 hover:text-[#8b5cf6] transition-colors" />
-        <CarouselNext className="static transform-none mx-2 hover:bg-[#8b5cf6]/10 hover:text-[#8b5cf6] transition-colors" />
-      </div>
-    </Carousel>
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
   </motion.section>
 );
 

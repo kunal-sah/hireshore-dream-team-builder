@@ -75,48 +75,33 @@ const TrustedStartups = () => {
         </motion.span>
       </motion.div>
 
-      <motion.div 
-        className="flex flex-wrap items-center justify-center gap-8 md:gap-12"
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {clients.map((client, index) => (
-          <motion.a
-            href={client.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            key={index}
-            className="flex items-center"
-            aria-label={client.name}
-            variants={item}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300, damping: 10 }}
-          >
-            <motion.div 
-              className="bg-white/80 rounded-xl px-6 py-3 shadow-sm border border-gray-100 flex items-center min-w-[140px] min-h-[54px] justify-center hover:shadow-md hover:border-purple-200 transition-all duration-300"
-              whileHover={{ 
-                boxShadow: "0 4px 20px rgba(139, 92, 246, 0.15)" 
-              }}
+        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          {clients.map((client, index) => (
+            <a
+              href={client.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={index}
+              className="flex items-center"
+              aria-label={client.name}
             >
-              <img
-                src={client.logo}
-                alt={client.name + ' logo'}
-                className="h-8 max-w-[100px] object-contain transition-opacity duration-300 hover:opacity-80"
-                loading="lazy"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.onerror = null;
-                  target.style.display = 'none';
-                  target.parentElement!.innerHTML = `<span class="font-semibold text-gray-700 text-base whitespace-nowrap flex items-center gap-2"><span class="text-yellow-500">★</span>${client.name}</span>`;
-                }}
-              />
-            </motion.div>
-          </motion.a>
-        ))}
-      </motion.div>
+              <div className="bg-white/80 rounded-xl px-6 py-3 shadow-sm border border-gray-100 flex items-center min-w-[140px] min-h-[54px] justify-center hover:shadow-md hover:border-purple-200 transition-all duration-300">
+                <img
+                  src={client.logo}
+                  alt={client.name + ' logo'}
+                  className="h-8 max-w-[100px] object-contain transition-opacity duration-300 hover:opacity-80"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null;
+                    target.style.display = 'none';
+                    target.parentElement!.innerHTML = `<span class="font-semibold text-gray-700 text-base whitespace-nowrap flex items-center gap-2"><span class="text-yellow-500">★</span>${client.name}</span>`;
+                  }}
+                />
+              </div>
+            </a>
+          ))}
+        </div>
     </motion.section>
   );
 };

@@ -134,155 +134,109 @@ const Index = () => {
         <BenefitsSection />
         <MediaFeatures />
         
-        {/* Marlon's Medz Media Testimonial */}
+        {/* Consolidated Video Testimonials */}
         <section className="max-w-6xl mx-auto py-12 px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 border"
-          >
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
-                <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-6">
-                  "The best experience I've had working with a remote team. Websites came out fantastic - fast, 
-                  secure, beautifully designed. The team's energy, proactiveness, and suggestions make them feel 
-                  like a real part of my business. I've worked with freelancers before - this is a whole different level. 
-                  I've referred Hireshore to friends, clients, and even my full-time employer. It's truly been a 
-                  game changer for both my business and personal life."
-                </blockquote>
-                <div className="flex items-center">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">What Our Clients Say</h3>
+            <p className="text-gray-600">Real stories from founders who transformed their operations</p>
+          </div>
+          <div className="grid gap-8 lg:gap-12">
+            {/* Medz Media */}
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 md:p-8 border">
+              <div className="grid lg:grid-cols-2 gap-6 items-center">
+                <div>
+                  <blockquote className="text-lg text-gray-900 leading-relaxed mb-4">
+                    "The best experience I've had working with a remote team. This is a whole different level from freelancers. 
+                    It's been a game changer for both my business and personal life."
+                  </blockquote>
                   <div>
                     <p className="font-semibold text-gray-900">Marlon M.</p>
                     <p className="text-sm text-gray-600">Founder, Medz Media</p>
                   </div>
                 </div>
-              </div>
-              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/43qQdLve5Ps"
-                  title="Medz Media Testimonial - Marlon M."
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </section>
-
-        {/* Aaron's Digital Six Testimonial */}
-        <section className="max-w-6xl mx-auto py-12 px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
-                <blockquote className="text-lg text-gray-700 italic mb-4">
-                  "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal. 
-                  The WordPress guys are killing it. The SEO side is strong. This is way better than our past 
-                  freelancer experience. I've already referred several people to Hireshore."
-                </blockquote>
-                <div className="flex items-center gap-4">
-                  <div>
-                    <div className="font-semibold text-gray-900">Aaron Erwich</div>
-                    <div className="text-gray-600">Founder, Digital Six</div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="text-center">
-                <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
                   <iframe
-                    src="https://www.youtube.com/embed/yW90cSyX_iI"
-                    title="Digital Six Testimonial - Aaron Erwich"
-                    className="w-full h-full"
+                    width="100%" height="100%" loading="lazy"
+                    src="https://www.youtube.com/embed/43qQdLve5Ps"
+                    title="Medz Media Success Story"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                  ></iframe>
+                  />
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Watch Aaron's full testimonial</p>
               </div>
             </div>
-          </motion.div>
-        </section>
-
-        {/* Ryan's PropertyStack Testimonial */}
-        <section className="max-w-6xl mx-auto py-12 px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12 border"
-          >
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
-                <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-6">
-                  "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. 
-                  The hiring process is much easier now with resume videos and pre-vetted candidates. 
-                  Compared to freelancers or other markets, the quality from Nepal has been significantly better. 
-                  You guys have helped us grow fast and we've referred you to many of our partners."
-                </blockquote>
-                <div className="flex items-center">
+            
+            {/* Digital Six */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border">
+              <div className="grid lg:grid-cols-2 gap-6 items-center">
+                <div>
+                  <blockquote className="text-lg text-gray-700 mb-4">
+                    "Now there are 47 people across Australia and Nepal. Way better than our past freelancer experience. 
+                    I've already referred several people to Hireshore."
+                  </blockquote>
                   <div>
-                    <p className="font-semibold text-gray-900">Ryan Jope</p>
-                    <p className="text-sm text-gray-600">Founder of PropertyStack</p>
+                    <p className="font-semibold text-gray-900">Aaron Erwich</p>
+                    <p className="text-sm text-gray-600">Founder, Digital Six</p>
                   </div>
                 </div>
-              </div>
-              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/9xMVgH1j9XE"
-                  title="PropertyStack Testimonial - Ryan Jope"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
+                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                  <iframe
+                    width="100%" height="100%" loading="lazy"
+                    src="https://www.youtube.com/embed/yW90cSyX_iI"
+                    title="Digital Six Success Story"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
               </div>
             </div>
-          </motion.div>
+            
+            {/* PropertyStack */}
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 md:p-8 border">
+              <div className="grid lg:grid-cols-2 gap-6 items-center">
+                <div>
+                  <blockquote className="text-lg text-gray-900 leading-relaxed mb-4">
+                    "We've hired over 15 people through Hireshore in just a year. The quality from Nepal has been 
+                    significantly better than freelancers or other markets."
+                  </blockquote>
+                  <div>
+                    <p className="font-semibold text-gray-900">Ryan Jope</p>
+                    <p className="text-sm text-gray-600">Founder, PropertyStack</p>
+                  </div>
+                </div>
+                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                  <iframe
+                    width="100%" height="100%" loading="lazy"
+                    src="https://www.youtube.com/embed/9xMVgH1j9XE"
+                    title="PropertyStack Success Story"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* View All Case Studies CTA */}
         <section className="py-12 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8"
+          <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              See Our Success Stories
+            </h3>
+            <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+              Discover how agencies and startups transformed their operations with Hireshore's managed delivery pods
+            </p>
+            <Link 
+              to="/case-studies"
+              className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg"
             >
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                See Our Success Stories
-              </h3>
-              <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-                Discover how agencies and startups transformed their operations with Hireshore's managed delivery pods
-              </p>
-              <Link 
-                to="/case-studies"
-                className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg"
-              >
-                View All Case Studies
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </motion.div>
+              View All Case Studies
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
           </div>
         </section>
         <ServicesSection />

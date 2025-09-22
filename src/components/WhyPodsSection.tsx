@@ -98,70 +98,29 @@ const WhyPodsSection = () => {
           animate={isInView ? "visible" : "hidden"}
           className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
         >
-          {/* Desktop Table */}
-          <div className="hidden md:block overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-gray-50 border-b border-gray-200">
-                  <th className="text-left py-4 px-6 font-semibold text-gray-900">Criteria</th>
-                  <th className="text-center py-4 px-6 font-semibold text-gray-900">Full-Time Hire</th>
-                  <th className="text-center py-4 px-6 font-semibold text-gray-900">Freelancers</th>
-                  <th className="text-center py-4 px-6 font-semibold text-gray-900">Traditional Agency</th>
-                  <th className="text-center py-4 px-6 font-semibold text-blue-600 bg-blue-50">Delivery Pod (You)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonData.map((row, index) => (
-                  <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-25'}>
-                    <td className="py-4 px-6 font-medium text-gray-900 border-r border-gray-100">
-                      {row.criteria}
-                    </td>
-                    <td className="py-4 px-6 text-center text-gray-600 border-r border-gray-100">
-                      {row.fullTime}
-                    </td>
-                    <td className="py-4 px-6 text-center text-gray-600 border-r border-gray-100">
-                      {row.freelancers}
-                    </td>
-                    <td className="py-4 px-6 text-center text-gray-600 border-r border-gray-100">
-                      {row.agency}
-                    </td>
-                    <td className="py-4 px-6 text-center bg-blue-50 border-l-2 border-blue-200">
-                      <span className="inline-flex items-center font-medium text-blue-700">
-                        <CheckCircle className="w-4 h-4 mr-2 text-blue-600" />
-                        {row.pod}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          {/* Column headers */}
+          <div className="grid grid-cols-5 gap-2 md:gap-4 py-2 px-4 text-xs md:text-sm font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-200 mb-2">
+            <div>Method</div>
+            <div className="text-center">Full-Time</div>
+            <div className="text-center">Freelancers</div>
+            <div className="text-center">Agency</div>
+            <div className="text-center text-blue-600">Delivery Pod</div>
           </div>
-
-          {/* Mobile Cards */}
-          <div className="md:hidden p-6 space-y-6">
+          
+          {/* Simplified comparison grid */}
+          <div className="grid gap-2 p-4">
             {comparisonData.map((row, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-4">
-                <h4 className="font-semibold text-gray-900 mb-4">{row.criteria}</h4>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Full-Time Hire:</span>
-                    <span className="text-sm font-medium text-gray-900">{row.fullTime}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Freelancers:</span>
-                    <span className="text-sm font-medium text-gray-900">{row.freelancers}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Traditional Agency:</span>
-                    <span className="text-sm font-medium text-gray-900">{row.agency}</span>
-                  </div>
-                  <div className="flex justify-between items-center bg-blue-50 rounded px-3 py-2 border-l-2 border-blue-200">
-                    <span className="text-sm font-medium text-blue-700">Delivery Pod:</span>
-                    <div className="flex items-center">
-                      <CheckCircle className="w-4 h-4 mr-1 text-blue-600" />
-                      <span className="text-sm font-medium text-blue-700">{row.pod}</span>
-                    </div>
-                  </div>
+              <div key={index} className="grid grid-cols-5 gap-2 md:gap-4 py-3 px-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+                <div className="font-medium text-gray-900 text-sm md:text-base">{row.criteria}</div>
+                <div className="text-center text-xs md:text-sm text-gray-600">{row.fullTime}</div>
+                <div className="text-center text-xs md:text-sm text-gray-600">{row.freelancers}</div>
+                <div className="text-center text-xs md:text-sm text-gray-600">{row.agency}</div>
+                <div className="text-center bg-blue-50 rounded px-2 py-1">
+                  <span className="text-xs md:text-sm font-medium text-blue-700 flex items-center justify-center gap-1">
+                    <CheckCircle className="w-3 h-3 md:w-4 md:h-4" />
+                    <span className="hidden sm:inline">{row.pod}</span>
+                    <span className="sm:hidden">✓</span>
+                  </span>
                 </div>
               </div>
             ))}
