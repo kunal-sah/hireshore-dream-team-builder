@@ -63,8 +63,12 @@ const TestimonialsSection = () => (
                     <img 
                       src={testimonial.photo} 
                       alt={testimonial.name} 
-                      className="w-12 h-12 rounded-full object-cover ring-2 ring-transparent hover:ring-[#8b5cf6] transition-all duration-300"
+                      className="w-12 h-12 rounded-full object-cover ring-2 ring-transparent hover:ring-[#8b5cf6] transition-all duration-300 testimonial-avatar"
+                      width={48}
+                      height={48}
                       loading="lazy"
+                      decoding="async"
+                      style={{ width: '48px', height: '48px', maxWidth: '48px', maxHeight: '48px' }}
                     />
                     <div>
                       <p className="font-medium text-gray-900">{testimonial.name}</p>

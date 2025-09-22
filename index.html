@@ -95,6 +95,26 @@
         content-visibility: auto;
         contain: layout;
       }
+      
+      /* Ensure images are properly sized to prevent waste */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      /* Testimonial images optimization */
+      .testimonial-avatar {
+        width: 48px !important;
+        height: 48px !important;
+        max-width: 48px !important;
+        max-height: 48px !important;
+      }
+      
+      /* Logo images optimization */
+      .logo-image {
+        max-width: 100px !important;
+        max-height: 32px !important;
+      }
     </style>
     
     <!-- Optimize JavaScript loading for better performance -->

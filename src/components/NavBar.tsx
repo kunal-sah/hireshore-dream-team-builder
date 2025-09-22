@@ -123,6 +123,7 @@ const NavBar = () => {
                 height={40}
                 fetchPriority="high"
                 decoding="async"
+                style={{ width: 'auto', height: '40px', maxWidth: '158px', maxHeight: '40px' }}
                 initial={{ opacity: 0, rotateY: 90 }}
                 animate={{ opacity: 1, rotateY: 0 }}
                 transition={{ duration: 0.8, type: "spring" }}

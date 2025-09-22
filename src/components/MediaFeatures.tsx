@@ -96,6 +96,7 @@ const MediaFeatures = () => {
                 height={32}
                 loading="lazy"
                 decoding="async"
+                style={{ maxWidth: '100px', maxHeight: '32px' }}
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.onerror = null;
