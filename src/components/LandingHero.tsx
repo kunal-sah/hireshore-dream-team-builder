@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef, lazy, Suspense } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
-import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring, useScroll } from "framer-motion";
 import { Phone, Users, Headphones, Pointer, ArrowDown } from "lucide-react";
 import { LazyYouTube } from './LazyYouTube';
 
@@ -59,106 +59,6 @@ const LandingHero = () => {
     }
   }, []);
 
-  // Defer mouse tracking to improve FID
-  useEffect(() => {
-    let rafId: number;
-    let isIdle = false;
-    
-    const setupMouseTracking = () => {
-      const handleMouseMove = (e: MouseEvent) => {
-        if (rafId || !isIdle) return; // Skip if not idle or animation frame pending
-        
-        rafId = requestAnimationFrame(() => {
-          const x = e.clientX / window.innerWidth;
-          const y = e.clientY / window.innerHeight;
-          
-          document.documentElement.style.setProperty('--mouse-x', x.toString());
-          document.documentElement.style.setProperty('--mouse-y', y.toString());
-          
-          setMousePosition({ x: e.clientX, y: e.clientY });
-          rafId = 0;
-        });
-      };
-
-      window.addEventListener('mousemove', handleMouseMove, { passive: true });
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove);
-        if (rafId) cancelAnimationFrame(rafId);
-      };
-    };
-
-    // Defer mouse tracking until browser is idle to improve FID
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => {
-        isIdle = true;
-        setupMouseTracking();
-      }, { timeout: 2000 });
-    } else {
-      // Fallback for browsers without requestIdleCallback
-      setTimeout(() => {
-        isIdle = true;
-        setupMouseTracking();
-      }, 100);
-    }
-  }, []);
-
-  // Optimized spotlight effect to prevent forced reflows
-  useEffect(() => {
-    if (!heroRef.current) return;
-    
-    let rafId: number;
-    let cachedRect: DOMRect | null = null;
-    
-    const updateRect = () => {
-      if (heroRef.current) {
-        cachedRect = heroRef.current.getBoundingClientRect();
-      }
-    };
-    
-    const updateSpotlight = (e: MouseEvent) => {
-      if (!heroRef.current || !cachedRect) return;
-      
-      if (rafId) return; // Skip if animation frame is already pending
-      
-      rafId = requestAnimationFrame(() => {
-        if (!heroRef.current || !cachedRect) return;
-        
-        const x = ((e.clientX - cachedRect.left) / cachedRect.width) * 100;
-        const y = ((e.clientY - cachedRect.top) / cachedRect.height) * 100;
-        
-        heroRef.current.style.setProperty('--x', `${x}%`);
-        heroRef.current.style.setProperty('--y', `${y}%`);
-        rafId = 0;
-      });
-    };
-    
-    // Cache initial rect and update on resize
-    updateRect();
-    window.addEventListener('resize', updateRect, { passive: true });
-    
-    heroRef.current.addEventListener('mousemove', updateSpotlight, { passive: true });
-    return () => {
-      if (heroRef.current) {
-        heroRef.current.removeEventListener('mousemove', updateSpotlight);
-      }
-      window.removeEventListener('resize', updateRect);
-      if (rafId) cancelAnimationFrame(rafId);
-    };
-  }, [heroRef]);
-  
-  const textVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: (i: number) => ({ 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        delay: i * 0.05, // Much faster stagger for LCP
-        duration: 0.3, // Faster animation
-        type: "easeOut"
-      }
-    }),
-  };
-  
   // Create ripple effect - Modified to handle both button and anchor elements
   const createRipple = (event: React.MouseEvent<Element>) => {
     const element = event.currentTarget;
@@ -189,96 +89,47 @@ const LandingHero = () => {
   };
 
   return (
-    <header ref={heroRef} className="w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-20 sm:pt-28 pb-12 sm:pb-16 md:pb-20 px-4 relative overflow-hidden spotlight" style={{
-      '--x': '50%',
-      '--y': '50%',
-    } as React.CSSProperties}>
-      {/* Animated morphing background elements */}
-      <motion.div 
-        className="absolute inset-0 w-full h-full"
-        style={{ opacity }}
-      >
-        <motion.div 
-          className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-blue-200 to-purple-200 opacity-20 blur-3xl morphing-shape" 
-          style={{ y: bgY1 }}
-          animate={{ 
-            x: [0, 10, 0],
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
+    <header 
+      ref={heroRef} 
+      className="hero-container w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-20 sm:pt-28 pb-12 sm:pb-16 md:pb-20 px-4 relative overflow-hidden spotlight" 
+      data-critical="true"
+      style={{
+        '--x': '50%',
+        '--y': '50%',
+      } as React.CSSProperties}
+    >
+      {/* Simplified background elements for Speed Index */}
+      <div className="absolute inset-0 w-full h-full">
+        <div 
+          className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-blue-200 to-purple-200 opacity-20 blur-3xl below-fold"
         />
-        <motion.div 
-          className="absolute bottom-20 right-[15%] w-80 h-80 rounded-full bg-gradient-to-tr from-blue-200 to-indigo-200 opacity-20 blur-3xl morphing-shape"
-          style={{ y: bgY2 }}
-          animate={{
-            x: [0, -15, 0],
-            scale: [1, 1.07, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-            delay: 1
-          }}
+        <div 
+          className="absolute bottom-20 right-[15%] w-80 h-80 rounded-full bg-gradient-to-tr from-blue-200 to-indigo-200 opacity-20 blur-3xl below-fold"
         />
-        
-        {/* Defer smaller floating elements */}
-        <motion.div 
-          className="absolute top-[30%] right-[25%] w-24 h-24 rounded-full bg-gradient-to-r from-cyan-200 to-blue-200 opacity-10 blur-xl below-fold"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ delay: 1.0, duration: 0.3 }}
-        />
-        
-        <motion.div 
-          className="absolute bottom-[40%] left-[20%] w-32 h-32 rounded-full bg-gradient-to-r from-purple-200 to-pink-200 opacity-10 blur-xl below-fold"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ delay: 1.2, duration: 0.3 }}
-        />
-      </motion.div>
+      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Side-by-side layout */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[500px] sm:min-h-[600px]">
           {/* Left side - Content */}
-          <motion.div 
-            className="space-y-8"
-            initial={{ opacity: 1 }} // Remove opacity delay
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0 }} // Instant render for hero content
-          >
-            <motion.h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight hero-text-priority"
-              initial={{ opacity: 1 }} // Remove opacity delay for LCP
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0 }} // Instant render for LCP
+          <div className="space-y-8">
+            <h1 
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight hero-text hero-text-priority"
+              data-critical="true"
             >
               <span className="inline-block">
                 Get Full-Time Capacity Without the Full-Time Overhead
               </span>
-            </motion.h1>
+            </h1>
             
-            <motion.p 
+            <p 
               className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl hero-subtitle"
-              initial={{ opacity: 1 }} // Remove delay for critical content
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0 }} // Instant render for Speed Index
+              data-critical="true"
             >
               {getSubtitleText()}
-            </motion.p>
+            </p>
             
-            <motion.div 
-              className=""
-              custom={3}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-            >
+            <div className="">
               <div className="flex flex-wrap justify-start gap-2 mb-6">
                 <button 
                   className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
@@ -311,39 +162,20 @@ const LandingHero = () => {
                   Startups
                 </button>
               </div>
-            </motion.div>
+            </div>
 
             {/* CTAs */}
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6"
-              initial={{ opacity: 1 }} // Remove delay for CTA visibility
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0 }} // Instant render for critical CTA
-            >
-              <motion.button
-                className="inline-flex items-center justify-center h-12 sm:h-14 gradient-btn bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg text-sm sm:text-base transition-all hover:shadow-xl ripple-effect relative overflow-hidden w-full sm:min-w-[280px]"
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)"
-                }}
-                whileTap={{ scale: 0.95 }}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6">
+              <button
+                className="btn-primary inline-flex items-center justify-center h-12 sm:h-14 gradient-btn bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg text-sm sm:text-base transition-all hover:shadow-xl ripple-effect relative overflow-hidden w-full sm:min-w-[280px]"
                 onMouseDown={createRipple}
                 onClick={scrollToCalendly}
               >
                 <span className="relative z-10 text-base font-bold">Get My Delivery Pod</span>
-                <motion.span 
-                  className="absolute inset-0 bg-white/20"
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileHover={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.4 }}
-                  style={{ borderRadius: 'inherit' }}
-                />
-              </motion.button>
+              </button>
 
-              <motion.button
+              <button
                 className="inline-flex items-center justify-center h-12 sm:h-14 border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-sm sm:text-base transition-all w-full sm:min-w-[220px]"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 onClick={() => {
                   const element = document.getElementById('how-it-works');
                   if (element) {
@@ -352,29 +184,23 @@ const LandingHero = () => {
                 }}
               >
                 <span>See How Pods Work</span>
-              </motion.button>
-            </motion.div>
+              </button>
+            </div>
             
             {/* Micro-reassurance */}
-            <motion.div 
-              className="mb-6"
-              initial={{ opacity: 1 }} // Remove delay for reassurance content
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0 }} // Instant render
-            >
+            <div className="mb-6">
               <p className="text-sm text-gray-600 font-medium">
                 No lock-in. ~30 seconds to book.
               </p>
-            </motion.div>
-            
-          </motion.div>
+            </div>
+          </div>
           
           {/* Right side - Video with lazy loading */}
           <motion.div 
-            className="relative"
+            className="relative below-fold"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }} // Delay video loading
+            transition={{ duration: 0.8, delay: 0.8 }}
           >
             <div className="relative bg-white rounded-2xl shadow-2xl p-4">
               <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden relative">
