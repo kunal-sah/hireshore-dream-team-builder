@@ -23,29 +23,41 @@ export default defineConfig(({ mode }) => ({
     sourcemap: true,
     minify: 'esbuild',
     cssMinify: true,
+    target: 'es2020',
     rollupOptions: {
       output: {
         manualChunks: undefined,
         format: 'es',
         entryFileNames: 'assets/[name]-[hash].js',
         chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: (assetInfo) => {
-          // Ensure all compiled assets use appropriate extensions
-          const extType = assetInfo.name?.split('.').pop() || '';
-          if (['tsx', 'ts', 'jsx', 'js'].includes(extType)) {
-            return 'assets/[name]-[hash].js';
-          }
-          return 'assets/[name]-[hash].[ext]';
-        }
-      }
+        assetFileNames: 'assets/[name]-[hash].[ext]',
+        // Ensure no .tsx files are output
+        preserveModules: false,
+      },
+      external: [],
     },
     assetsInlineLimit: 0,
-    reportCompressedSize: true
+    reportCompressedSize: true,
+    chunkSizeWarningLimit: 1000,
   },
   esbuild: {
+    target: 'es2020',
     legalComments: 'none',
     minifyIdentifiers: true,
     minifySyntax: true,
-    minifyWhitespace: true
+    minifyWhitespace: true,
+    // Ensure TypeScript is properly compiled
+    tsconfigRaw: {
+      compilerOptions: {
+        target: 'es2020',
+        module: 'esnext',
+        moduleResolution: 'node',
+        allowSyntheticDefaultImports: true,
+        esModuleInterop: true,
+        skipLibCheck: true,
+        strict: true,
+        jsx: 'react-jsx'
+      }
+    }
   }
 }));
