@@ -30,13 +30,24 @@ export const LazyCalendly: React.FC<LazyCalendlyProps> = ({ className = "" }) =>
   useEffect(() => {
     if (isVisible && !isScriptLoaded) {
       // Use requestIdleCallback to defer script loading even further
-      const loadScript = () => {
+      const loadCalendlyAssets = () => {
         const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
         if (existingScript) {
           setIsScriptLoaded(true);
           return;
         }
 
+        // Load CSS first to prevent FOUC
+        const cssLink = document.createElement('link');
+        cssLink.rel = 'stylesheet';
+        cssLink.href = 'https://assets.calendly.com/assets/booking/css/booking-3c803e311.css';
+        cssLink.media = 'print';
+        cssLink.onload = function(this: HTMLLinkElement) { 
+          this.media = 'all'; 
+        };
+        document.head.appendChild(cssLink);
+
+        // Then load the JavaScript
         const script = document.createElement('script');
         script.src = 'https://assets.calendly.com/assets/external/widget.js';
         script.async = true;
@@ -45,9 +56,9 @@ export const LazyCalendly: React.FC<LazyCalendlyProps> = ({ className = "" }) =>
       };
 
       if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(loadScript, { timeout: 2000 });
+        window.requestIdleCallback(loadCalendlyAssets, { timeout: 2000 });
       } else {
-        setTimeout(loadScript, 500);
+        setTimeout(loadCalendlyAssets, 500);
       }
     }
   }, [isVisible, isScriptLoaded]);
