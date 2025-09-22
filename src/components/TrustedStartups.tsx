@@ -90,8 +90,6 @@ const TrustedStartups = () => {
                   src={client.logo}
                   alt={client.name + ' logo'}
                   className="h-8 max-w-[100px] object-contain transition-opacity duration-300 hover:opacity-80"
-                  width={100}
-                  height={32}
                   loading="lazy"
                   decoding="async"
                   style={{ maxWidth: '100px', maxHeight: '32px' }}
