@@ -237,25 +237,19 @@ const LandingHero = () => {
           {/* Left side - Content */}
           <motion.div 
             className="space-y-8"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }} // Faster left column animation
+            initial={{ opacity: 1 }} // Remove opacity delay
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0 }} // Instant render for hero content
           >
             <motion.h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }} // Faster text animation for LCP
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight hero-text-priority"
+              initial={{ opacity: 1 }} // Remove opacity delay for LCP
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0 }} // Instant render for LCP
             >
-              <motion.span 
-                className="inline-block"
-                custom={0}
-                variants={textVariants}
-                initial="hidden"
-                animate="visible"
-              >
+              <span className="inline-block">
                 Get Full-Time Capacity Without the Full-Time Overhead
-              </motion.span>
+              </span>
             </motion.h1>
             
             <motion.p 

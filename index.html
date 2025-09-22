@@ -45,7 +45,7 @@
       }
       #root { min-height: 100vh; }
       
-      /* LCP-optimized hero styles */
+      /* LCP-optimized hero styles - ensure immediate visibility */
       .hero-container { 
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
@@ -58,6 +58,11 @@
         font-size: clamp(1.875rem, 5vw, 3.75rem);
         line-height: 1.1;
         letter-spacing: -0.025em;
+      }
+      .hero-text-priority {
+        opacity: 1 !important; /* Force immediate visibility for LCP */
+        transform: none !important; /* Prevent animation delays */
+        will-change: auto; /* Optimize rendering */
       }
       .hero-subtitle {
         color: #374151;
