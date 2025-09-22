@@ -25,16 +25,18 @@ class InteractivityOptimizer {
       ...config
     };
 
-    // Polyfill for requestIdleCallback
-    this.idleScheduler = window.requestIdleCallback || ((cb, options) => {
-      const start = Date.now();
-      return setTimeout(() => {
-        cb({
-          didTimeout: false,
-          timeRemaining: () => Math.max(0, 50 - (Date.now() - start))
+    // Polyfill for requestIdleCallback with proper context binding
+    this.idleScheduler = window.requestIdleCallback 
+      ? window.requestIdleCallback.bind(window)
+      : ((cb, options) => {
+          const start = Date.now();
+          return setTimeout(() => {
+            cb({
+              didTimeout: false,
+              timeRemaining: () => Math.max(0, 50 - (Date.now() - start))
+            });
+          }, options?.timeout || 1) as any;
         });
-      }, options?.timeout || 1) as any;
-    });
   }
 
   /**
