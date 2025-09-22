@@ -59,18 +59,19 @@ const LandingHero = () => {
     }
   }, []);
 
-  // Create ripple effect - Modified to handle both button and anchor elements, optimized for performance
+  // Create ripple effect - Optimized to prevent forced reflows
   const createRipple = (event: React.MouseEvent<Element>) => {
     const element = event.currentTarget;
+    
+    // Pre-read dimensions before any DOM manipulation to avoid forced reflows
+    const elementRect = element.getBoundingClientRect();
+    const diameter = Math.max(elementRect.width, elementRect.height);
+    const radius = diameter / 2;
     
     requestAnimationFrame(() => {
       const circle = document.createElement('span');
       
-      // Use cached or estimated dimensions to avoid layout reads
-      const elementRect = element.getBoundingClientRect();
-      const diameter = Math.max(elementRect.width, elementRect.height);
-      const radius = diameter / 2;
-      
+      // Use pre-calculated dimensions to avoid layout reads
       circle.style.width = circle.style.height = `${diameter}px`;
       circle.style.left = `${event.clientX - elementRect.left - radius}px`;
       circle.style.top = `${event.clientY - elementRect.top - radius}px`;
@@ -84,11 +85,12 @@ const LandingHero = () => {
       
       element.appendChild(circle);
       
-      setTimeout(() => {
+      // Use CSS animation completion event instead of setTimeout
+      circle.addEventListener('animationend', () => {
         if (circle.parentElement) {
           circle.parentElement.removeChild(circle);
         }
-      }, 800);
+      });
     });
   };
 

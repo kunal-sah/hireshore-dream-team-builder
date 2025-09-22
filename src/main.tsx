@@ -9,10 +9,14 @@ import { initInteractivityOptimizations } from './utils/interactivityOptimizer';
 import { initBlockingTimeOptimizations } from './utils/blockingTimeOptimizer';
 import { initCacheOptimizations } from './utils/cacheOptimizer';
 import { initNetworkOptimizations } from './utils/networkOptimizer';
+import { initLayoutOptimizations } from './utils/layoutOptimizer';
 import { accessibilityEnhancer } from './utils/accessibilityEnhancer';
 
 // Initialize CSS optimizations FIRST to prevent render-blocking
 initCSSOptimizations();
+
+// Initialize layout optimizations to prevent forced reflows
+initLayoutOptimizations();
 
 // Initialize network optimizations second (critical for reducing request chains)
 initNetworkOptimizations();
