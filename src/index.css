@@ -93,7 +93,7 @@ iframe {
   --card-foreground: 222.2 84% 4.9%;
   --popover: 0 0% 100%;
   --popover-foreground: 222.2 84% 4.9%;
-  --primary: 215 100% 35%;
+  --primary: 215 100% 45%;
   --primary-foreground: 210 40% 98%;
   --secondary: 210 40% 96%;
   --secondary-foreground: 222.2 84% 4.9%;
@@ -219,15 +219,14 @@ html {
   overflow: hidden;
 }
 
-/* Add ripple span styling with optimized animation */
+/* Add ripple span styling */
 .ripple {
   position: absolute;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.4);
   transform: scale(0);
-  animation: ripple 0.8s linear forwards;
+  animation: ripple 0.8s linear;
   pointer-events: none;
-  will-change: transform, opacity;
 }
 
 /* New animations and effects */

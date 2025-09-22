@@ -6,9 +6,7 @@ export const preconnectOrigins = [
   'https://services.msgsndr.com',
   'https://images.leadconnectorhq.com',
   'https://fonts.googleapis.com',
-  'https://fonts.gstatic.com',
-  'https://img.youtube.com',
-  'https://fonts.bunny.net'
+  'https://fonts.gstatic.com'
 ];
 
 export const dnsPreconnectOrigins = [

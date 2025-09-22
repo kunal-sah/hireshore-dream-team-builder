@@ -6,6 +6,8 @@ import { ArrowRight } from 'lucide-react';
 import ErrorBoundary from '../components/ErrorBoundary';
 import { LazyYouTube } from '../components/LazyYouTube';
 import { CriticalContentOptimizer } from '../components/CriticalContentOptimizer';
+import { queueAfterInteractive } from '../utils/interactivityOptimizer';
+import { queueNonBlockingTask, breakUpOperation } from '../utils/blockingTimeOptimizer';
 
 // Critical above-the-fold components - load immediately
 import NavBar from "../components/NavBar";
@@ -114,23 +116,21 @@ const Index = () => {
       'button[href="#book"]'
     ];
 
-    // Optimize scroll behavior without importing heavy schedulers
-    setTimeout(() => {
+    // Optimize scroll behavior using non-blocking task scheduling
+    queueNonBlockingTask(() => {
+      // Break up event listener attachment to prevent TBT blocking
       const attachScrollBehavior = async () => {
-        const nodes = Array.from(document.querySelectorAll(selectors.join(',')));
-        const batchSize = 3;
-        for (let i = 0; i < nodes.length; i += batchSize) {
-          const batch = nodes.slice(i, i + batchSize);
-          batch.forEach((node) => {
-            // Neutralize any previous modal handlers
-            node.removeAttribute('data-modal-target');
-            node.removeAttribute('data-trigger');
-            (node as HTMLElement).onclick = smoothScrollToBook;
-            node.setAttribute('href', '#book');
-            node.setAttribute('aria-controls', 'book');
-          });
-          await new Promise((resolve) => requestAnimationFrame(() => resolve(null as any)));
-        }
+        const nodes = document.querySelectorAll(selectors.join(','));
+        
+        // Process in small batches to prevent blocking
+        await breakUpOperation(Array.from(nodes), (node) => {
+          // Neutralize any previous modal handlers
+          node.removeAttribute('data-modal-target');
+          node.removeAttribute('data-trigger');
+          (node as HTMLElement).onclick = smoothScrollToBook;
+          node.setAttribute('href', '#book');
+          node.setAttribute('aria-controls', 'book');
+        }, 3);
       };
 
       // Execute attachment with scheduling
@@ -138,9 +138,9 @@ const Index = () => {
 
       // Disable any existing openModal function
       if ((window as any).openModal) {
-        (window as any).openModal = function() {};
+        (window as any).openModal = function() { /* disabled to force scroll to Calendly */ };
       }
-    }, 0);
+    }, 'background');
 
     // Cleanup function
     return () => {

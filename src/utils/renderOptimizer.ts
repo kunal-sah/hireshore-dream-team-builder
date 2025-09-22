@@ -23,10 +23,33 @@ export const optimizeCriticalPath = (): void => {
     }
   };
 
-  // Optimize CSS loading without forced reflows (disabled to prevent blank page)
+  // Optimize CSS loading without forced reflows
   const optimizeCSSLoading = () => {
-    // Intentionally no-op. Previously toggling media attributes on stylesheets
-    // could leave critical CSS disabled in some browsers.
+    // Defer to prevent blocking main thread
+    requestIdleCallback(() => {
+      // Batch all DOM reads first
+      const stylesheets = Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
+      const styleData = stylesheets.map(link => ({
+        element: link as HTMLLinkElement,
+        href: link.getAttribute('href')
+      }));
+
+      // Then batch all DOM writes
+      requestAnimationFrame(() => {
+        styleData.forEach(({ element, href }) => {
+          if (href && !href.includes('fonts.googleapis.com')) {
+            // Ensure non-font stylesheets have proper loading attributes
+            element.setAttribute('media', 'print');
+            element.addEventListener('load', function(this: HTMLLinkElement) {
+              // Batch the media change to prevent reflow
+              requestAnimationFrame(() => {
+                this.media = 'all';
+              });
+            });
+          }
+        });
+      });
+    });
   };
 
   // Run optimizations with proper scheduling
@@ -74,13 +97,12 @@ export const preloadCriticalResources = (): void => {
 export const preventFOUC = (): void => {
   if (typeof window === 'undefined') return;
 
-  // Ensure no persistent loading state that could hide content
+  // Add class to prevent FOUC without querying layout
   requestAnimationFrame(() => {
-    document.documentElement.classList.remove('loading');
-    document.documentElement.classList.add('loaded');
+    document.documentElement.classList.add('loading');
   });
   
-  // Remove loading class quickly as a failsafe
+  // Remove loading class when styles are ready
   const removeLoadingState = () => {
     requestAnimationFrame(() => {
       document.documentElement.classList.remove('loading');
@@ -88,26 +110,49 @@ export const preventFOUC = (): void => {
     });
   };
 
-  // Simplified: immediately mark styles as ready without heavy checks
+  // Wait for all critical stylesheets to load without forced reflows
   const checkStylesLoaded = () => {
-    removeLoadingState();
+    // Use timeout-based approach instead of synchronous sheet checking
+    let loadedCount = 0;
+    let totalCount = 0;
+
+    // Batch DOM reads
+    requestAnimationFrame(() => {
+      const criticalStylesheets = document.querySelectorAll('link[rel="stylesheet"], link[rel="preload"][as="style"]');
+      totalCount = criticalStylesheets.length;
+
+      const checkIfAllLoaded = () => {
+        loadedCount++;
+        if (loadedCount >= totalCount) {
+          removeLoadingState();
+        }
+      };
+
+      // Use event-based loading detection to avoid forced reflows
+      criticalStylesheets.forEach((link) => {
+        // Avoid checking .sheet property which forces reflow
+        link.addEventListener('load', checkIfAllLoaded, { once: true });
+        
+        // Use a timeout as fallback instead of synchronous check
+        setTimeout(() => {
+          if (loadedCount < totalCount) {
+            checkIfAllLoaded();
+          }
+        }, 50);
+      });
+
+      // Failsafe: remove loading state after reasonable wait time
+      setTimeout(removeLoadingState, 300);
+    });
   };
 
-  // Start checking after DOM is ready with robust scheduling and fallbacks
+  // Start checking after DOM is ready with proper scheduling
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(removeLoadingState, { timeout: 200 });
-      } else {
-        setTimeout(removeLoadingState, 0);
-      }
+      requestIdleCallback(checkStylesLoaded);
     });
   } else {
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(removeLoadingState, { timeout: 200 });
-    } else {
-      setTimeout(removeLoadingState, 0);
-    }
+    requestIdleCallback(checkStylesLoaded);
   }
 };
 

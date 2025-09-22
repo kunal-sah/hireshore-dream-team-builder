@@ -1,82 +1,35 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
-import ErrorBoundary from './components/ErrorBoundary';
-import './index.css';
+import './index.css'
+import { initThirdPartyOptimizations } from './utils/thirdPartyOptimizer';
+import { initCSSOptimizations } from './utils/criticalCSS';
+import { initBundleOptimizations } from './utils/bundleOptimizer';
+import { initRenderOptimizations } from './utils/renderOptimizer';
+import { initSpeedIndexOptimizations } from './utils/speedIndexOptimizer';
+import { initInteractivityOptimizations } from './utils/interactivityOptimizer';
+import { initBlockingTimeOptimizations } from './utils/blockingTimeOptimizer';
+import { initCacheOptimizations } from './utils/cacheOptimizer';
+import { accessibilityEnhancer } from './utils/accessibilityEnhancer';
 
-// Render the app immediately to avoid any blank-page issues
-const rootEl = document.getElementById("root")!;
-console.log('[App] Bootstrapping...');
-createRoot(rootEl).render(
-  <ErrorBoundary>
-    <App />
-  </ErrorBoundary>
-);
+// Initialize cache optimizations first (improves repeat visits)
+initCacheOptimizations();
 
-// Failsafe: force-visibility for deferred sections
-if (typeof window !== 'undefined') {
-  const style = document.createElement('style');
-  style.textContent = '.below-fold,[data-lazy-load],[data-defer-processing]{content-visibility:visible !important;contain-intrinsic-size:auto !important;}';
-  document.head.appendChild(style);
-  requestAnimationFrame(() => {
-    document.querySelectorAll('.below-fold,[data-lazy-load],[data-defer-processing]').forEach((el) => {
-      const h = el as HTMLElement;
-      h.style.contentVisibility = 'visible';
-      h.style.containIntrinsicSize = 'auto';
-      h.classList.add('visible');
-    });
-  });
-}
+// Initialize accessibility enhancements (critical for SEO)
+accessibilityEnhancer.initialize();
 
-// Defer non-critical optimizations to idle time to prevent blocking initial render
-const runOptimizations = async () => {
-  try {
-    const [
-      critical,
-      layout,
-      network,
-      cache,
-      accessibility,
-      blocking,
-      interactivity,
-      speedIndex,
-      render,
-      thirdParty,
-      bundle,
-    ] = await Promise.all([
-      import('./utils/criticalCSS').catch(() => null),
-      import('./utils/layoutOptimizer').catch(() => null),
-      import('./utils/networkOptimizer').catch(() => null),
-      import('./utils/cacheOptimizer').catch(() => null),
-      import('./utils/accessibilityEnhancer').catch(() => null),
-      import('./utils/blockingTimeOptimizer').catch(() => null),
-      import('./utils/interactivityOptimizer').catch(() => null),
-      import('./utils/speedIndexOptimizer').catch(() => null),
-      import('./utils/renderOptimizer').catch(() => null),
-      import('./utils/thirdPartyOptimizer').catch(() => null),
-      import('./utils/bundleOptimizer').catch(() => null),
-    ]);
+// Initialize TBT optimizations second (critical for reducing blocking time)
+initBlockingTimeOptimizations();
 
-    try { critical?.initCSSOptimizations?.(); } catch (e) { console.warn('CSS optimizations failed:', e); }
-    try { layout?.initLayoutOptimizations?.(); } catch (e) { console.warn('Layout optimizations failed:', e); }
-    try { network?.initNetworkOptimizations?.(); } catch (e) { console.warn('Network optimizations failed:', e); }
-    try { cache?.initCacheOptimizations?.(); } catch (e) { console.warn('Cache optimizations failed:', e); }
-    try { accessibility?.accessibilityEnhancer?.initialize?.(); } catch (e) { console.warn('Accessibility enhancer failed:', e); }
-    try { blocking?.initBlockingTimeOptimizations?.(); } catch (e) { console.warn('Blocking time optimizations failed:', e); }
-    try { interactivity?.initInteractivityOptimizations?.() || interactivity?.interactivityOptimizer?.init?.(); } catch (e) { console.warn('Interactivity optimizations failed:', e); }
-    try { speedIndex?.initSpeedIndexOptimizations?.() || speedIndex?.speedIndexOptimizer?.init?.(); } catch (e) { console.warn('Speed index optimizations failed:', e); }
-    try { render?.initRenderOptimizations?.(); } catch (e) { console.warn('Render optimizations failed:', e); }
-    try { thirdParty?.initThirdPartyOptimizations?.(); } catch (e) { console.warn('Third-party optimizations failed:', e); }
-    try { bundle?.initBundleOptimizations?.(); } catch (e) { console.warn('Bundle optimizations failed:', e); }
-  } catch (e) {
-    console.warn('Deferred optimizations failed to load:', e);
-  }
-};
+// Initialize TTI optimizations third (for interactivity)
+initInteractivityOptimizations();
 
-if (typeof window !== 'undefined') {
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(runOptimizations, { timeout: 200 });
-  } else {
-    setTimeout(runOptimizations, 0);
-  }
-}
+// Initialize Speed Index optimizations fourth (for visual completeness)
+initSpeedIndexOptimizations();
 
+// Initialize other optimizations with lower priority
+initRenderOptimizations();
+initThirdPartyOptimizations();
+initCSSOptimizations();
+initBundleOptimizations();
+
+createRoot(document.getElementById("root")!).render(<App />);

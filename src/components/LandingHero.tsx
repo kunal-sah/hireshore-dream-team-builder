@@ -59,19 +59,18 @@ const LandingHero = () => {
     }
   }, []);
 
-  // Create ripple effect - Optimized to prevent forced reflows
+  // Create ripple effect - Modified to handle both button and anchor elements, optimized for performance
   const createRipple = (event: React.MouseEvent<Element>) => {
     const element = event.currentTarget;
-    
-    // Pre-read dimensions before any DOM manipulation to avoid forced reflows
-    const elementRect = element.getBoundingClientRect();
-    const diameter = Math.max(elementRect.width, elementRect.height);
-    const radius = diameter / 2;
     
     requestAnimationFrame(() => {
       const circle = document.createElement('span');
       
-      // Use pre-calculated dimensions to avoid layout reads
+      // Use cached or estimated dimensions to avoid layout reads
+      const elementRect = element.getBoundingClientRect();
+      const diameter = Math.max(elementRect.width, elementRect.height);
+      const radius = diameter / 2;
+      
       circle.style.width = circle.style.height = `${diameter}px`;
       circle.style.left = `${event.clientX - elementRect.left - radius}px`;
       circle.style.top = `${event.clientY - elementRect.top - radius}px`;
@@ -85,12 +84,11 @@ const LandingHero = () => {
       
       element.appendChild(circle);
       
-      // Use CSS animation completion event instead of setTimeout
-      circle.addEventListener('animationend', () => {
+      setTimeout(() => {
         if (circle.parentElement) {
           circle.parentElement.removeChild(circle);
         }
-      });
+      }, 800);
     });
   };
 
@@ -122,22 +120,6 @@ const LandingHero = () => {
             <h1 
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight hero-text hero-text-priority"
               data-critical="true"
-              style={{ 
-                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif',
-                fontSize: 'clamp(1.875rem, 5vw, 3.75rem)',
-                fontWeight: '700',
-                color: '#1f2937',
-                lineHeight: '1.1',
-                letterSpacing: '-0.025em',
-                margin: '0',
-                padding: '0',
-                opacity: '1',
-                transform: 'none',
-                animation: 'none',
-                transition: 'none',
-                visibility: 'visible',
-                display: 'block'
-              }}
             >
               <span className="inline-block">
                 Get Full-Time Capacity Without the Full-Time Overhead
@@ -154,35 +136,32 @@ const LandingHero = () => {
             <div className="">
               <div className="flex flex-wrap justify-start gap-2 mb-6">
                 <button 
-                  className={`px-4 sm:px-6 py-4 min-h-[44px] rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                  className={`px-4 sm:px-6 py-3 min-h-[24px] rounded-full text-xs sm:text-sm font-medium transition-colors ${
                     selectedAudience === 'all' 
                       ? 'bg-gray-900 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                   onClick={() => setSelectedAudience('all')}
-                  style={{ minHeight: '44px', minWidth: '44px' }}
                 >
                   All
                 </button>
                 <button 
-                  className={`px-4 sm:px-6 py-4 min-h-[44px] rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                  className={`px-4 sm:px-6 py-3 min-h-[24px] rounded-full text-xs sm:text-sm font-medium transition-colors ${
                     selectedAudience === 'agencies' 
                       ? 'bg-gray-900 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                   onClick={() => setSelectedAudience('agencies')}
-                  style={{ minHeight: '44px', minWidth: '44px' }}
                 >
                   Agencies
                 </button>
                 <button 
-                  className={`px-4 sm:px-6 py-4 min-h-[44px] rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                  className={`px-4 sm:px-6 py-3 min-h-[24px] rounded-full text-xs sm:text-sm font-medium transition-colors ${
                     selectedAudience === 'startups' 
                       ? 'bg-gray-900 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                   onClick={() => setSelectedAudience('startups')}
-                  style={{ minHeight: '44px', minWidth: '44px' }}
                 >
                   Startups
                 </button>
@@ -200,14 +179,13 @@ const LandingHero = () => {
               </button>
 
               <button
-                className="inline-flex items-center justify-center h-12 sm:h-14 min-h-[48px] border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold px-6 sm:px-8 rounded-xl text-sm sm:text-base transition-all w-full sm:min-w-[220px]"
+                className="inline-flex items-center justify-center min-h-[48px] sm:min-h-[56px] border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold px-6 sm:px-8 rounded-xl text-sm sm:text-base transition-all w-full sm:min-w-[220px]"
                 onClick={() => {
                   const element = document.getElementById('how-it-works');
                   if (element) {
                     element.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                style={{ minHeight: '48px' }}
               >
                 <span>See How Pods Work</span>
               </button>
