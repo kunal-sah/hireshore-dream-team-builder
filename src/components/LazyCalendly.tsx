@@ -29,12 +29,26 @@ export const LazyCalendly: React.FC<LazyCalendlyProps> = ({ className = "" }) =>
 
   useEffect(() => {
     if (isVisible && !isScriptLoaded) {
-      // Dynamically load Calendly script when needed
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      script.onload = () => setIsScriptLoaded(true);
-      document.head.appendChild(script);
+      // Use requestIdleCallback to defer script loading even further
+      const loadScript = () => {
+        const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+        if (existingScript) {
+          setIsScriptLoaded(true);
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        script.onload = () => setIsScriptLoaded(true);
+        document.head.appendChild(script);
+      };
+
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadScript, { timeout: 2000 });
+      } else {
+        setTimeout(loadScript, 500);
+      }
     }
   }, [isVisible, isScriptLoaded]);
 

@@ -119,31 +119,59 @@ export const initializeChatWidget = (): void => {
 };
 
 /**
- * Initialize all third-party optimizations
+ * Initialize all third-party optimizations with aggressive deferring
  */
 export const initThirdPartyOptimizations = (): void => {
   if (typeof window === 'undefined') return;
 
-  // Initialize chat widget with deferred loading
-  initializeChatWidget();
+  // Prevent any immediate third-party script loading
+  const deferAllScripts = () => {
+    // Remove any existing third-party scripts that might auto-load
+    const autoLoadScripts = document.querySelectorAll('script[src*="youtube.com"], script[src*="calendly.com"], script[src*="stripe.com"]');
+    autoLoadScripts.forEach(script => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    });
+  };
 
-  // Add performance observers for monitoring
+  // Defer execution until after critical rendering
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(deferAllScripts, { timeout: 1000 });
+  } else {
+    setTimeout(deferAllScripts, 100);
+  }
+
+  // Monitor and log performance issues from third-party scripts
   if ('PerformanceObserver' in window) {
     try {
       const observer = new PerformanceObserver((list) => {
         const entries = list.getEntries();
         entries.forEach((entry) => {
-          // Log long tasks from third-party scripts
+          // Log long tasks and their sources
           if (entry.entryType === 'longtask' && entry.duration > 50) {
             console.warn('Long task detected:', {
               duration: entry.duration,
               startTime: entry.startTime,
-              name: entry.name
+              attribution: (entry as any).attribution
             });
+          }
+          
+          // Monitor resource timing for third-party scripts
+          if (entry.entryType === 'resource' && entry.duration > 100) {
+            const url = (entry as PerformanceResourceTiming).name;
+            if (url.includes('youtube.com') || url.includes('calendly.com') || url.includes('stripe.com')) {
+              console.warn('Slow third-party resource:', {
+                url,
+                duration: entry.duration,
+                transferSize: (entry as PerformanceResourceTiming).transferSize
+              });
+            }
           }
         });
       });
-      observer.observe({ entryTypes: ['longtask'] });
+      
+      observer.observe({ entryTypes: ['longtask', 'resource'] });
     } catch (error) {
       // Fail silently if not supported
     }

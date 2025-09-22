@@ -42,80 +42,87 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></noscript>
     
-    <!-- Critical CSS for initial render and LCP optimization -->
-    <style>
-      /* Critical above-the-fold styles for immediate render */
-      body { 
-        margin: 0; 
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-        line-height: 1.6;
-      }
-      #root { min-height: 100vh; }
-      
-      /* LCP-optimized hero styles - ensure immediate visibility */
-      .hero-container { 
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-      }
-      .hero-text { 
-        color: #1f2937;
-        font-weight: 700;
-        font-size: clamp(1.875rem, 5vw, 3.75rem);
-        line-height: 1.1;
-        letter-spacing: -0.025em;
-      }
-      .hero-text-priority {
-        opacity: 1 !important; /* Force immediate visibility for LCP */
-        transform: none !important; /* Prevent animation delays */
-        will-change: auto; /* Optimize rendering */
-      }
-      .hero-subtitle {
-        color: #374151;
-        font-size: clamp(1rem, 2.5vw, 1.25rem);
-        line-height: 1.6;
-        margin-top: 1rem;
-      }
-      
-      /* Defer non-critical animations */
-      .defer-animation {
-        will-change: auto;
-      }
-      
-      /* Prevent layout shifts */
-      .video-container {
-        aspect-ratio: 16/9;
-        width: 100%;
-        height: auto;
-      }
-      
-      /* Optimize iframe loading */
-      iframe {
-        content-visibility: auto;
-        contain: layout;
-      }
-      
-      /* Ensure images are properly sized to prevent waste */
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-      
-      /* Testimonial images optimization */
-      .testimonial-avatar {
-        width: 48px !important;
-        height: 48px !important;
-        max-width: 48px !important;
-        max-height: 48px !important;
-      }
-      
-      /* Logo images optimization */
-      .logo-image {
-        max-width: 100px !important;
-        max-height: 32px !important;
-      }
-    </style>
+      // Critical CSS for initial render and LCP optimization
+      <style>
+        /* Critical above-the-fold styles for immediate render */
+        body { 
+          margin: 0; 
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+          line-height: 1.6;
+        }
+        #root { min-height: 100vh; }
+        
+        /* LCP-optimized hero styles - ensure immediate visibility */
+        .hero-container { 
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+        }
+        .hero-text { 
+          color: #1f2937;
+          font-weight: 700;
+          font-size: clamp(1.875rem, 5vw, 3.75rem);
+          line-height: 1.1;
+          letter-spacing: -0.025em;
+        }
+        .hero-text-priority {
+          opacity: 1 !important; /* Force immediate visibility for LCP */
+          transform: none !important; /* Prevent animation delays */
+          will-change: auto; /* Optimize rendering */
+        }
+        .hero-subtitle {
+          color: #374151;
+          font-size: clamp(1rem, 2.5vw, 1.25rem);
+          line-height: 1.6;
+          margin-top: 1rem;
+        }
+        
+        /* Defer non-critical animations */
+        .defer-animation {
+          will-change: auto;
+        }
+        
+        /* Prevent layout shifts */
+        .video-container {
+          aspect-ratio: 16/9;
+          width: 100%;
+          height: auto;
+        }
+        
+        /* Block third-party scripts from auto-loading */
+        script[src*="youtube.com"]:not([data-manual-load]),
+        script[src*="calendly.com"]:not([data-manual-load]),
+        script[src*="stripe.com"]:not([data-manual-load]) {
+          display: none !important;
+        }
+        
+        /* Optimize iframe loading */
+        iframe {
+          content-visibility: auto;
+          contain: layout;
+        }
+        
+        /* Ensure images are properly sized to prevent waste */
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+        
+        /* Testimonial images optimization */
+        .testimonial-avatar {
+          width: 48px !important;
+          height: 48px !important;
+          max-width: 48px !important;
+          max-height: 48px !important;
+        }
+        
+        /* Logo images optimization */
+        .logo-image {
+          max-width: 100px !important;
+          max-height: 32px !important;
+        }
+      </style>
     
     <!-- Optimize JavaScript loading for better performance -->
     <link rel="modulepreload" href="/src/components/NavBar.tsx">
@@ -176,20 +183,29 @@
       
       // Defer third-party scripts to reduce critical request chains
       window.addEventListener('load', function() {
-        // Allow third-party widgets to load after main content
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(function() {
-            // Load chat widget after page is idle to reduce main-thread blocking
-            var chatScript = document.createElement('script');
-            chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
-            chatScript.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
-            chatScript.setAttribute('data-widget-id', '68298cb376ba227d5563113e');
-            chatScript.async = true;
-            document.head.appendChild(chatScript);
-            
-            console.log('Third-party scripts deferred until after page load');
-          }, { timeout: 3000 });
-        }
+        // Defer chat widget until user interaction or after significant delay
+        var chatLoaded = false;
+        var loadChat = function() {
+          if (chatLoaded) return;
+          chatLoaded = true;
+          
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(function() {
+              var chatScript = document.createElement('script');
+              chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
+              chatScript.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+              chatScript.setAttribute('data-widget-id', '68298cb376ba227d5563113e');
+              chatScript.async = true;
+              document.head.appendChild(chatScript);
+            }, { timeout: 5000 });
+          }
+        };
+        
+        // Load chat widget on user interaction or after 8 seconds
+        ['scroll', 'mousemove', 'touchstart', 'click'].forEach(function(event) {
+          document.addEventListener(event, loadChat, { once: true, passive: true });
+        });
+        setTimeout(loadChat, 8000);
       });
     </script>
   </head>

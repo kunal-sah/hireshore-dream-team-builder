@@ -18,7 +18,7 @@ export const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, classN
     setTimeout(() => setIsLoaded(true), 100);
   }, []);
 
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   if (!hasClicked) {
     return (
@@ -63,7 +63,7 @@ export const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, classN
       {isLoaded ? (
         <iframe
           ref={iframeRef}
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
           title={title}
           className="w-full h-full rounded-lg"
           width="560"
