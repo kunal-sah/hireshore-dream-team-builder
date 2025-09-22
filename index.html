@@ -456,9 +456,14 @@
               chatScript.async = true;
               chatScript.defer = true;
               // Add cache headers optimization
-              chatScript.setAttribute('data-cache-optimize', 'true');
-              document.head.appendChild(chatScript);
-            }, { timeout: 5000 });
+               chatScript.setAttribute('data-cache-optimize', 'true');
+               document.head.appendChild(chatScript);
+               
+               // Add accessibility enhancements for chat widget buttons
+               setTimeout(function() {
+                 enhanceChatWidgetAccessibility();
+               }, 2000);
+             }, { timeout: 5000 });
           }
         };
         
@@ -486,6 +491,79 @@
         
         // Cache resources after page load
         setTimeout(cacheResources, 2000);
+        
+        // Accessibility enhancement function for third-party widgets
+        window.enhanceChatWidgetAccessibility = function() {
+          var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              mutation.addedNodes.forEach(function(node) {
+                if (node.nodeType === 1) { // Element node
+                  // Find chat widget buttons without accessible names
+                  var buttons = node.querySelectorAll ? node.querySelectorAll('button') : [];
+                  if (node.tagName === 'BUTTON') {
+                    buttons = [node];
+                  }
+                  
+                  buttons.forEach(function(button) {
+                    // Check if button lacks accessible name
+                    var hasAccessibleName = button.textContent.trim() ||
+                                          button.getAttribute('aria-label') ||
+                                          button.getAttribute('aria-labelledby') ||
+                                          button.getAttribute('title');
+                    
+                    if (!hasAccessibleName) {
+                      // Add appropriate aria-label based on button class/context
+                      if (button.classList.contains('lc_text-widget_prompt--prompt-close')) {
+                        button.setAttribute('aria-label', 'Close chat prompt');
+                      } else if (button.classList.contains('lc_text-widget--close') || 
+                               button.classList.toString().includes('close')) {
+                        button.setAttribute('aria-label', 'Close chat');
+                      } else if (button.classList.toString().includes('send') || 
+                               button.classList.toString().includes('submit')) {
+                        button.setAttribute('aria-label', 'Send message');
+                      } else if (button.classList.toString().includes('minimize')) {
+                        button.setAttribute('aria-label', 'Minimize chat');
+                      } else {
+                        // Generic fallback for any other buttons
+                        button.setAttribute('aria-label', 'Chat action button');
+                      }
+                    }
+                  });
+                }
+              });
+            });
+          });
+          
+          // Observe chat widget container
+          var chatWidget = document.querySelector('chat-widget');
+          if (chatWidget) {
+            observer.observe(chatWidget, { childList: true, subtree: true });
+          }
+          
+          // Also observe document body for dynamically inserted widgets
+          observer.observe(document.body, { childList: true, subtree: true });
+          
+          // Immediate check for existing buttons
+          setTimeout(function() {
+            var allButtons = document.querySelectorAll('chat-widget button, button[class*="lc_"], button[class*="chat"]');
+            allButtons.forEach(function(button) {
+              var hasAccessibleName = button.textContent.trim() ||
+                                    button.getAttribute('aria-label') ||
+                                    button.getAttribute('aria-labelledby') ||
+                                    button.getAttribute('title');
+              
+              if (!hasAccessibleName) {
+                if (button.classList.contains('lc_text-widget_prompt--prompt-close')) {
+                  button.setAttribute('aria-label', 'Close chat prompt');
+                } else if (button.classList.toString().includes('close')) {
+                  button.setAttribute('aria-label', 'Close chat');
+                } else {
+                  button.setAttribute('aria-label', 'Chat action button');
+                }
+              }
+            });
+          }, 100);
+        };
       });
     </script>
   </head>
