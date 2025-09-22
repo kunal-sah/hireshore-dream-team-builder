@@ -75,28 +75,30 @@ export function TableOfContents({ className }: TableOfContentsProps) {
   if (toc.length === 0) return null;
 
   return (
-    <Card className={`p-6 sticky top-24 ${className}`}>
+    <Card className={`p-4 sticky top-24 w-full max-w-xs ${className}`}>
       <div className="flex items-center mb-4">
-        <Hash className="h-5 w-5 mr-2 text-primary" />
-        <h3 className="font-semibold">Table of Contents</h3>
+        <Hash className="h-4 w-4 mr-2 text-primary flex-shrink-0" />
+        <h3 className="font-semibold text-sm truncate">Table of Contents</h3>
       </div>
-      <nav className="space-y-2">
+      <nav className="space-y-1">
         {toc.map((item) => (
           <Button
             key={item.id}
             variant="ghost"
             size="sm"
-            className={`w-full justify-start text-left p-2 h-auto ${
+            className={`w-full justify-start text-left p-2 h-auto min-h-0 whitespace-normal break-words ${
               item.level === 2 ? 'pl-2' : 
-              item.level === 3 ? 'pl-6' : 'pl-10'
+              item.level === 3 ? 'pl-4' : 'pl-6'
             } ${
               activeSection === item.id 
                 ? 'bg-primary/10 text-primary font-medium' 
-                : 'text-muted-foreground hover:text-foreground'
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
             }`}
             onClick={() => handleClick(item.id)}
           >
-            <span className="text-sm leading-relaxed">{item.title}</span>
+            <span className="text-xs leading-snug block w-full break-words hyphens-auto">
+              {item.title}
+            </span>
           </Button>
         ))}
       </nav>
