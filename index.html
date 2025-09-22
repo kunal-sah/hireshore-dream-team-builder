@@ -140,56 +140,90 @@
       <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     </noscript>
     
-    <!-- Critical CSS for initial render and LCP optimization - Inlined to prevent render blocking -->
+    <!-- Critical font subset for LCP text - inline to prevent render delay -->
     <style>
-      /* Critical above-the-fold styles for immediate render */
+      /* Inline critical font subset for LCP text to eliminate FOIT/FOUT */
+      @font-face {
+        font-family: 'LCP-System';
+        font-style: normal;
+        font-weight: 700;
+        font-display: block; /* Block rendering until critical font loads */
+        src: local('Inter Bold'), local('Inter-Bold'), 
+             local('system-ui'), local('-apple-system'), 
+             local('BlinkMacSystemFont'), local('Segoe UI'),
+             local('Roboto'), local('Arial');
+        unicode-range: U+0020-007F; /* Basic Latin for LCP text */
+      }
+    </style>
+    
+    <!-- Preload critical font specifically for LCP -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
+    
+    <!-- Ultra-minimal critical styles for fastest LCP render -->
+    <style>
+      /* Ultra-minimal critical styles for fastest LCP render */
       body { 
         margin: 0; 
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
         line-height: 1.6;
         background-color: #ffffff;
+        font-display: swap;
       }
       #root { 
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
       }
       
-      /* Critical navigation styles */
-      nav {
-        background-color: #ffffff;
-        border-bottom: 1px solid #e5e7eb;
-        position: sticky;
-        top: 0;
-        z-index: 50;
+      /* LCP-critical H1 styles - minimal and immediate */
+      .text-3xl.sm\\:text-4xl.md\\:text-5xl.lg\\:text-6xl {
+        font-family: 'LCP-System', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif !important;
+        font-size: 3rem !important;
+        font-weight: 700 !important;
+        color: #1f2937 !important;
+        line-height: 1.1 !important;
+        letter-spacing: -0.025em !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        opacity: 1 !important;
+        transform: none !important;
+        will-change: auto !important;
+        contain: layout !important;
+        font-display: block !important;
+        text-rendering: optimizeSpeed !important;
       }
       
-      /* LCP-optimized hero styles - ensure immediate visibility */
+      /* Responsive font sizing for LCP element */
+      @media (min-width: 640px) {
+        .text-3xl.sm\\:text-4xl.md\\:text-5xl.lg\\:text-6xl {
+          font-size: 4rem !important;
+        }
+      }
+      @media (min-width: 768px) {
+        .text-3xl.sm\\:text-4xl.md\\:text-5xl.lg\\:text-6xl {
+          font-size: 5rem !important;
+        }
+      }
+      @media (min-width: 1024px) {
+        .text-3xl.sm\\:text-4xl.md\\:text-5xl.lg\\:text-6xl {
+          font-size: 6rem !important;
+        }
+      }
+      
+      /* Hero container - minimal for LCP */
       .hero-container { 
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        padding: 1rem;
+        background: linear-gradient(180deg, #ffffff 0%, #f0f4ff 100%);
+        padding: 5rem 1rem 3rem;
+        contain: layout;
       }
-      .hero-text { 
-        color: #1f2937;
-        font-weight: 700;
-        font-size: clamp(1.875rem, 5vw, 3.75rem);
-        line-height: 1.1;
-        letter-spacing: -0.025em;
-      }
-      .hero-text-priority {
-        opacity: 1 !important; /* Force immediate visibility for LCP */
-        transform: none !important; /* Prevent animation delays */
-        will-change: auto; /* Optimize rendering */
-      }
-      .hero-subtitle {
-        color: #374151;
-        font-size: clamp(1rem, 2.5vw, 1.25rem);
-        line-height: 1.6;
-        margin-top: 1rem;
-      }
+      
+      /* Critical layout utilities - minimal */
+      .max-w-7xl { max-width: 80rem; margin: 0 auto; }
+      .grid { display: grid; }
+      .space-y-8 > * + * { margin-top: 2rem; }
+      .font-bold { font-weight: 700; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; }
+      .text-gray-900 { color: #1f2937; }
+      .leading-tight { line-height: 1.25; }
+      .tracking-tight { letter-spacing: -0.025em; }
       
       /* Critical button styles - Using design system colors for WCAG compliance */
       .btn-primary {
