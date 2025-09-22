@@ -30,15 +30,31 @@ export default defineConfig(({ mode }) => ({
         format: 'es',
         entryFileNames: 'assets/[name]-[hash].js',
         chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]',
-        // Ensure no .tsx files are output
+        assetFileNames: (assetInfo) => {
+          // Force TypeScript files to be compiled to .js
+          if (assetInfo.name && /\.(tsx?|jsx?)$/.test(assetInfo.name)) {
+            return 'assets/[name]-[hash].js';
+          }
+          return 'assets/[name]-[hash].[ext]';
+        },
+        // Ensure proper bundling and compression
         preserveModules: false,
+        compact: true,
       },
       external: [],
+      // Ensure TypeScript files are processed
+      input: {
+        main: './src/main.tsx'
+      }
     },
     assetsInlineLimit: 0,
     reportCompressedSize: true,
     chunkSizeWarningLimit: 1000,
+    // Enable additional compression optimizations
+    commonjsOptions: {
+      include: ['node_modules/**'],
+      transformMixedEsModules: true
+    }
   },
   esbuild: {
     target: 'es2020',
