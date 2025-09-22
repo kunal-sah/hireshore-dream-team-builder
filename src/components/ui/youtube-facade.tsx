@@ -9,6 +9,7 @@ interface YouTubeFacadeProps {
 
 const YouTubeFacade: React.FC<YouTubeFacadeProps> = ({ videoId, title, className = "" }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const handlePlayClick = () => {
     setIsLoaded(true);
@@ -30,14 +31,30 @@ const YouTubeFacade: React.FC<YouTubeFacadeProps> = ({ videoId, title, className
 
   return (
     <div 
-      className={`${className} relative bg-black cursor-pointer group`}
+      className={`${className} relative bg-gradient-to-br from-gray-800 to-gray-900 cursor-pointer group min-h-[200px] flex items-center justify-center`}
       onClick={handlePlayClick}
-      style={{
-        backgroundImage: `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
     >
+      {/* YouTube thumbnail image */}
+      <img
+        src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+        alt={title}
+        className="absolute inset-0 w-full h-full object-cover"
+        onError={() => setImageError(true)}
+        style={{ display: imageError ? 'none' : 'block' }}
+      />
+      
+      {/* Fallback for when image fails to load */}
+      {imageError && (
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+          <div className="text-center text-white p-6">
+            <div className="w-16 h-16 mx-auto mb-4 bg-red-600 rounded-full flex items-center justify-center">
+              <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
+            </div>
+            <p className="text-sm font-medium">{title}</p>
+          </div>
+        </div>
+      )}
+      
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
       
