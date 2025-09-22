@@ -14,9 +14,28 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { MessageSquare, Clock, Target, ArrowRight } from "lucide-react";
+import { MessageSquare, Clock, Target, ArrowRight, Mail, Users, Phone, Video, TrendingUp, CheckCircle, Copy, Star, Zap, BarChart3 } from "lucide-react";
 
 const OutreachGuide = () => {
+  const copyTemplate = (template: string) => {
+    navigator.clipboard?.writeText(template);
+  };
+
+  const emailTemplate = `Subject: Quick question about [Company]'s [specific initiative]
+
+Hi [First Name],
+
+I noticed [Company] just [specific recent development - funding, expansion, etc.]. Congratulations!
+
+I'm reaching out because [similar company] was facing [specific challenge] when they were at a similar stage. We helped them [specific outcome] in [timeframe].
+
+Would it make sense to have a brief conversation about how [Company] is handling [relevant challenge]?
+
+Best,
+[Your name]
+
+P.S. Here's a [relevant resource] that might be helpful regardless: [link]`;
+
   return (
     <div className="min-h-screen bg-background">
       <NavBar />
@@ -64,7 +83,7 @@ const OutreachGuide = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent"
           >
-            Outreach Systems
+            Outreach Systems That Scale
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -72,7 +91,7 @@ const OutreachGuide = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto"
           >
-            Cold email, LinkedIn, and multi-channel prospecting strategies
+            Master cold email, LinkedIn outreach, and multi-channel prospecting strategies that generate consistent leads
           </motion.p>
           
           <motion.div
@@ -103,276 +122,491 @@ const OutreachGuide = () => {
 
             {/* Content */}
             <div className="lg:col-span-3 space-y-12">
-              <Card>
+              {/* Overview Cards */}
+              <div className="grid md:grid-cols-3 gap-6 mb-12">
+                <Card className="border-l-4 border-l-primary">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-primary/10 rounded-lg">
+                        <Mail className="h-5 w-5 text-primary" />
+                      </div>
+                      <CardTitle className="text-lg">Cold Email</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-3">Write compelling emails that get 15-25% reply rates</p>
+                    <div className="flex items-center gap-2 text-xs text-green-600">
+                      <TrendingUp className="h-3 w-3" />
+                      Highest ROI channel
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-l-4 border-l-blue-500">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-blue-500/10 rounded-lg">
+                        <Users className="h-5 w-5 text-blue-500" />
+                      </div>
+                      <CardTitle className="text-lg">LinkedIn Outreach</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-3">Professional networking and relationship building</p>
+                    <div className="flex items-center gap-2 text-xs text-blue-600">
+                      <Star className="h-3 w-3" />
+                      3x higher response rates
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-l-4 border-l-purple-500">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-purple-500/10 rounded-lg">
+                        <Zap className="h-5 w-5 text-purple-500" />
+                      </div>
+                      <CardTitle className="text-lg">Multi-Channel</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-3">Coordinate touchpoints across all channels</p>
+                    <div className="flex items-center gap-2 text-xs text-purple-600">
+                      <CheckCircle className="h-3 w-3" />
+                      80% need 5+ touches
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Success Metrics */}
+              <Card className="mb-8 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 border-green-200 dark:border-green-800">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
-                    <Target className="h-6 w-6 text-primary" />
-                    What You'll Learn
+                    <BarChart3 className="h-6 w-6 text-green-600" />
+                    Success Benchmarks
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <h4 className="font-medium">Cold Email</h4>
-                      <p className="text-sm text-muted-foreground">Write compelling cold emails that get responses</p>
+                <CardContent>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-600 mb-1">40-60%</div>
+                      <div className="text-sm font-medium mb-1">Open Rate</div>
+                      <div className="text-xs text-muted-foreground">Proper subject lines + deliverability</div>
                     </div>
-                    <div className="space-y-2">
-                      <h4 className="font-medium">LinkedIn Outreach</h4>
-                      <p className="text-sm text-muted-foreground">Professional networking and prospecting</p>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-600 mb-1">15-25%</div>
+                      <div className="text-sm font-medium mb-1">Reply Rate</div>
+                      <div className="text-xs text-muted-foreground">Relevant personalization + clear value</div>
                     </div>
-                    <div className="space-y-2">
-                      <h4 className="font-medium">Personalization</h4>
-                      <p className="text-sm text-muted-foreground">Scale personalized messaging effectively</p>
-                    </div>
-                    <div className="space-y-2">
-                      <h4 className="font-medium">Follow-up Sequences</h4>
-                      <p className="text-sm text-muted-foreground">Systematic follow-up that converts</p>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-600 mb-1">3-8%</div>
+                      <div className="text-sm font-medium mb-1">Meeting Rate</div>
+                      <div className="text-xs text-muted-foreground">Strong positioning + timing</div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Guide Content */}
-              <div className="prose prose-lg max-w-none">
-                <h2 id="cold-email-fundamentals">Cold Email Mastery Framework</h2>
-                <p>
-                  Cold email delivers the highest ROI of any outreach channel when executed properly. This proven framework 
-                  generates 15-25% reply rates and consistent pipeline growth.
-                </p>
-
-                <div className="bg-green-50 dark:bg-green-950/20 p-6 rounded-lg mb-8">
-                  <h4 className="font-semibold mb-2">🎯 Success Benchmarks</h4>
-                  <ul className="text-sm mb-0">
-                    <li>• <strong>Open Rate:</strong> 40-60% (proper subject lines + deliverability)</li>
-                    <li>• <strong>Reply Rate:</strong> 15-25% (relevant personalization + clear value)</li>
-                    <li>• <strong>Meeting Rate:</strong> 3-8% (strong positioning + timing)</li>
-                  </ul>
-                </div>
-
-                <h3>The AIDA-P Formula for Cold Emails</h3>
-                <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg mb-6">
-                  <p className="font-semibold mb-2">Subject Line: [Specific Benefit] for [Company Name]</p>
-                  <p className="text-sm mb-2"><strong>Attention:</strong> Relevant observation about their business</p>
-                  <p className="text-sm mb-2"><strong>Interest:</strong> Specific problem you can solve</p>
-                  <p className="text-sm mb-2"><strong>Desire:</strong> Brief case study or social proof</p>
-                  <p className="text-sm mb-2"><strong>Action:</strong> Clear, low-commitment next step</p>
-                  <p className="text-sm mb-0"><strong>Personalization:</strong> Company-specific insight or compliment</p>
-                </div>
-
-                <h3>High-Converting Email Template</h3>
-                <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg mb-4 font-mono text-sm">
-                  <p className="mb-2"><strong>Subject:</strong> Quick question about [Company]'s [specific initiative]</p>
-                  <p className="mb-2">Hi [First Name],</p>
-                  <p className="mb-2">I noticed [Company] just [specific recent development - funding, expansion, etc.]. Congratulations!</p>
-                  <p className="mb-2">I'm reaching out because [similar company] was facing [specific challenge] when they were at a similar stage. We helped them [specific outcome] in [timeframe].</p>
-                  <p className="mb-2">Would it make sense to have a brief conversation about how [Company] is handling [relevant challenge]?</p>
-                  <p className="mb-2">Best,<br/>[Your name]</p>
-                  <p className="mb-0">P.S. Here's a [relevant resource] that might be helpful regardless: [link]</p>
-                </div>
-
-                <h3>Research & Personalization Checklist</h3>
-                <ul>
-                  <li><strong>Company triggers:</strong> Recent funding, expansion, leadership changes</li>
-                  <li><strong>Individual insights:</strong> Recent posts, shared connections, background</li>
-                  <li><strong>Industry context:</strong> Current trends, challenges, opportunities</li>
-                  <li><strong>Competitive intel:</strong> What tools they're using, gaps you can fill</li>
-                </ul>
-
-                <h2 id="linkedin-strategy">LinkedIn Outreach System</h2>
-                <p>
-                  LinkedIn generates 3x higher response rates than email but requires a different approach. Focus on building relationships before pitching.
-                </p>
-
-                <h3>Profile Optimization for Outreach</h3>
-                <ul>
-                  <li><strong>Professional headline:</strong> Focus on outcomes you deliver, not job title</li>
-                  <li><strong>Summary section:</strong> Client success stories and specific metrics</li>
-                  <li><strong>Activity posts:</strong> Share valuable insights 2-3x per week</li>
-                  <li><strong>Recommendations:</strong> Get specific testimonials from clients</li>
-                </ul>
-
-                <h3>3-Touch LinkedIn Sequence</h3>
-                <div className="space-y-4 mb-6">
-                  <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
-                    <p className="font-semibold mb-2">Touch 1: Connection Request</p>
-                    <p className="text-sm mb-0">"Hi [Name], I've been following [Company]'s growth in [industry]. Would love to connect and share some insights from working with similar [role/industry] leaders."</p>
-                  </div>
-                  <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
-                    <p className="font-semibold mb-2">Touch 2: Value Message (3-7 days later)</p>
-                    <p className="text-sm mb-0">"Thanks for connecting! Saw your recent post about [topic]. We just helped [similar company] with [related challenge] - thought you might find this case study interesting: [link]"</p>
-                  </div>
-                  <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
-                    <p className="font-semibold mb-2">Touch 3: Soft Ask (1 week later)</p>
-                    <p className="text-sm mb-0">"Hope the case study was helpful! If [Company] is exploring [relevant solution], I'd be happy to share what's worked for other [industry] leaders. Worth a brief call?"</p>
-                  </div>
-                </div>
-
-                <h3>LinkedIn InMail Best Practices</h3>
-                <ul>
-                  <li><strong>Subject line:</strong> Reference their company/industry, not your product</li>
-                  <li><strong>Opening:</strong> Mention a mutual connection or specific company insight</li>
-                  <li><strong>Value prop:</strong> Focus on their likely priorities, not your features</li>
-                  <li><strong>CTA:</strong> Ask for 15 minutes, not a "demo" or "sales call"</li>
-                </ul>
-
-                <h2 id="personalization-at-scale">Scaling Personalization Systems</h2>
-                <p>
-                  Achieve 10x personalization volume without sacrificing quality using these proven frameworks and tools.
-                </p>
-
-                <h3>Research Automation Stack</h3>
-                <ul>
-                  <li><strong>Apollo/ZoomInfo:</strong> Contact discovery and enrichment</li>
-                  <li><strong>Clearbit/Hunter:</strong> Company intelligence gathering</li>
-                  <li><strong>Clay/Phantombuster:</strong> LinkedIn and web scraping</li>
-                  <li><strong>GPT-4:</strong> Personalization line generation</li>
-                </ul>
-
-                <h3>Dynamic Personalization Framework</h3>
-                <div className="bg-yellow-50 dark:bg-yellow-950/20 p-4 rounded-lg mb-4">
-                  <p className="font-semibold mb-2">3-Tier Personalization System</p>
-                  <ol className="text-sm pl-4">
-                    <li><strong>Tier 1 (High-value prospects):</strong> 10-15 min custom research per person</li>
-                    <li><strong>Tier 2 (Good-fit prospects):</strong> 2-3 min templated personalization</li>
-                    <li><strong>Tier 3 (Volume prospects):</strong> Industry/company-level personalization</li>
-                  </ol>
-                </div>
-
-                <h3>Industry-Specific Messaging Templates</h3>
-                <ul>
-                  <li><strong>SaaS:</strong> Focus on user adoption, churn reduction, expansion revenue</li>
-                  <li><strong>E-commerce:</strong> Conversion rates, customer acquisition costs, seasonal trends</li>
-                  <li><strong>Professional Services:</strong> Efficiency, client satisfaction, competitive differentiation</li>
-                  <li><strong>Manufacturing:</strong> Process optimization, cost reduction, supply chain resilience</li>
-                </ul>
-
-                <h2 id="follow-up-sequences">Multi-Touch Follow-up Strategy</h2>
-                <p>
-                  80% of sales require 5+ touchpoints, but 90% of salespeople give up after 3. This systematic approach ensures consistent follow-through.
-                </p>
-
-                <h3>The 8-Touch Email Sequence</h3>
-                <div className="space-y-3 mb-6">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-sm">
-                    <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
-                      <p className="font-semibold">Touch 1: Initial outreach</p>
-                      <p>Value-focused introduction</p>
-                    </div>
-                    <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
-                      <p className="font-semibold">Touch 2: Case study (4 days)</p>
-                      <p>Relevant success story</p>
-                    </div>
-                    <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
-                      <p className="font-semibold">Touch 3: Resource share (1 week)</p>
-                      <p>Helpful content/tool</p>
-                    </div>
-                    <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
-                      <p className="font-semibold">Touch 4: Different angle (2 weeks)</p>
-                      <p>New problem/opportunity</p>
-                    </div>
-                    <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
-                      <p className="font-semibold">Touch 5: Social proof (3 weeks)</p>
-                      <p>Testimonials/reviews</p>
-                    </div>
-                    <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
-                      <p className="font-semibold">Touch 6: Urgency/scarcity (1 month)</p>
-                      <p>Limited time offer</p>
-                    </div>
-                    <div className="bg-yellow-50 dark:bg-yellow-950/20 p-3 rounded">
-                      <p className="font-semibold">Touch 7: Break-up email (6 weeks)</p>
-                      <p>"Last attempt" message</p>
-                    </div>
-                    <div className="bg-yellow-50 dark:bg-yellow-950/20 p-3 rounded">
-                      <p className="font-semibold">Touch 8: Re-engage (3 months)</p>
-                      <p>New trigger/development</p>
+              {/* Cold Email Section */}
+              <Card id="cold-email-fundamentals" className="mb-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3 text-2xl">
+                    <Mail className="h-7 w-7 text-primary" />
+                    Cold Email Mastery Framework
+                  </CardTitle>
+                  <p className="text-muted-foreground mt-2">
+                    Cold email delivers the highest ROI of any outreach channel when executed properly. This proven framework generates 15-25% reply rates and consistent pipeline growth.
+                  </p>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {/* AIDA-P Formula */}
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                      <Target className="h-5 w-5 text-primary" />
+                      The AIDA-P Formula
+                    </h3>
+                    <div className="grid gap-3">
+                      <div className="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+                        <div className="w-8 h-8 bg-red-500/10 rounded-full flex items-center justify-center text-red-600 font-bold text-sm">A</div>
+                        <div>
+                          <div className="font-medium">Attention</div>
+                          <div className="text-sm text-muted-foreground">Relevant observation about their business</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+                        <div className="w-8 h-8 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-600 font-bold text-sm">I</div>
+                        <div>
+                          <div className="font-medium">Interest</div>
+                          <div className="text-sm text-muted-foreground">Specific problem you can solve</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+                        <div className="w-8 h-8 bg-green-500/10 rounded-full flex items-center justify-center text-green-600 font-bold text-sm">D</div>
+                        <div>
+                          <div className="font-medium">Desire</div>
+                          <div className="text-sm text-muted-foreground">Brief case study or social proof</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+                        <div className="w-8 h-8 bg-purple-500/10 rounded-full flex items-center justify-center text-purple-600 font-bold text-sm">A</div>
+                        <div>
+                          <div className="font-medium">Action</div>
+                          <div className="text-sm text-muted-foreground">Clear, low-commitment next step</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+                        <div className="w-8 h-8 bg-orange-500/10 rounded-full flex items-center justify-center text-orange-600 font-bold text-sm">P</div>
+                        <div>
+                          <div className="font-medium">Personalization</div>
+                          <div className="text-sm text-muted-foreground">Company-specific insight or compliment</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <h3>Multi-Channel Coordination Rules</h3>
-                <ul>
-                  <li><strong>Email + LinkedIn:</strong> Space touches 48-72 hours apart</li>
-                  <li><strong>Phone calls:</strong> Only after 2-3 email touches</li>
-                  <li><strong>Social engagement:</strong> Like/comment before direct outreach</li>
-                  <li><strong>Video messages:</strong> Use for high-value prospects on touches 3-4</li>
-                </ul>
-
-                <h2 id="multi-channel-approach">Omnichannel Outreach Orchestration</h2>
-                <p>
-                  Coordinate touchpoints across email, LinkedIn, phone, and social media for maximum impact while maintaining message consistency.
-                </p>
-
-                <h3>Channel-Specific Best Practices</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">📧 Email Strengths</h4>
-                    <ul className="text-sm">
-                      <li>• Detailed value propositions</li>
-                      <li>• Sharing resources/case studies</li>
-                      <li>• Follow-up scheduling</li>
-                      <li>• Formal introductions</li>
-                    </ul>
+                  {/* Email Template */}
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                      <Copy className="h-5 w-5 text-primary" />
+                      High-Converting Email Template
+                    </h3>
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
+                      <div className="space-y-4 font-mono text-sm">
+                        <div>
+                          <span className="font-bold text-blue-600">Subject:</span> Quick question about [Company]'s [specific initiative]
+                        </div>
+                        <div className="border-l-4 border-blue-300 pl-4 space-y-2">
+                          <p>Hi [First Name],</p>
+                          <p>I noticed [Company] just [specific recent development - funding, expansion, etc.]. Congratulations!</p>
+                          <p>I'm reaching out because [similar company] was facing [specific challenge] when they were at a similar stage. We helped them [specific outcome] in [timeframe].</p>
+                          <p>Would it make sense to have a brief conversation about how [Company] is handling [relevant challenge]?</p>
+                          <p>Best,<br/>[Your name]</p>
+                          <p className="text-blue-600">P.S. Here's a [relevant resource] that might be helpful regardless: [link]</p>
+                        </div>
+                      </div>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="mt-4"
+                        onClick={() => copyTemplate(emailTemplate)}
+                      >
+                        <Copy className="mr-2 h-4 w-4" />
+                        Copy Template
+                      </Button>
+                    </div>
                   </div>
-                  <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">💼 LinkedIn Strengths</h4>
-                    <ul className="text-sm">
-                      <li>• Relationship building</li>
-                      <li>• Social proof leverage</li>
-                      <li>• Industry insights sharing</li>
-                      <li>• Warm introductions</li>
-                    </ul>
-                  </div>
-                  <div className="bg-yellow-50 dark:bg-yellow-950/20 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">📞 Phone Strengths</h4>
-                    <ul className="text-sm">
-                      <li>• Immediate response/clarification</li>
-                      <li>• Complex problem discussion</li>
-                      <li>• Relationship acceleration</li>
-                      <li>• Closing conversations</li>
-                    </ul>
-                  </div>
-                  <div className="bg-purple-50 dark:bg-purple-950/20 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">🎥 Video Strengths</h4>
-                    <ul className="text-sm">
-                      <li>• Personal connection</li>
-                      <li>• Complex demonstrations</li>
-                      <li>• Breaking through noise</li>
-                      <li>• High-impact follow-ups</li>
-                    </ul>
-                  </div>
-                </div>
 
-                <h3>Omnichannel Sequence Example</h3>
-                <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg mb-4">
-                  <p className="font-semibold mb-2">Week 1-2: Foundation Building</p>
-                  <ul className="text-sm pl-4">
-                    <li>Day 1: LinkedIn connection request</li>
-                    <li>Day 3: First email (value-focused)</li>
-                    <li>Day 5: LinkedIn message (case study)</li>
-                    <li>Day 8: Follow-up email (resource share)</li>
-                    <li>Day 12: LinkedIn comment on their post</li>
-                  </ul>
-                </div>
+                  {/* Research Checklist */}
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-primary" />
+                      Research & Personalization Checklist
+                    </h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3 p-3 bg-green-50 dark:bg-green-950/20 rounded-lg">
+                          <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <div className="font-medium">Company Triggers</div>
+                            <div className="text-sm text-muted-foreground">Recent funding, expansion, leadership changes</div>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
+                          <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <div className="font-medium">Individual Insights</div>
+                            <div className="text-sm text-muted-foreground">Recent posts, shared connections, background</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3 p-3 bg-purple-50 dark:bg-purple-950/20 rounded-lg">
+                          <CheckCircle className="h-5 w-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <div className="font-medium">Industry Context</div>
+                            <div className="text-sm text-muted-foreground">Current trends, challenges, opportunities</div>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 p-3 bg-orange-50 dark:bg-orange-950/20 rounded-lg">
+                          <CheckCircle className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <div className="font-medium">Competitive Intel</div>
+                            <div className="text-sm text-muted-foreground">What tools they're using, gaps you can fill</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
-                <h2 id="tracking-optimization">Performance Tracking & Optimization</h2>
-                <p>Measure what matters and continuously improve your outreach effectiveness:</p>
-                
-                <h3>Key Metrics Dashboard</h3>
-                <ul>
-                  <li><strong>Volume metrics:</strong> Contacts reached, emails sent, connections made</li>
-                  <li><strong>Engagement metrics:</strong> Open rates, reply rates, connection acceptance</li>
-                  <li><strong>Conversion metrics:</strong> Meetings booked, opportunities created, deals closed</li>
-                  <li><strong>Efficiency metrics:</strong> Time per prospect, cost per meeting, ROI per channel</li>
-                </ul>
+              {/* LinkedIn Section */}
+              <Card id="linkedin-strategy" className="mb-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3 text-2xl">
+                    <Users className="h-7 w-7 text-blue-500" />
+                    LinkedIn Outreach System
+                  </CardTitle>
+                  <p className="text-muted-foreground mt-2">
+                    LinkedIn generates 3x higher response rates than email but requires a different approach. Focus on building relationships before pitching.
+                  </p>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {/* Profile Optimization */}
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4">Profile Optimization for Outreach</h3>
+                    <div className="grid gap-3">
+                      <div className="flex items-start gap-3 p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
+                        <div className="w-8 h-8 bg-blue-500/10 rounded-full flex items-center justify-center">
+                          <Users className="h-4 w-4 text-blue-600" />
+                        </div>
+                        <div>
+                          <div className="font-medium mb-1">Professional Headline</div>
+                          <div className="text-sm text-muted-foreground">Focus on outcomes you deliver, not job title</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-4 bg-green-50 dark:bg-green-950/20 rounded-lg">
+                        <div className="w-8 h-8 bg-green-500/10 rounded-full flex items-center justify-center">
+                          <CheckCircle className="h-4 w-4 text-green-600" />
+                        </div>
+                        <div>
+                          <div className="font-medium mb-1">Summary Section</div>
+                          <div className="text-sm text-muted-foreground">Client success stories and specific metrics</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-4 bg-purple-50 dark:bg-purple-950/20 rounded-lg">
+                        <div className="w-8 h-8 bg-purple-500/10 rounded-full flex items-center justify-center">
+                          <TrendingUp className="h-4 w-4 text-purple-600" />
+                        </div>
+                        <div>
+                          <div className="font-medium mb-1">Activity Posts</div>
+                          <div className="text-sm text-muted-foreground">Share valuable insights 2-3x per week</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                <h3>A/B Testing Framework</h3>
-                <ul>
-                  <li><strong>Subject lines:</strong> Test question vs. statement vs. benefit-focused</li>
-                  <li><strong>Email length:</strong> Short (50-75 words) vs. medium (100-150 words)</li>
-                  <li><strong>CTA style:</strong> Direct ask vs. soft inquiry vs. resource offer</li>
-                  <li><strong>Send timing:</strong> Day of week, time of day optimization</li>
-                </ul>
-              </div>
+                  {/* 3-Touch Sequence */}
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4">3-Touch LinkedIn Sequence</h3>
+                    <div className="space-y-4">
+                      <div className="p-4 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-950/20 dark:to-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">1</div>
+                          <p className="font-semibold">Connection Request</p>
+                        </div>
+                        <p className="text-sm italic">
+                          "Hi [Name], I've been following [Company]'s growth in [industry]. Would love to connect and share some insights from working with similar [role/industry] leaders."
+                        </p>
+                      </div>
+                      <div className="p-4 bg-gradient-to-r from-green-50 to-green-100 dark:from-green-950/20 dark:to-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold">2</div>
+                          <p className="font-semibold">Value Message (3-7 days later)</p>
+                        </div>
+                        <p className="text-sm italic">
+                          "Thanks for connecting! Saw your recent post about [topic]. We just helped [similar company] with [related challenge] - thought you might find this case study interesting: [link]"
+                        </p>
+                      </div>
+                      <div className="p-4 bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-950/20 dark:to-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs font-bold">3</div>
+                          <p className="font-semibold">Soft Ask (1 week later)</p>
+                        </div>
+                        <p className="text-sm italic">
+                          "Hope the case study was helpful! If [Company] is exploring [relevant solution], I'd be happy to share what's worked for other [industry] leaders. Worth a brief call?"
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Multi-Touch Follow-up */}
+              <Card id="follow-up-sequences" className="mb-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3 text-2xl">
+                    <Zap className="h-7 w-7 text-purple-500" />
+                    Multi-Touch Follow-up Strategy
+                  </CardTitle>
+                  <p className="text-muted-foreground mt-2">
+                    80% of sales require 5+ touchpoints, but 90% of salespeople give up after 3. This systematic approach ensures consistent follow-through.
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <h3 className="text-xl font-semibold mb-4">The 8-Touch Email Sequence</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                    {[
+                      { touch: 1, title: "Initial outreach", desc: "Value-focused introduction", color: "blue" },
+                      { touch: 2, title: "Case study (4 days)", desc: "Relevant success story", color: "blue" },
+                      { touch: 3, title: "Resource share (1 week)", desc: "Helpful content/tool", color: "blue" },
+                      { touch: 4, title: "Different angle (2 weeks)", desc: "New problem/opportunity", color: "green" },
+                      { touch: 5, title: "Social proof (3 weeks)", desc: "Testimonials/reviews", color: "green" },
+                      { touch: 6, title: "Urgency/scarcity (1 month)", desc: "Limited time offer", color: "green" },
+                      { touch: 7, title: "Break-up email (6 weeks)", desc: "Last attempt message", color: "yellow" },
+                      { touch: 8, title: "Re-engage (3 months)", desc: "New trigger/development", color: "yellow" }
+                    ].map((item) => (
+                      <div key={item.touch} className={`p-3 rounded-lg ${
+                        item.color === 'blue' ? 'bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800' :
+                        item.color === 'green' ? 'bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800' :
+                        'bg-yellow-50 dark:bg-yellow-950/20 border border-yellow-200 dark:border-yellow-800'
+                      }`}>
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white ${
+                            item.color === 'blue' ? 'bg-blue-500' :
+                            item.color === 'green' ? 'bg-green-500' :
+                            'bg-yellow-500'
+                          }`}>
+                            {item.touch}
+                          </div>
+                          <p className="font-semibold text-sm">{item.title}</p>
+                        </div>
+                        <p className="text-xs text-muted-foreground">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Multi-Channel Approach */}
+              <Card id="multi-channel-approach" className="mb-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3 text-2xl">
+                    <Video className="h-7 w-7 text-orange-500" />
+                    Omnichannel Outreach Orchestration
+                  </CardTitle>
+                  <p className="text-muted-foreground mt-2">
+                    Coordinate touchpoints across email, LinkedIn, phone, and social media for maximum impact while maintaining message consistency.
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <h3 className="text-xl font-semibold mb-4">Channel-Specific Strengths</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid gap-4">
+                      <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+                        <h4 className="font-semibold mb-2 flex items-center gap-2">
+                          <Mail className="h-5 w-5 text-blue-600" />
+                          Email Strengths
+                        </h4>
+                        <ul className="text-sm space-y-1">
+                          <li>• Detailed value propositions</li>
+                          <li>• Sharing resources/case studies</li>
+                          <li>• Follow-up scheduling</li>
+                          <li>• Formal introductions</li>
+                        </ul>
+                      </div>
+                      <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                        <h4 className="font-semibold mb-2 flex items-center gap-2">
+                          <Users className="h-5 w-5 text-green-600" />
+                          LinkedIn Strengths
+                        </h4>
+                        <ul className="text-sm space-y-1">
+                          <li>• Relationship building</li>
+                          <li>• Social proof leverage</li>
+                          <li>• Industry insights sharing</li>
+                          <li>• Warm introductions</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="grid gap-4">
+                      <div className="bg-yellow-50 dark:bg-yellow-950/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800">
+                        <h4 className="font-semibold mb-2 flex items-center gap-2">
+                          <Phone className="h-5 w-5 text-yellow-600" />
+                          Phone Strengths
+                        </h4>
+                        <ul className="text-sm space-y-1">
+                          <li>• Immediate response/clarification</li>
+                          <li>• Complex problem discussion</li>
+                          <li>• Relationship acceleration</li>
+                          <li>• Closing conversations</li>
+                        </ul>
+                      </div>
+                      <div className="bg-purple-50 dark:bg-purple-950/20 p-4 rounded-lg border border-purple-200 dark:border-purple-800">
+                        <h4 className="font-semibold mb-2 flex items-center gap-2">
+                          <Video className="h-5 w-5 text-purple-600" />
+                          Video Strengths
+                        </h4>
+                        <ul className="text-sm space-y-1">
+                          <li>• Personal connection</li>
+                          <li>• Complex demonstrations</li>
+                          <li>• Breaking through noise</li>
+                          <li>• High-impact follow-ups</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Tracking & Optimization */}
+              <Card id="tracking-optimization" className="mb-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3 text-2xl">
+                    <BarChart3 className="h-7 w-7 text-green-600" />
+                    Performance Tracking & Optimization
+                  </CardTitle>
+                  <p className="text-muted-foreground mt-2">
+                    Measure what matters and continuously improve your outreach effectiveness
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="text-lg font-semibold mb-3">Key Metrics Dashboard</h3>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
+                          <BarChart3 className="h-5 w-5 text-blue-600 mt-0.5" />
+                          <div>
+                            <div className="font-medium text-sm">Volume Metrics</div>
+                            <div className="text-xs text-muted-foreground">Contacts reached, emails sent, connections made</div>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 p-3 bg-green-50 dark:bg-green-950/20 rounded-lg">
+                          <TrendingUp className="h-5 w-5 text-green-600 mt-0.5" />
+                          <div>
+                            <div className="font-medium text-sm">Engagement Metrics</div>
+                            <div className="text-xs text-muted-foreground">Open rates, reply rates, connection acceptance</div>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 p-3 bg-purple-50 dark:bg-purple-950/20 rounded-lg">
+                          <Target className="h-5 w-5 text-purple-600 mt-0.5" />
+                          <div>
+                            <div className="font-medium text-sm">Conversion Metrics</div>
+                            <div className="text-xs text-muted-foreground">Meetings booked, opportunities created, deals closed</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-3">A/b Testing Framework</h3>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3 p-3 bg-orange-50 dark:bg-orange-950/20 rounded-lg">
+                          <CheckCircle className="h-5 w-5 text-orange-600 mt-0.5" />
+                          <div>
+                            <div className="font-medium text-sm">Subject Lines</div>
+                            <div className="text-xs text-muted-foreground">Question vs. statement vs. benefit-focused</div>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 p-3 bg-red-50 dark:bg-red-950/20 rounded-lg">
+                          <CheckCircle className="h-5 w-5 text-red-600 mt-0.5" />
+                          <div>
+                            <div className="font-medium text-sm">Email Length</div>
+                            <div className="text-xs text-muted-foreground">Short (50-75 words) vs. medium (100-150 words)</div>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 p-3 bg-indigo-50 dark:bg-indigo-950/20 rounded-lg">
+                          <CheckCircle className="h-5 w-5 text-indigo-600 mt-0.5" />
+                          <div>
+                            <div className="font-medium text-sm">CTA Style</div>
+                            <div className="text-xs text-muted-foreground">Direct ask vs. soft inquiry vs. resource offer</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
