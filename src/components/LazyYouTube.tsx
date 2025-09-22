@@ -72,7 +72,7 @@ export const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, classN
       {isLoaded ? (
         <iframe
           ref={iframeRef}
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
           title={title}
           className="w-full h-full rounded-lg"
           width="560"
@@ -80,6 +80,8 @@ export const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, classN
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          sandbox="allow-scripts allow-same-origin allow-presentation"
         />
       ) : (
         <div className="w-full h-full bg-gray-200 animate-pulse rounded-lg flex items-center justify-center">

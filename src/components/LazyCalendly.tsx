@@ -70,6 +70,7 @@ export const LazyCalendly: React.FC<LazyCalendlyProps> = ({ className = "" }) =>
           className="calendly-inline-widget"
           data-url="https://calendly.com/hireshore/strategy-session?hide_event_type_details=1&hide_gdpr_banner=1"
           style={{ minWidth: '320px', height: '700px' }}
+          data-auto-load="false"
         />
       ) : (
         <div className="min-w-80 h-[700px] bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg flex flex-col items-center justify-center text-center p-8">

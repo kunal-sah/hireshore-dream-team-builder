@@ -36,6 +36,9 @@
     <link rel="dns-prefetch" href="https://static.doubleclick.net">
     <link rel="dns-prefetch" href="https://m.stripe.network">
     
+    <!-- Content Security Policy for third-party cookie management -->
+    <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://www.youtube-nocookie.com https://calendly.com https://assets.calendly.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com https://widgets.leadconnectorhq.com https://services.leadconnectorhq.com https://services.msgsndr.com; style-src 'self' 'unsafe-inline' https://assets.calendly.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https:">
+    
     <!-- Permissions Policy for payment functionality (Stripe) -->
     <meta http-equiv="Permissions-Policy" content="payment=*">
     
