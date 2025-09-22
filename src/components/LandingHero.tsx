@@ -136,7 +136,7 @@ const LandingHero = () => {
             <div className="">
               <div className="flex flex-wrap justify-start gap-2 mb-6">
                 <button 
-                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                  className={`px-4 sm:px-6 py-3 min-h-[24px] rounded-full text-xs sm:text-sm font-medium transition-colors ${
                     selectedAudience === 'all' 
                       ? 'bg-gray-900 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -146,7 +146,7 @@ const LandingHero = () => {
                   All
                 </button>
                 <button 
-                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                  className={`px-4 sm:px-6 py-3 min-h-[24px] rounded-full text-xs sm:text-sm font-medium transition-colors ${
                     selectedAudience === 'agencies' 
                       ? 'bg-gray-900 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -156,7 +156,7 @@ const LandingHero = () => {
                   Agencies
                 </button>
                 <button 
-                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                  className={`px-4 sm:px-6 py-3 min-h-[24px] rounded-full text-xs sm:text-sm font-medium transition-colors ${
                     selectedAudience === 'startups' 
                       ? 'bg-gray-900 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -179,7 +179,7 @@ const LandingHero = () => {
               </button>
 
               <button
-                className="inline-flex items-center justify-center h-12 sm:h-14 border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-sm sm:text-base transition-all w-full sm:min-w-[220px]"
+                className="inline-flex items-center justify-center min-h-[48px] sm:min-h-[56px] border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold px-6 sm:px-8 rounded-xl text-sm sm:text-base transition-all w-full sm:min-w-[220px]"
                 onClick={() => {
                   const element = document.getElementById('how-it-works');
                   if (element) {
