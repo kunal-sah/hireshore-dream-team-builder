@@ -54,7 +54,8 @@ const DigitalSixCaseStudy = () => {
   ];
 
   useEffect(() => {
-    // Add JSON-LD for case study page
+    // Add JSON-LD for case study page - uses dynamic domain
+    const currentDomain = typeof window !== 'undefined' ? window.location.origin : "https://hireshore.lovable.app";
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Article",
@@ -66,12 +67,16 @@ const DigitalSixCaseStudy = () => {
       },
       "publisher": {
         "@type": "Organization",
-        "name": "Hireshore"
+        "name": "Hireshore",
+        "logo": {
+          "@type": "ImageObject", 
+          "url": `${currentDomain}/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png`
+        }
       },
       "datePublished": "2024-01-01",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://www.hireshore.co/case-studies/digital-six"
+        "@id": `${currentDomain}/case-studies/digital-six`
       }
     };
 

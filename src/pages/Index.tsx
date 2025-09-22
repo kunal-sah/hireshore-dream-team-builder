@@ -53,14 +53,15 @@ const Index = () => {
     }, 100);
   }, []);
 
-  const addStructuredData = () => {
-    // Add JSON-LD structured data for SEO
+   const addStructuredData = () => {
+    // Add JSON-LD structured data for SEO - uses dynamic domain
+    const currentDomain = typeof window !== 'undefined' ? window.location.origin : "https://hireshore.lovable.app";
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Hireshore",
-      "url": "https://www.hireshore.co",
-      "logo": "https://www.hireshore.co/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png",
+      "url": currentDomain,
+      "logo": `${currentDomain}/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png`,
       "description": "Get Full-Time Capacity Without the Full-Time Overhead. Managed Delivery Pods for agencies and startups.",
       "contactPoint": {
         "@type": "ContactPoint",
