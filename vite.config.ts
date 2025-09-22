@@ -26,7 +26,17 @@ export default defineConfig(({ mode }) => ({
     target: 'es2020',
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        // Optimize chunk splitting to reduce network requests
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'framer-motion'],
+          components: [
+            'src/components/LandingHero.tsx',
+            'src/components/NavBar.tsx',
+            'src/components/DeliveryPodDefinition.tsx',
+            'src/components/PodAtAGlance.tsx',
+            'src/components/InsideDeliveryPod.tsx'
+          ]
+        },
         format: 'es',
         entryFileNames: 'assets/[name]-[hash].js',
         chunkFileNames: 'assets/[name]-[hash].js',
@@ -42,9 +52,9 @@ export default defineConfig(({ mode }) => ({
         compact: true,
       },
       external: [],
-      // Ensure TypeScript files are processed
-      input: {
-        main: './src/main.tsx'
+      // Optimize module processing
+      treeshake: {
+        moduleSideEffects: false
       }
     },
     assetsInlineLimit: 0,
