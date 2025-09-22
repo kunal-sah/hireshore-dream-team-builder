@@ -50,7 +50,8 @@ export const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, classN
           className="w-full h-full object-cover rounded-lg"
           width={560}
           height={315}
-          loading="lazy"
+          loading="eager"
+          fetchPriority="high"
           decoding="async"
         />
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300 rounded-lg flex items-center justify-center">
