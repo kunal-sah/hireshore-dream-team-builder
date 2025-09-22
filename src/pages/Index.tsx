@@ -6,6 +6,7 @@ import { ArrowRight } from 'lucide-react';
 import ErrorBoundary from '../components/ErrorBoundary';
 import { LazyYouTube } from '../components/LazyYouTube';
 import { CriticalContentOptimizer } from '../components/CriticalContentOptimizer';
+import { queueAfterInteractive } from '../utils/interactivityOptimizer';
 
 // Critical above-the-fold components - load immediately
 import NavBar from "../components/NavBar";
@@ -31,18 +32,20 @@ const PodAtAGlance = lazy(() => import("../components/PodAtAGlance"));
 const InsideDeliveryPod = lazy(() => import("../components/InsideDeliveryPod"));
 const FAQSection = lazy(() => import("../components/FAQSection"));
 
-// Lightweight loading component to prevent layout shifts
+// Lightweight loading component to prevent layout shifts and TTI blocking
 const SectionLoader = () => (
-  <div className="min-h-[200px] flex items-center justify-center">
-    <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+  <div className="min-h-[200px] flex items-center justify-center" data-defer-animation="true">
+    <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin loading-skeleton"></div>
   </div>
 );
 
-// Wrapper for lazy components with error boundary
+// Wrapper for lazy components with error boundary and TTI optimization
 const LazySection: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <ErrorBoundary>
     <Suspense fallback={<SectionLoader />}>
-      {children}
+      <div data-defer-processing="true" className="below-fold">
+        {children}
+      </div>
     </Suspense>
   </ErrorBoundary>
 );
@@ -290,17 +293,23 @@ const Index = () => {
           <TestimonialsSection />
         </LazySection>
         
-        <LazySection>
-          <FAQSection />
-        </LazySection>
-        
-        <LazySection>
-          <CalendlySection />
-        </LazySection>
-      </div>
-      <LazySection>
-        <SiteFooter />
-      </LazySection>
+          <div data-lazy-layout="true">
+            <LazySection>
+              <FAQSection />
+            </LazySection>
+          </div>
+          
+          <div data-lazy-layout="true" className="below-fold">
+            <LazySection>
+              <CalendlySection />
+            </LazySection>
+          </div>
+        </div>
+        <div data-lazy-layout="true" className="below-fold">
+          <LazySection>
+            <SiteFooter />
+          </LazySection>
+        </div>
     </div>
     </CriticalContentOptimizer>
   );

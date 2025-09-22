@@ -6,11 +6,15 @@ import { initCSSOptimizations } from './utils/criticalCSS';
 import { initBundleOptimizations } from './utils/bundleOptimizer';
 import { initRenderOptimizations } from './utils/renderOptimizer';
 import { initSpeedIndexOptimizations } from './utils/speedIndexOptimizer';
+import { initInteractivityOptimizations } from './utils/interactivityOptimizer';
 
-// Initialize Speed Index optimizations first (highest priority)
+// Initialize TTI optimizations first (critical for interactivity)
+initInteractivityOptimizations();
+
+// Initialize Speed Index optimizations second (for visual completeness)
 initSpeedIndexOptimizations();
 
-// Initialize other optimizations
+// Initialize other optimizations with lower priority
 initRenderOptimizations();
 initThirdPartyOptimizations();
 initCSSOptimizations();
