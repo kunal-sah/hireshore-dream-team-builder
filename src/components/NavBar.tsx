@@ -66,34 +66,37 @@ const NavBar = () => {
     }
   };
 
-  // Create ripple effect for buttons
+  // Create ripple effect for buttons - optimized for performance
   const createRipple = (event: React.MouseEvent<HTMLButtonElement>) => {
     const button = event.currentTarget;
-    const circle = document.createElement('span');
-    const diameter = Math.max(button.clientWidth, button.clientHeight);
-    const radius = diameter / 2;
+    
+    requestAnimationFrame(() => {
+      const circle = document.createElement('span');
+      const diameter = Math.max(button.offsetWidth, button.offsetHeight);
+      const radius = diameter / 2;
 
-    const rect = button.getBoundingClientRect();
-    
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${event.clientX - rect.left - radius}px`;
-    circle.style.top = `${event.clientY - rect.top - radius}px`;
-    
-    circle.classList.add('ripple');
-    
-    const ripple = button.querySelector('.ripple');
-    if (ripple) {
-      ripple.remove();
-    }
-    
-    button.appendChild(circle);
-    
-    // Remove the span after the animation completes
-    setTimeout(() => {
-      if (circle.parentElement) {
-        circle.parentElement.removeChild(circle);
+      const rect = button.getBoundingClientRect();
+      
+      circle.style.width = circle.style.height = `${diameter}px`;
+      circle.style.left = `${event.clientX - rect.left - radius}px`;
+      circle.style.top = `${event.clientY - rect.top - radius}px`;
+      
+      circle.classList.add('ripple');
+      
+      const ripple = button.querySelector('.ripple');
+      if (ripple) {
+        ripple.remove();
       }
-    }, 800);
+      
+      button.appendChild(circle);
+      
+      // Remove the span after the animation completes
+      setTimeout(() => {
+        if (circle.parentElement) {
+          circle.parentElement.removeChild(circle);
+        }
+      }, 800);
+    });
   };
 
   return (

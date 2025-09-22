@@ -19,15 +19,23 @@ const HiringFormSection = () => {
   
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.currentTarget;
-    let rafId: number;
     
-    if (rafId) return;
+    // Use cached rect to avoid repeated getBoundingClientRect calls
+    if (!target.dataset.cachedRect) {
+      const rect = target.getBoundingClientRect();
+      target.dataset.cachedRect = JSON.stringify({
+        left: rect.left,
+        top: rect.top,
+        width: rect.width,
+        height: rect.height
+      });
+    }
     
-    rafId = requestAnimationFrame(() => {
-      const { left, top, width, height } = target.getBoundingClientRect();
-      mouseX.set(e.clientX - left - width / 2);
-      mouseY.set(e.clientY - top - height / 2);
-      rafId = 0;
+    const cachedRect = JSON.parse(target.dataset.cachedRect);
+    
+    requestAnimationFrame(() => {
+      mouseX.set(e.clientX - cachedRect.left - cachedRect.width / 2);
+      mouseY.set(e.clientY - cachedRect.top - cachedRect.height / 2);
     });
   }, [mouseX, mouseY]);
   
@@ -71,33 +79,36 @@ const HiringFormSection = () => {
     }
   };
   
-  // Create ripple effect
+  // Create ripple effect - optimized to reduce forced reflows
   const createRipple = (event: React.MouseEvent<HTMLButtonElement>) => {
     const button = event.currentTarget;
-    const circle = document.createElement('span');
-    const diameter = Math.max(button.clientWidth, button.clientHeight);
-    const radius = diameter / 2;
+    
+    requestAnimationFrame(() => {
+      const circle = document.createElement('span');
+      const diameter = Math.max(button.offsetWidth, button.offsetHeight);
+      const radius = diameter / 2;
 
-    const rect = button.getBoundingClientRect();
-    
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${event.clientX - rect.left - radius}px`;
-    circle.style.top = `${event.clientY - rect.top - radius}px`;
-    
-    circle.classList.add('ripple');
-    
-    const ripple = button.querySelector('.ripple');
-    if (ripple) {
-      ripple.remove();
-    }
-    
-    button.appendChild(circle);
-    
-    setTimeout(() => {
-      if (circle.parentElement) {
-        circle.parentElement.removeChild(circle);
+      const rect = button.getBoundingClientRect();
+      
+      circle.style.width = circle.style.height = `${diameter}px`;
+      circle.style.left = `${event.clientX - rect.left - radius}px`;
+      circle.style.top = `${event.clientY - rect.top - radius}px`;
+      
+      circle.classList.add('ripple');
+      
+      const ripple = button.querySelector('.ripple');
+      if (ripple) {
+        ripple.remove();
       }
-    }, 800);
+      
+      button.appendChild(circle);
+      
+      setTimeout(() => {
+        if (circle.parentElement) {
+          circle.parentElement.removeChild(circle);
+        }
+      }, 800);
+    });
   };
 
   return (

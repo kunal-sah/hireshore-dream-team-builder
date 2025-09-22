@@ -52,21 +52,28 @@ const RolesSection = () => {
   
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.currentTarget;
-    let rafId: number;
     
-    if (rafId) return;
-    
-    rafId = requestAnimationFrame(() => {
+    // Use cached rect to avoid repeated getBoundingClientRect calls
+    if (!target.dataset.cachedRect) {
       const rect = target.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      
-      const moveX = (e.clientX - centerX) / (rect.width / 2) * 5;
-      const moveY = (e.clientY - centerY) / (rect.height / 2) * 5;
+      target.dataset.cachedRect = JSON.stringify({
+        left: rect.left,
+        top: rect.top,
+        width: rect.width,
+        height: rect.height
+      });
+    }
+    
+    const cachedRect = JSON.parse(target.dataset.cachedRect);
+    const centerX = cachedRect.left + cachedRect.width / 2;
+    const centerY = cachedRect.top + cachedRect.height / 2;
+    
+    requestAnimationFrame(() => {
+      const moveX = (e.clientX - centerX) / (cachedRect.width / 2) * 5;
+      const moveY = (e.clientY - centerY) / (cachedRect.height / 2) * 5;
       
       x.set(moveX);
       y.set(moveY);
-      rafId = 0;
     });
   }, [x, y]);
   

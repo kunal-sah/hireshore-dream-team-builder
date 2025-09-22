@@ -59,33 +59,36 @@ const LandingHero = () => {
     }
   }, []);
 
-  // Create ripple effect - Modified to handle both button and anchor elements
+  // Create ripple effect - Modified to handle both button and anchor elements, optimized for performance
   const createRipple = (event: React.MouseEvent<Element>) => {
     const element = event.currentTarget;
-    const circle = document.createElement('span');
-    const diameter = Math.max(element.clientWidth, element.clientHeight);
-    const radius = diameter / 2;
+    
+    requestAnimationFrame(() => {
+      const circle = document.createElement('span');
+      const diameter = Math.max(element.clientWidth, element.clientHeight);
+      const radius = diameter / 2;
 
-    const rect = element.getBoundingClientRect();
-    
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${event.clientX - rect.left - radius}px`;
-    circle.style.top = `${event.clientY - rect.top - radius}px`;
-    
-    circle.classList.add('ripple');
-    
-    const ripple = element.querySelector('.ripple');
-    if (ripple) {
-      ripple.remove();
-    }
-    
-    element.appendChild(circle);
-    
-    setTimeout(() => {
-      if (circle.parentElement) {
-        circle.parentElement.removeChild(circle);
+      const rect = element.getBoundingClientRect();
+      
+      circle.style.width = circle.style.height = `${diameter}px`;
+      circle.style.left = `${event.clientX - rect.left - radius}px`;
+      circle.style.top = `${event.clientY - rect.top - radius}px`;
+      
+      circle.classList.add('ripple');
+      
+      const ripple = element.querySelector('.ripple');
+      if (ripple) {
+        ripple.remove();
       }
-    }, 800);
+      
+      element.appendChild(circle);
+      
+      setTimeout(() => {
+        if (circle.parentElement) {
+          circle.parentElement.removeChild(circle);
+        }
+      }, 800);
+    });
   };
 
   return (
