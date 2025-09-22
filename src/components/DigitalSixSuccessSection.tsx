@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Users, DollarSign, Clock, Target, Zap } from "lucide-react";
-import YouTubeFacade from "./ui/youtube-facade";
 
 const DigitalSixSuccessSection = () => {
   const stats = [
@@ -198,11 +197,14 @@ const DigitalSixSuccessSection = () => {
           
           <div className="text-center">
             <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-              <YouTubeFacade
-                videoId="yW90cSyX_iI"
+              <iframe
+                src="https://www.youtube.com/embed/yW90cSyX_iI"
                 title="Digital Six Testimonial"
                 className="w-full h-full"
-              />
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
             <p className="text-sm text-gray-600 mt-2">Watch Aaron's full testimonial</p>
           </div>

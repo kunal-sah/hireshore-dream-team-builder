@@ -10,7 +10,6 @@ import LandingHero from "../components/LandingHero";
 import TrustedStartups from "../components/TrustedStartups";
 import DeliveryPodDefinition from "../components/DeliveryPodDefinition";
 import SiteFooter from "../components/SiteFooter";
-import YouTubeFacade from "../components/ui/youtube-facade";
 import { deferExecution, preloadCriticalResources, optimizeImageLoading } from "../utils/performanceOptimizer";
 import { deferHeavyWork, preloadCriticalAssets, optimizeThirdPartyScripts } from "../utils/criticalPathOptimizer";
 
@@ -197,10 +196,14 @@ const Index = () => {
                 </div>
               </div>
               <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <YouTubeFacade
-                  videoId="43qQdLve5Ps"
+                <iframe
+                  src="https://www.youtube.com/embed/43qQdLve5Ps"
                   title="Medz Media Testimonial - Marlon M."
                   className="w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -234,10 +237,14 @@ const Index = () => {
               
               <div className="text-center">
                 <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                  <YouTubeFacade
-                    videoId="yW90cSyX_iI"
+                  <iframe
+                    src="https://www.youtube.com/embed/yW90cSyX_iI"
                     title="Digital Six Testimonial - Aaron Erwich"
                     className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
                   />
                 </div>
                 <p className="text-sm text-gray-600 mt-2">Watch Aaron's full testimonial</p>
@@ -272,10 +279,14 @@ const Index = () => {
                 </div>
               </div>
               <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <YouTubeFacade
-                  videoId="9xMVgH1j9XE"
+                <iframe
+                  src="https://www.youtube.com/embed/9xMVgH1j9XE"
                   title="PropertyStack Testimonial - Ryan Jope"
                   className="w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
                 />
               </div>
             </div>
