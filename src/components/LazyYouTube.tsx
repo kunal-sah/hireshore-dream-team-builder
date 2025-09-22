@@ -61,7 +61,7 @@ export const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, classN
         </div>
         <div className="absolute bottom-4 left-4 right-4">
           <p className="text-white text-sm font-medium bg-black/50 px-2 py-1 rounded backdrop-blur-sm">
-            Click to play video
+            Click to play video: {title}
           </p>
         </div>
       </div>
