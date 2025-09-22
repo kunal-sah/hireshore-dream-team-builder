@@ -202,22 +202,16 @@ const LandingHero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight">
               <motion.span 
                 className="inline-block"
-                custom={0}
-                variants={textVariants}
-                initial="hidden"
-                animate="visible"
+                initial={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
               >
                 Get Full-Time Capacity Without the Full-Time Overhead
               </motion.span>
-            </motion.h1>
+            </h1>
             
             <motion.p 
               className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl"
