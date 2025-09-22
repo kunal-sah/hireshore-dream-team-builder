@@ -11,6 +11,8 @@ import TrustedStartups from "../components/TrustedStartups";
 import DeliveryPodDefinition from "../components/DeliveryPodDefinition";
 import SiteFooter from "../components/SiteFooter";
 import YouTubeFacade from "../components/ui/youtube-facade";
+import { deferExecution, preloadCriticalResources, optimizeImageLoading } from "../utils/performanceOptimizer";
+import { deferHeavyWork, preloadCriticalAssets, optimizeThirdPartyScripts } from "../utils/criticalPathOptimizer";
 
 // Lazy load below-fold components to reduce initial bundle
 const PodAtAGlance = lazy(() => import("../components/PodAtAGlance"));
@@ -26,6 +28,9 @@ const TestimonialsSection = lazy(() => import("../components/TestimonialsSection
 const FAQSection = lazy(() => import("../components/FAQSection"));
 const CalendlySection = lazy(() => import("../components/CalendlySection"));
 
+// Lazy load motion for animations
+const LazyMotion = lazy(() => import('framer-motion').then(module => ({ default: module.motion })));
+
 // Component loader for better UX
 const ComponentLoader = () => (
   <div className="py-8 flex justify-center">
@@ -34,8 +39,22 @@ const ComponentLoader = () => (
 );
 
 const Index = () => {
-  // Add useEffect to add JSON-LD and scroll behavior
+  // Add useEffect to optimize performance and defer non-critical work
   useEffect(() => {
+    // Immediate critical resource preloading
+    preloadCriticalAssets();
+    preloadCriticalResources();
+    
+    // Defer all heavy operations to prevent main thread blocking
+    deferHeavyWork(() => {
+      optimizeImageLoading();
+      optimizeThirdPartyScripts();
+      addStructuredData();
+      setupScrollBehavior();
+    }, 100);
+  }, []);
+
+  const addStructuredData = () => {
     // Add JSON-LD structured data for SEO
     const jsonLd = {
       "@context": "https://schema.org",
@@ -70,8 +89,9 @@ const Index = () => {
     jsonLdScript.type = 'application/ld+json';
     jsonLdScript.textContent = JSON.stringify(jsonLd);
     document.head.appendChild(jsonLdScript);
+  };
 
-    // Smooth scroll behavior for all booking CTAs
+  const setupScrollBehavior = () => {
     const smoothScrollToBook = (e: Event) => {
       e.preventDefault();
       const el = document.getElementById('book');
@@ -82,7 +102,7 @@ const Index = () => {
     const selectors = [
       'a[href*="book"]',
       'a[href*="schedule"]',
-      'a[href*="meeting"]',
+      'a[href*="meeting"]', 
       'a[href*="demo"]',
       'a[href*="strategy"]',
       'a[href*="consult"]',
@@ -113,14 +133,7 @@ const Index = () => {
     if ((window as any).openModal) {
       (window as any).openModal = function() { /* disabled to force scroll to Calendly */ };
     }
-
-    // Cleanup function
-    return () => {
-      if (document.head.contains(jsonLdScript)) {
-        document.head.removeChild(jsonLdScript);
-      }
-    };
-  }, []);
+  };
 
   return (
     <div className="bg-white min-h-screen flex flex-col font-sans text-neutral-900 overflow-x-hidden">
