@@ -56,6 +56,26 @@ export const preloadCriticalAssets = () => {
     link.href = src;
     document.head.appendChild(link);
   });
+
+  // Ensure fonts are loaded if not already loaded asynchronously
+  deferHeavyWork(() => {
+    const fontLink = document.querySelector('link[href*="fonts.googleapis.com"]') as HTMLLinkElement;
+    if (fontLink && fontLink.rel === 'preload') {
+      // Font is already being loaded asynchronously via preload
+      return;
+    }
+    
+    // Fallback: ensure fonts are available
+    if (!document.fonts || document.fonts.status === 'loaded') return;
+    
+    document.fonts.ready.then(() => {
+      // Fonts loaded - force repaint to apply font changes
+      document.documentElement.style.transform = 'translateZ(0)';
+      requestAnimationFrame(() => {
+        document.documentElement.style.transform = '';
+      });
+    });
+  }, 100);
 };
 
 // Optimize third-party scripts loading
