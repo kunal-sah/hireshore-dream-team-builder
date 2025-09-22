@@ -13,6 +13,8 @@ interface CacheOptimizedImageProps {
   fetchpriority?: 'high' | 'low' | 'auto';
   width?: number;
   height?: number;
+  displayWidth?: number;
+  displayHeight?: number;
   [key: string]: any;
 }
 
@@ -24,6 +26,8 @@ export const CacheOptimizedImage: React.FC<CacheOptimizedImageProps> = ({
   fetchpriority = 'auto',
   width,
   height,
+  displayWidth,
+  displayHeight,
   ...props
 }) => {
   const [imageSrc, setImageSrc] = useState<string>(src);
@@ -54,19 +58,44 @@ export const CacheOptimizedImage: React.FC<CacheOptimizedImageProps> = ({
     checkAVIFSupport();
   }, []);
 
-  // Generate optimized image with client-side hints
+  // Calculate optimal dimensions for image loading
+  const getOptimalDimensions = () => {
+    const dpr = window.devicePixelRatio || 1;
+    const targetWidth = displayWidth || width || 100;
+    const targetHeight = displayHeight || height || 32;
+    
+    // Scale for device pixel ratio but cap at reasonable limits for logos
+    const optimalWidth = Math.min(targetWidth * dpr, 200);
+    const optimalHeight = Math.min(targetHeight * dpr, 100);
+    
+    return { width: Math.round(optimalWidth), height: Math.round(optimalHeight) };
+  };
+
+  // Generate optimized image with proper sizing and format hints
   const getOptimizedSrc = () => {
-    // For YouTube thumbnails, we can try WebP variant
+    const { width: optimalWidth, height: optimalHeight } = getOptimalDimensions();
+    
+    // For YouTube thumbnails, use appropriately sized variants
     if (src.includes('img.youtube.com')) {
       if (supportsWebP) {
         return src.replace('hqdefault.jpg', 'hqdefault.webp');
       }
+      // Use medium quality thumbnail for smaller displays
+      if (optimalWidth <= 200) {
+        return src.replace('hqdefault.jpg', 'mqdefault.jpg');
+      }
     }
     
-    // For other images, add optimization query params where possible
-    if (src.includes('lovable-uploads') && supportsWebP) {
-      // Add WebP preference hint (server would need to support this)
-      return src + (src.includes('?') ? '&' : '?') + 'format=webp&quality=85';
+    // For lovable uploads, add size and format optimization hints
+    if (src.includes('lovable-uploads')) {
+      const params = new URLSearchParams();
+      if (supportsWebP) params.set('format', 'webp');
+      params.set('quality', '85');
+      params.set('w', optimalWidth.toString());
+      params.set('h', optimalHeight.toString());
+      params.set('fit', 'contain');
+      
+      return src + (src.includes('?') ? '&' : '?') + params.toString();
     }
     
     return src;
@@ -127,6 +156,17 @@ export const CacheOptimizedImage: React.FC<CacheOptimizedImageProps> = ({
     }
   }, [src, loading, fetchpriority, supportsWebP, supportsAVIF]);
 
+  // Generate sizes attribute for responsive loading
+  const getSizesAttribute = () => {
+    if (displayWidth) {
+      return `${displayWidth}px`;
+    }
+    if (width) {
+      return `${Math.min(width, 200)}px`;
+    }
+    return '100px';
+  };
+
   return (
     <img
       ref={imgRef}
@@ -136,17 +176,21 @@ export const CacheOptimizedImage: React.FC<CacheOptimizedImageProps> = ({
       loading={loading}
       fetchPriority={fetchpriority}
       decoding="async"
-      width={width}
-      height={height}
+      width={displayWidth || width}
+      height={displayHeight || height}
+      sizes={getSizesAttribute()}
       style={{
         transition: 'opacity 0.3s ease-in-out',
         opacity: isLoaded ? 1 : 0.8,
-        maxWidth: '100%',
+        maxWidth: displayWidth ? `${displayWidth}px` : width ? `${width}px` : '100%',
+        maxHeight: displayHeight ? `${displayHeight}px` : height ? `${height}px` : 'auto',
+        width: 'auto',
         height: 'auto',
-        // Add optimization hints for browser
-        imageRendering: 'auto',
+        // Optimize rendering for small images
+        imageRendering: displayWidth && displayWidth <= 100 ? 'crisp-edges' : 'auto',
         objectFit: 'contain'
       }}
+      data-processed="true"
       {...props}
     />
   );

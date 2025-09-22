@@ -134,6 +134,8 @@ const TrustSection = () => {
                 className="h-8 max-w-[100px] object-contain transition-opacity duration-300 hover:opacity-80"
                 width={100}
                 height={32}
+                displayWidth={100}
+                displayHeight={32}
                 loading="lazy"
                 decoding="async"
                 onError={(e) => {
@@ -195,6 +197,8 @@ const TrustSection = () => {
                 className="h-8 max-w-[100px] object-contain transition-opacity duration-300 hover:opacity-80 grayscale hover:grayscale-0"
                 width={100}
                 height={32}
+                displayWidth={100}
+                displayHeight={32}
                 loading="lazy"
                 decoding="async"
                 onError={(e) => {

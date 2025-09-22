@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { Headphones, Users, Phone, Palette, Code, Menu, X, ChevronDown, BookOpen, FileText, CheckSquare, Calculator, Video, MessageCircle } from "lucide-react";
+import { CacheOptimizedImage } from "./CacheOptimizedImage";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -118,18 +119,17 @@ const NavBar = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Link to="/" className="flex items-center">
-              <motion.img 
+              <CacheOptimizedImage 
                 src="/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png" 
                 alt="HireShore Logo" 
                 className="h-10 w-auto" 
                 width={158}
                 height={40}
-                fetchPriority="high"
+                displayWidth={158}
+                displayHeight={40}
+                fetchpriority="high"
+                loading="eager"
                 decoding="async"
-                style={{ width: 'auto', height: '40px', maxWidth: '158px', maxHeight: '40px' }}
-                initial={{ opacity: 0, rotateY: 90 }}
-                animate={{ opacity: 1, rotateY: 0 }}
-                transition={{ duration: 0.8, type: "spring" }}
               />
             </Link>
           </motion.div>
