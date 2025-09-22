@@ -1,4 +1,8 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { 
+  useRef, 
+  useState, 
+  useCallback 
+} from 'react';
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 const roles = [
