@@ -64,6 +64,27 @@ export class AccessibilityEnhancer {
    * Process chat widget elements and add accessibility attributes
    */
   private processChatWidgetElements(container: Element): void {
+    // Process regular DOM elements
+    this.processElementsInContainer(container);
+    
+    // Process shadow DOM elements within chat widgets
+    const chatWidgets = container.querySelectorAll('chat-widget');
+    chatWidgets.forEach((widget) => {
+      if (widget.shadowRoot) {
+        this.processElementsInContainer(widget.shadowRoot);
+      }
+    });
+    
+    // Also check if the container itself is a chat widget with shadow DOM
+    if (container.tagName === 'CHAT-WIDGET' && (container as any).shadowRoot) {
+      this.processElementsInContainer((container as any).shadowRoot);
+    }
+  }
+
+  /**
+   * Process elements within a container (regular DOM or shadow DOM)
+   */
+  private processElementsInContainer(container: Element | DocumentFragment): void {
     // Find chat widget close buttons
     const closeButtons = container.querySelectorAll('.lc_text-widget_prompt--prompt-close');
     closeButtons.forEach((button) => {
@@ -74,7 +95,7 @@ export class AccessibilityEnhancer {
     });
 
     // Find other potential chat widget buttons without accessible names
-    const chatButtons = container.querySelectorAll('chat-widget button:not([aria-label]):not([aria-labelledby]):not([title])');
+    const chatButtons = container.querySelectorAll('button:not([aria-label]):not([aria-labelledby]):not([title])');
     chatButtons.forEach((button) => {
       const buttonElement = button as HTMLButtonElement;
       const buttonText = buttonElement.textContent?.trim();
@@ -82,12 +103,13 @@ export class AccessibilityEnhancer {
       if (!buttonText) {
         // If it's likely a close button based on common patterns
         if (buttonElement.className.includes('close') || 
+            buttonElement.className.includes('lc_text-widget_prompt--prompt-close') ||
             buttonElement.innerHTML.includes('×') ||
             buttonElement.innerHTML.includes('✕')) {
-          buttonElement.setAttribute('aria-label', 'Close');
-          buttonElement.setAttribute('title', 'Close');
-        } else {
-          // Generic button label
+          buttonElement.setAttribute('aria-label', 'Close chat prompt');
+          buttonElement.setAttribute('title', 'Close chat prompt');
+        } else if (buttonElement.closest('.lc_text-widget') || buttonElement.closest('chat-widget')) {
+          // Generic button label for chat widget buttons
           buttonElement.setAttribute('aria-label', 'Chat widget button');
           buttonElement.setAttribute('title', 'Chat widget button');
         }
@@ -95,10 +117,11 @@ export class AccessibilityEnhancer {
     });
 
     // Find chat widget input fields without labels
-    const chatInputs = container.querySelectorAll('chat-widget input:not([aria-label]):not([aria-labelledby])');
+    const chatInputs = container.querySelectorAll('input:not([aria-label]):not([aria-labelledby])');
     chatInputs.forEach((input) => {
       const inputElement = input as HTMLInputElement;
-      if (inputElement.type === 'text' || inputElement.type === 'email') {
+      if ((inputElement.type === 'text' || inputElement.type === 'email') && 
+          (inputElement.closest('.lc_text-widget') || inputElement.closest('chat-widget'))) {
         inputElement.setAttribute('aria-label', 'Chat message input');
       }
     });
