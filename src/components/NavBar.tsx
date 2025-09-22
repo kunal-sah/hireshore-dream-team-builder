@@ -119,6 +119,10 @@ const NavBar = () => {
                 src="/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png" 
                 alt="HireShore Logo" 
                 className="h-10 w-auto" 
+                width={158}
+                height={40}
+                fetchPriority="high"
+                decoding="async"
                 initial={{ opacity: 0, rotateY: 90 }}
                 animate={{ opacity: 1, rotateY: 0 }}
                 transition={{ duration: 0.8, type: "spring" }}

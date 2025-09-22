@@ -92,7 +92,10 @@ const MediaFeatures = () => {
                 src={media.logo}
                 alt={media.name + ' logo'}
                 className="h-8 max-w-[100px] object-contain transition-opacity duration-300 hover:opacity-80 grayscale hover:grayscale-0"
+                width={100}
+                height={32}
                 loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.onerror = null;
