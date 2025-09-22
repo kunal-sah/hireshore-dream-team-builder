@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ErrorBoundary from '../components/ErrorBoundary';
+import { LazyYouTube } from '../components/LazyYouTube';
 
 // Critical above-the-fold components - load immediately
 import NavBar from "../components/NavBar";
@@ -200,13 +201,10 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                  <iframe
-                    width="100%" height="100%" loading="lazy"
-                    src="https://www.youtube.com/embed/43qQdLve5Ps"
+                  <LazyYouTube
+                    videoId="43qQdLve5Ps"
                     title="Medz Media Success Story"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
+                    className="w-full h-full"
                   />
                 </div>
               </div>
@@ -226,13 +224,10 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                  <iframe
-                    width="100%" height="100%" loading="lazy"
-                    src="https://www.youtube.com/embed/yW90cSyX_iI"
+                  <LazyYouTube
+                    videoId="yW90cSyX_iI"
                     title="Digital Six Success Story"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
+                    className="w-full h-full"
                   />
                 </div>
               </div>
@@ -252,13 +247,10 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                  <iframe
-                    width="100%" height="100%" loading="lazy"
-                    src="https://www.youtube.com/embed/9xMVgH1j9XE"
+                  <LazyYouTube
+                    videoId="9xMVgH1j9XE"
                     title="PropertyStack Success Story"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
+                    className="w-full h-full"
                   />
                 </div>
               </div>

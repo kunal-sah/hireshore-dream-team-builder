@@ -179,7 +179,14 @@
         // Allow third-party widgets to load after main content
         if ('requestIdleCallback' in window) {
           requestIdleCallback(function() {
-            // Chat widget and other third-party scripts can initialize here
+            // Load chat widget after page is idle to reduce main-thread blocking
+            var chatScript = document.createElement('script');
+            chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
+            chatScript.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+            chatScript.setAttribute('data-widget-id', '68298cb376ba227d5563113e');
+            chatScript.async = true;
+            document.head.appendChild(chatScript);
+            
             console.log('Third-party scripts deferred until after page load');
           }, { timeout: 3000 });
         }

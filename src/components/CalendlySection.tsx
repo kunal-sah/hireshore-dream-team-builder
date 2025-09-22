@@ -1,17 +1,7 @@
 import React, { useEffect } from 'react';
+import { LazyCalendly } from '@/components/LazyCalendly';
 
 const CalendlySection = () => {
-  useEffect(() => {
-    // Load Calendly script only once
-    const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
-
   return (
     <section 
       id="book" 
@@ -30,26 +20,8 @@ const CalendlySection = () => {
           </div>
         </div>
         
-        {/* Calendly inline widget */}
-        <div 
-          className="calendly-inline-widget bg-white rounded-lg shadow-lg overflow-hidden mx-auto"
-          data-url="https://calendly.com/hireshore/30min"
-          style={{ minWidth: '280px', maxWidth: '100%', height: '600px' }}
-        />
-        
-        <noscript>
-          <div className="text-center mt-8">
-            <p className="text-gray-600 mb-4">JavaScript is required to book. Open here:</p>
-            <a 
-              href="https://calendly.com/hireshore/30min" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-            >
-              Book on Calendly
-            </a>
-          </div>
-        </noscript>
+        {/* Lazy-loaded Calendly widget */}
+        <LazyCalendly className="bg-white rounded-lg shadow-lg overflow-hidden mx-auto" />
       </div>
     </section>
   );
