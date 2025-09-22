@@ -170,43 +170,135 @@ const NDISAutomation = () => {
                 </CardContent>
               </Card>
 
-              {/* Implementation Details */}
-              <div className="prose prose-lg max-w-none">
-                <h2 id="implementation-details">Implementation Details</h2>
-                
-                <h3>Phase 1: Discovery & Assessment (Week 1)</h3>
-                <ul>
-                  <li>Mapped existing admin workflows and identified 23 manual touchpoints</li>
-                  <li>Documented NDIS compliance requirements and quality assurance standards</li>
-                  <li>Analyzed current tool stack: CRM, document storage, communication channels</li>
-                  <li>Interviewed staff to understand daily pain points and bottlenecks</li>
-                </ul>
+              {/* Implementation Strategy */}
+              <Card id="implementation-details">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <FileText className="h-5 w-5" />
+                    Implementation Strategy
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-8">
+                  {/* Phase 1 */}
+                  <div className="border-l-4 border-red-200 pl-6 py-4 bg-red-50/50 rounded-r-lg">
+                    <h3 className="text-lg font-semibold mb-4 text-red-800">Phase 1: Discovery & Assessment (Week 1)</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-sm text-muted-foreground">Mapped existing admin workflows and identified <span className="font-semibold text-foreground">23 manual touchpoints</span></p>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-sm text-muted-foreground">Documented NDIS compliance requirements and quality assurance standards</p>
+                        </div>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-sm text-muted-foreground">Analyzed current tool stack: CRM, document storage, communication channels</p>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-sm text-muted-foreground">Interviewed staff to understand daily pain points and bottlenecks</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                <h3>Phase 2: Portal Development (Week 2)</h3>
-                <ul>
-                  <li>Built responsive client intake portal with mobile-first design</li>
-                  <li>Implemented conditional logic forms reducing completion time by 60%</li>
-                  <li>Created automated document generation using client responses</li>
-                  <li>Set up secure file upload system for supporting documentation</li>
-                </ul>
+                  {/* Phase 2 */}
+                  <div className="border-l-4 border-blue-200 pl-6 py-4 bg-blue-50/50 rounded-r-lg">
+                    <h3 className="text-lg font-semibold mb-4 text-blue-800">Phase 2: Portal Development (Week 2)</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-sm text-muted-foreground">Built responsive client intake portal with <span className="font-semibold text-foreground">mobile-first design</span></p>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-sm text-muted-foreground">Implemented conditional logic forms reducing completion time by <span className="font-semibold text-foreground">60%</span></p>
+                        </div>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-sm text-muted-foreground">Created automated document generation using client responses</p>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-sm text-muted-foreground">Set up secure file upload system for supporting documentation</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                <h3>Phase 3: Automation & Training (Week 3)</h3>
-                <ul>
-                  <li>Configured multi-channel notifications: Slack, email, and SMS alerts</li>
-                  <li>Built custom dashboard for tracking application status and deadlines</li>
-                  <li>Trained 8 staff members on new workflows with hands-on sessions</li>
-                  <li>Established automated backup and monitoring systems</li>
-                </ul>
+                  {/* Phase 3 */}
+                  <div className="border-l-4 border-green-200 pl-6 py-4 bg-green-50/50 rounded-r-lg">
+                    <h3 className="text-lg font-semibold mb-4 text-green-800">Phase 3: Automation & Training (Week 3)</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-sm text-muted-foreground">Configured multi-channel notifications: <span className="font-semibold text-foreground">Slack, email, and SMS alerts</span></p>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-sm text-muted-foreground">Built custom dashboard for tracking application status and deadlines</p>
+                        </div>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-sm text-muted-foreground">Trained <span className="font-semibold text-foreground">8 staff members</span> on new workflows with hands-on sessions</p>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-sm text-muted-foreground">Established automated backup and monitoring systems</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
-                <h2 id="technology-stack">Key Technologies</h2>
-                <ul>
-                  <li><strong>Frontend Portal:</strong> React.js with conditional form logic</li>
-                  <li><strong>CRM Integration:</strong> HubSpot API for contact management</li>
-                  <li><strong>Notifications:</strong> Slack webhooks for team updates</li>
-                  <li><strong>Document Generation:</strong> Automated PDF creation</li>
-                  <li><strong>Compliance Tracking:</strong> Custom dashboard with audit trails</li>
-                </ul>
-              </div>
+              {/* Technology Stack */}
+              <Card id="technology-stack">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Zap className="h-5 w-5" />
+                    Technology Stack & Integrations
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="p-4 border border-border rounded-lg bg-card/50 hover:bg-card transition-colors">
+                      <h4 className="font-semibold mb-2 text-primary">Frontend Portal</h4>
+                      <p className="text-sm text-muted-foreground">React.js with conditional form logic</p>
+                    </div>
+                    <div className="p-4 border border-border rounded-lg bg-card/50 hover:bg-card transition-colors">
+                      <h4 className="font-semibold mb-2 text-primary">CRM Integration</h4>
+                      <p className="text-sm text-muted-foreground">HubSpot API for contact management</p>
+                    </div>
+                    <div className="p-4 border border-border rounded-lg bg-card/50 hover:bg-card transition-colors">
+                      <h4 className="font-semibold mb-2 text-primary">Notifications</h4>
+                      <p className="text-sm text-muted-foreground">Slack webhooks for team updates</p>
+                    </div>
+                    <div className="p-4 border border-border rounded-lg bg-card/50 hover:bg-card transition-colors">
+                      <h4 className="font-semibold mb-2 text-primary">Document Generation</h4>
+                      <p className="text-sm text-muted-foreground">Automated PDF creation</p>
+                    </div>
+                    <div className="p-4 border border-border rounded-lg bg-card/50 hover:bg-card transition-colors">
+                      <h4 className="font-semibold mb-2 text-primary">Compliance Tracking</h4>
+                      <p className="text-sm text-muted-foreground">Custom dashboard with audit trails</p>
+                    </div>
+                    <div className="p-4 border border-border rounded-lg bg-card/50 hover:bg-card transition-colors">
+                      <h4 className="font-semibold mb-2 text-primary">Security</h4>
+                      <p className="text-sm text-muted-foreground">End-to-end encryption & NDIS compliance</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
               <div className="flex flex-wrap gap-2">
                 <Badge variant="outline">Automation</Badge>
