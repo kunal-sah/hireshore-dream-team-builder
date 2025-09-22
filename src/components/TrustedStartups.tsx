@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { CacheOptimizedImage } from "./CacheOptimizedImage";
 
 const clients = [
   {
@@ -86,13 +87,14 @@ const TrustedStartups = () => {
               aria-label={client.name}
             >
               <div className="bg-white/80 rounded-xl px-6 py-3 shadow-sm border border-gray-100 flex items-center min-w-[140px] min-h-[54px] justify-center hover:shadow-md hover:border-purple-200 transition-all duration-300">
-                <img
+                <CacheOptimizedImage
                   src={client.logo}
                   alt={client.name + ' logo'}
                   className="h-8 max-w-[100px] object-contain transition-opacity duration-300 hover:opacity-80"
+                  width={100}
+                  height={32}
                   loading="lazy"
                   decoding="async"
-                  style={{ maxWidth: '100px', maxHeight: '32px' }}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.onerror = null;

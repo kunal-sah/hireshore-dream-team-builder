@@ -1,6 +1,7 @@
 
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
+import { CacheOptimizedImage } from "./CacheOptimizedImage";
 
 const clients = [
   {
@@ -127,10 +128,12 @@ const TrustSection = () => {
                 boxShadow: "0 4px 20px rgba(139, 92, 246, 0.15)" 
               }}
             >
-              <img
+              <CacheOptimizedImage
                 src={client.logo}
                 alt={client.name + ' logo'}
                 className="h-8 max-w-[100px] object-contain transition-opacity duration-300 hover:opacity-80"
+                width={100}
+                height={32}
                 loading="lazy"
                 decoding="async"
                 onError={(e) => {
@@ -186,10 +189,12 @@ const TrustSection = () => {
                 boxShadow: "0 4px 20px rgba(139, 92, 246, 0.15)" 
               }}
             >
-              <img
+              <CacheOptimizedImage
                 src={media.logo}
                 alt={media.name + ' logo'}
                 className="h-8 max-w-[100px] object-contain transition-opacity duration-300 hover:opacity-80 grayscale hover:grayscale-0"
+                width={100}
+                height={32}
                 loading="lazy"
                 decoding="async"
                 onError={(e) => {
