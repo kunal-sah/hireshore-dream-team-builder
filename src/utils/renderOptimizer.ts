@@ -1,9 +1,10 @@
 /**
  * Render optimization utilities to prevent blocking and improve LCP
+ * Optimized to prevent forced reflows
  */
 
 /**
- * Ensure critical resources are loaded first
+ * Ensure critical resources are loaded first without forced reflows
  */
 export const optimizeCriticalPath = (): void => {
   if (typeof window === 'undefined') return;
@@ -13,37 +14,52 @@ export const optimizeCriticalPath = (): void => {
     // Check if fonts are loaded
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => {
-        // Fonts are loaded, remove any loading states
-        document.body.classList.remove('fonts-loading');
-        document.body.classList.add('fonts-loaded');
+        // Use RAF to batch DOM writes and prevent reflows
+        requestAnimationFrame(() => {
+          document.body.classList.remove('fonts-loading');
+          document.body.classList.add('fonts-loaded');
+        });
       });
     }
   };
 
-  // Optimize CSS loading
+  // Optimize CSS loading without forced reflows
   const optimizeCSSLoading = () => {
-    // Find any stylesheets that might be blocking
-    const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
-    stylesheets.forEach((link) => {
-      const href = link.getAttribute('href');
-      if (href && !href.includes('fonts.googleapis.com')) {
-        // Ensure non-font stylesheets have proper loading attributes
-        link.setAttribute('media', 'print');
-        link.addEventListener('load', function(this: HTMLLinkElement) {
-          this.media = 'all';
+    // Defer to prevent blocking main thread
+    requestIdleCallback(() => {
+      // Batch all DOM reads first
+      const stylesheets = Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
+      const styleData = stylesheets.map(link => ({
+        element: link as HTMLLinkElement,
+        href: link.getAttribute('href')
+      }));
+
+      // Then batch all DOM writes
+      requestAnimationFrame(() => {
+        styleData.forEach(({ element, href }) => {
+          if (href && !href.includes('fonts.googleapis.com')) {
+            // Ensure non-font stylesheets have proper loading attributes
+            element.setAttribute('media', 'print');
+            element.addEventListener('load', function(this: HTMLLinkElement) {
+              // Batch the media change to prevent reflow
+              requestAnimationFrame(() => {
+                this.media = 'all';
+              });
+            });
+          }
         });
-      }
+      });
     });
   };
 
-  // Run optimizations
+  // Run optimizations with proper scheduling
   ensureFontLoading();
   
-  // Defer CSS optimization until after initial render
-  if ('requestAnimationFrame' in window) {
-    window.requestAnimationFrame(() => {
-      optimizeCSSLoading();
-    });
+  // Defer CSS optimization to prevent blocking
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(optimizeCSSLoading);
+  } else {
+    setTimeout(optimizeCSSLoading, 0);
   }
 };
 
@@ -59,67 +75,84 @@ export const preloadCriticalResources = (): void => {
     '/src/assets/before-after-comparison.jpg', // Hero image
   ];
 
-  criticalResources.forEach((src) => {
-    // Check if not already preloaded
-    if (!document.querySelector(`link[href="${src}"]`)) {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.href = src;
-      link.as = 'image';
-      link.setAttribute('fetchpriority', 'high');
-      document.head.appendChild(link);
-    }
+  // Use RAF to batch DOM operations and prevent reflows
+  requestAnimationFrame(() => {
+    criticalResources.forEach((src) => {
+      // Check if not already preloaded
+      if (!document.querySelector(`link[href="${src}"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = src;
+        link.as = 'image';
+        link.setAttribute('fetchpriority', 'high');
+        document.head.appendChild(link);
+      }
+    });
   });
 };
 
 /**
- * Handle FOUC (Flash of Unstyled Content) prevention
+ * Handle FOUC (Flash of Unstyled Content) prevention without forced reflows
  */
 export const preventFOUC = (): void => {
   if (typeof window === 'undefined') return;
 
-  // Add class to prevent FOUC
-  document.documentElement.classList.add('loading');
+  // Add class to prevent FOUC without querying layout
+  requestAnimationFrame(() => {
+    document.documentElement.classList.add('loading');
+  });
   
   // Remove loading class when styles are ready
   const removeLoadingState = () => {
-    document.documentElement.classList.remove('loading');
-    document.documentElement.classList.add('loaded');
-  };
-
-  // Wait for all critical stylesheets to load
-  const checkStylesLoaded = () => {
-    const criticalStylesheets = document.querySelectorAll('link[rel="stylesheet"], link[rel="preload"][as="style"]');
-    let loadedCount = 0;
-    const totalCount = criticalStylesheets.length;
-
-    const checkIfAllLoaded = () => {
-      loadedCount++;
-      if (loadedCount >= totalCount) {
-        removeLoadingState();
-      }
-    };
-
-    criticalStylesheets.forEach((link) => {
-      if ((link as HTMLLinkElement).sheet) {
-        // Already loaded
-        checkIfAllLoaded();
-      } else {
-        link.addEventListener('load', checkIfAllLoaded);
-        // Fallback timeout
-        setTimeout(checkIfAllLoaded, 100);
-      }
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('loading');
+      document.documentElement.classList.add('loaded');
     });
-
-    // Failsafe: remove loading state after max wait time
-    setTimeout(removeLoadingState, 500);
   };
 
-  // Start checking after DOM is ready
+  // Wait for all critical stylesheets to load without forced reflows
+  const checkStylesLoaded = () => {
+    // Use timeout-based approach instead of synchronous sheet checking
+    let loadedCount = 0;
+    let totalCount = 0;
+
+    // Batch DOM reads
+    requestAnimationFrame(() => {
+      const criticalStylesheets = document.querySelectorAll('link[rel="stylesheet"], link[rel="preload"][as="style"]');
+      totalCount = criticalStylesheets.length;
+
+      const checkIfAllLoaded = () => {
+        loadedCount++;
+        if (loadedCount >= totalCount) {
+          removeLoadingState();
+        }
+      };
+
+      // Use event-based loading detection to avoid forced reflows
+      criticalStylesheets.forEach((link) => {
+        // Avoid checking .sheet property which forces reflow
+        link.addEventListener('load', checkIfAllLoaded, { once: true });
+        
+        // Use a timeout as fallback instead of synchronous check
+        setTimeout(() => {
+          if (loadedCount < totalCount) {
+            checkIfAllLoaded();
+          }
+        }, 50);
+      });
+
+      // Failsafe: remove loading state after reasonable wait time
+      setTimeout(removeLoadingState, 300);
+    });
+  };
+
+  // Start checking after DOM is ready with proper scheduling
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', checkStylesLoaded);
+    document.addEventListener('DOMContentLoaded', () => {
+      requestIdleCallback(checkStylesLoaded);
+    });
   } else {
-    checkStylesLoaded();
+    requestIdleCallback(checkStylesLoaded);
   }
 };
 

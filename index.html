@@ -284,40 +284,61 @@
     
       <!-- Performance optimization scripts -->
     <script>
-      // Batch DOM operations to prevent forced reflows
+      // Enhanced performance batch system with reflow prevention
       window.performanceBatch = {
         pendingReads: [],
         pendingWrites: [],
+        isScheduled: false,
         
         read: function(fn) {
           this.pendingReads.push(fn);
-          this.flush();
+          this.scheduleFlush();
         },
         
         write: function(fn) {
           this.pendingWrites.push(fn);
-          this.flush();
+          this.scheduleFlush();
         },
         
-        flush: function() {
+        scheduleFlush: function() {
           if (this.isScheduled) return;
           this.isScheduled = true;
           
-          requestAnimationFrame(() => {
-            // Execute all reads first (no layout triggers)
-            while (this.pendingReads.length) {
-              const read = this.pendingReads.shift();
-              read();
-            }
-            
-            // Then execute all writes (potential layout triggers)
-            while (this.pendingWrites.length) {
-              const write = this.pendingWrites.shift();
-              write();
-            }
-            
-            this.isScheduled = false;
+          // Use requestIdleCallback for better performance when available
+          const scheduler = window.requestIdleCallback || requestAnimationFrame;
+          scheduler(() => {
+            this.executeBatch();
           });
+        },
+        
+        executeBatch: function() {
+          // Execute all reads first to minimize reflows
+          const reads = this.pendingReads.splice(0);
+          const writes = this.pendingWrites.splice(0);
+          
+          // Process reads without triggering layout
+          reads.forEach(read => {
+            try {
+              read();
+            } catch (e) {
+              console.warn('Batch read error:', e);
+            }
+          });
+          
+          // Then process writes in next frame to prevent forced reflows
+          if (writes.length > 0) {
+            requestAnimationFrame(() => {
+              writes.forEach(write => {
+                try {
+                  write();
+                } catch (e) {
+                  console.warn('Batch write error:', e);
+                }
+              });
+            });
+          }
+          
+          this.isScheduled = false;
         }
       };
       
