@@ -76,7 +76,7 @@ export const getCurrentDomain = (): string => {
     return window.location.origin;
   }
   // Fallback for SSR or build time
-  return 'https://hireshore.lovable.app';
+  return 'https://hireshore.co';
 };
 
 // Generate sitemap XML content

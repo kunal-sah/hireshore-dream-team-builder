@@ -6,7 +6,7 @@ export const getCurrentDomain = (): string => {
     return window.location.origin;
   }
   // Fallback for build time or SSR
-  return 'https://hireshore.lovable.app';
+  return 'https://hireshore.co';
 };
 
 // Get current full URL

@@ -55,7 +55,7 @@ const DigitalSixCaseStudy = () => {
 
   useEffect(() => {
     // Add JSON-LD for case study page - uses dynamic domain
-    const currentDomain = typeof window !== 'undefined' ? window.location.origin : "https://hireshore.lovable.app";
+    const currentDomain = typeof window !== 'undefined' ? window.location.origin : "https://hireshore.co";
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Article",

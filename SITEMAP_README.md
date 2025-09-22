@@ -36,7 +36,7 @@ When moving to a new domain:
    ```javascript
    // In browser console
    import { updatePublicSitemap } from '/src/utils/sitemapUpdater';
-   updatePublicSitemap('https://your-new-domain.com');
+   updatePublicSitemap('https://hireshore.co');
    ```
 
 2. **Replace sitemap.xml:**

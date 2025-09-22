@@ -55,7 +55,7 @@ const Index = () => {
 
    const addStructuredData = () => {
     // Add JSON-LD structured data for SEO - uses dynamic domain
-    const currentDomain = typeof window !== 'undefined' ? window.location.origin : "https://hireshore.lovable.app";
+    const currentDomain = typeof window !== 'undefined' ? window.location.origin : "https://hireshore.co";
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Organization",
