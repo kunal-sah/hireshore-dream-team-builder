@@ -35,13 +35,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></noscript>
     
-    <!-- Critical CSS for initial render -->
+    <!-- Critical CSS for initial render and LCP optimization -->
     <style>
-      /* Critical above-the-fold styles */
-      body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+      /* Critical above-the-fold styles for immediate render */
+      body { 
+        margin: 0; 
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+        line-height: 1.6;
+      }
       #root { min-height: 100vh; }
-      .hero-container { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-      .hero-text { color: white; font-weight: 700; }
+      
+      /* LCP-optimized hero styles */
+      .hero-container { 
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+      .hero-text { 
+        color: #1f2937;
+        font-weight: 700;
+        font-size: clamp(1.875rem, 5vw, 3.75rem);
+        line-height: 1.1;
+        letter-spacing: -0.025em;
+      }
+      .hero-subtitle {
+        color: #374151;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        line-height: 1.6;
+        margin-top: 1rem;
+      }
+      
+      /* Defer non-critical animations */
+      .defer-animation {
+        will-change: auto;
+      }
+      
+      /* Prevent layout shifts */
+      .video-container {
+        aspect-ratio: 16/9;
+        width: 100%;
+        height: auto;
+      }
+      
+      /* Optimize iframe loading */
+      iframe {
+        content-visibility: auto;
+        contain: layout;
+      }
     </style>
   </head>
   <body>

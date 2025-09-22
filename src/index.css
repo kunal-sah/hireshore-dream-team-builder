@@ -46,9 +46,29 @@
   will-change: auto;
 }
 
-/* Optimize video loading */
+/* Optimize video loading for LCP */
 iframe {
   content-visibility: auto;
+  contain: layout style;
+}
+
+/* LCP optimization - prioritize hero text rendering */
+.hero-text-priority {
+  font-size: clamp(1.875rem, 5vw, 3.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  color: #1f2937;
+  opacity: 1; /* Ensure immediate visibility */
+}
+
+/* Reduce layout shifts */
+.video-placeholder {
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .shadow-glass {

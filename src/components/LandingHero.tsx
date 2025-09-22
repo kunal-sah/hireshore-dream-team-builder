@@ -120,16 +120,14 @@ const LandingHero = () => {
   }, [heroRef]);
   
   const textVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 10 },
     visible: (i: number) => ({ 
       opacity: 1, 
       y: 0,
       transition: { 
-        delay: i * 0.2,
-        duration: 0.8,
-        type: "spring",
-        stiffness: 100,
-        damping: 20
+        delay: i * 0.05, // Much faster stagger for LCP
+        duration: 0.3, // Faster animation
+        type: "easeOut"
       }
     }),
   };
@@ -241,13 +239,13 @@ const LandingHero = () => {
             className="space-y-8"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.4, ease: "easeOut" }} // Faster left column animation
           >
             <motion.h1 
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }} // Faster text animation for LCP
             >
               <motion.span 
                 className="inline-block"
@@ -370,23 +368,40 @@ const LandingHero = () => {
             
           </motion.div>
           
-          {/* Right side - Video */}
+          {/* Right side - Video with lazy loading */}
           <motion.div 
             className="relative"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.8 }} // Delay video loading
           >
             <div className="relative bg-white rounded-2xl shadow-2xl p-4">
-              <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
+              <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden relative">
+                {/* Placeholder while video loads */}
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                  <div className="text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-red-600 rounded-full flex items-center justify-center">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                    <p className="text-sm text-gray-600 font-medium">Loading video...</p>
+                  </div>
+                </div>
+                
                 <iframe
                   src="https://www.youtube.com/embed/kdXYdRxr4qA"
                   title="Stop Chasing Updates: Organize Tasks & Teams in One Place"
-                  className="w-full h-full"
+                  className="w-full h-full absolute inset-0"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   loading="lazy"
+                  onLoad={() => {
+                    // Hide placeholder when video loads
+                    const placeholder = document.querySelector('.absolute.inset-0.flex') as HTMLElement;
+                    if (placeholder) placeholder.style.display = 'none';
+                  }}
                 ></iframe>
               </div>
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-900/90 text-white px-6 py-3 rounded-full text-sm font-medium">
