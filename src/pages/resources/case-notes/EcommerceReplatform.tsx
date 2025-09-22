@@ -14,7 +14,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { ShoppingCart, Clock, TrendingUp, ArrowRight, Target, Zap } from "lucide-react";
+import { ShoppingCart, Clock, TrendingUp, ArrowRight, Target, Zap, CheckCircle, Users, BarChart3 } from "lucide-react";
 
 const EcommerceReplatform = () => {
   return (
@@ -91,13 +91,11 @@ const EcommerceReplatform = () => {
             </div>
           </section>
 
-          {/* Main Content */}
+          {/* Challenge-Solution-Outcome */}
           <section id="challenge-solution" className="py-20">
             <div className="space-y-12">
-              
-              {/* Problem → Solution → Outcome */}
               <div className="grid md:grid-cols-3 gap-8">
-                <Card>
+                <Card className="border-l-4 border-l-red-500">
                   <CardHeader>
                     <CardTitle className="text-red-700 flex items-center gap-2">
                       <Target className="h-5 w-5" />
@@ -105,14 +103,27 @@ const EcommerceReplatform = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">
-                      Established e-commerce brand stuck on legacy platform with 3.2% conversion rate, slow load times (8+ seconds), 
-                      and limited mobile experience. Revenue plateaued at $2M annually despite growing traffic.
+                    <p className="text-muted-foreground mb-4">
+                      Established e-commerce brand stuck on legacy platform with declining performance and growth limitations.
                     </p>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <span className="text-sm">3.2% conversion rate (industry: 6-8%)</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <span className="text-sm">8+ second load times causing 71% bounce rate</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <span className="text-sm">Revenue plateau at $2M despite traffic growth</span>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="border-l-4 border-l-blue-500">
                   <CardHeader>
                     <CardTitle className="text-blue-700 flex items-center gap-2">
                       <Zap className="h-5 w-5" />
@@ -120,14 +131,27 @@ const EcommerceReplatform = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">
-                      Complete migration to Shopify Plus with custom theme, advanced filtering, subscription integration, 
-                      and mobile-first checkout optimization. Preserved SEO rankings throughout transition.
+                    <p className="text-muted-foreground mb-4">
+                      Complete migration to Shopify Plus with performance optimization and UX enhancement.
                     </p>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <span className="text-sm">Custom responsive theme development</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <span className="text-sm">Advanced filtering & search functionality</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <span className="text-sm">Mobile-first checkout optimization</span>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="border-l-4 border-l-green-500">
                   <CardHeader>
                     <CardTitle className="text-green-700 flex items-center gap-2">
                       <TrendingUp className="h-5 w-5" />
@@ -135,130 +159,369 @@ const EcommerceReplatform = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">
-                      Conversion rate increased to 8.7%, page load time reduced to 1.8 seconds. Revenue grew 312% to $8.2M 
-                      in first year post-launch with 43% mobile conversion improvement.
+                    <p className="text-muted-foreground mb-4">
+                      Dramatic performance improvements driving significant revenue growth.
                     </p>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-sm">Revenue: $2M → $8.2M (+312%)</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-sm">Conversion: 3.2% → 8.7% (+172%)</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-sm">Load time: 8.4s → 1.8s (-78%)</span>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
 
               {/* Key Metrics */}
-              <Card id="key-metrics">
-                <CardHeader>
-                  <CardTitle>Performance Results</CardTitle>
+              <Card id="key-metrics" className="bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-900/50 dark:to-gray-900/50">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl">Performance Results</CardTitle>
+                  <p className="text-muted-foreground">Measured impact across key business metrics</p>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-4 gap-6">
-                    <div className="text-center p-4 bg-muted/50 rounded-lg">
-                      <div className="text-2xl font-bold text-primary mb-1">312%</div>
+                    <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
+                      <div className="text-3xl font-bold text-green-600 mb-2">312%</div>
                       <div className="text-sm text-muted-foreground">Revenue Growth</div>
+                      <div className="text-xs text-green-600 mt-1">$2M → $8.2M</div>
                     </div>
-                    <div className="text-center p-4 bg-muted/50 rounded-lg">
-                      <div className="text-2xl font-bold text-primary mb-1">8.7%</div>
+                    <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
+                      <div className="text-3xl font-bold text-blue-600 mb-2">8.7%</div>
                       <div className="text-sm text-muted-foreground">Conversion Rate</div>
+                      <div className="text-xs text-blue-600 mt-1">+172% improvement</div>
                     </div>
-                    <div className="text-center p-4 bg-muted/50 rounded-lg">
-                      <div className="text-2xl font-bold text-primary mb-1">1.8s</div>
+                    <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
+                      <div className="text-3xl font-bold text-purple-600 mb-2">1.8s</div>
                       <div className="text-sm text-muted-foreground">Page Load Time</div>
+                      <div className="text-xs text-purple-600 mt-1">-78% faster</div>
                     </div>
-                    <div className="text-center p-4 bg-muted/50 rounded-lg">
-                      <div className="text-2xl font-bold text-primary mb-1">43%</div>
+                    <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
+                      <div className="text-3xl font-bold text-orange-600 mb-2">43%</div>
                       <div className="text-sm text-muted-foreground">Mobile Conv. ↑</div>
+                      <div className="text-xs text-orange-600 mt-1">Mobile optimization</div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Detailed Implementation */}
-              <div className="prose prose-lg max-w-none">
-                <h2 id="migration-strategy">Migration Strategy & Execution</h2>
+              {/* Migration Strategy */}
+              <section id="migration-strategy" className="space-y-8">
+                <h2 className="text-3xl font-bold mb-8">Migration Strategy & Execution</h2>
                 
-                <h3>Pre-Migration Analysis (Week 1)</h3>
-                <ul>
-                  <li>Comprehensive site audit: 2,847 products, 156 categories, 12,000+ URLs</li>
-                  <li>Performance baseline: 3.2% conversion, 8.4s load time, 71% bounce rate</li>
-                  <li>SEO analysis: 847 ranking keywords, top traffic pages identified</li>
-                  <li>Customer journey mapping: 7 key conversion paths documented</li>
-                </ul>
+                <div className="grid gap-6">
+                  <Card className="border-l-4 border-l-blue-500">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-blue-700">
+                        <BarChart3 className="h-5 w-5" />
+                        Pre-Migration Analysis (Week 1)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg">
+                        <h4 className="font-semibold mb-3">Comprehensive Site Audit</h4>
+                        <div className="grid md:grid-cols-2 gap-4 text-sm">
+                          <div className="space-y-2">
+                            <p><strong>Inventory:</strong> 2,847 products across 156 categories</p>
+                            <p><strong>Content:</strong> 12,000+ URLs requiring migration</p>
+                            <p><strong>Traffic:</strong> 847 ranking keywords identified</p>
+                          </div>
+                          <div className="space-y-2">
+                            <p><strong>Performance:</strong> 3.2% conversion, 8.4s load time</p>
+                            <p><strong>Behavior:</strong> 71% bounce rate analysis</p>
+                            <p><strong>Journey:</strong> 7 key conversion paths mapped</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="grid md:grid-cols-3 gap-4">
+                        <div className="flex items-center gap-2 p-3 bg-white dark:bg-slate-800 rounded-lg">
+                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <span className="text-sm">SEO analysis completed</span>
+                        </div>
+                        <div className="flex items-center gap-2 p-3 bg-white dark:bg-slate-800 rounded-lg">
+                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <span className="text-sm">Technical audit finished</span>
+                        </div>
+                        <div className="flex items-center gap-2 p-3 bg-white dark:bg-slate-800 rounded-lg">
+                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <span className="text-sm">User journey mapped</span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
 
-                <h3>Platform Setup & Design (Weeks 2-4)</h3>
-                <ul>
-                  <li>Shopify Plus environment configuration with staging/production split</li>
-                  <li>Custom theme development optimized for brand and conversion</li>
-                  <li>Advanced product filtering and search functionality</li>
-                  <li>Mobile-first responsive design with touch-optimized interactions</li>
-                </ul>
+                  <Card className="border-l-4 border-l-green-500">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-green-700">
+                        <Zap className="h-5 w-5" />
+                        Platform Setup & Design (Weeks 2-4)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg">
+                          <h4 className="font-semibold mb-3">Infrastructure Setup</h4>
+                          <ul className="space-y-2 text-sm">
+                            <li className="flex items-start gap-2">
+                              <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                              <span>Shopify Plus environment with staging/production split</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                              <span>CDN setup and performance optimization</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                              <span>Security protocols and SSL implementation</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg">
+                          <h4 className="font-semibold mb-3">Design Development</h4>
+                          <ul className="space-y-2 text-sm">
+                            <li className="flex items-start gap-2">
+                              <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                              <span>Custom theme optimized for conversions</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                              <span>Mobile-first responsive design approach</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                              <span>Advanced filtering and search functionality</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
 
-                <h3>Data Migration & Testing (Weeks 5-6)</h3>
-                <ul>
-                  <li>Product catalog migration with enhanced attribute mapping</li>
-                  <li>Customer data transfer with order history preservation</li>
-                  <li>301 redirect strategy for all existing URLs</li>
-                  <li>Comprehensive QA testing across devices and browsers</li>
-                </ul>
+                  <Card className="border-l-4 border-l-purple-500">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-purple-700">
+                        <Users className="h-5 w-5" />
+                        Data Migration & Testing (Weeks 5-6)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="bg-purple-50 dark:bg-purple-950/20 p-4 rounded-lg">
+                        <h4 className="font-semibold mb-3">Migration Checklist</h4>
+                        <div className="grid md:grid-cols-2 gap-6 text-sm">
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500" />
+                              <span>Product catalog with enhanced attributes</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500" />
+                              <span>Customer data with complete order history</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500" />
+                              <span>301 redirect strategy for all existing URLs</span>
+                            </div>
+                          </div>
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500" />
+                              <span>Cross-device and browser QA testing</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500" />
+                              <span>Performance benchmarking completed</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500" />
+                              <span>SEO validation and monitoring setup</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
 
-                <h3>Launch & Optimization (Weeks 7-8)</h3>
-                <ul>
-                  <li>Soft launch with select customer segment for final validation</li>
-                  <li>Full production launch with real-time monitoring</li>
-                  <li>Post-launch conversion rate optimization based on user behavior</li>
-                  <li>Staff training on new platform management and features</li>
-                </ul>
-
-                <h2 id="performance-improvements">Key Performance Improvements</h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Technical Enhancements</h4>
-                    <ul className="text-sm">
-                      <li>• Page load time: 8.4s → 1.8s (-78%)</li>
-                      <li>• Mobile performance score: 34 → 89</li>
-                      <li>• Server response time: 2.1s → 0.3s</li>
-                      <li>• Image optimization: WebP format, lazy loading</li>
-                    </ul>
-                  </div>
-                  <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">User Experience</h4>
-                    <ul className="text-sm">
-                      <li>• Conversion rate: 3.2% → 8.7% (+172%)</li>
-                      <li>• Mobile conversion: 1.8% → 5.1% (+183%)</li>
-                      <li>• Cart abandonment: 72% → 43% (-40%)</li>
-                      <li>• Average order value: $89 → $127 (+43%)</li>
-                    </ul>
-                  </div>
+                  <Card className="border-l-4 border-l-orange-500">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-orange-700">
+                        <ArrowRight className="h-5 w-5" />
+                        Launch & Optimization (Weeks 7-8)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="bg-orange-50 dark:bg-orange-950/20 p-4 rounded-lg">
+                        <h4 className="font-semibold mb-3">Strategic Launch Approach</h4>
+                        <div className="grid md:grid-cols-3 gap-4 text-sm">
+                          <div className="text-center p-3 bg-white dark:bg-slate-800 rounded-lg">
+                            <div className="font-semibold text-orange-600 mb-1">Phase 1</div>
+                            <div>Soft Launch</div>
+                            <div className="text-xs text-muted-foreground mt-1">Select customers</div>
+                          </div>
+                          <div className="text-center p-3 bg-white dark:bg-slate-800 rounded-lg">
+                            <div className="font-semibold text-orange-600 mb-1">Phase 2</div>
+                            <div>Full Launch</div>
+                            <div className="text-xs text-muted-foreground mt-1">Real-time monitoring</div>
+                          </div>
+                          <div className="text-center p-3 bg-white dark:bg-slate-800 rounded-lg">
+                            <div className="font-semibold text-orange-600 mb-1">Phase 3</div>
+                            <div>Optimization</div>
+                            <div className="text-xs text-muted-foreground mt-1">Staff training</div>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
+              </section>
 
-                <h2 id="success-factors">Critical Success Factors</h2>
-                <ul>
-                  <li><strong>SEO Preservation:</strong> Zero ranking loss during migration through careful redirect planning</li>
-                  <li><strong>Mobile Optimization:</strong> Touch-first design resulted in 43% mobile conversion improvement</li>
-                  <li><strong>Performance Focus:</strong> Sub-2-second load times significantly reduced bounce rate</li>
-                  <li><strong>Conversion Design:</strong> Strategic placement of trust signals and CTAs throughout funnel</li>
-                  <li><strong>Advanced Features:</strong> Product recommendations and personalization drove AOV growth</li>
-                </ul>
+              {/* Performance Improvements */}
+              <section id="performance-improvements" className="space-y-8">
+                <h2 className="text-3xl font-bold mb-8">Performance Transformation</h2>
+                
+                <div className="grid md:grid-cols-2 gap-8">
+                  <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/20 dark:to-blue-900/20">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-blue-700">
+                        <Zap className="h-5 w-5" />
+                        Technical Enhancements
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center p-4 bg-white/80 dark:bg-slate-800/80 rounded-lg">
+                          <span className="font-medium">Page Load Time</span>
+                          <span className="font-bold text-blue-600">8.4s → 1.8s (-78%)</span>
+                        </div>
+                        <div className="flex justify-between items-center p-4 bg-white/80 dark:bg-slate-800/80 rounded-lg">
+                          <span className="font-medium">Mobile Performance Score</span>
+                          <span className="font-bold text-blue-600">34 → 89</span>
+                        </div>
+                        <div className="flex justify-between items-center p-4 bg-white/80 dark:bg-slate-800/80 rounded-lg">
+                          <span className="font-medium">Server Response Time</span>
+                          <span className="font-bold text-blue-600">2.1s → 0.3s</span>
+                        </div>
+                      </div>
+                      <div className="mt-6 p-4 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                        <h4 className="font-semibold mb-2">Key Optimizations:</h4>
+                        <ul className="text-sm space-y-1">
+                          <li>• WebP image format with lazy loading implementation</li>
+                          <li>• Critical CSS inlining for faster rendering</li>
+                          <li>• Cloudflare CDN with global edge caching</li>
+                          <li>• JavaScript optimization and minification</li>
+                        </ul>
+                      </div>
+                    </CardContent>
+                  </Card>
 
-                <h2 id="technology-stack">Technology Stack</h2>
-                <ul>
-                  <li><strong>Platform:</strong> Shopify Plus with custom liquid theme</li>
-                  <li><strong>Performance:</strong> Cloudflare CDN, WebP images, critical CSS inlining</li>
-                  <li><strong>Analytics:</strong> Google Analytics 4, Hotjar heatmaps, Shopify Analytics</li>
-                  <li><strong>Marketing:</strong> Klaviyo email automation, Google/Facebook pixel integration</li>
-                  <li><strong>Subscriptions:</strong> ReCharge integration for recurring revenue</li>
-                </ul>
+                  <Card className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950/20 dark:to-green-900/20">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-green-700">
+                        <TrendingUp className="h-5 w-5" />
+                        User Experience Impact
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center p-4 bg-white/80 dark:bg-slate-800/80 rounded-lg">
+                          <span className="font-medium">Conversion Rate</span>
+                          <span className="font-bold text-green-600">3.2% → 8.7% (+172%)</span>
+                        </div>
+                        <div className="flex justify-between items-center p-4 bg-white/80 dark:bg-slate-800/80 rounded-lg">
+                          <span className="font-medium">Mobile Conversion</span>
+                          <span className="font-bold text-green-600">1.8% → 5.1% (+183%)</span>
+                        </div>
+                        <div className="flex justify-between items-center p-4 bg-white/80 dark:bg-slate-800/80 rounded-lg">
+                          <span className="font-medium">Cart Abandonment</span>
+                          <span className="font-bold text-green-600">72% → 43% (-40%)</span>
+                        </div>
+                      </div>
+                      <div className="mt-6 p-4 bg-green-100 dark:bg-green-900/30 rounded-lg">
+                        <h4 className="font-semibold mb-2">UX Improvements:</h4>
+                        <ul className="text-sm space-y-1">
+                          <li>• Touch-optimized interactions for mobile</li>
+                          <li>• Streamlined checkout process design</li>
+                          <li>• Enhanced product recommendation engine</li>
+                          <li>• Improved search and filtering experience</li>
+                        </ul>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
 
-                <h2 id="post-launch">Post-Launch Optimization</h2>
-                <p>
-                  Continued optimization in the 90 days post-launch focused on conversion rate improvements and 
-                  customer experience enhancements based on real user data and behavior analysis.
-                </p>
-                <ul>
-                  <li>A/B tested checkout flow variations for additional conversion gains</li>
-                  <li>Implemented abandoned cart recovery sequences with 28% recovery rate</li>
-                  <li>Added product recommendation engine increasing cross-sell by 34%</li>
-                  <li>Optimized search functionality reducing zero-result searches by 67%</li>
-                </ul>
-              </div>
+              {/* Technology Stack */}
+              <section id="technology-stack" className="space-y-6">
+                <h2 className="text-3xl font-bold mb-8">Technology Stack & Integrations</h2>
+                
+                <div className="grid md:grid-cols-3 gap-6">
+                  <Card className="border-t-4 border-t-blue-500">
+                    <CardHeader>
+                      <CardTitle className="text-blue-600">Platform & Performance</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div className="p-3 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
+                        <div className="font-semibold text-sm mb-1">Shopify Plus</div>
+                        <div className="text-xs text-muted-foreground">Enterprise e-commerce platform</div>
+                      </div>
+                      <div className="p-3 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
+                        <div className="font-semibold text-sm mb-1">Cloudflare CDN</div>
+                        <div className="text-xs text-muted-foreground">Global content delivery network</div>
+                      </div>
+                      <div className="p-3 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
+                        <div className="font-semibold text-sm mb-1">Custom Liquid Theme</div>
+                        <div className="text-xs text-muted-foreground">Optimized for conversions</div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-t-4 border-t-green-500">
+                    <CardHeader>
+                      <CardTitle className="text-green-600">Analytics & Marketing</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div className="p-3 bg-green-50 dark:bg-green-950/20 rounded-lg">
+                        <div className="font-semibold text-sm mb-1">Google Analytics 4</div>
+                        <div className="text-xs text-muted-foreground">Advanced tracking & insights</div>
+                      </div>
+                      <div className="p-3 bg-green-50 dark:bg-green-950/20 rounded-lg">
+                        <div className="font-semibold text-sm mb-1">Hotjar Heatmaps</div>
+                        <div className="text-xs text-muted-foreground">User behavior analysis</div>
+                      </div>
+                      <div className="p-3 bg-green-50 dark:bg-green-950/20 rounded-lg">
+                        <div className="font-semibold text-sm mb-1">Klaviyo Integration</div>
+                        <div className="text-xs text-muted-foreground">Email marketing automation</div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-t-4 border-t-purple-500">
+                    <CardHeader>
+                      <CardTitle className="text-purple-600">Revenue & Retention</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div className="p-3 bg-purple-50 dark:bg-purple-950/20 rounded-lg">
+                        <div className="font-semibold text-sm mb-1">ReCharge Subscriptions</div>
+                        <div className="text-xs text-muted-foreground">Recurring revenue platform</div>
+                      </div>
+                      <div className="p-3 bg-purple-50 dark:bg-purple-950/20 rounded-lg">
+                        <div className="font-semibold text-sm mb-1">Product Recommendations</div>
+                        <div className="text-xs text-muted-foreground">AI-powered suggestions</div>
+                      </div>
+                      <div className="p-3 bg-purple-50 dark:bg-purple-950/20 rounded-lg">
+                        <div className="font-semibold text-sm mb-1">Personalization Engine</div>
+                        <div className="text-xs text-muted-foreground">Dynamic content optimization</div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2">
