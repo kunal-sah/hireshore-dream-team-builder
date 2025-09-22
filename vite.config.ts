@@ -24,10 +24,24 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     sourcemap: true,
+    minify: 'terser',
+    cssMinify: true,
     rollupOptions: {
       output: {
         manualChunks: undefined,
+        format: 'es',
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
       }
-    }
+    },
+    assetsInlineLimit: 0,
+    reportCompressedSize: true
   },
+  esbuild: {
+    legalComments: 'none',
+    minifyIdentifiers: true,
+    minifySyntax: true,
+    minifyWhitespace: true
+  }
 }));
