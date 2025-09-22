@@ -4,6 +4,7 @@ import { TrendingUp, Users, Target, Clock, Zap, Award } from 'lucide-react';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
 import CaseStudyCTA from '../../components/CaseStudyCTA';
+import YouTubeFacade from '../../components/ui/youtube-facade';
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -335,14 +336,11 @@ const PropertyStackCaseStudy = () => {
             
             <div className="max-w-4xl mx-auto">
               <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.youtube.com/embed/9xMVgH1j9XE"
+                <YouTubeFacade
+                  videoId="9xMVgH1j9XE"
                   title="PropertyStack Testimonial - Ryan Jope"
                   className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                />
               </div>
               <p className="text-sm text-gray-600 mt-2">Watch Ryan's full testimonial about working with Hireshore</p>
             </div>

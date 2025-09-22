@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import YouTubeFacade from "./ui/youtube-facade";
 
 const SharkTankSection = () => {
   return (
@@ -67,14 +68,11 @@ const SharkTankSection = () => {
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <div className="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden shadow-2xl">
-          <iframe
-            className="absolute top-0 left-0 w-full h-full"
-            src="https://www.youtube.com/embed/2CVHdT89xTI"
-            title="Shark Tank USA Appearance 2022"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
+            <YouTubeFacade
+              videoId="2CVHdT89xTI"
+              title="Shark Tank USA Appearance 2022"
+              className="absolute top-0 left-0 w-full h-full"
+            />
         </div>
       </motion.div>
     </motion.section>

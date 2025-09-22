@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Users, Target, Award, Globe, Heart, Zap, Shield, TrendingUp } from 'lucide-react';
 import NavBar from '../components/NavBar';
 import SiteFooter from '../components/SiteFooter';
+import YouTubeFacade from '../components/ui/youtube-facade';
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -243,14 +244,11 @@ const AboutUs = () => {
             >
               <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
                 <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
-                  <iframe
-                    src="https://www.youtube.com/embed/hCa98Yfnt-U"
+                  <YouTubeFacade
+                    videoId="hCa98Yfnt-U"
                     title="How Agency Owners Can Delegate & Scale Without Hiring Full-Time Staff"
                     className="w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                  />
                 </div>
                 <div className="mt-4 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
