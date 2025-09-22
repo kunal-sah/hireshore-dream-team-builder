@@ -1,19 +1,53 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const CalendlySection = () => {
+  const [isCalendlyLoaded, setIsCalendlyLoaded] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
-    // Load Calendly script only once
-    const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      document.body.appendChild(script);
+    const loadCalendly = () => {
+      if (isCalendlyLoaded) return;
+      
+      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+      if (!existingScript) {
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        document.body.appendChild(script);
+      }
+      setIsCalendlyLoaded(true);
+    };
+
+    // Load Calendly when section becomes visible or user clicks book CTA
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            loadCalendly();
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '100px' }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-  }, []);
+
+    // Also load if user clicks any booking CTA
+    const handleBookingClick = () => loadCalendly();
+    document.addEventListener('calendly-load', handleBookingClick);
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener('calendly-load', handleBookingClick);
+    };
+  }, [isCalendlyLoaded]);
 
   return (
     <section 
+      ref={sectionRef}
       id="book" 
       aria-label="Book a meeting" 
       className="py-12 sm:py-16 bg-gray-50"
@@ -24,7 +58,10 @@ const CalendlySection = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Book Your Free Strategy Session</h2>
           <p className="text-muted-foreground text-base sm:text-lg px-4">Get a custom plan for your business in 30 minutes</p>
           <div className="mt-4 sm:mt-6">
-            <button className="bg-primary text-primary-foreground font-semibold py-3 px-6 sm:px-8 rounded-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base">
+            <button 
+              className="bg-primary text-primary-foreground font-semibold py-3 px-6 sm:px-8 rounded-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base"
+              onClick={() => document.dispatchEvent(new CustomEvent('calendly-load'))}
+            >
               Schedule Your Free Call
             </button>
           </div>

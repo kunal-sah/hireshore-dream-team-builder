@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
 import { Phone, Users, Headphones, Pointer, ArrowDown } from "lucide-react";
 import beforeAfterImage from "../assets/before-after-comparison.jpg";
+import YouTubeFacade from "./ui/youtube-facade";
 
 const LandingHero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -21,6 +22,8 @@ const LandingHero = () => {
   const smoothY = useSpring(y, springConfig);
 
   const scrollToCalendly = () => {
+    // Trigger Calendly loading before scrolling
+    document.dispatchEvent(new CustomEvent('calendly-load'));
     const element = document.getElementById('book');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -332,15 +335,11 @@ const LandingHero = () => {
           >
             <div className="relative bg-white rounded-2xl shadow-2xl p-4">
               <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
-                <iframe
-                  src="https://www.youtube.com/embed/kdXYdRxr4qA"
+                <YouTubeFacade
+                  videoId="kdXYdRxr4qA"
                   title="Stop Chasing Updates: Organize Tasks & Teams in One Place"
                   className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                ></iframe>
+                />
               </div>
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-900/90 text-white px-6 py-3 rounded-full text-sm font-medium">
                 Stop chasing updates. Get organized.

@@ -23,6 +23,7 @@ import DeliveryPodDefinition from "../components/DeliveryPodDefinition";
 import PodAtAGlance from "../components/PodAtAGlance";
 import InsideDeliveryPod from "../components/InsideDeliveryPod";
 import FAQSection from "../components/FAQSection";
+import YouTubeFacade from "../components/ui/youtube-facade";
 
 const Index = () => {
   // Add useEffect to add JSON-LD and scroll behavior
@@ -161,15 +162,9 @@ const Index = () => {
                 </div>
               </div>
               <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/43qQdLve5Ps"
+                <YouTubeFacade
+                  videoId="43qQdLve5Ps"
                   title="Medz Media Testimonial - Marlon M."
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
                   className="w-full h-full"
                 />
               </div>
@@ -204,15 +199,11 @@ const Index = () => {
               
               <div className="text-center">
                 <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                  <iframe
-                    src="https://www.youtube.com/embed/yW90cSyX_iI"
+                  <YouTubeFacade
+                    videoId="yW90cSyX_iI"
                     title="Digital Six Testimonial - Aaron Erwich"
                     className="w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                  ></iframe>
+                  />
                 </div>
                 <p className="text-sm text-gray-600 mt-2">Watch Aaron's full testimonial</p>
               </div>
@@ -246,15 +237,9 @@ const Index = () => {
                 </div>
               </div>
               <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/9xMVgH1j9XE"
+                <YouTubeFacade
+                  videoId="9xMVgH1j9XE"
                   title="PropertyStack Testimonial - Ryan Jope"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
                   className="w-full h-full"
                 />
               </div>
