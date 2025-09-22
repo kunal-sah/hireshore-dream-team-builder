@@ -58,9 +58,29 @@
     <!-- Preload critical font files directly to avoid render blocking -->
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin>
     
-    <!-- Load Google Fonts CSS asynchronously to prevent render blocking -->
+    <!-- Load Google Fonts CSS with optimized display strategy -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Fallback font loading optimization -->
+    <style>
+      /* Font fallback with metric overrides to reduce layout shift */
+      @font-face {
+        font-family: 'Inter-fallback';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Arial'), local('Helvetica');
+        ascent-override: 90%;
+        descent-override: 22%;
+        line-gap-override: 0%;
+        size-adjust: 107%;
+      }
+      
+      /* Ensure consistent font display across all fonts */
+      * {
+        font-display: swap;
+      }
+    </style>
     
     <!-- Fallbacks for browsers without JavaScript -->
     <noscript>
