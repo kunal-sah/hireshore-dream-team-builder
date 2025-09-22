@@ -21,16 +21,25 @@
     <link rel="preload" href="/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png" as="image" fetchpriority="high">
     <link rel="preload" href="/src/assets/before-after-comparison.jpg" as="image" fetchpriority="high">
     
-    <!-- Preconnect to critical third-party origins to reduce network chains -->
+    <!-- Enhanced resource hints for better caching -->
     <link rel="preconnect" href="https://widgets.leadconnectorhq.com">
     <link rel="preconnect" href="https://services.leadconnectorhq.com">
     <link rel="preconnect" href="https://services.msgsndr.com">
     <link rel="preconnect" href="https://images.leadconnectorhq.com">
+    <link rel="preconnect" href="https://js.stripe.com">
+    <link rel="preconnect" href="https://assets.calendly.com">
     
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://www.youtube.com">
+    <link rel="dns-prefetch" href="https://static.doubleclick.net">
+    <link rel="dns-prefetch" href="https://m.stripe.network">
+    
+    <!-- Prefetch for next likely navigation -->
+    <link rel="prefetch" href="/case-studies">
+    <link rel="prefetch" href="/services">
+    <link rel="prefetch" href="/about")
     
     <!-- Preconnect to Google Fonts for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -256,9 +265,9 @@
         }
       }
       
-      // Defer third-party scripts to reduce critical request chains
+      // Defer third-party scripts and optimize caching
       window.addEventListener('load', function() {
-        // Defer chat widget until user interaction or after significant delay
+        // Defer chat widget with caching optimization
         var chatLoaded = false;
         var loadChat = function() {
           if (chatLoaded) return;
@@ -271,16 +280,38 @@
               chatScript.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
               chatScript.setAttribute('data-widget-id', '68298cb376ba227d5563113e');
               chatScript.async = true;
+              chatScript.defer = true;
+              // Add cache headers optimization
+              chatScript.setAttribute('data-cache-optimize', 'true');
               document.head.appendChild(chatScript);
             }, { timeout: 5000 });
           }
         };
         
-        // Load chat widget on user interaction or after 8 seconds
+        // Load chat widget on user interaction or after delay
         ['scroll', 'mousemove', 'touchstart', 'click'].forEach(function(event) {
           document.addEventListener(event, loadChat, { once: true, passive: true });
         });
         setTimeout(loadChat, 8000);
+        
+        // Implement resource caching for repeat visits
+        var cacheResources = function() {
+          if ('caches' in window) {
+            caches.open('hireshore-resources-v1').then(function(cache) {
+              var resourcesToCache = [
+                '/assets/index-RHy9OfMu.css',
+                '/assets/index-B92P8K1F.js',
+                '/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png'
+              ];
+              cache.addAll(resourcesToCache).catch(function() {
+                // Ignore cache failures
+              });
+            });
+          }
+        };
+        
+        // Cache resources after page load
+        setTimeout(cacheResources, 2000);
       });
     </script>
   </head>

@@ -8,14 +8,18 @@ import { initRenderOptimizations } from './utils/renderOptimizer';
 import { initSpeedIndexOptimizations } from './utils/speedIndexOptimizer';
 import { initInteractivityOptimizations } from './utils/interactivityOptimizer';
 import { initBlockingTimeOptimizations } from './utils/blockingTimeOptimizer';
+import { initCacheOptimizations } from './utils/cacheOptimizer';
 
-// Initialize TBT optimizations first (critical for reducing blocking time)
+// Initialize cache optimizations first (improves repeat visits)
+initCacheOptimizations();
+
+// Initialize TBT optimizations second (critical for reducing blocking time)
 initBlockingTimeOptimizations();
 
-// Initialize TTI optimizations second (for interactivity)
+// Initialize TTI optimizations third (for interactivity)
 initInteractivityOptimizations();
 
-// Initialize Speed Index optimizations third (for visual completeness)
+// Initialize Speed Index optimizations fourth (for visual completeness)
 initSpeedIndexOptimizations();
 
 // Initialize other optimizations with lower priority
