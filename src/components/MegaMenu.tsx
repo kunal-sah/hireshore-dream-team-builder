@@ -228,12 +228,16 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
-          className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-[100]"
-          onMouseEnter={() => {}} // Prevent immediate close when entering dropdown
-          onMouseLeave={onClose}
+          className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-[100] pointer-events-auto"
+          style={{ 
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05)' 
+          }}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          {/* Add hover buffer area */}
+          <div className="absolute -top-4 left-0 w-full h-4 bg-transparent"></div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
               {/* Menu Columns */}
               <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
                 {currentMenu.columns.map((column, index) => (
@@ -246,11 +250,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose }) => {
                         <li key={itemIndex}>
                           <Link
                             to={item.href}
-                            className="group flex items-start space-x-3 p-3 rounded-lg hover:bg-primary/5 hover:border-primary/20 border border-transparent transition-all duration-200 cursor-pointer"
+                            className="group flex items-start space-x-3 p-3 rounded-lg hover:bg-primary/5 hover:border-primary/20 border border-transparent transition-all duration-200 cursor-pointer relative z-10"
                             onClick={onClose}
+                            onMouseEnter={(e) => {
+                              e.stopPropagation();
+                            }}
                           >
                             <item.icon className="h-5 w-5 text-gray-400 group-hover:text-primary mt-0.5 flex-shrink-0 transition-colors" />
-                            <div className="flex-1">
+                            <div className="flex-1 pointer-events-none">
                               <div className="text-sm font-medium text-gray-900 group-hover:text-primary transition-colors">
                                 {item.title}
                               </div>
@@ -270,7 +277,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose }) => {
 
               {/* Spotlight Card */}
               <div className="lg:col-span-1">
-                <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg relative z-10">
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">
                     {currentMenu.spotlight.title}
                   </h3>
@@ -279,8 +286,11 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose }) => {
                   </p>
                   <Link
                     to={currentMenu.spotlight.href}
-                    className="inline-flex items-center justify-center w-full bg-primary text-white font-semibold py-3 px-4 rounded-lg hover:bg-primary/90 transition-colors group"
+                    className="inline-flex items-center justify-center w-full bg-primary text-white font-semibold py-3 px-4 rounded-lg hover:bg-primary/90 transition-colors group relative z-20 cursor-pointer"
                     onClick={onClose}
+                    onMouseEnter={(e) => {
+                      e.stopPropagation();
+                    }}
                   >
                     {currentMenu.spotlight.cta}
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

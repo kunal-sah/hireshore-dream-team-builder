@@ -34,7 +34,21 @@ const NavBar = () => {
   const handleMenuLeave = () => {
     const timeout = setTimeout(() => {
       setActiveMenu('');
-    }, 300); // Increased delay to prevent accidental closure
+    }, 500); // Increased delay to prevent accidental closure
+    setMenuTimeout(timeout);
+  };
+
+  const handleMegaMenuEnter = () => {
+    if (menuTimeout) {
+      clearTimeout(menuTimeout);
+      setMenuTimeout(null);
+    }
+  };
+
+  const handleMegaMenuLeave = () => {
+    const timeout = setTimeout(() => {
+      setActiveMenu('');
+    }, 200); // Shorter delay when actually leaving the mega menu
     setMenuTimeout(timeout);
   };
 
@@ -102,14 +116,17 @@ const NavBar = () => {
             </Link>
           </motion.div>
           
-          {/* Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-1">
+            {/* Navigation Links */}
+            <div className="hidden lg:flex items-center space-x-1 relative">
             {/* Solutions */}
             <div
-              className="relative"
+              className="relative group"
               onMouseEnter={() => handleMenuEnter('solutions')}
               onMouseLeave={handleMenuLeave}
             >
+              {/* Hover buffer area above */}
+              <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
+              
               <Link
                 to="/solutions"
                 className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
@@ -121,10 +138,12 @@ const NavBar = () => {
 
             {/* Pods/Services */}
             <div
-              className="relative"
+              className="relative group"
               onMouseEnter={() => handleMenuEnter('services')}
               onMouseLeave={handleMenuLeave}
             >
+              <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
+              
               <Link
                 to="/services"
                 className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
@@ -136,10 +155,12 @@ const NavBar = () => {
 
             {/* Staffing */}
             <div
-              className="relative"
+              className="relative group"
               onMouseEnter={() => handleMenuEnter('staffing')}
               onMouseLeave={handleMenuLeave}
             >
+              <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
+              
               <Link
                 to="/staffing"
                 className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
@@ -151,10 +172,12 @@ const NavBar = () => {
 
             {/* Industries */}
             <div
-              className="relative"
+              className="relative group"
               onMouseEnter={() => handleMenuEnter('industries')}
               onMouseLeave={handleMenuLeave}
             >
+              <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
+              
               <Link
                 to="/industries"
                 className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
@@ -174,10 +197,12 @@ const NavBar = () => {
 
             {/* Resources */}
             <div
-              className="relative"
+              className="relative group"
               onMouseEnter={() => handleMenuEnter('resources')}
               onMouseLeave={handleMenuLeave}
             >
+              <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
+              
               <Link
                 to="/resources"
                 className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
@@ -189,10 +214,12 @@ const NavBar = () => {
 
             {/* Company */}
             <div
-              className="relative"
+              className="relative group"
               onMouseEnter={() => handleMenuEnter('company')}
               onMouseLeave={handleMenuLeave}
             >
+              <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
+              
               <Link
                 to="/about-us"
                 className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
@@ -311,11 +338,16 @@ const NavBar = () => {
       </div>
 
       {/* Mega Menu */}
-      <MegaMenu
-        isOpen={!!activeMenu}
-        menuType={activeMenu}
-        onClose={closeMegaMenu}
-      />
+      <div
+        onMouseEnter={handleMegaMenuEnter}
+        onMouseLeave={handleMegaMenuLeave}
+      >
+        <MegaMenu
+          isOpen={!!activeMenu}
+          menuType={activeMenu}
+          onClose={closeMegaMenu}
+        />
+      </div>
     </motion.nav>
   );
 };
