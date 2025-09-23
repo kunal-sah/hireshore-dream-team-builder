@@ -14,6 +14,9 @@ const CaseStudies = lazy(() => import("./pages/CaseStudies"));
 const ContactUs = lazy(() => import("./pages/ContactUs"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Services = lazy(() => import("./pages/Services"));
+const Solutions = lazy(() => import("./pages/Solutions"));
+const Staffing = lazy(() => import("./pages/Staffing"));
+const ConfigurePod = lazy(() => import("./pages/ConfigurePod"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Industries = lazy(() => import("./pages/Industries"));
 const Resources = lazy(() => import("./pages/Resources"));
@@ -78,7 +81,10 @@ const App = () => (
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/solutions" element={<Solutions />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/staffing" element={<Staffing />} />
+            <Route path="/configure-pod" element={<ConfigurePod />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/resources" element={<Resources />} />
