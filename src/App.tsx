@@ -38,12 +38,26 @@ const HRRecruiters = lazy(() => import("./pages/solutions/HRRecruiters"));
 
 // Services pages  
 const WebDev = lazy(() => import("./pages/services/WebDev"));
+const DesignPod = lazy(() => import("./pages/services/DesignPod"));
+const VideoPod = lazy(() => import("./pages/services/VideoPod"));
+const SEOContentPod = lazy(() => import("./pages/services/SEOContentPod"));
+const MarketingOpsPod = lazy(() => import("./pages/services/MarketingOpsPod"));
+const DataAIPod = lazy(() => import("./pages/services/DataAIPod"));
+const SupportQAPod = lazy(() => import("./pages/services/SupportQAPod"));
+
+// How it works pages
+const ProcessSLA = lazy(() => import("./pages/how-it-works/ProcessSLA"));
 
 // Staffing pages
 const DedicatedTalent = lazy(() => import("./pages/staffing/DedicatedTalent"));
+const BuildTeam = lazy(() => import("./pages/staffing/BuildTeam"));
 
 // Industries pages
 const Agencies = lazy(() => import("./pages/industries/Agencies"));
+const RealEstate = lazy(() => import("./pages/industries/RealEstate"));
+
+// Company pages
+const TeamCulture = lazy(() => import("./pages/company/TeamCulture"));
 
 // Lazy load case studies
 const DigitalSixCaseStudy = lazy(() => import("./pages/case-studies/DigitalSix"));
@@ -113,12 +127,22 @@ const App = () => (
             <Route path="/solutions/hr-recruiters" element={<HRRecruiters />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/web-dev" element={<WebDev />} />
+            <Route path="/services/design" element={<DesignPod />} />
+            <Route path="/services/video" element={<VideoPod />} />
+            <Route path="/services/seo-content" element={<SEOContentPod />} />
+            <Route path="/services/marketing-ops" element={<MarketingOpsPod />} />
+            <Route path="/services/data-ai" element={<DataAIPod />} />
+            <Route path="/services/support-qa" element={<SupportQAPod />} />
             <Route path="/staffing" element={<Staffing />} />
             <Route path="/staffing/dedicated" element={<DedicatedTalent />} />
+            <Route path="/staffing/build-team" element={<BuildTeam />} />
+            <Route path="/how-it-works/process-sla" element={<ProcessSLA />} />
             <Route path="/configure-pod" element={<ConfigurePod />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/industries/agencies" element={<Agencies />} />
+            <Route path="/industries/real-estate" element={<RealEstate />} />
+            <Route path="/company/team-culture" element={<TeamCulture />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/contact-us" element={<ContactUs />} />
