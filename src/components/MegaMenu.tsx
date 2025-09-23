@@ -227,12 +227,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose }) => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
-          className="absolute top-full left-0 w-full bg-white shadow-xl border-t z-50"
+          transition={{ duration: 0.3 }}
+          className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-[100]"
+          onMouseEnter={() => {}} // Prevent immediate close when entering dropdown
           onMouseLeave={onClose}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
               {/* Menu Columns */}
               <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
                 {currentMenu.columns.map((column, index) => (
@@ -245,16 +246,16 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose }) => {
                         <li key={itemIndex}>
                           <Link
                             to={item.href}
-                            className="group flex items-start space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-colors"
+                            className="group flex items-start space-x-3 p-3 rounded-lg hover:bg-primary/5 hover:border-primary/20 border border-transparent transition-all duration-200 cursor-pointer"
                             onClick={onClose}
                           >
-                            <item.icon className="h-5 w-5 text-gray-400 group-hover:text-primary mt-0.5 flex-shrink-0" />
-                            <div>
-                              <div className="text-sm font-medium text-gray-900 group-hover:text-primary">
+                            <item.icon className="h-5 w-5 text-gray-400 group-hover:text-primary mt-0.5 flex-shrink-0 transition-colors" />
+                            <div className="flex-1">
+                              <div className="text-sm font-medium text-gray-900 group-hover:text-primary transition-colors">
                                 {item.title}
                               </div>
                               {'description' in item && item.description && (
-                                <div className="text-xs text-gray-500 mt-1">
+                                <div className="text-xs text-gray-500 group-hover:text-gray-600 mt-1 transition-colors">
                                   {item.description}
                                 </div>
                               )}

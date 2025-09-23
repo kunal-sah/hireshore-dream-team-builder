@@ -34,7 +34,7 @@ const NavBar = () => {
   const handleMenuLeave = () => {
     const timeout = setTimeout(() => {
       setActiveMenu('');
-    }, 150);
+    }, 300); // Increased delay to prevent accidental closure
     setMenuTimeout(timeout);
   };
 
@@ -83,7 +83,7 @@ const NavBar = () => {
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center h-16">
           <motion.div 
             className="flex-shrink-0 flex items-center"
@@ -110,10 +110,13 @@ const NavBar = () => {
               onMouseEnter={() => handleMenuEnter('solutions')}
               onMouseLeave={handleMenuLeave}
             >
-              <button className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50">
+              <Link
+                to="/solutions"
+                className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
+              >
                 Solutions
                 <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
+              </Link>
             </div>
 
             {/* Pods/Services */}
@@ -122,10 +125,13 @@ const NavBar = () => {
               onMouseEnter={() => handleMenuEnter('services')}
               onMouseLeave={handleMenuLeave}
             >
-              <button className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50">
+              <Link
+                to="/services"
+                className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
+              >
                 Pods / Services
                 <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
+              </Link>
             </div>
 
             {/* Staffing */}
@@ -134,10 +140,13 @@ const NavBar = () => {
               onMouseEnter={() => handleMenuEnter('staffing')}
               onMouseLeave={handleMenuLeave}
             >
-              <button className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50">
+              <Link
+                to="/staffing"
+                className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
+              >
                 Staffing
                 <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
+              </Link>
             </div>
 
             {/* Industries */}
@@ -146,10 +155,13 @@ const NavBar = () => {
               onMouseEnter={() => handleMenuEnter('industries')}
               onMouseLeave={handleMenuLeave}
             >
-              <button className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50">
+              <Link
+                to="/industries"
+                className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
+              >
                 Industries
                 <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
+              </Link>
             </div>
 
             {/* Pricing */}
@@ -166,10 +178,13 @@ const NavBar = () => {
               onMouseEnter={() => handleMenuEnter('resources')}
               onMouseLeave={handleMenuLeave}
             >
-              <button className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50">
+              <Link
+                to="/resources"
+                className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
+              >
                 Resources
                 <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
+              </Link>
             </div>
 
             {/* Company */}
@@ -178,10 +193,13 @@ const NavBar = () => {
               onMouseEnter={() => handleMenuEnter('company')}
               onMouseLeave={handleMenuLeave}
             >
-              <button className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50">
+              <Link
+                to="/about-us"
+                className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
+              >
                 Company
                 <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
+              </Link>
             </div>
 
             {/* Book a Call - Primary CTA */}
