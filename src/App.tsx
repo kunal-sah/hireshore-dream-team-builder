@@ -25,6 +25,19 @@ const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Legal = lazy(() => import("./pages/Legal"));
 
+// Solutions pages
+const LaunchFaster = lazy(() => import("./pages/solutions/LaunchFaster"));
+const ScaleDesign = lazy(() => import("./pages/solutions/ScaleDesign"));
+
+// Services pages  
+const WebDev = lazy(() => import("./pages/services/WebDev"));
+
+// Staffing pages
+const DedicatedTalent = lazy(() => import("./pages/staffing/DedicatedTalent"));
+
+// Industries pages
+const Agencies = lazy(() => import("./pages/industries/Agencies"));
+
 // Lazy load case studies
 const DigitalSixCaseStudy = lazy(() => import("./pages/case-studies/DigitalSix"));
 const MedzMediaCaseStudy = lazy(() => import("./pages/case-studies/MedzMedia"));
@@ -82,11 +95,16 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/solutions" element={<Solutions />} />
+            <Route path="/solutions/launch-faster" element={<LaunchFaster />} />
+            <Route path="/solutions/scale-design" element={<ScaleDesign />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/web-dev" element={<WebDev />} />
             <Route path="/staffing" element={<Staffing />} />
+            <Route path="/staffing/dedicated" element={<DedicatedTalent />} />
             <Route path="/configure-pod" element={<ConfigurePod />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/industries" element={<Industries />} />
+            <Route path="/industries/agencies" element={<Agencies />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/contact-us" element={<ContactUs />} />
