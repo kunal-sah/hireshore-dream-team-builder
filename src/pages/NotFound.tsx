@@ -2,6 +2,7 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Home, ArrowLeft, Search } from "lucide-react";
+import NavBar from "@/components/NavBar";
 
 const NotFound = () => {
   const location = useLocation();
@@ -37,8 +38,10 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center max-w-md mx-auto px-6">
+    <div className="min-h-screen flex flex-col bg-background">
+      <NavBar />
+      <div className="flex-1 flex items-center justify-center">
+        <div className="text-center max-w-md mx-auto px-6">
         {/* Animated 404 Number */}
         <div className="relative mb-8">
           <h1 className="text-8xl font-bold text-primary/20 animate-pulse-subtle">
@@ -104,6 +107,7 @@ const NotFound = () => {
         {/* Decorative Element */}
         <div className="mt-12 opacity-20">
           <Search className="w-16 h-16 mx-auto text-primary animate-pulse-subtle" />
+        </div>
         </div>
       </div>
     </div>
