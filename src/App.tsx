@@ -36,6 +36,29 @@ const MarketingLeaders = lazy(() => import("./pages/solutions/MarketingLeaders")
 const Founders = lazy(() => import("./pages/solutions/Founders"));
 const HRRecruiters = lazy(() => import("./pages/solutions/HRRecruiters"));
 
+// How it works pages
+const QAFramework = lazy(() => import("./pages/how-it-works/QAFramework"));
+const OnboardingProcess = lazy(() => import("./pages/how-it-works/OnboardingProcess"));
+
+// Staffing pages
+const RecruitmentService = lazy(() => import("./pages/staffing/RecruitmentService"));
+const Compliance = lazy(() => import("./pages/staffing/Compliance"));
+const OneWeekTrial = lazy(() => import("./pages/staffing/OneWeekTrial"));
+const Rates = lazy(() => import("./pages/staffing/Rates"));
+const TalentProfiles = lazy(() => import("./pages/staffing/TalentProfiles"));
+
+// Industries pages
+const Ecommerce = lazy(() => import("./pages/industries/Ecommerce"));
+const SaasTech = lazy(() => import("./pages/industries/SaasTech"));
+const Healthcare = lazy(() => import("./pages/industries/Healthcare"));
+const Education = lazy(() => import("./pages/industries/Education"));
+const Hospitality = lazy(() => import("./pages/industries/Hospitality"));
+const Finance = lazy(() => import("./pages/industries/Finance"));
+
+// Company pages
+const Careers = lazy(() => import("./pages/company/Careers"));
+const Partners = lazy(() => import("./pages/company/Partners"));
+
 // Services pages  
 const WebDev = lazy(() => import("./pages/services/WebDev"));
 const DesignPod = lazy(() => import("./pages/services/DesignPod"));
@@ -125,6 +148,29 @@ const App = () => (
             <Route path="/solutions/marketing-leaders" element={<MarketingLeaders />} />
             <Route path="/solutions/founders" element={<Founders />} />
             <Route path="/solutions/hr-recruiters" element={<HRRecruiters />} />
+            
+            {/* How it works routes */}
+            <Route path="/how-it-works/qa-framework" element={<QAFramework />} />
+            <Route path="/how-it-works/onboarding" element={<OnboardingProcess />} />
+            
+            {/* Staffing routes */}
+            <Route path="/staffing/recruitment-service" element={<RecruitmentService />} />
+            <Route path="/staffing/compliance" element={<Compliance />} />
+            <Route path="/staffing/1-week-trial" element={<OneWeekTrial />} />
+            <Route path="/staffing/rates" element={<Rates />} />
+            <Route path="/staffing/talent-profiles" element={<TalentProfiles />} />
+            
+            {/* Industries routes */}
+            <Route path="/industries/ecommerce" element={<Ecommerce />} />
+            <Route path="/industries/saas-tech" element={<SaasTech />} />
+            <Route path="/industries/healthcare" element={<Healthcare />} />
+            <Route path="/industries/education" element={<Education />} />
+            <Route path="/industries/hospitality" element={<Hospitality />} />
+            <Route path="/industries/finance" element={<Finance />} />
+            
+            {/* Company routes */}
+            <Route path="/company/careers" element={<Careers />} />
+            <Route path="/company/partners" element={<Partners />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/web-dev" element={<WebDev />} />
             <Route path="/services/design" element={<DesignPod />} />
