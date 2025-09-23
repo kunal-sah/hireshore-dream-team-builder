@@ -314,4 +314,12 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
+  <!-- 404 Error Page -->
+  <url>
+    <loc>https://hireshore.co/404</loc>
+    <lastmod>2025-01-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
 </urlset>
