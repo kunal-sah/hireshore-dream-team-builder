@@ -34,7 +34,7 @@ const NavBar = () => {
   const handleMenuLeave = () => {
     const timeout = setTimeout(() => {
       setActiveMenu('');
-    }, 500); // Increased delay to prevent accidental closure
+    }, 5000); // Extended delay to prevent accidental closure while navigating to cards
     setMenuTimeout(timeout);
   };
 
@@ -48,7 +48,7 @@ const NavBar = () => {
   const handleMegaMenuLeave = () => {
     const timeout = setTimeout(() => {
       setActiveMenu('');
-    }, 200); // Shorter delay when actually leaving the mega menu
+    }, 250); // Close shortly after actually leaving the mega menu
     setMenuTimeout(timeout);
   };
 
@@ -346,6 +346,8 @@ const NavBar = () => {
           isOpen={!!activeMenu}
           menuType={activeMenu}
           onClose={closeMegaMenu}
+          onHoverEnter={handleMegaMenuEnter}
+          onHoverLeave={handleMegaMenuLeave}
         />
       </div>
     </motion.nav>
