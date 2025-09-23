@@ -154,9 +154,9 @@ const App = () => (
             <Route path="/how-it-works/onboarding" element={<OnboardingProcess />} />
             
             {/* Staffing routes */}
-            <Route path="/staffing/recruitment-service" element={<RecruitmentService />} />
+            <Route path="/staffing/recruitment" element={<RecruitmentService />} />
             <Route path="/staffing/compliance" element={<Compliance />} />
-            <Route path="/staffing/1-week-trial" element={<OneWeekTrial />} />
+            <Route path="/staffing/trial" element={<OneWeekTrial />} />
             <Route path="/staffing/rates" element={<Rates />} />
             <Route path="/staffing/talent-profiles" element={<TalentProfiles />} />
             

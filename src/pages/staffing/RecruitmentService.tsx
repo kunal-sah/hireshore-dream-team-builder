@@ -2,64 +2,98 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, Search, Users, Target, Clock, Award, Zap, Globe } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle, Clock, Users, Target, Search, FileText, Award, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const RecruitmentService = () => {
-  const services = [
-    "End-to-End Recruitment Process",
-    "Technical Skills Assessment",
-    "Cultural Fit Evaluation",
-    "Reference & Background Checks",
-    "Onboarding Support",
-    "90-Day Performance Guarantee",
-    "Ongoing Support & Retention",
-    "Custom Talent Pipeline"
-  ];
-
-  const process = [
+  const processSteps = [
     {
-      icon: Target,
-      title: "Requirements Analysis",
-      description: "Deep dive into your specific needs, culture, and ideal candidate profile"
+      step: "1",
+      title: "Requirements Gathering",
+      description: "We work with you to understand your exact hiring needs, company culture, and role requirements.",
+      duration: "1-2 days"
     },
     {
-      icon: Search,
+      step: "2", 
       title: "Talent Sourcing",
-      description: "Comprehensive search across our network and external talent pools"
+      description: "Our recruiters tap into our global network to find the best candidates for your specific needs.",
+      duration: "3-5 days"
     },
     {
-      icon: Users,
-      title: "Screening & Assessment",
-      description: "Multi-stage evaluation including technical, cultural, and soft skills"
+      step: "3",
+      title: "Screening & Interviews",
+      description: "We conduct thorough technical and cultural fit interviews to present only the best candidates.",
+      duration: "5-7 days"
     },
     {
-      icon: Award,
+      step: "4",
       title: "Final Selection",
-      description: "Present top candidates with complete profiles and recommendations"
+      description: "You interview our top recommendations and make your final hiring decision.",
+      duration: "2-3 days"
     }
   ];
 
   const benefits = [
     {
       icon: Clock,
-      stat: "2-3 Weeks",
-      label: "Average Time to Hire"
+      title: "Faster Hiring",
+      description: "Reduce time-to-hire by 70% with our streamlined process"
     },
     {
       icon: Target,
-      stat: "95%",
-      label: "Success Rate"
+      title: "Quality Candidates",
+      description: "Access to pre-vetted talent from our global network"
     },
     {
-      icon: Globe,
-      stat: "50+",
-      label: "Countries Covered"
+      icon: DollarSign,
+      title: "Cost Effective",
+      description: "Lower recruitment costs compared to traditional agencies"
     },
     {
-      icon: Users,
-      stat: "1000+",
-      label: "Successful Placements"
+      icon: Award,
+      title: "Quality Guarantee",
+      description: "90-day replacement guarantee on all placements"
+    }
+  ];
+
+  const pricingPlans = [
+    {
+      name: "Standard",
+      price: "15%",
+      description: "First year salary",
+      features: [
+        "30-day replacement guarantee",
+        "Basic screening process",
+        "Standard turnaround time",
+        "Email support"
+      ]
+    },
+    {
+      name: "Premium",
+      price: "20%", 
+      description: "First year salary",
+      features: [
+        "90-day replacement guarantee",
+        "Enhanced screening process",
+        "Priority turnaround time",
+        "Dedicated account manager",
+        "Cultural fit assessment"
+      ],
+      popular: true
+    },
+    {
+      name: "Executive",
+      price: "25%",
+      description: "First year salary", 
+      features: [
+        "120-day replacement guarantee",
+        "Executive-level screening",
+        "Expedited process",
+        "Senior account manager",
+        "Leadership assessment",
+        "Reference verification"
+      ]
     }
   ];
 
@@ -70,72 +104,42 @@ const RecruitmentService = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
+          <Badge variant="secondary" className="mb-4">Recruitment-as-a-Service</Badge>
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Recruitment-as-a-Service
+            Let Us Handle Your
+            <span className="text-primary"> Entire Hiring Process</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Let us handle your entire recruitment process. From sourcing to onboarding, 
-            we find and place the perfect talent for your team with our proven methodology.
+            From job posting to final offer, we manage every step of recruitment. Focus on your business while we find your perfect team members.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link to="/configure-pod">Start Recruitment</Link>
+              <Link to="/contact-us">Start Recruiting</Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <Link to="/contact-us">Discuss Requirements</Link>
+              <Link to="/staffing/rates">View Pricing</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Success Metrics */}
+      {/* Process Section */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
-            {benefits.map((benefit) => (
-              <div key={benefit.label} className="text-center">
-                <benefit.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                <div className="text-4xl font-bold text-primary mb-2">{benefit.stat}</div>
-                <p className="text-muted-foreground">{benefit.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="py-16 px-4 bg-muted/50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Complete Recruitment Service</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service) => (
-              <Card key={service} className="p-6">
-                <CardContent className="p-0">
-                  <div className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <span className="text-foreground">{service}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Recruitment Process</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Our Recruitment Process</h2>
+          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+            A proven 4-step process that delivers quality candidates in just 10-15 days
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((step, index) => (
-              <Card key={step.title} className="p-8 text-center">
+            {processSteps.map((step) => (
+              <Card key={step.step} className="p-6 text-center">
                 <CardContent className="p-0">
                   <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
-                    {index + 1}
+                    {step.step}
                   </div>
-                  <step.icon className="w-8 h-8 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-4">{step.title}</h3>
-                  <p className="text-muted-foreground">{step.description}</p>
+                  <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{step.description}</p>
+                  <Badge variant="outline">{step.duration}</Badge>
                 </CardContent>
               </Card>
             ))}
@@ -143,40 +147,61 @@ const RecruitmentService = () => {
         </div>
       </section>
 
-      {/* Guarantee */}
+      {/* Benefits Section */}
       <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Guarantee</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Recruitment Service</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit) => (
+              <Card key={benefit.title} className="p-6 text-center">
+                <CardContent className="p-0">
+                  <benefit.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4">Transparent Pricing</h2>
+          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+            Pay only when we successfully place a candidate. No upfront fees, no hidden costs.
+          </p>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-8 text-center">
-              <CardContent className="p-0">
-                <Award className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">90-Day Performance Guarantee</h3>
-                <p className="text-muted-foreground">
-                  If the candidate doesn't meet expectations within 90 days, we'll find a replacement at no cost.
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="p-8 text-center">
-              <CardContent className="p-0">
-                <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Fast Turnaround</h3>
-                <p className="text-muted-foreground">
-                  Quality candidates presented within 2-3 weeks, with continuous pipeline development.
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="p-8 text-center">
-              <CardContent className="p-0">
-                <Users className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Ongoing Support</h3>
-                <p className="text-muted-foreground">
-                  Continuous support during integration and ongoing relationship management for retention.
-                </p>
-              </CardContent>
-            </Card>
+            {pricingPlans.map((plan) => (
+              <Card key={plan.name} className={`p-8 ${plan.popular ? 'border-primary shadow-lg' : ''}`}>
+                <CardContent className="p-0">
+                  {plan.popular && (
+                    <Badge className="mb-4">Most Popular</Badge>
+                  )}
+                  <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                  <div className="mb-6">
+                    <span className="text-3xl font-bold text-primary">{plan.price}</span>
+                    <span className="text-muted-foreground ml-2">{plan.description}</span>
+                  </div>
+                  <ul className="space-y-3 mb-8">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-center text-sm">
+                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button 
+                    className="w-full" 
+                    variant={plan.popular ? "default" : "outline"}
+                    asChild
+                  >
+                    <Link to="/contact-us">Get Started</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -185,13 +210,13 @@ const RecruitmentService = () => {
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Find Your Perfect Candidates?
+            Ready to Streamline Your Hiring?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Let our recruitment experts handle the entire process while you focus on your business.
+            Let us handle the recruitment process while you focus on growing your business.
           </p>
           <Button size="lg" variant="secondary" asChild>
-            <Link to="/configure-pod">Start Recruitment Process</Link>
+            <Link to="/contact-us">Start Your Search</Link>
           </Button>
         </div>
       </section>
