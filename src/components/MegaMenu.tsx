@@ -89,7 +89,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
         {
           title: 'How it works',
           items: [
-            { title: 'Process & SLAs', href: '/how-it-works/process', icon: FileText },
+            { title: 'Process & SLAs', href: '/how-it-works/process-sla', icon: FileText },
             { title: 'QA & PM Framework', href: '/how-it-works/qa-framework', icon: Award },
             { title: 'Onboarding 5–7 days', href: '/how-it-works/onboarding', icon: Rocket }
           ]
@@ -119,7 +119,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
           items: [
             { title: '1-Week Trial', href: '/staffing/trial', icon: Award },
             { title: 'Roles & Rate Card', href: '/staffing/rates', icon: Calculator },
-            { title: 'Talent Profiles', href: '/staffing/profiles', icon: Users }
+            { title: 'Talent Profiles', href: '/staffing/talent-profiles', icon: Users }
           ]
         }
       ],
@@ -203,8 +203,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
           items: [
             { title: 'About Us', href: '/about-us', icon: Users },
             { title: 'Team & Culture', href: '/about-us#team', icon: User },
-            { title: 'Careers', href: '/careers', icon: Award },
-            { title: 'Partners', href: '/partners', icon: Building },
+            { title: 'Careers', href: '/company/careers', icon: Award },
+            { title: 'Partners', href: '/company/partners', icon: Building },
             { title: 'Contact Us', href: '/contact-us', icon: Phone }
           ]
         }
@@ -212,7 +212,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
       spotlight: {
         title: 'Join Our Team',
         description: 'Help us build the future of work',
-        href: '/careers',
+        href: '/company/careers',
         cta: 'View Jobs'
       }
     }
