@@ -28,6 +28,13 @@ const Legal = lazy(() => import("./pages/Legal"));
 // Solutions pages
 const LaunchFaster = lazy(() => import("./pages/solutions/LaunchFaster"));
 const ScaleDesign = lazy(() => import("./pages/solutions/ScaleDesign"));
+const AutomateOps = lazy(() => import("./pages/solutions/AutomateOps"));
+const SalesPipeline = lazy(() => import("./pages/solutions/SalesPipeline"));
+const SupportQA = lazy(() => import("./pages/solutions/SupportQA"));
+const AgencyOwners = lazy(() => import("./pages/solutions/AgencyOwners"));
+const MarketingLeaders = lazy(() => import("./pages/solutions/MarketingLeaders"));
+const Founders = lazy(() => import("./pages/solutions/Founders"));
+const HRRecruiters = lazy(() => import("./pages/solutions/HRRecruiters"));
 
 // Services pages  
 const WebDev = lazy(() => import("./pages/services/WebDev"));
@@ -97,6 +104,13 @@ const App = () => (
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/solutions/launch-faster" element={<LaunchFaster />} />
             <Route path="/solutions/scale-design" element={<ScaleDesign />} />
+            <Route path="/solutions/automate-ops" element={<AutomateOps />} />
+            <Route path="/solutions/sales-pipeline" element={<SalesPipeline />} />
+            <Route path="/solutions/support-qa" element={<SupportQA />} />
+            <Route path="/solutions/agency-owners" element={<AgencyOwners />} />
+            <Route path="/solutions/marketing-leaders" element={<MarketingLeaders />} />
+            <Route path="/solutions/founders" element={<Founders />} />
+            <Route path="/solutions/hr-recruiters" element={<HRRecruiters />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/web-dev" element={<WebDev />} />
             <Route path="/staffing" element={<Staffing />} />
