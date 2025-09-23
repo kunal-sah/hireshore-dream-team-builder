@@ -107,7 +107,7 @@ const Agencies = () => {
                 <ul className="space-y-2">
                   {solution.benefits.map((benefit, benefitIndex) => (
                     <li key={benefitIndex} className="flex items-center text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      <CheckCircle className="h-4 w-4 text-primary mr-2" />
                       {benefit}
                     </li>
                   ))}

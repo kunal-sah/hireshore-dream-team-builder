@@ -107,7 +107,7 @@ const WebDev = () => {
                 <ul className="space-y-2">
                   {tech.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      <CheckCircle className="h-4 w-4 text-primary mr-2" />
                       {feature}
                     </li>
                   ))}
@@ -167,7 +167,7 @@ const WebDev = () => {
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                     <span>{benefit}</span>
                   </div>
                 ))}
