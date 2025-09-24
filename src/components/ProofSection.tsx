@@ -11,7 +11,7 @@ const ProofSection = () => {
       number: "40+",
       label: "Pods launched",
       icon: TrendingUp,
-      color: "from-blue-500 to-blue-600"
+      color: "from-primary to-primary-variant"
     },
     {
       number: "5+",

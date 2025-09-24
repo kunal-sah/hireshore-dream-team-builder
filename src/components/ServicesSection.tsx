@@ -7,32 +7,32 @@ const ServicesSection = () => {
   const techRoles = [
     { 
       title: "Full Stack Developers", 
-      icon: <Code className="w-10 h-10 text-[#0d6efd]" />,
+      icon: <Code className="w-10 h-10 text-primary" />,
       description: "Expert developers who can handle both front-end and back-end development needs."
     },
     { 
       title: "Graphics Designers", 
-      icon: <Palette className="w-10 h-10 text-[#0d6efd]" />,
+      icon: <Palette className="w-10 h-10 text-primary" />,
       description: "Creative professionals who design stunning visual content and brand materials."
     },
     { 
       title: "UI/UX Designers", 
-      icon: <Pen className="w-10 h-10 text-[#0d6efd]" />,
+      icon: <Pen className="w-10 h-10 text-primary" />,
       description: "Creative professionals who craft beautiful, user-friendly interfaces and experiences."
     },
     { 
       title: "SEO Specialists", 
-      icon: <Search className="w-10 h-10 text-[#0d6efd]" />,
+      icon: <Search className="w-10 h-10 text-primary" />,
       description: "Experts who optimize your online presence to improve visibility and rankings."
     },
     { 
       title: "Content Creators", 
-      icon: <FileEdit className="w-10 h-10 text-[#0d6efd]" />,
+      icon: <FileEdit className="w-10 h-10 text-primary" />,
       description: "Talented writers and creators who develop engaging content for your audience."
     },
     { 
       title: "Shopify & WordPress Developers", 
-      icon: <ShoppingCart className="w-10 h-10 text-[#0d6efd]" />,
+      icon: <ShoppingCart className="w-10 h-10 text-primary" />,
       description: "Specialized developers who build and enhance e-commerce and CMS platforms."
     }
   ];
@@ -40,32 +40,32 @@ const ServicesSection = () => {
   const supportRoles = [
     { 
       title: "Virtual Assistants", 
-      icon: <User className="w-10 h-10 text-[#0d6efd]" />,
+      icon: <User className="w-10 h-10 text-primary" />,
       description: "Remote professionals who handle administrative tasks and support business operations."
     },
     { 
       title: "Call Answering Services", 
-      icon: <Phone className="w-10 h-10 text-[#0d6efd]" />,
+      icon: <Phone className="w-10 h-10 text-primary" />,
       description: "Dedicated staff who professionally handle incoming calls for your business."
     },
     { 
       title: "Web Chat Support", 
-      icon: <MessageSquare className="w-10 h-10 text-[#0d6efd]" />,
+      icon: <MessageSquare className="w-10 h-10 text-primary" />,
       description: "Real-time chat agents who provide immediate assistance to website visitors."
     },
     { 
       title: "Appointment Setters", 
-      icon: <Calendar className="w-10 h-10 text-[#0d6efd]" />,
+      icon: <Calendar className="w-10 h-10 text-primary" />,
       description: "Specialists who schedule and manage meetings and appointments efficiently."
     },
     { 
       title: "24/7 Customer Support Agents", 
-      icon: <Headphones className="w-10 h-10 text-[#0d6efd]" />,
+      icon: <Headphones className="w-10 h-10 text-primary" />,
       description: "Round-the-clock support team ensuring customer queries are addressed anytime."
     },
     { 
       title: "Business Continuity Assistants", 
-      icon: <Briefcase className="w-10 h-10 text-[#0d6efd]" />,
+      icon: <Briefcase className="w-10 h-10 text-primary" />,
       description: "Professionals who ensure your business operations continue running smoothly."
     }
   ];
@@ -125,8 +125,8 @@ const ServicesSection = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center mb-6">
-              <div className="flex-shrink-0 bg-blue-50 rounded-full p-3">
-                <Users className="w-8 h-8 text-[#0d6efd]" />
+              <div className="flex-shrink-0 bg-primary/10 rounded-full p-3">
+                <Users className="w-8 h-8 text-primary" />
               </div>
               <h3 className="ml-3 sm:ml-4 text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900">☎️ Admin & Support Roles</h3>
             </div>
@@ -164,8 +164,8 @@ const ServicesSection = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center mb-6">
-              <div className="flex-shrink-0 bg-blue-50 rounded-full p-3">
-                <Briefcase className="w-8 h-8 text-[#0d6efd]" />
+              <div className="flex-shrink-0 bg-primary/10 rounded-full p-3">
+                <Briefcase className="w-8 h-8 text-primary" />
               </div>
               <h3 className="ml-3 sm:ml-4 text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900">🛠️ Tech & Creative Roles</h3>
             </div>
@@ -201,7 +201,7 @@ const ServicesSection = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Button 
-              className="bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-medium py-4 sm:py-6 px-6 sm:px-8 rounded-full text-base sm:text-lg hover:shadow-lg transition-all inline-flex items-center gap-2"
+              className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium py-4 sm:py-6 px-6 sm:px-8 rounded-full text-base sm:text-lg hover:shadow-lg transition-all inline-flex items-center gap-2"
               onClick={() => {
                 const element = document.getElementById('book');
                 if (element) {

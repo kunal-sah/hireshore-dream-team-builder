@@ -151,14 +151,14 @@ const ContactUs = () => {
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-blue-600" />
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
                       <p className="text-gray-600">Book a free strategy session</p>
                       <Button 
-                        className="mt-2 bg-blue-600 hover:bg-blue-700"
+                        className="mt-2 bg-primary hover:bg-primary/90"
                         onClick={() => {
                           const bookingElement = document.getElementById('book');
                           if (bookingElement) {
@@ -215,7 +215,7 @@ const ContactUs = () => {
                 className="bg-white rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg border border-gray-100"
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <MessageSquare className="w-6 h-6 text-blue-600" />
+                  <MessageSquare className="w-6 h-6 text-primary" />
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Send us a Message</h3>
                 </div>
 
@@ -319,7 +319,7 @@ const ContactUs = () => {
                   <Button 
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-600 hover:bg-blue-700 h-12 text-lg font-semibold disabled:opacity-50"
+                    className="w-full bg-primary hover:bg-primary/90 h-12 text-lg font-semibold disabled:opacity-50"
                   >
                     <Send className="w-5 h-5 mr-2" />
                     {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -331,7 +331,7 @@ const ContactUs = () => {
         </section>
 
         {/* CTA Section */}
-        <section id="book" className="bg-gradient-to-r from-blue-600 to-purple-700 py-12 sm:py-16 lg:py-20">
+        <section id="book" className="bg-gradient-primary py-12 sm:py-16 lg:py-20">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -351,7 +351,7 @@ const ContactUs = () => {
                 <h3 className="text-lg sm:text-xl font-semibold mb-4">Book Your Free Strategy Session</h3>
                 <p className="mb-6 text-sm sm:text-base">Choose a time that works for you - we'll discuss your project and how our delivery pods can help you scale.</p>
                 <Button 
-                  className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-6 sm:px-8 py-3 text-sm sm:text-base"
+                  className="bg-white text-primary hover:bg-gray-100 font-semibold px-6 sm:px-8 py-3 text-sm sm:text-base"
                   onClick={() => window.open('https://calendly.com/hireshore/30min', '_blank')}
                 >
                   Schedule Now

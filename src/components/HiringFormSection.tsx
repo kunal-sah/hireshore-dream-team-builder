@@ -144,7 +144,7 @@ const HiringFormSection = () => {
             variants={itemVariants}
             className="text-2xl md:text-3xl font-bold mb-4 text-center relative z-10"
           >
-            <span className="bg-gradient-to-r from-[#0d6efd] to-[#0091ff] bg-clip-text text-transparent">
+            <span className="bg-gradient-primary bg-clip-text text-transparent">
               Let's Build Your Offshore Team
             </span>
           </motion.h2>
@@ -165,7 +165,7 @@ const HiringFormSection = () => {
           >
             <motion.button 
               onClick={scrollToCalendly}
-              className="bg-gradient-to-r from-[#0d6efd] to-[#0091ff] text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg relative overflow-hidden group ripple-effect magnetic-button"
+              className="bg-gradient-primary text-white font-bold py-4 px-8 rounded-xl shadow-lg text-lg relative overflow-hidden group ripple-effect magnetic-button"
               style={{
                 x: smoothX.get() * 0.1,
                 y: smoothY.get() * 0.1

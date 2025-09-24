@@ -146,7 +146,7 @@ const ConversionFormSection = () => {
               <motion.div variants={itemVariants} className="space-y-4">
                 <Button
                   onClick={scrollToCalendly}
-                  className="w-full h-14 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full h-14 bg-gradient-primary hover:bg-gradient-primary-hover text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                   size="lg"
                 >
                   <Phone className="mr-2 h-5 w-5" />
@@ -168,7 +168,7 @@ const ConversionFormSection = () => {
               <motion.div variants={itemVariants} className="text-center">
                 <p className="text-sm text-gray-500">
                   By booking, you agree to our{" "}
-                  <a href="/privacy" className="text-blue-600 hover:underline">
+                  <a href="/privacy" className="text-primary hover:underline">
                     Privacy Policy
                   </a>
                 </p>

@@ -107,7 +107,7 @@ const WhyPodsSection = () => {
                   <th className="text-center py-4 px-6 font-semibold text-gray-900">Full-Time Hire</th>
                   <th className="text-center py-4 px-6 font-semibold text-gray-900">Freelancers</th>
                   <th className="text-center py-4 px-6 font-semibold text-gray-900">Traditional Agency</th>
-                  <th className="text-center py-4 px-6 font-semibold text-blue-600 bg-blue-50">Delivery Pod (You)</th>
+                  <th className="text-center py-4 px-6 font-semibold text-primary bg-primary/10">Delivery Pod (You)</th>
                 </tr>
               </thead>
               <tbody>
@@ -125,9 +125,9 @@ const WhyPodsSection = () => {
                     <td className="py-4 px-6 text-center text-gray-600 border-r border-gray-100">
                       {row.agency}
                     </td>
-                    <td className="py-4 px-6 text-center bg-blue-50 border-l-2 border-blue-200">
-                      <span className="inline-flex items-center font-medium text-blue-700">
-                        <CheckCircle className="w-4 h-4 mr-2 text-blue-600" />
+                    <td className="py-4 px-6 text-center bg-primary/10 border-l-2 border-primary/20">
+                      <span className="inline-flex items-center font-medium text-primary">
+                        <CheckCircle className="w-4 h-4 mr-2 text-primary" />
                         {row.pod}
                       </span>
                     </td>
@@ -155,11 +155,11 @@ const WhyPodsSection = () => {
                     <span className="text-sm text-gray-600">Traditional Agency:</span>
                     <span className="text-sm font-medium text-gray-900">{row.agency}</span>
                   </div>
-                  <div className="flex justify-between items-center bg-blue-50 rounded px-3 py-2 border-l-2 border-blue-200">
-                    <span className="text-sm font-medium text-blue-700">Delivery Pod:</span>
+                  <div className="flex justify-between items-center bg-primary/10 rounded px-3 py-2 border-l-2 border-primary/20">
+                    <span className="text-sm font-medium text-primary">Delivery Pod:</span>
                     <div className="flex items-center">
-                      <CheckCircle className="w-4 h-4 mr-1 text-blue-600" />
-                      <span className="text-sm font-medium text-blue-700">{row.pod}</span>
+                      <CheckCircle className="w-4 h-4 mr-1 text-primary" />
+                      <span className="text-sm font-medium text-primary">{row.pod}</span>
                     </div>
                   </div>
                 </div>

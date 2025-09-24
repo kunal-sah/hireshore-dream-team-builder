@@ -93,7 +93,7 @@ const RolesSection = () => {
           >
             Roles We Specialize In
             <motion.span 
-              className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#0d6efd] via-[#6610f2] to-[#0091ff]"
+              className="absolute bottom-0 left-0 w-full h-1 bg-gradient-primary"
               initial={{ width: 0 }}
               animate={isInView ? { width: "100%" } : { width: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
@@ -155,7 +155,7 @@ const RolesSection = () => {
                 
                 {/* Animated gradient background */}
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-[#0d6efd]/0 via-[#0d6efd]/0 to-[#0091ff]/0 group-hover:from-[#0d6efd]/5 group-hover:via-[#6610f2]/10 group-hover:to-[#0091ff]/5" 
+                  className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-10"
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}

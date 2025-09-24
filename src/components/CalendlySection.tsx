@@ -81,7 +81,7 @@ const CalendlySection = () => {
               href="https://calendly.com/hireshore/30min" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
             >
               Book on Calendly
             </a>

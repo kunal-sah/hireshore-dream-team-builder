@@ -22,7 +22,7 @@ const InsideDeliveryPod = () => {
         'Fewer revisions',
         'Happy clients'
       ],
-      gradient: 'from-blue-500 to-indigo-600'
+      gradient: 'from-primary to-primary-variant'
     },
     {
       title: 'Product Builder Pod',

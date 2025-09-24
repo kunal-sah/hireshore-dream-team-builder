@@ -56,7 +56,7 @@ const DigitalSixSuccessSection = () => {
         transition={{ duration: 0.5 }}
       >
         <motion.span 
-          className="text-sm font-medium text-blue-600 uppercase tracking-wider inline-block mb-4"
+          className="text-sm font-medium text-primary uppercase tracking-wider inline-block mb-4"
           animate={{ y: [0, -3, 0] }}
           transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
         >
@@ -115,8 +115,8 @@ const DigitalSixSuccessSection = () => {
             transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
             whileHover={{ scale: 1.05 }}
           >
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4">
-              <stat.icon className="w-6 h-6 text-blue-600" />
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4">
+                <stat.icon className="w-6 h-6 text-primary" />
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
             <div className="text-lg font-semibold text-gray-700 mb-1">{stat.label}</div>
@@ -126,7 +126,7 @@ const DigitalSixSuccessSection = () => {
       </motion.div>
 
       <motion.div 
-        className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 mb-8"
+        className="bg-gradient-subtle rounded-2xl p-8 md:p-12 mb-8"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -156,7 +156,7 @@ const DigitalSixSuccessSection = () => {
             <div className="grid grid-cols-2 gap-3">
               {services.map((service, index) => (
                 <div key={index} className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                  <Zap className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm text-gray-700">{service}</span>
                 </div>
               ))}
@@ -165,7 +165,7 @@ const DigitalSixSuccessSection = () => {
           
           <div className="text-center lg:text-right">
             <div className="inline-block bg-white rounded-xl p-6 shadow-lg mb-6">
-              <div className="text-4xl font-bold text-blue-600 mb-2">$1M+</div>
+              <div className="text-4xl font-bold text-primary mb-2">$1M+</div>
               <div className="text-gray-600">Monthly savings in hiring costs</div>
             </div>
           </div>

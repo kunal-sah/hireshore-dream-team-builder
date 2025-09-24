@@ -6,7 +6,7 @@ const DeliveryPodDefinition = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section ref={ref} className="py-8 bg-gradient-to-r from-blue-50 to-indigo-50">
+    <section ref={ref} className="py-8 bg-gradient-subtle">
       <div className="max-w-6xl mx-auto px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -77,7 +77,7 @@ const BenefitsSection = () => {
             >
               Why Hireshore?
               <motion.span 
-                className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#0d6efd] via-[#6610f2] to-[#0091ff]"
+                className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-primary"
                 initial={{ width: 0, opacity: 0 }}
                 whileInView={{ width: "100%", opacity: 1 }}
                 transition={{ duration: 1, delay: 0.2 }}
@@ -137,14 +137,14 @@ const BenefitsSection = () => {
                         {benefit.emoji}
                       </motion.span>
                     </motion.div>
-                    <h3 className="text-lg font-bold mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0d6efd] group-hover:to-[#6610f2] transition-colors duration-300">
+                    <h3 className="text-lg font-bold mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-primary transition-colors duration-300">
                       {benefit.title}
                     </h3>
                     <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">{benefit.desc}</p>
                     
                     {/* Add subtle gradient line */}
                     <motion.div 
-                      className="w-0 h-0.5 bg-gradient-to-r from-blue-300 to-purple-400 mt-4"
+                      className="w-0 h-0.5 bg-gradient-primary mt-4"
                       animate={{ width: hoveredIndex === index ? "80%" : "0%" }}
                       transition={{ duration: 0.3 }}
                     />

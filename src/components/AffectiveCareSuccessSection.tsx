@@ -62,8 +62,8 @@ const AffectiveCareSuccessSection = () => {
               whileHover={{ scale: 1.05 }}
               className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center"
             >
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <stat.icon className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <stat.icon className="w-6 h-6 text-primary" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-1">{stat.number}</div>
               <div className="text-lg font-semibold text-gray-700 mb-2">{stat.label}</div>
@@ -94,9 +94,9 @@ const AffectiveCareSuccessSection = () => {
               <p>
                 Their visual assets came from a Malaysian subscription design service, but it was costly and limited in flexibility and output. Managing their Shopify store with over 4,000 products was becoming a daily bottleneck.
               </p>
-              <div className="bg-blue-50 p-4 rounded-lg mt-6">
-                <p className="font-semibold text-blue-900">Goal:</p>
-                <p className="text-blue-800">Establish a reliable, full-time delivery team to handle ongoing web development, design, and e-commerce operations for their growing NDIS ecosystem.</p>
+              <div className="bg-primary/10 p-4 rounded-lg mt-6">
+                <p className="font-semibold text-primary">Goal:</p>
+                <p className="text-primary/80">Establish a reliable, full-time delivery team to handle ongoing web development, design, and e-commerce operations for their growing NDIS ecosystem.</p>
               </div>
             </div>
           </motion.div>
@@ -126,7 +126,7 @@ const AffectiveCareSuccessSection = () => {
                 <ul className="space-y-2">
                   {services.map((service, index) => (
                     <li key={index} className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
                       <span>{service}</span>
                     </li>
                   ))}
@@ -142,7 +142,7 @@ const AffectiveCareSuccessSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-3xl p-8 md:p-12 text-white"
+          className="bg-gradient-primary rounded-3xl p-8 md:p-12 text-white"
         >
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>

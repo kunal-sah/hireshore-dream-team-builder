@@ -12,7 +12,7 @@ const HowItWorksSection = () => {
       title: "Intake",
       description: "Audit deliverables & tools; define success metrics and owners",
       icon: Search,
-      color: "from-blue-500 to-blue-600"
+      color: "from-primary to-primary-variant"
     },
     {
       day: "Day 3–4", 
@@ -102,7 +102,7 @@ const HowItWorksSection = () => {
                   </motion.div>
                   
                   <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg border border-gray-100 group-hover:shadow-xl transition-shadow duration-300">
-                    <div className="text-xs sm:text-sm font-semibold text-blue-600 mb-2">{step.day}</div>
+                    <div className="text-xs sm:text-sm font-semibold text-primary mb-2">{step.day}</div>
                     <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900">{step.title}</h3>
                     <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{step.description}</p>
                   </div>

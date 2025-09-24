@@ -11,7 +11,7 @@ const PodAtAGlance = () => {
       icon: Users,
       label: 'Team',
       value: 'PM + multi-skill specialists',
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-primary to-primary-variant'
     },
     {
       icon: Clock,
@@ -84,7 +84,7 @@ const PodAtAGlance = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 md:p-12 border border-gray-200 shadow-lg"
+          className="bg-gradient-subtle rounded-2xl p-8 md:p-12 border border-gray-200 shadow-lg"
         >
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => {

@@ -177,7 +177,7 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 border"
+            className="bg-gradient-subtle rounded-2xl p-8 md:p-12 border"
           >
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
