@@ -31,7 +31,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					variant: 'hsl(var(--primary-variant))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -125,9 +126,11 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gradient-purple-blue': 'linear-gradient(90deg, #0d6efd 0%, #6610f2 50%, #0d6efd 100%)',
-				'gradient-blue-indigo': 'linear-gradient(90deg, #0d6efd 0%, #6366f1 100%)',
-				'gradient-indigo-purple': 'linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%)'
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-primary-hover': 'var(--gradient-primary-hover)',
+				'gradient-subtle': 'var(--gradient-subtle)',
+				'gradient-blue-purple': 'linear-gradient(135deg, hsl(217 100% 65%), hsl(250 84% 67%))',
+				'gradient-purple-blue': 'linear-gradient(135deg, hsl(250 84% 67%), hsl(217 100% 65%))'
 			}
 		}
 	},
