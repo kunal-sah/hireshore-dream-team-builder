@@ -1,11 +1,52 @@
+import { useEffect } from "react";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, Heart, Shield, Users, Database, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const Healthcare = () => {
+  useEffect(() => {
+    // Add JSON-LD for healthcare industry page
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Healthcare Technology Solutions",
+      "description": "Transform healthcare delivery with secure, HIPAA-compliant technology solutions and development services.",
+      "url": typeof window !== 'undefined' ? window.location.href : 'https://hireshore.co/industries/healthcare',
+      "mainEntity": {
+        "@type": "Service",
+        "name": "Healthcare Technology Services",
+        "description": "HIPAA-compliant development, EHR systems, telemedicine platforms, and healthcare analytics",
+        "provider": {
+          "@type": "Organization",
+          "name": "Hireshore",
+          "url": "https://hireshore.co"
+        }
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
   const services = [
     "HIPAA-Compliant Development",
     "Electronic Health Records (EHR)",
@@ -21,7 +62,26 @@ const Healthcare = () => {
     <div className="min-h-screen bg-background">
       <NavBar />
       
-      <section className="pt-24 pb-16 px-4">
+      {/* Breadcrumb */}
+      <div className="container mx-auto px-4 py-4 pt-20">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/industries">Industries</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Healthcare</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+      
+      <section className="pt-8 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
             Healthcare Solutions

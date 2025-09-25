@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -34,6 +35,44 @@ import { useState } from "react";
 
 const Resources = () => {
   const [email, setEmail] = useState("");
+  
+  useEffect(() => {
+    // Add JSON-LD for resources page
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Resources to Help You Ship - Business Guides & Templates",
+      "description": "Guides, templates, and case insights to scale delivery without chaos. Content calendars, automation guides, and more.",
+      "url": typeof window !== 'undefined' ? window.location.href : 'https://hireshore.co/resources',
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": 5,
+        "itemListElement": [
+          {
+            "@type": "WebPageElement",
+            "name": "Guides",
+            "description": "Funnels, SEO basics, automation starters, outreach systems"
+          },
+          {
+            "@type": "WebPageElement",
+            "name": "Templates",
+            "description": "Content calendar, UGC brief, sprint plan, SOP starter"
+          }
+        ]
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
   const navigate = useNavigate();
 
   const bookCall = () => {

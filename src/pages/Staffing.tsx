@@ -1,10 +1,50 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import { User, Users, Search, FileText, Award, Calculator, ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const Staffing = () => {
+  useEffect(() => {
+    // Add JSON-LD for staffing page
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "World-Class Talent On Demand - Staffing Solutions",
+      "description": "Access pre-vetted global talent through flexible staffing solutions. From dedicated professionals to complete teams.",
+      "url": typeof window !== 'undefined' ? window.location.href : 'https://hireshore.co/staffing',
+      "mainEntity": {
+        "@type": "Service",
+        "name": "Staffing Services",
+        "description": "Dedicated talent, team building, recruitment services, and compliance management",
+        "provider": {
+          "@type": "Organization",
+          "name": "Hireshore",
+          "url": "https://hireshore.co"
+        }
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
   const hiringOptions = [
     {
       title: 'Dedicated Talent',
@@ -49,6 +89,21 @@ const Staffing = () => {
     <>
       <div className="min-h-screen bg-background">
         <NavBar />
+        
+        {/* Breadcrumb */}
+        <div className="container mx-auto px-4 py-4 pt-20">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Staffing</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
         
         {/* Hero Section */}
         <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">

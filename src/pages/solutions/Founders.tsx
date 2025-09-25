@@ -1,10 +1,50 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Rocket, DollarSign, Users, CheckCircle, Clock, Zap } from 'lucide-react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const Founders: React.FC = () => {
+  useEffect(() => {
+    // Add JSON-LD for founders solution page
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Solutions for Founders & Startups",
+      "description": "Build your startup faster and smarter with world-class talent at a fraction of traditional costs.",
+      "url": typeof window !== 'undefined' ? window.location.href : 'https://hireshore.co/solutions/founders',
+      "mainEntity": {
+        "@type": "Service",
+        "name": "Startup Solutions",
+        "description": "Complete startup support from idea to launch and beyond",
+        "provider": {
+          "@type": "Organization",
+          "name": "Hireshore",
+          "url": "https://hireshore.co"
+        }
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
   const challenges = [
     { icon: DollarSign, title: "Bootstrap Budget Constraints", description: "Get enterprise-quality work without enterprise costs" },
     { icon: Clock, title: "Speed to Market", description: "Launch faster and beat competitors to market" },
@@ -22,8 +62,27 @@ const Founders: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <NavBar />
+      
+      {/* Breadcrumb */}
+      <div className="container mx-auto px-4 py-4 pt-20">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/solutions">Solutions</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>For Founders</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
       
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br from-primary/5 to-primary/10">

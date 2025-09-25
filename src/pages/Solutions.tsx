@@ -1,10 +1,56 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import { Rocket, Palette, Settings, TrendingUp, Headphones, Building, Target, User, Users, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const Solutions = () => {
+  useEffect(() => {
+    // Add JSON-LD for solutions page
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Business Solutions That Scale",
+      "description": "Tailored solutions for every business challenge - launch faster, scale operations, automate processes, and fill your pipeline.",
+      "url": typeof window !== 'undefined' ? window.location.href : 'https://hireshore.co/solutions',
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": 9,
+        "itemListElement": [
+          {
+            "@type": "Service",
+            "name": "Launch websites faster",
+            "description": "Get your website up and running in days, not months"
+          },
+          {
+            "@type": "Service", 
+            "name": "Scale design without hires",
+            "description": "Access unlimited design resources without overhead"
+          }
+        ]
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
   const outcomesSolutions = [
     {
       title: 'Launch websites faster',
@@ -69,6 +115,21 @@ const Solutions = () => {
     <>
       <div className="min-h-screen bg-background">
         <NavBar />
+        
+        {/* Breadcrumb */}
+        <div className="container mx-auto px-4 py-4 pt-20">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Solutions</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
         
         {/* Hero Section */}
         <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">

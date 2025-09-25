@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
+import { useEffect } from "react";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -23,6 +24,44 @@ import {
 } from "lucide-react";
 
 const Templates = () => {
+  useEffect(() => {
+    // Add JSON-LD for templates page
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Templates - Ready-to-Use Business Templates",
+      "description": "Content calendar, UGC brief, sprint plan, SOP starter and more ready-to-use templates for your business.",
+      "url": typeof window !== 'undefined' ? window.location.href : 'https://hireshore.co/resources/templates',
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": 6,
+        "itemListElement": [
+          {
+            "@type": "DigitalDocument",
+            "name": "Creative Brief Template",
+            "description": "Complete brief template covering goal, audience, offer, placements, and references"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Content Calendar Template", 
+            "description": "Monthly content planning template with campaign tracking and approval workflows"
+          }
+        ]
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
   const bookCall = () => {
     window.open('https://calendly.com/hireshore/30min', '_blank');
   };

@@ -1,10 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import { Code, Zap, Shield, CheckCircle, ArrowRight, Globe, Smartphone, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const WebDev = () => {
+  useEffect(() => {
+    // Add JSON-LD for web development service page
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Web Development Services",
+      "description": "Professional web development on Webflow, WordPress, and Shopify. Fast, secure, and scalable solutions.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Hireshore",
+        "url": "https://hireshore.co"
+      },
+      "serviceType": "Web Development",
+      "offers": {
+        "@type": "Offer",
+        "description": "Expert web development pod delivering fast, secure, and scalable solutions"
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
   const technologies = [
     {
       name: 'Webflow',
@@ -38,6 +77,25 @@ const WebDev = () => {
   return (
     <div className="min-h-screen bg-background">
       <NavBar />
+      
+      {/* Breadcrumb */}
+      <div className="container mx-auto px-4 py-4 pt-20">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/services">Services</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Web Development</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">

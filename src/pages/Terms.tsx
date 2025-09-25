@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import {
@@ -11,6 +11,33 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const Terms = () => {
+  useEffect(() => {
+    // Add JSON-LD for terms page
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Terms & Conditions - Hireshore",
+      "description": "Terms and conditions for using Hireshore services and website.",
+      "url": typeof window !== 'undefined' ? window.location.href : 'https://hireshore.co/terms',
+      "publisher": {
+        "@type": "Organization",
+        "name": "Hireshore",
+        "url": "https://hireshore.co"
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <title>Terms & Conditions | Hireshore</title>
