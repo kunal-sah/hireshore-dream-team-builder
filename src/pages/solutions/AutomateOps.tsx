@@ -1,29 +1,64 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Settings, Clock, TrendingUp, CheckCircle, Users, Zap } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
+import { Settings, Clock, Zap, CheckCircle, ArrowRight, TrendingUp, Target, Award, Home, ChevronRight, Users, BarChart } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
 
-const AutomateOps: React.FC = () => {
+const AutomateOps = () => {
+  const painPoints = [
+    'Manual tasks consuming 20+ hours per week',
+    'Inconsistent processes leading to errors',
+    'Team burnout from repetitive work',
+    'Difficulty scaling without adding headcount'
+  ];
+
   const benefits = [
-    { icon: Clock, title: "Save 20+ hours weekly", description: "Automate repetitive tasks and focus on growth" },
-    { icon: TrendingUp, title: "Reduce operational costs by 60%", description: "Eliminate manual processes and human error" },
-    { icon: Zap, title: "Scale without hiring", description: "Handle 10x more volume with smart automation" },
-    { icon: Users, title: "Improve team satisfaction", description: "Free your team from boring, repetitive work" }
+    { title: 'Save 20+ Hours Weekly', description: 'Eliminate repetitive manual tasks', icon: Clock },
+    { title: '90% Faster Workflows', description: 'Streamline operations end-to-end', icon: Zap },
+    { title: 'Reduce Errors by 75%', description: 'Consistent, automated processes', icon: Target },
+    { title: 'Scale Without Hiring', description: 'Grow operations efficiently', icon: TrendingUp }
   ];
 
-  const automationServices = [
-    { title: "CRM & Lead Management", description: "Automated lead scoring, nurturing, and handoffs" },
-    { title: "Email & Marketing Automation", description: "Drip campaigns, segmentation, and personalization" },
-    { title: "Data Entry & Processing", description: "Automated data collection, cleaning, and reporting" },
-    { title: "Customer Support", description: "Chatbots, ticket routing, and response automation" },
-    { title: "Workflow Optimization", description: "Process mapping and bottleneck elimination" },
-    { title: "Integration & API Setup", description: "Connect your tools for seamless data flow" }
+  const howItWorks = [
+    { step: '1', title: 'Process Audit', description: 'We analyze your current workflows and identify automation opportunities', icon: Target },
+    { step: '2', title: 'Custom Automation', description: 'Build tailored solutions integrated with your existing tools', icon: Settings },
+    { step: '3', title: 'Team Training', description: 'Onboard your team and optimize continuously', icon: Users },
+    { step: '4', title: 'Ongoing Support', description: 'Monitor performance and refine as you scale', icon: BarChart }
   ];
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Operations Automation Service",
+    "description": "Automate Your Agency Operations and Save Time. Save 20+ hours/week with intelligent workflow automation.",
+    "provider": {
+      "@type": "Organization",
+      "name": "HireShore"
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-white">
-      <NavBar />
+    <>
+      <Helmet>
+        <title>Automate Your Agency Operations and Save Time | HireShore</title>
+        <meta name="description" content="Save 20+ hours/week and manage projects efficiently with HireShore's automation solutions. Streamline workflows, reduce errors, and scale without hiring." />
+        <link rel="canonical" href="https://hireshore.com/solutions/automate-ops" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+      
+      <div className="min-h-screen bg-background">
+        <NavBar />
       
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br from-primary/5 to-primary/10">
@@ -105,96 +140,127 @@ const AutomateOps: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Automation Services We Provide
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              End-to-end automation solutions tailored to your business needs
+        {/* Problem Statement */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-6">Manual Tasks Drain Your Time and Slow Down Growth</h2>
+            <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-12">
+              Manual tasks drain your time, slow down delivery, and make scaling your agency nearly impossible. You're stuck doing repetitive work instead of focusing on what matters.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {automationServices.map((service, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-xl hover:bg-primary/5 transition-colors">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{service.title}</h3>
-                    <p className="text-gray-600">{service.description}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {painPoints.map((point, index) => (
+                <div key={index} className="flex items-start bg-card p-6 rounded-lg border border-border">
+                  <div className="h-6 w-6 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0 mr-4 mt-1">
+                    <span className="text-destructive font-bold text-sm">✕</span>
                   </div>
+                  <p className="text-foreground">{point}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Solution Overview */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">How Hireshore Solves This</h2>
+                <p className="text-muted-foreground mb-6">
+                  We automate repetitive tasks, integrate seamlessly with your tools, and scale operations without hiring full-time staff. Your team focuses on high-value work while automation handles the rest.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-center"><CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" /><span>Automate repetitive tasks to free your team</span></li>
+                  <li className="flex items-center"><CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" /><span>Integrate seamlessly with your tools</span></li>
+                  <li className="flex items-center"><CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" /><span>Scale operations without hiring full-time staff</span></li>
+                </ul>
+              </div>
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-xl border border-primary/20">
+                <div className="text-center">
+                  <div className="text-5xl font-bold bg-gradient-to-r from-primary to-primary-variant bg-clip-text text-transparent mb-2">20+</div>
+                  <div className="text-muted-foreground mb-6">Hours Saved Per Week</div>
+                  <div className="text-5xl font-bold bg-gradient-to-r from-primary to-primary-variant bg-clip-text text-transparent mb-2">75%</div>
+                  <div className="text-muted-foreground">Reduction in Errors</div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Process Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              How We Automate Your Operations
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-primary font-bold text-xl">1</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Audit & Analysis</h3>
-              <p className="text-gray-600">We analyze your current processes and identify automation opportunities</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-primary font-bold text-xl">2</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Custom Build</h3>
-              <p className="text-gray-600">Our specialists create tailored automation workflows for your business</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-primary font-bold text-xl">3</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Deploy & Optimize</h3>
-              <p className="text-gray-600">We implement, test, and continuously optimize your automated systems</p>
+        {/* Features & Benefits */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12">Why Automation Matters</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="bg-card p-6 rounded-xl border border-border hover:border-primary/40 transition-all duration-300 hover-scale">
+                  <benefit.icon className="h-10 w-10 text-primary mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-muted-foreground">{benefit.description}</p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-primary text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Automate Your Operations?
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Start saving 20+ hours per week with intelligent automation workflows
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Link
-              to="/configure-pod"
-              className="inline-flex items-center justify-center bg-white text-primary font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors group"
-            >
-              Configure Automation Pod
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              to="/case-studies"
-              className="inline-flex items-center justify-center border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-primary transition-colors"
-            >
-              View Case Studies
+        {/* How It Works */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {howItWorks.map((item, index) => (
+                <div key={index} className="text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-primary to-primary-variant text-primary-foreground rounded-full font-bold text-xl mb-4">
+                    {item.step}
+                  </div>
+                  <item.icon className="h-8 w-8 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary to-primary-variant text-primary-foreground">
+          <div className="max-w-4xl mx-auto text-center">
+            <Award className="h-12 w-12 mx-auto mb-6 opacity-80" />
+            <h2 className="text-3xl font-bold mb-6">Get started in 24 hours with our expert team</h2>
+            <p className="text-xl opacity-90 mb-8">
+              Join 200+ companies who automated their operations and scaled efficiently.
+            </p>
+            <Link to="/configure-pod" className="inline-flex items-center justify-center bg-white text-primary font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors shadow-elegant">
+              Book Free Consultation
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <SiteFooter />
-    </div>
+        {/* Additional Resources */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl font-bold text-center mb-8">Related Resources</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <Link to="/resources/delivery-pods-playbook" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover-scale">
+                <h3 className="font-semibold mb-2">Delivery Pods Playbook</h3>
+                <p className="text-sm text-muted-foreground">Complete guide to scaling operations</p>
+              </Link>
+              <Link to="/resources/cost-calculator" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover-scale">
+                <h3 className="font-semibold mb-2">Cost Calculator</h3>
+                <p className="text-sm text-muted-foreground">See how much you can save</p>
+              </Link>
+              <Link to="/case-studies" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover-scale">
+                <h3 className="font-semibold mb-2">Case Studies</h3>
+                <p className="text-sm text-muted-foreground">Real results from our clients</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <SiteFooter />
+      </div>
+    </>
   );
 };
 
