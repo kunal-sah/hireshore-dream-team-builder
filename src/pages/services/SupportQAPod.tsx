@@ -125,7 +125,7 @@ const SupportQAPod = () => {
             <Card className="p-8 text-center">
               <CardContent className="p-0">
                 <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibel mb-4">3. Monitor & Improve</h3>
+                <h3 className="text-xl font-semibold mb-4">3. Monitor & Improve</h3>
                 <p className="text-muted-foreground">
                   Ongoing monitoring and improvement of support processes and quality standards
                 </p>
