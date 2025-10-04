@@ -23,15 +23,21 @@ const MarketingLeaders: React.FC = () => {
   ];
 
   const caseStudy = {
-    company: "GrowthTech SaaS",
-    industry: "B2B SaaS",
-    challenge: "CMO struggling to scale marketing with limited in-house team, missing quarterly growth targets by 30%",
-    solution: "Deployed HireShore marketing pods including PPC specialists, content creators, and marketing ops automation",
+    company: "Digital Six",
+    industry: "Marketing & Advertising • Brisbane, Australia",
+    challenge: "Unreliable freelancers from India and Pakistan, frequent hiring and termination cycles, high costs and operational inefficiencies",
+    solution: "Built a dependable offshore team with WordPress Development, Shopify Development, SEO Specialists, UI/UX Design, Data Research, AI Development, Lead Generation, and Next.js Development",
     results: [
-      { metric: "Lead Volume", value: "300%", improvement: "increase in 6 months" },
-      { metric: "Conversion Rate", value: "40%", improvement: "improvement" },
-      { metric: "CAC Reduction", value: "35%", improvement: "lower cost per acquisition" }
-    ]
+      { metric: "Team Growth", value: "21→47", improvement: "Scaled across Australia and Nepal" },
+      { metric: "Monthly Savings", value: "$1M+", improvement: "vs. in-house hiring costs" },
+      { metric: "Quality Delivery", value: "100%", improvement: "Improved WordPress & SEO" }
+    ],
+    testimonial: {
+      quote: "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal. The WordPress guys are killing it. The SEO side is strong. This is way better than our past freelancer experience. I've already referred several people to Hireshore.",
+      author: "Aaron Erwich",
+      role: "Founder, Digital Six",
+      videoUrl: "https://www.youtube.com/embed/yW90cSyX_iI"
+    }
   };
 
   return (
@@ -293,18 +299,39 @@ const MarketingLeaders: React.FC = () => {
 
         {/* Testimonial Section */}
         <section className="py-16 bg-muted/30">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <blockquote className="text-2xl md:text-3xl font-medium text-foreground mb-6">
-              "HireShore's marketing pods gave me the team I needed to hit aggressive growth targets. 
-              We increased our lead volume by 300% and improved conversion rates by 40% in just 6 months."
-            </blockquote>
-            <div className="flex items-center justify-center space-x-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                <Target className="h-6 w-6 text-primary" />
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                What Our Clients Say
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-card rounded-2xl p-8 md:p-12 border border-border shadow-lg">
+              <div>
+                <blockquote className="text-xl font-medium text-foreground mb-6 italic">
+                  "{caseStudy.testimonial.quote}"
+                </blockquote>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Target className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-lg font-semibold text-foreground">{caseStudy.testimonial.author}</div>
+                    <div className="text-muted-foreground">{caseStudy.testimonial.role}</div>
+                  </div>
+                </div>
               </div>
-              <div className="text-left">
-                <div className="text-lg font-semibold text-foreground">Michael Rodriguez</div>
-                <div className="text-muted-foreground">VP Marketing, SaaS Startup</div>
+              <div className="text-center">
+                <div className="aspect-video bg-muted rounded-lg overflow-hidden">
+                  <iframe
+                    src={caseStudy.testimonial.videoUrl}
+                    title={`${caseStudy.company} Testimonial`}
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p className="text-sm text-muted-foreground mt-2">Watch the full testimonial</p>
               </div>
             </div>
           </div>

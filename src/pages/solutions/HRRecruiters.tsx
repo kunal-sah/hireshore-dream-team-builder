@@ -23,15 +23,21 @@ const HRRecruiters: React.FC = () => {
   ];
 
   const caseStudy = {
-    company: "TechScale Solutions",
-    industry: "SaaS",
-    challenge: "Struggling to fill 50+ technical positions across multiple teams with a 90-day average time-to-hire",
-    solution: "Implemented Hireshore's recruitment pods with pre-vetted technical talent and streamlined screening processes",
+    company: "PropertyStack",
+    industry: "PropTech • Brisbane, Australia",
+    challenge: "When PropertyStack first connected with Hireshore, they were a lean 5-member startup team using no-code tools and freelancers. Scaling with freelancers lacked long-term efficiency, quality, and cohesion.",
+    solution: "Hireshore delivered a full-stack recruitment-as-a-service solution, helping PropertyStack onboard 15+ high-quality team members across engineering, design, QA, client success, and operations including Full-stack & React Developers, QA Engineers, UX/UI Designers, Client Success & Tech Support Agents, Data Entry & Admin Support, Executive Assistant, and Engineering Team Lead.",
     results: [
-      { metric: "Time-to-Hire", value: "30 days", improvement: "67% reduction" },
-      { metric: "Position Fill Rate", value: "98%", improvement: "from 65%" },
-      { metric: "Candidate Quality", value: "4.8/5", improvement: "employer rating" }
-    ]
+      { metric: "Full-time Hires", value: "15+", improvement: "within 12 months" },
+      { metric: "Weeks Hiring", value: "<3", improvement: "from ~1.5 months" },
+      { metric: "Annual Savings", value: "$1M+", improvement: "vs local hiring" }
+    ],
+    testimonial: {
+      quote: "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality from Nepal has been significantly better. You guys have helped us grow fast and we've referred you to many of our partners.",
+      author: "Ryan Jope",
+      role: "Founder, PropertyStack",
+      videoUrl: "https://www.youtube.com/embed/9xMVgH1j9XE"
+    }
   };
 
   return (
@@ -293,18 +299,39 @@ const HRRecruiters: React.FC = () => {
 
         {/* Testimonial Section */}
         <section className="py-16 bg-muted/30">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <blockquote className="text-2xl md:text-3xl font-medium text-foreground mb-6">
-              "HireShore transformed our hiring process. We went from 90-day hiring cycles to 30 days, 
-              with better candidate quality. Their recruitment pod is like having a dedicated team of experts."
-            </blockquote>
-            <div className="flex items-center justify-center space-x-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                <Users className="h-6 w-6 text-primary" />
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                What Our Clients Say
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-card rounded-2xl p-8 md:p-12 border border-border shadow-lg">
+              <div>
+                <blockquote className="text-xl font-medium text-foreground mb-6 italic">
+                  "{caseStudy.testimonial.quote}"
+                </blockquote>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Users className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-lg font-semibold text-foreground">{caseStudy.testimonial.author}</div>
+                    <div className="text-muted-foreground">{caseStudy.testimonial.role}</div>
+                  </div>
+                </div>
               </div>
-              <div className="text-left">
-                <div className="text-lg font-semibold text-foreground">Jennifer Martinez</div>
-                <div className="text-muted-foreground">VP People Operations, GrowthCorp</div>
+              <div className="text-center">
+                <div className="aspect-video bg-muted rounded-lg overflow-hidden">
+                  <iframe
+                    src={caseStudy.testimonial.videoUrl}
+                    title={`${caseStudy.company} Testimonial`}
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p className="text-sm text-muted-foreground mt-2">Watch the full testimonial</p>
               </div>
             </div>
           </div>
