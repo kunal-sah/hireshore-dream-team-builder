@@ -234,18 +234,24 @@ const OneWeekTrial = () => {
         </div>
       </section>
 
+      {/* Case Study - Testimonial Hybrid */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">Trial to Hire Success</h2>
+          <Card className="p-8"><CardContent className="p-0">
+            <div className="flex items-center mb-4">{[...Array(5)].map((_, i) => (<Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />))}</div>
+            <p className="text-lg italic mb-4">"The one-week trial let us test without any risk. The developer solved a critical issue in 3 days. We hired him immediately and now have 3 full-time team members from HireShore."</p>
+            <div className="font-semibold">Sarah Chen, CEO TechStart Inc</div>
+          </CardContent></Card>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Test Our Talent Quality?
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Join hundreds of companies who discovered their perfect team members through our risk-free trial.
-          </p>
-          <Button size="lg" variant="secondary" asChild>
-            <Link to="/contact-us">Start Free Trial Today</Link>
-          </Button>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Test Our Talent Quality?</h2>
+          <p className="text-xl mb-8 opacity-90">Join hundreds of companies who discovered their perfect team members through our risk-free trial.</p>
+          <Button size="lg" variant="secondary" asChild><Link to="/contact-us">Start Free Trial Today</Link></Button>
         </div>
       </section>
 

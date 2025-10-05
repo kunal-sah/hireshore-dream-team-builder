@@ -188,6 +188,62 @@ const SupportQA = () => {
           </div>
         </section>
 
+        {/* Case Study Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12">Success Story: Swimply</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-4">
+                  Customer Support Excellence
+                </div>
+                <h3 className="text-2xl font-bold mb-4">95% CSAT Score with Dedicated Support Team</h3>
+                <p className="text-muted-foreground mb-6">
+                  Swimply needed exceptional customer support to match their growing platform. Our dedicated USA timezone team delivered industry-leading performance.
+                </p>
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                    <span>7 dedicated USA timezone customer representatives</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                    <span>Consistently ranking #1 on performance leaderboard</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                    <span>99% response time achievement rate</span>
+                  </div>
+                </div>
+                <Link to="/case-studies/swimply" className="inline-flex items-center text-primary font-semibold hover:underline">
+                  Read Full Case Study
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-xl border border-primary/20">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-primary mb-2">7</div>
+                    <div className="text-sm text-muted-foreground">USA timezone reps</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-primary mb-2">#1</div>
+                    <div className="text-sm text-muted-foreground">Leaderboard position</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-primary mb-2">99%</div>
+                    <div className="text-sm text-muted-foreground">Response time</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-primary mb-2">95%</div>
+                    <div className="text-sm text-muted-foreground">CSAT score</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary to-primary-variant text-primary-foreground">
           <div className="max-w-4xl mx-auto text-center">
             <Award className="h-12 w-12 mx-auto mb-6 opacity-80" />

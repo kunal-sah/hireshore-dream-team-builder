@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Rocket, DollarSign, Users, CheckCircle, Clock, Zap } from 'lucide-react';
+import { ArrowRight, Rocket, DollarSign, Users, CheckCircle, Clock, Zap, Star } from 'lucide-react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import {
@@ -225,20 +225,89 @@ const Founders: React.FC = () => {
         </div>
       </section>
 
+      {/* Case Study Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">Success Story: PropertyStack</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-4">
+                Startup Hiring Success
+              </div>
+              <h3 className="text-2xl font-bold mb-4">15+ Team Members Hired in Under 3 Weeks Each</h3>
+              <p className="text-gray-600 mb-6">
+                PropertyStack needed to rapidly scale their product and support teams without breaking the bank. Our recruitment-as-a-service helped them hire 15+ quality team members in just one year.
+              </p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>Reduced hiring time from 1.5 months to under 3 weeks</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>$1M+ annual savings vs. local hiring costs</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>Full-stack developers, QA engineers, designers & support</span>
+                </div>
+              </div>
+              <Link to="/case-studies/property-stack" className="inline-flex items-center text-primary font-semibold hover:underline">
+                Read Full Case Study
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">15+</div>
+                  <div className="text-sm text-gray-600">Quality hires in 1 year</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">&lt;3</div>
+                  <div className="text-sm text-gray-600">Weeks per hire</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">$1M+</div>
+                  <div className="text-sm text-gray-600">Annual savings</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                  <div className="text-sm text-gray-600">Delivery speed up</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonial Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <blockquote className="text-2xl font-medium text-gray-900 mb-6">
-            "HireShore helped us launch our SaaS product 3 months ahead of schedule. 
-            Their team became an extension of ours, delivering quality work at startup-friendly prices."
-          </blockquote>
-          <div className="flex items-center justify-center space-x-4">
-            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-              <Rocket className="h-6 w-6 text-primary" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gray-50 p-8 md:p-12 rounded-xl border border-gray-200">
+            <div className="flex items-center justify-center mb-6">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+              ))}
             </div>
-            <div className="text-left">
-              <div className="text-lg font-semibold text-gray-900">Alex Thompson</div>
-              <div className="text-gray-600">Co-founder, TechStart</div>
+            <blockquote className="text-xl text-center text-gray-900 mb-6 italic">
+              "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality from Nepal has been significantly better. You guys have helped us grow fast and we've referred you to many of our partners."
+            </blockquote>
+            <div className="text-center mb-8">
+              <div className="font-semibold text-gray-900">Ryan Jope</div>
+              <div className="text-gray-600">Founder, PropertyStack</div>
+            </div>
+            <div className="max-w-3xl mx-auto">
+              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                <iframe
+                  src="https://www.youtube.com/embed/9xMVgH1j9XE"
+                  title="PropertyStack Testimonial - Ryan Jope"
+                  className="w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>

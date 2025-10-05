@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Building, TrendingUp, Users, CheckCircle, Clock, Target } from 'lucide-react';
+import { ArrowRight, Building, TrendingUp, Users, CheckCircle, Clock, Target, Star } from 'lucide-react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 
@@ -166,20 +166,77 @@ const AgencyOwners: React.FC = () => {
         </div>
       </section>
 
+      {/* Case Study Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">Success Story: Cove Digital</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-4">
+                Agency Scaling Success
+              </div>
+              <h3 className="text-2xl font-bold mb-4">40+ Hours Saved Monthly to Focus on Growth</h3>
+              <p className="text-gray-600 mb-6">
+                Cove Digital was stuck delivering client work with no time for agency growth. Our delivery pod automated website migrations and development, freeing the founder to focus on sales and strategy.
+              </p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>40-page website migration completed in just 2 weeks</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>3 full website projects delivered in one month</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>100% SEO rankings maintained with QA checklists</span>
+                </div>
+              </div>
+              <Link to="/case-studies/cove-digital" className="inline-flex items-center text-primary font-semibold hover:underline">
+                Read Full Case Study
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">40+</div>
+                  <div className="text-sm text-gray-600">Hours saved monthly</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">2</div>
+                  <div className="text-sm text-gray-600">Weeks for 40-page site</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">3</div>
+                  <div className="text-sm text-gray-600">Projects per month</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                  <div className="text-sm text-gray-600">SEO preserved</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonial Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <blockquote className="text-2xl font-medium text-gray-900 mb-6">
-            "HireShore transformed our agency. We went from struggling to deliver projects on time to scaling 300% 
-            in 12 months. Their pods handle the heavy lifting while we focus on strategy and client relationships."
-          </blockquote>
-          <div className="flex items-center justify-center space-x-4">
-            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-              <Building className="h-6 w-6 text-primary" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gray-50 p-8 md:p-12 rounded-xl border border-gray-200">
+            <div className="flex items-center justify-center mb-6">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+              ))}
             </div>
-            <div className="text-left">
-              <div className="text-lg font-semibold text-gray-900">Sarah Chen</div>
-              <div className="text-gray-600">Founder, Digital Growth Agency</div>
+            <blockquote className="text-xl text-center text-gray-900 mb-6 italic">
+              "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver without compromise is a game changer. I hand over the project and SOP, and it's done before the deadline and to the highest quality standard I could imagine."
+            </blockquote>
+            <div className="text-center">
+              <div className="font-semibold text-gray-900">Chloe Bundy</div>
+              <div className="text-gray-600">Founder, Cove Digital</div>
             </div>
           </div>
         </div>

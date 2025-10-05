@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
-import { Rocket, Clock, Zap, CheckCircle, ArrowRight, Users, Target, Award, Home, ChevronRight } from 'lucide-react';
+import { Rocket, Clock, Zap, CheckCircle, ArrowRight, Users, Target, Award, Home, ChevronRight, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
   Breadcrumb,
@@ -231,6 +231,82 @@ const LaunchFaster = () => {
                     View Success Stories
                   </Link>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Case Study Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12">Success Story: Cove Digital</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-4">
+                  Website Migration
+                </div>
+                <h3 className="text-2xl font-bold mb-4">40-Page Website Launched in Just 2 Weeks</h3>
+                <p className="text-muted-foreground mb-6">
+                  Cove Digital needed to migrate and launch a complex 40-page dental website while maintaining SEO rankings. Our delivery pod completed the entire migration in record time.
+                </p>
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                    <span>Completed 3 full projects in one month</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                    <span>Saved 40+ hours monthly for growth focus</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                    <span>Maintained 100% SEO rankings post-migration</span>
+                  </div>
+                </div>
+                <Link to="/case-studies/cove-digital" className="inline-flex items-center text-primary font-semibold hover:underline">
+                  Read Full Case Study
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-xl border border-primary/20">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-primary mb-2">2</div>
+                    <div className="text-sm text-muted-foreground">Weeks for 40-page site</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-primary mb-2">3</div>
+                    <div className="text-sm text-muted-foreground">Projects in one month</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-primary mb-2">40+</div>
+                    <div className="text-sm text-muted-foreground">Hours saved monthly</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                    <div className="text-sm text-muted-foreground">SEO maintained</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonial Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-card p-8 md:p-12 rounded-xl border border-border shadow-elegant">
+              <div className="flex items-center justify-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+                ))}
+              </div>
+              <blockquote className="text-xl text-center text-foreground mb-6 italic">
+                "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver without compromise is a game changer. I hand over the project and SOP, and it's done before the deadline and to the highest quality standard I could imagine."
+              </blockquote>
+              <div className="text-center">
+                <div className="font-semibold text-foreground">Chloe Bundy</div>
+                <div className="text-muted-foreground">Founder, Cove Digital</div>
               </div>
             </div>
           </div>
