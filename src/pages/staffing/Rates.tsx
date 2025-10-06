@@ -2,7 +2,7 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, DollarSign, Users, Clock, Globe, Star, Zap, Award } from "lucide-react";
+import { Check, DollarSign, Users, Clock, Globe, Star, Zap, Award, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Rates = () => {
@@ -265,6 +265,82 @@ const Rates = () => {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Global Hiring Success: PropertyStack</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-4">
+                Real Estate Success Story
+              </div>
+              <h3 className="text-2xl font-bold mb-4">15+ Compliant Hires Across Multiple Countries</h3>
+              <p className="text-muted-foreground mb-6">
+                PropertyStack needed to scale their team globally while ensuring full compliance with international employment laws and data protection standards. Our transparent rates and comprehensive compliance handling made it simple.
+              </p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center">
+                  <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>15+ hires at predictable rates</span>
+                </div>
+                <div className="flex items-center">
+                  <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>$1M+ saved vs traditional hiring</span>
+                </div>
+                <div className="flex items-center">
+                  <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>Zero compliance issues</span>
+                </div>
+              </div>
+              <Link to="/case-studies/property-stack" className="inline-flex items-center text-primary font-semibold hover:underline">
+                Read Full Case Study
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+            <div className="bg-card p-8 rounded-xl border border-border shadow-elegant">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">15+</div>
+                  <div className="text-sm text-muted-foreground">Team members hired</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">$1M+</div>
+                  <div className="text-sm text-muted-foreground">Saved annually</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                  <div className="text-sm text-muted-foreground">Compliance rate</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">50+</div>
+                  <div className="text-sm text-muted-foreground">Countries supported</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="py-16 px-4 bg-muted/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-card p-8 md:p-12 rounded-xl border border-border shadow-elegant">
+            <div className="flex items-center justify-center mb-6">
+              {[...Array(5)].map((_, i) => (
+                <Star className="w-5 h-5 text-yellow-500 fill-current" key={i} />
+              ))}
+            </div>
+            <blockquote className="text-xl text-center text-foreground mb-6 italic">
+              "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. The rates are transparent and competitive. Compared to freelancers or other markets, the quality from Nepal has been significantly better. You guys have helped us grow fast and we've referred you to many of our partners."
+            </blockquote>
+            <div className="text-center">
+              <div className="font-semibold text-foreground">Ryan Jope</div>
+              <div className="text-muted-foreground">Founder, PropertyStack</div>
+            </div>
           </div>
         </div>
       </section>
