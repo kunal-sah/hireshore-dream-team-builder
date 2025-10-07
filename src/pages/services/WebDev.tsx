@@ -258,6 +258,62 @@ const WebDev = () => {
         </div>
       </section>
 
+      {/* Case Study Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Success Story: Cove Digital</h2>
+            <p className="text-xl text-muted-foreground">Launching a professional website in record time</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 mb-12">
+            <div className="p-8 rounded-xl bg-card border border-border">
+              <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
+              <p className="text-muted-foreground mb-6">
+                Cove Digital needed to launch their new website quickly to capture market opportunities, but traditional development timelines would take 3-4 months.
+              </p>
+              <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
+              <p className="text-muted-foreground">
+                Our Web Dev Pod delivered a fully functional, SEO-optimized website on Webflow in just 3 weeks, including custom features and integrations.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-xl bg-card border border-primary">
+              <h3 className="text-xl font-semibold mb-6">Results</h3>
+              <div className="space-y-6">
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">3 Weeks</div>
+                  <div className="text-muted-foreground">From start to launch</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">95/100</div>
+                  <div className="text-muted-foreground">Performance score</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">150%</div>
+                  <div className="text-muted-foreground">Increase in conversions</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonial */}
+          <div className="p-8 rounded-xl bg-card border border-border">
+            <div className="flex items-start gap-4">
+              <div className="flex-1">
+                <p className="text-lg italic mb-6">
+                  "HireShore delivered our website faster than we thought possible. The quality exceeded our expectations, and the entire process was seamless from start to finish."
+                </p>
+                <div>
+                  <div className="font-semibold">Sarah Mitchell</div>
+                  <div className="text-sm text-muted-foreground">CEO, Cove Digital</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">

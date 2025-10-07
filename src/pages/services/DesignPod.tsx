@@ -263,6 +263,68 @@ const DesignPod = () => {
           </div>
         </section>
 
+        {/* Case Study Section */}
+        <section className="py-16 px-4 bg-muted/20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Success Story: Digital Six</h2>
+              <p className="text-xl text-muted-foreground">Scaling creative output without expensive hires</p>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-12 mb-12">
+              <Card className="p-8">
+                <CardContent className="p-0">
+                  <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Digital Six needed to scale their design capacity rapidly without the time and expense of hiring multiple designers.
+                  </p>
+                  <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
+                  <p className="text-muted-foreground">
+                    Our Design Pod provided unlimited design requests with professional designers who understood their brand and delivered consistently high-quality work.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="p-8 border-primary">
+                <CardContent className="p-0">
+                  <h3 className="text-xl font-semibold mb-6">Results</h3>
+                  <div className="space-y-6">
+                    <div>
+                      <div className="text-3xl font-bold text-primary mb-2">3x</div>
+                      <div className="text-muted-foreground">Faster design delivery</div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-primary mb-2">$95k</div>
+                      <div className="text-muted-foreground">Saved annually vs hiring</div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-primary mb-2">24-48hrs</div>
+                      <div className="text-muted-foreground">Average turnaround time</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Testimonial */}
+            <Card className="p-8 bg-card">
+              <CardContent className="p-0">
+                <div className="flex items-start gap-4">
+                  <div className="flex-1">
+                    <p className="text-lg italic mb-6">
+                      "The Design Pod transformed how we work. We get professional, on-brand designs delivered quickly without any of the hassles of hiring and managing designers."
+                    </p>
+                    <div>
+                      <div className="font-semibold">Marcus Thompson</div>
+                      <div className="text-sm text-muted-foreground">Creative Director, Digital Six</div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-16 px-4 bg-primary text-primary-foreground">
           <div className="max-w-4xl mx-auto text-center">
