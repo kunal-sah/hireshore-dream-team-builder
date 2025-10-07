@@ -63,7 +63,7 @@ const DataAIPod = () => {
       {/* Features Grid */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">What&apos;s Included</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">{"What's Included"}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {features.map((feature) => (
               <Card key={feature} className="p-6">
@@ -115,7 +115,7 @@ const DataAIPod = () => {
             <Card className="p-8 text-center">
               <CardContent className="p-0">
                 <Cpu className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">2. Build &amp; Train</h3>
+                <h3 className="text-xl font-semibold mb-4">2. Build & Train</h3>
                 <p className="text-muted-foreground">
                   Develop and train AI models and analytics solutions tailored to your business goals
                 </p>
@@ -125,7 +125,7 @@ const DataAIPod = () => {
             <Card className="p-8 text-center">
               <CardContent className="p-0">
                 <Bot className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">3. Deploy &amp; Monitor</h3>
+                <h3 className="text-xl font-semibold mb-4">3. Deploy & Monitor</h3>
                 <p className="text-muted-foreground">
                   Implement solutions into your workflow and continuously monitor and improve performance
                 </p>
@@ -138,9 +138,9 @@ const DataAIPod = () => {
       {/* Problem Statement */}
       <section className="py-16 px-4 bg-muted/20">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">You&apos;re Sitting on a Goldmine of Data</h2>
+          <h2 className="text-3xl font-bold mb-6">{"You're Sitting on a Goldmine of Data"}</h2>
           <p className="text-xl text-muted-foreground">
-            But manual processes, disconnected systems, and lack of AI expertise mean you can&apos;t extract its value. Meanwhile, data-driven competitors are pulling ahead, and opportunities are slipping through the cracks.
+            But manual processes, disconnected systems, and lack of AI expertise mean you can't extract its value. Meanwhile, data-driven competitors are pulling ahead, and opportunities are slipping through the cracks.
           </p>
         </div>
       </section>
@@ -181,7 +181,7 @@ const DataAIPod = () => {
                   </div>
                   <div>
                     <div className="text-3xl font-bold text-primary mb-2">Real-time</div>
-                    <div className="text-muted-foreground">Data insights &amp; reporting</div>
+                    <div className="text-muted-foreground">Data insights & reporting</div>
                   </div>
                 </div>
               </CardContent>
@@ -194,7 +194,7 @@ const DataAIPod = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <p className="text-lg italic mb-6">
-                    &quot;The Data/AI Pod completely transformed how we handle information. We went from spending hours on manual reports to having real-time insights at our fingertips.&quot;
+                    "The Data/AI Pod completely transformed how we handle information. We went from spending hours on manual reports to having real-time insights at our fingertips."
                   </p>
                   <div>
                     <div className="font-semibold">Sarah Chen</div>
@@ -211,7 +211,7 @@ const DataAIPod = () => {
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Harness AI &amp; Data?
+            Ready to Harness AI & Data?
           </h2>
           <p className="text-xl mb-8 opacity-90">
             Transform your business with intelligent data solutions and AI-powered insights.
