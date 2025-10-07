@@ -161,6 +161,68 @@ const Ecommerce = () => {
         </div>
       </section>
 
+      {/* Case Study Section */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Success Story: Uncommon Solutions</h2>
+            <p className="text-xl text-muted-foreground">Scaling an e-commerce brand with optimized technology</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 mb-12">
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
+                <p className="text-muted-foreground mb-6">
+                  Uncommon Solutions needed to scale their e-commerce operations while maintaining performance, improving conversion rates, and reducing cart abandonment.
+                </p>
+                <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
+                <p className="text-muted-foreground">
+                  We optimized their Shopify store, implemented advanced analytics, automated marketing workflows, and integrated with their fulfillment systems.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="p-8 border-primary">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-semibold mb-6">Results</h3>
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">285%</div>
+                    <div className="text-muted-foreground">Increase in online sales</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">58%</div>
+                    <div className="text-muted-foreground">Higher conversion rate</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">40%</div>
+                    <div className="text-muted-foreground">Reduction in cart abandonment</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Testimonial */}
+          <Card className="p-8 bg-card">
+            <CardContent className="p-0">
+              <div className="flex items-start gap-4">
+                <div className="flex-1">
+                  <p className="text-lg italic mb-6">
+                    "HireShore transformed our e-commerce platform into a conversion machine. The results speak for themselves - our sales have nearly tripled."
+                  </p>
+                  <div>
+                    <div className="font-semibold">Emma Williams</div>
+                    <div className="text-sm text-muted-foreground">Founder, Uncommon Solutions</div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">

@@ -180,6 +180,68 @@ const SaasTech = () => {
         </div>
       </section>
 
+      {/* Case Study Section */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Success Story: PropertyStack</h2>
+            <p className="text-xl text-muted-foreground">Building a scalable SaaS platform for real estate</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 mb-12">
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
+                <p className="text-muted-foreground mb-6">
+                  PropertyStack needed to build a robust SaaS platform that could handle thousands of users while maintaining performance and security.
+                </p>
+                <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
+                <p className="text-muted-foreground">
+                  We built a cloud-native architecture with microservices, automated scaling, and enterprise-grade security from day one.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="p-8 border-primary">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-semibold mb-6">Results</h3>
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">10k+</div>
+                    <div className="text-muted-foreground">Active users supported</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">99.9%</div>
+                    <div className="text-muted-foreground">Platform uptime</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">4 Months</div>
+                    <div className="text-muted-foreground">From MVP to launch</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Testimonial */}
+          <Card className="p-8 bg-card">
+            <CardContent className="p-0">
+              <div className="flex items-start gap-4">
+                <div className="flex-1">
+                  <p className="text-lg italic mb-6">
+                    "HireShore built a SaaS platform that scales effortlessly. Their expertise in cloud architecture and security gave us the confidence to grow rapidly."
+                  </p>
+                  <div>
+                    <div className="font-semibold">Michael Rodriguez</div>
+                    <div className="text-sm text-muted-foreground">CTO, PropertyStack</div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">

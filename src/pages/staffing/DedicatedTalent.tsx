@@ -258,13 +258,79 @@ const DedicatedTalent = () => {
         </div>
       </section>
 
+      {/* Problem Statement */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Hiring Takes Too Long. Projects Can't Wait.</h2>
+          <p className="text-xl text-muted-foreground">
+            Traditional hiring takes 3-6 months and costs $15k+ per hire. Meanwhile, projects stall, deadlines slip, and opportunities vanish. You need talent now, not next quarter.
+          </p>
+        </div>
+      </section>
+
+      {/* Case Study Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Success Story: PropertyStack</h2>
+            <p className="text-xl text-muted-foreground">Building a high-performing team without the hiring hassle</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 mb-12">
+            <div className="p-8 rounded-xl bg-card border border-border">
+              <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
+              <p className="text-muted-foreground mb-6">
+                PropertyStack needed to scale their development and marketing teams rapidly but couldn't afford the time and expense of traditional hiring.
+              </p>
+              <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
+              <p className="text-muted-foreground">
+                We provided dedicated developers and marketers who integrated seamlessly with their team, starting work within 7 days instead of 3 months.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-xl bg-card border border-primary">
+              <h3 className="text-xl font-semibold mb-6">Results</h3>
+              <div className="space-y-6">
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">7 Days</div>
+                  <div className="text-muted-foreground">To full team capacity</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">$180k</div>
+                  <div className="text-muted-foreground">Saved in hiring costs</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">3x Faster</div>
+                  <div className="text-muted-foreground">Project delivery speed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonial */}
+          <div className="p-8 rounded-xl bg-card border border-border">
+            <div className="flex items-start gap-4">
+              <div className="flex-1">
+                <p className="text-lg italic mb-6">
+                  "HireShore gave us access to top talent immediately. What would have taken us months to hire took just days, and the quality exceeded our expectations."
+                </p>
+                <div>
+                  <div className="font-semibold">Michael Rodriguez</div>
+                  <div className="text-sm text-muted-foreground">CTO, PropertyStack</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <Users className="h-12 w-12 mx-auto mb-6 opacity-80" />
           <h2 className="text-3xl font-bold mb-6">Build Your Dedicated Team Today</h2>
           <p className="text-xl opacity-90 mb-8">
-            Join companies who've scaled faster with dedicated talent that truly cares about your success.
+            Join companies who have scaled faster with dedicated talent that truly cares about your success.
           </p>
           <Link
             to="/staffing/trial"

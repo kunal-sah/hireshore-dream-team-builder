@@ -163,6 +163,68 @@ const RealEstate = () => {
         </div>
       </section>
 
+      {/* Case Study Section */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Success Story: PropertyStack</h2>
+            <p className="text-xl text-muted-foreground">Revolutionizing property management with technology</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 mb-12">
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
+                <p className="text-muted-foreground mb-6">
+                  PropertyStack needed a comprehensive platform to manage properties, leads, and client relationships while scaling rapidly across multiple markets.
+                </p>
+                <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
+                <p className="text-muted-foreground">
+                  We developed a complete real estate management system with IDX integration, automated lead nurturing, and powerful analytics.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="p-8 border-primary">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-semibold mb-6">Results</h3>
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">400%</div>
+                    <div className="text-muted-foreground">Increase in qualified leads</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">50%</div>
+                    <div className="text-muted-foreground">Faster deal closing</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">$2M+</div>
+                    <div className="text-muted-foreground">Additional annual revenue</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Testimonial */}
+          <Card className="p-8 bg-card">
+            <CardContent className="p-0">
+              <div className="flex items-start gap-4">
+                <div className="flex-1">
+                  <p className="text-lg italic mb-6">
+                    "The platform HireShore built transformed our business. We can now manage thousands of properties and leads efficiently while providing exceptional client service."
+                  </p>
+                  <div>
+                    <div className="font-semibold">Michael Rodriguez</div>
+                    <div className="text-sm text-muted-foreground">CTO, PropertyStack</div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">

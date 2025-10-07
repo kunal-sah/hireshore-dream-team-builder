@@ -113,6 +113,78 @@ const Healthcare = () => {
         </div>
       </section>
 
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Healthcare Deserves Better Technology</h2>
+          <p className="text-xl text-muted-foreground">
+            Outdated systems, compliance headaches, and slow development are holding healthcare providers back from delivering exceptional patient care.
+          </p>
+        </div>
+      </section>
+
+      {/* Case Study Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Success Story: Affective Care</h2>
+            <p className="text-xl text-muted-foreground">Modernizing healthcare operations with compliant technology</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 mb-12">
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
+                <p className="text-muted-foreground mb-6">
+                  Affective Care needed to modernize their patient management systems while maintaining HIPAA compliance and minimizing disruption to care delivery.
+                </p>
+                <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
+                <p className="text-muted-foreground">
+                  We built a HIPAA-compliant platform with automated workflows, real-time reporting, and seamless integration with existing EHR systems.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="p-8 border-primary">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-semibold mb-6">Results</h3>
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">80%</div>
+                    <div className="text-muted-foreground">Reduction in administrative work</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">100%</div>
+                    <div className="text-muted-foreground">HIPAA compliance maintained</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">3 Months</div>
+                    <div className="text-muted-foreground">From concept to launch</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Testimonial */}
+          <Card className="p-8 bg-card">
+            <CardContent className="p-0">
+              <div className="flex items-start gap-4">
+                <div className="flex-1">
+                  <p className="text-lg italic mb-6">
+                    "HireShore understood the complexity of healthcare technology and delivered a solution that improved our operations while maintaining the highest compliance standards."
+                  </p>
+                  <div>
+                    <div className="font-semibold">Sarah Chen</div>
+                    <div className="text-sm text-muted-foreground">Operations Director, Affective Care</div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Improve Healthcare?</h2>

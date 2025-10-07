@@ -163,20 +163,57 @@ const Agencies = () => {
         </div>
       </section>
 
-      {/* Success Story */}
+      {/* Case Study Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">Agency Success Story</h2>
-          <blockquote className="text-xl text-muted-foreground mb-8">
-            "HireShore helped us increase our client capacity by 400% without hiring a single employee. Their team became an extension of our agency."
-          </blockquote>
-          <div className="flex items-center justify-center space-x-4">
-            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">
-              JS
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Success Story: Digital Six</h2>
+            <p className="text-xl text-muted-foreground">Scaling an agency without the hiring headaches</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 mb-12">
+            <div className="p-8 rounded-xl bg-card border border-border">
+              <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
+              <p className="text-muted-foreground mb-6">
+                Digital Six was turning away clients because they couldn't scale their team fast enough. Traditional hiring would take months they didn't have.
+              </p>
+              <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
+              <p className="text-muted-foreground">
+                We provided white-label design, development, and marketing services that integrated seamlessly with their agency brand and processes.
+              </p>
             </div>
-            <div className="text-left">
-              <div className="font-semibold">John Smith</div>
-              <div className="text-sm text-muted-foreground">Founder, Digital Growth Agency</div>
+
+            <div className="p-8 rounded-xl bg-card border border-primary">
+              <h3 className="text-xl font-semibold mb-6">Results</h3>
+              <div className="space-y-6">
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">400%</div>
+                  <div className="text-muted-foreground">Increase in client capacity</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">$500k</div>
+                  <div className="text-muted-foreground">Additional annual revenue</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">Zero</div>
+                  <div className="text-muted-foreground">New full-time hires needed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonial */}
+          <div className="p-8 rounded-xl bg-card border border-border">
+            <div className="flex items-start gap-4">
+              <div className="flex-1">
+                <p className="text-lg italic mb-6">
+                  "HireShore became our secret weapon. We can now take on any project, knowing we have the capacity to deliver exceptional work without the overhead of hiring."
+                </p>
+                <div>
+                  <div className="font-semibold">Marcus Thompson</div>
+                  <div className="text-sm text-muted-foreground">Creative Director, Digital Six</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
