@@ -52,7 +52,7 @@ const QAFramework = () => {
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             Our comprehensive Quality Assurance framework ensures every deliverable meets 
-            the highest standards of quality, performance, and reliability.
+            the highest standards of quality, performance, and reliability. No shortcuts, just excellence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
@@ -62,6 +62,18 @@ const QAFramework = () => {
               <Link to="/how-it-works/process-sla">View Process & SLA</Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Fast Delivery Should Not Mean Low Quality</h2>
+          <p className="text-xl text-muted-foreground">
+            Too many agencies rush deliverables and call it agile. Bugs, performance issues, and sloppy code 
+            become your problem to fix. Speed without quality is just expensive technical debt. You need both—
+            and that requires a real QA framework, not empty promises.
+          </p>
         </div>
       </section>
 
@@ -104,8 +116,31 @@ const QAFramework = () => {
         </div>
       </section>
 
-      {/* Quality Metrics */}
+      {/* Testimonial */}
       <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <Card className="p-8 bg-card">
+            <CardContent className="p-0">
+              <div className="flex items-start gap-4">
+                <div className="flex-1 text-center">
+                  <p className="text-lg italic mb-6">
+                    "The quality of deliverables is consistently outstanding. Their QA framework catches issues 
+                    before they reach us, which means we spend less time on revisions and more time launching 
+                    features. It is rare to find a team that moves fast without compromising quality."
+                  </p>
+                  <div>
+                    <div className="font-semibold">Dr. Rebecca Martinez</div>
+                    <div className="text-sm text-muted-foreground">CTO, Affective Care</div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Quality Metrics */}
+      <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Quality Metrics</h2>
           <div className="grid md:grid-cols-3 gap-8">

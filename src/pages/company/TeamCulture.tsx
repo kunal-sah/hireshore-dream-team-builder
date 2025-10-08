@@ -15,7 +15,7 @@ const TeamCulture = () => {
     {
       icon: Target,
       title: "Excellence Always",
-      description: "We're committed to delivering exceptional quality in everything we do"
+      description: "We are committed to delivering exceptional quality in everything we do"
     },
     {
       icon: Zap,
@@ -44,7 +44,7 @@ const TeamCulture = () => {
     { number: "150+", label: "Team Members Worldwide" },
     { number: "25+", label: "Countries Represented" },
     { number: "95%", label: "Employee Satisfaction" },
-    { number: "4.8/5", label: "Glassdoor Rating" }
+    { number: "4.8/5", label: "Team Rating" }
   ];
 
   return (
@@ -58,7 +58,7 @@ const TeamCulture = () => {
             Team & Culture
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Meet the incredible team behind HireShore's success. We're a diverse, global community 
+            Meet the incredible team behind HireShore's success. We are a diverse, global community 
             united by our passion for excellence and commitment to our clients' success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -123,8 +123,32 @@ const TeamCulture = () => {
         </div>
       </section>
 
+      {/* Team Testimonial */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-4xl mx-auto">
+          <Card className="p-8 bg-card">
+            <CardContent className="p-0">
+              <div className="flex items-start gap-4">
+                <div className="flex-1 text-center">
+                  <p className="text-lg italic mb-6">
+                    "The culture here is genuinely special. I have worked remotely for years, but this is the first 
+                    team where I truly feel connected despite being across different time zones. The support for 
+                    professional growth and the emphasis on work-life balance makes this the best workplace I have 
+                    ever been part of."
+                  </p>
+                  <div>
+                    <div className="font-semibold">Maria Santos</div>
+                    <div className="text-sm text-muted-foreground">Senior Project Manager, Operations Team</div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* Culture Highlights */}
-      <section className="py-16 px-4 bg-muted/50">
+      <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Our Culture in Action</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -168,7 +192,7 @@ const TeamCulture = () => {
             Want to Join Our Amazing Team?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            We're always looking for talented individuals who share our values and passion for excellence.
+            We are always looking for talented individuals who share our values and passion for excellence.
           </p>
           <Button size="lg" variant="secondary" asChild>
             <Link to="/company/careers">Explore Career Opportunities</Link>

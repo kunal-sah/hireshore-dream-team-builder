@@ -21,24 +21,44 @@ const Hospitality = () => {
     <div className="min-h-screen bg-background">
       <NavBar />
       
+      {/* Hero Section */}
       <section className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
             Hospitality Solutions
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Enhance guest experiences with cutting-edge hospitality technology.
+            Enhance guest experiences and streamline operations with cutting-edge hospitality technology.
+            From booking systems to guest management, we deliver solutions that drive satisfaction.
           </p>
-          <Button size="lg" asChild>
-            <Link to="/configure-pod">Improve Guest Experience</Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" asChild>
+              <Link to="/configure-pod">Improve Guest Experience</Link>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/pricing">View Pricing</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-muted/50">
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Guest Expectations Are Higher Than Ever</h2>
+          <p className="text-xl text-muted-foreground">
+            Outdated booking systems, disconnected guest communication, and manual processes frustrate guests 
+            and drain your team. In hospitality, every touchpoint matters—and technology should enhance, 
+            not hinder, the experience.
+          </p>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Hospitality Services</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {services.map((service) => (
               <Card key={service} className="p-6">
                 <CardContent className="p-0">
@@ -50,6 +70,124 @@ const Hospitality = () => {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Case Study */}
+      <section className="py-16 px-4 bg-muted/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Success Story: Swimply</h2>
+            <p className="text-xl text-muted-foreground">Transforming hospitality booking with seamless technology</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 mb-12">
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
+                <p className="text-muted-foreground mb-6">
+                  Swimply needed to scale their unique hospitality platform with complex booking management, 
+                  real-time availability, and seamless guest experiences.
+                </p>
+                <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
+                <p className="text-muted-foreground">
+                  Our team built comprehensive booking systems, automated guest communication, and integrated 
+                  property management tools for efficient operations.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="p-8 border-primary">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-semibold mb-6">Results</h3>
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">500K+</div>
+                    <div className="text-muted-foreground">Bookings processed</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">$27M</div>
+                    <div className="text-muted-foreground">Funding raised (Shark Tank)</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary mb-2">3x</div>
+                    <div className="text-muted-foreground">Faster booking process</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Testimonial */}
+          <Card className="p-8 bg-card">
+            <CardContent className="p-0">
+              <div className="flex items-start gap-4">
+                <div className="flex-1">
+                  <p className="text-lg italic mb-6">
+                    "The technology solutions delivered exceeded our expectations. The booking system is 
+                    intuitive and has significantly improved our guest experience."
+                  </p>
+                  <div>
+                    <div className="font-semibold">Bunim Laskin</div>
+                    <div className="text-sm text-muted-foreground">Founder, Swimply</div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8 text-center">
+              <CardContent className="p-0">
+                <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-4">1. Requirements Analysis</h3>
+                <p className="text-muted-foreground">
+                  We analyze your hospitality needs and guest journey touchpoints
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="p-8 text-center">
+              <CardContent className="p-0">
+                <Users className="w-12 h-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-4">2. Solution Development</h3>
+                <p className="text-muted-foreground">
+                  Custom booking systems and guest management platforms
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="p-8 text-center">
+              <CardContent className="p-0">
+                <Calendar className="w-12 h-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-4">3. Launch & Optimize</h3>
+                <p className="text-muted-foreground">
+                  Seamless integration and continuous optimization for guest satisfaction
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4 bg-primary text-primary-foreground">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Transform Your Guest Experience?
+          </h2>
+          <p className="text-xl mb-8 opacity-90">
+            Join leading hospitality brands that trust us to deliver exceptional technology solutions.
+          </p>
+          <Button size="lg" variant="secondary" asChild>
+            <Link to="/configure-pod">Start Your Hospitality Project</Link>
+          </Button>
         </div>
       </section>
 

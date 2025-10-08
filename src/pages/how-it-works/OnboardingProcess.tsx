@@ -60,7 +60,7 @@ const OnboardingProcess = () => {
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             Get up and running in just 5-7 days with our streamlined onboarding process. 
-            From discovery to delivery, we make starting fast and easy.
+            From discovery to delivery, we make starting fast and easy so you see results immediately.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
@@ -70,6 +70,18 @@ const OnboardingProcess = () => {
               <Link to="/contact-us">Schedule Discovery Call</Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Traditional Onboarding Takes Forever</h2>
+          <p className="text-xl text-muted-foreground">
+            Most agencies take weeks or months to ramp up new teams. Delays, miscommunication, and endless 
+            back-and-forth waste time and momentum. You need to move fast—your timeline does not allow for 
+            slow onboarding.
+          </p>
         </div>
       </section>
 
@@ -128,8 +140,31 @@ const OnboardingProcess = () => {
         </div>
       </section>
 
-      {/* Success Metrics */}
+      {/* Testimonial */}
       <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <Card className="p-8 bg-card">
+            <CardContent className="p-0">
+              <div className="flex items-start gap-4">
+                <div className="flex-1 text-center">
+                  <p className="text-lg italic mb-6">
+                    "I was skeptical about the 7-day onboarding timeline, but they delivered exactly what they promised. 
+                    Within a week, we had a fully functional team producing quality work. No other agency has come close 
+                    to this speed without sacrificing quality."
+                  </p>
+                  <div>
+                    <div className="font-semibold">James Patterson</div>
+                    <div className="text-sm text-muted-foreground">VP of Operations, PropertyStack</div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Success Metrics */}
+      <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Onboarding Success</h2>
           <div className="grid md:grid-cols-3 gap-8">

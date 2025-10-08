@@ -69,36 +69,6 @@ const Partners = () => {
     }
   ];
 
-  const partnerLogos = [
-    { name: "TechFlow Agency", industry: "Digital Marketing" },
-    { name: "Growth Partners", industry: "Business Consulting" },
-    { name: "DevCorp Solutions", industry: "Software Development" },
-    { name: "Creative Minds", industry: "Design Agency" },
-    { name: "ScaleUp Advisors", industry: "Business Growth" },
-    { name: "Digital Boost", industry: "Marketing Technology" }
-  ];
-
-  const successStories = [
-    {
-      partner: "Growth Agency Co",
-      result: "300% revenue increase",
-      quote: "Partnering with HireShore allowed us to offer services we couldn't deliver in-house.",
-      industry: "Marketing Agency"
-    },
-    {
-      partner: "TechStart Consultancy",
-      result: "$2M in referred business",
-      quote: "The referral program has become a significant revenue stream for our business.",
-      industry: "Business Consulting"
-    },
-    {
-      partner: "Creative Solutions Inc",
-      result: "50+ successful projects",
-      quote: "White-label partnership helped us scale without hiring additional staff.",
-      industry: "Design Agency"
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <NavBar />
@@ -122,6 +92,18 @@ const Partners = () => {
               <Link to="/about-us">Learn More</Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Your Clients Need More. You Cannot Deliver Everything.</h2>
+          <p className="text-xl text-muted-foreground">
+            Client demands are growing, but building in-house teams for every service is expensive and slow. 
+            Meanwhile, you are turning down revenue because you lack the right capabilities. Partner with us 
+            to expand your offerings without the overhead.
+          </p>
         </div>
       </section>
 
@@ -182,52 +164,49 @@ const Partners = () => {
         </div>
       </section>
 
-      {/* Current Partners */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">Our Trusted Partners</h2>
-          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            Join a network of successful businesses who trust us to deliver exceptional results
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {partnerLogos.map((partner, index) => (
-              <Card key={index} className="p-6 text-center hover:border-primary/50 transition-colors">
-                <CardContent className="p-0">
-                  <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-xs font-semibold text-center leading-tight">
-                      {partner.name.split(' ').map(word => word[0]).join('')}
-                    </span>
-                  </div>
-                  <h3 className="font-medium text-sm mb-1">{partner.name}</h3>
-                  <p className="text-xs text-muted-foreground">{partner.industry}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Success Stories */}
-      <section className="py-16 px-4 bg-muted/20">
+      <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Partner Success Stories</h2>
           <div className="grid lg:grid-cols-3 gap-8">
-            {successStories.map((story, index) => (
-              <Card key={index} className="p-8">
-                <CardContent className="p-0">
-                  <div className="text-3xl font-bold text-primary mb-2">{story.result}</div>
-                  <Badge variant="outline" className="mb-4">{story.industry}</Badge>
-                  <p className="text-muted-foreground mb-4 italic">"{story.quote}"</p>
-                  <div className="font-semibold">{story.partner}</div>
-                </CardContent>
-              </Card>
-            ))}
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <div className="text-3xl font-bold text-primary mb-2">300%</div>
+                <Badge variant="outline" className="mb-4">Marketing Agency</Badge>
+                <p className="text-muted-foreground mb-4 italic">
+                  "Partnering allowed us to offer services we could not deliver in-house. Revenue tripled in 12 months."
+                </p>
+                <div className="font-semibold">Growth Agency Co</div>
+              </CardContent>
+            </Card>
+
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <div className="text-3xl font-bold text-primary mb-2">$2M</div>
+                <Badge variant="outline" className="mb-4">Business Consulting</Badge>
+                <p className="text-muted-foreground mb-4 italic">
+                  "The referral program has become a significant revenue stream for our business."
+                </p>
+                <div className="font-semibold">TechStart Consultancy</div>
+              </CardContent>
+            </Card>
+
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <div className="text-3xl font-bold text-primary mb-2">50+</div>
+                <Badge variant="outline" className="mb-4">Design Agency</Badge>
+                <p className="text-muted-foreground mb-4 italic">
+                  "White-label partnership helped us scale without hiring additional staff."
+                </p>
+                <div className="font-semibold">Creative Solutions Inc</div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Partnership Process</h2>
           <div className="grid md:grid-cols-4 gap-8">

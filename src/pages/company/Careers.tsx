@@ -81,17 +81,6 @@ const Careers = () => {
     }
   ];
 
-  const values = [
-    "Excellence in everything we do",
-    "Continuous learning and growth",
-    "Collaboration and teamwork",
-    "Innovation and creativity",
-    "Client success focus",
-    "Work-life balance",
-    "Diversity and inclusion",
-    "Transparency and trust"
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <NavBar />
@@ -104,7 +93,7 @@ const Careers = () => {
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             Build your career with a fast-growing company that values innovation, 
-            collaboration, and personal growth. Work with talented people on exciting projects.
+            collaboration, and personal growth. Work with talented people on exciting projects that make a difference.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
@@ -135,22 +124,26 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* Our Values */}
+      {/* Testimonial */}
       <section className="py-16 px-4 bg-muted/50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Values</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {values.map((value) => (
-              <Card key={value} className="p-6">
-                <CardContent className="p-0">
-                  <div className="flex items-center space-x-3">
-                    <Users className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground">{value}</span>
+        <div className="max-w-4xl mx-auto">
+          <Card className="p-8 bg-card">
+            <CardContent className="p-0">
+              <div className="flex items-start gap-4">
+                <div className="flex-1 text-center">
+                  <p className="text-lg italic mb-6">
+                    "Joining this team was the best career decision I've made. The culture of innovation, 
+                    support for professional growth, and work-life balance is exceptional. I get to work on 
+                    challenging projects with brilliant people while maintaining flexibility in my schedule."
+                  </p>
+                  <div>
+                    <div className="font-semibold">Alex Rodriguez</div>
+                    <div className="text-sm text-muted-foreground">Senior Developer, Engineering Team</div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
@@ -261,7 +254,7 @@ const Careers = () => {
             Ready to Join Our Team?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Don't see the perfect role? Send us your resume and we'll keep you in mind for future opportunities.
+            Do not see the perfect role? Send us your resume and we will keep you in mind for future opportunities.
           </p>
           <Button size="lg" variant="secondary" asChild>
             <Link to="/contact-us">Get In Touch</Link>

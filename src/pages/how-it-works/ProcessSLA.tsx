@@ -72,7 +72,7 @@ const ProcessSLA = () => {
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             Discover our proven process and service level agreements that ensure fast, 
-            reliable delivery of high-quality work every time.
+            reliable delivery of high-quality work every time. No surprises, just results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
@@ -82,6 +82,17 @@ const ProcessSLA = () => {
               <Link to="/contact-us">Discuss Your Needs</Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Agencies Promise the World, Deliver Excuses</h2>
+          <p className="text-xl text-muted-foreground">
+            Vague timelines, missed deadlines, and zero accountability. Most agencies talk about process but 
+            deliver chaos. You need commitments you can actually count on—with consequences when they are not met.
+          </p>
         </div>
       </section>
 
@@ -134,8 +145,31 @@ const ProcessSLA = () => {
         </div>
       </section>
 
-      {/* Quality Guarantees */}
+      {/* Testimonial */}
       <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <Card className="p-8 bg-card">
+            <CardContent className="p-0">
+              <div className="flex items-start gap-4">
+                <div className="flex-1 text-center">
+                  <p className="text-lg italic mb-6">
+                    "The clarity of their process and the reliability of their SLA commitments set them apart. 
+                    For the first time, we have a partner that actually delivers when they say they will. The 
+                    daily updates and fast revision turnaround keep our projects moving at the pace we need."
+                  </p>
+                  <div>
+                    <div className="font-semibold">Emily Roberts</div>
+                    <div className="text-sm text-muted-foreground">COO, Cove Digital</div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Quality Guarantees */}
+      <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Quality Guarantees</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -154,7 +188,7 @@ const ProcessSLA = () => {
                 <Check className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-4">Unlimited Revisions</h3>
                 <p className="text-muted-foreground">
-                  We'll iterate until you're completely satisfied with the final deliverable.
+                  We will iterate until you are completely satisfied with the final deliverable.
                 </p>
               </CardContent>
             </Card>
