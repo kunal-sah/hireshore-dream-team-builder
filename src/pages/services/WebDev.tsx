@@ -106,11 +106,11 @@ const WebDev = () => {
               Web Development Pod
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Expert Web Development
-              <span className="text-primary"> On Demand</span>
+              Launch Websites Fast
+              <span className="text-primary"> Without Developers</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Get professional websites built on Webflow, WordPress, or Shopify. Our web development pod delivers fast, secure, and scalable solutions.
+              Stop waiting months for developers. Get professional websites on Webflow, WordPress, or Shopify in days, not months—with no technical headaches.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -149,6 +149,26 @@ const WebDev = () => {
               <div className="text-muted-foreground">Performance Score</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Website Projects Shouldn't Take 6 Months</h2>
+          <p className="text-xl text-muted-foreground">
+            Development agencies quote 3-6 months and $50k+ for a website. Freelancers are unreliable and disappear mid-project. In-house developers are expensive and hard to find. Meanwhile, your business needs a website yesterday.
+          </p>
+        </div>
+      </section>
+
+      {/* Solution Overview */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">Fast, Professional Websites That Convert</h2>
+          <p className="text-xl text-muted-foreground">
+            Get a dedicated web development team that delivers enterprise-quality websites in days. From design to launch, we handle everything so you can focus on your business.
+          </p>
         </div>
       </section>
 

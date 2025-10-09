@@ -43,20 +43,56 @@ const SEOContentPod = () => {
       <section className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            SEO & Content Pod
+            Dominate Search Rankings
+            <span className="text-primary"> With Expert SEO</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Dominate search results with our comprehensive SEO and content marketing services. 
-            Drive organic traffic, improve rankings, and convert visitors into customers.
+            Stop losing customers to competitors on page one. Our SEO Content Pod delivers comprehensive strategies that boost rankings, drive organic traffic, and convert visitors into paying customers.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link to="/configure-pod">Configure Your SEO Pod</Link>
+              <Link to="/configure-pod">Start SEO Pod</Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
               <Link to="/pricing">View Pricing</Link>
             </Button>
           </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div className="text-center p-6 rounded-xl bg-card border border-border">
+              <div className="text-3xl font-bold text-primary mb-2">250%</div>
+              <div className="text-muted-foreground">Avg Traffic Increase</div>
+            </div>
+            <div className="text-center p-6 rounded-xl bg-card border border-border">
+              <div className="text-3xl font-bold text-primary mb-2">180+</div>
+              <div className="text-muted-foreground">Keywords Ranked</div>
+            </div>
+            <div className="text-center p-6 rounded-xl bg-card border border-border">
+              <div className="text-3xl font-bold text-primary mb-2">3-6 Months</div>
+              <div className="text-muted-foreground">To Page 1</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Invisible on Google = No Business</h2>
+          <p className="text-xl text-muted-foreground">
+            Your competitors rank on page one while your website is buried on page five. You've tried DIY SEO, cheap freelancers, and agencies that promise the world but deliver nothing. Meanwhile, you're losing thousands in potential revenue every month to competitors who show up first.
+          </p>
+        </div>
+      </section>
+
+      {/* Solution Overview */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">Strategic SEO That Actually Works</h2>
+          <p className="text-xl text-muted-foreground">
+            Get a dedicated SEO team that combines technical expertise, content creation, and proven strategies. We don't just promise rankings—we deliver measurable traffic and revenue growth.
+          </p>
         </div>
       </section>
 
