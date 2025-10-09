@@ -73,8 +73,8 @@ const OneWeekTrial = () => {
         <div className="max-w-7xl mx-auto text-center">
           <Badge variant="secondary" className="mb-4">Risk-Free Trial</Badge>
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Try Our Talent
-            <span className="text-primary"> Risk-Free for 1 Week</span>
+            Try World-Class Talent
+            <span className="text-primary"> Free for 1 Week</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             Test our talent quality with zero commitment. Work with a dedicated professional for one week, completely free. Only pay if you're 100% satisfied.
@@ -87,6 +87,17 @@ const OneWeekTrial = () => {
               <Link to="/staffing/dedicated">Learn More</Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Hiring Blind Is Too Risky</h2>
+          <p className="text-xl text-muted-foreground">
+            Most agencies force you to commit before seeing results. Pay upfront, sign contracts, and hope it works out. 
+            But what if the talent doesn't deliver? What if communication is poor? You're stuck with wasted money and lost time.
+          </p>
         </div>
       </section>
 

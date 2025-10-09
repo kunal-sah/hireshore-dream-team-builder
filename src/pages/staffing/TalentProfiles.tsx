@@ -160,11 +160,11 @@ const TalentProfiles = () => {
         <section className="pt-16 pb-16 px-4">
           <div className="max-w-7xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Meet Our
-              <span className="text-primary"> Exceptional Talent</span>
+              Meet Your Next
+              <span className="text-primary"> Team Member</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Browse profiles of our pre-vetted professionals. Each team member is carefully selected for their skills, experience, and cultural fit.
+              Browse profiles of pre-vetted professionals ready to join your team. Each talent is carefully selected for their skills, experience, and cultural fit—no more gambling on unproven freelancers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
@@ -174,6 +174,17 @@ const TalentProfiles = () => {
                 <Link to="/staffing/1-week-trial">Start Free Trial</Link>
               </Button>
             </div>
+          </div>
+        </section>
+
+        {/* Problem Statement */}
+        <section className="py-16 px-4 bg-muted/50">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">Hiring Unknown Freelancers Is a Gamble</h2>
+            <p className="text-xl text-muted-foreground">
+              Freelance platforms are flooded with inflated profiles and fake reviews. You spend weeks interviewing only to discover the candidate can't deliver. 
+              By the time you realize it, you've lost time and money on someone who wasn't a fit.
+            </p>
           </div>
         </section>
 

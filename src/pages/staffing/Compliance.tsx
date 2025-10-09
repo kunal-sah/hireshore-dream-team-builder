@@ -75,11 +75,12 @@ const Compliance = () => {
       <section className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Compliance & Security
+            100% Compliance
+            <span className="text-primary"> Guaranteed</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Work with confidence knowing our talent and processes meet the highest compliance 
-            and security standards across all major international frameworks.
+            Work confidently across 50+ countries. Our talent and processes meet the highest compliance 
+            and security standards across GDPR, SOC 2, ISO 27001, and all major international frameworks.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
@@ -89,6 +90,17 @@ const Compliance = () => {
               <Link to="/contact-us">Compliance Consultation</Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Non-Compliance Can Cost You Everything</h2>
+          <p className="text-xl text-muted-foreground">
+            Hiring globally without proper compliance exposes you to legal risks, data breaches, tax penalties, and reputational damage. 
+            One violation can result in fines up to 4% of annual revenue under GDPR—or worse, losing your ability to operate in key markets.
+          </p>
         </div>
       </section>
 

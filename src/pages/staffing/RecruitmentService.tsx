@@ -106,11 +106,12 @@ const RecruitmentService = () => {
         <div className="max-w-7xl mx-auto text-center">
           <Badge variant="secondary" className="mb-4">Recruitment-as-a-Service</Badge>
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Let Us Handle Your
-            <span className="text-primary"> Entire Hiring Process</span>
+            We Handle Your Hiring
+            <span className="text-primary"> From Start to Finish</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            From job posting to final offer, we manage every step of recruitment. Focus on your business while we find your perfect team members.
+            Stop wasting months on recruitment. From job posting to final offer, we manage every step. 
+            Focus on your business while we find and vet your perfect team members in 10-15 days.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
@@ -120,6 +121,17 @@ const RecruitmentService = () => {
               <Link to="/staffing/rates">View Pricing</Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Traditional Recruitment Takes Forever and Costs a Fortune</h2>
+          <p className="text-xl text-muted-foreground">
+            Posting jobs, screening hundreds of resumes, conducting interviews, checking references—it takes months and pulls you away from running your business. 
+            Traditional agencies charge 20-30% of first-year salary and still deliver mediocre candidates.
+          </p>
         </div>
       </section>
 

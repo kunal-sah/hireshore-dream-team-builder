@@ -46,11 +46,12 @@ const BuildTeam = () => {
       <section className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Build-a-Team
+            Build Your Perfect Team
+            <span className="text-primary"> Without the Hassle</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Assemble your perfect team with our Build-a-Team service. Get complementary skills, 
-            seamless collaboration, and dedicated project management all in one solution.
+            Skip the hiring headaches. Get a fully integrated team with complementary skills, 
+            seamless collaboration, and dedicated management—all assembled and ready to work in days.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
@@ -60,6 +61,17 @@ const BuildTeam = () => {
               <Link to="/contact-us">Discuss Requirements</Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Hiring Individual Freelancers Is a Nightmare</h2>
+          <p className="text-xl text-muted-foreground">
+            Managing multiple freelancers means juggling different timezones, communication styles, and quality levels. 
+            Projects stall when team members don't collaborate effectively, and you're stuck being the project manager instead of focusing on your business.
+          </p>
         </div>
       </section>
 
