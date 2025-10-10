@@ -175,10 +175,47 @@ const LaunchFaster = () => {
           </div>
         </section>
 
+        {/* Problem Statement */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">Traditional Website Launches Take Forever</h2>
+            <p className="text-xl text-muted-foreground">
+              Waiting 3-6 months for a website launch is costing you customers, revenue, and market opportunities. Development agencies move slowly, freelancers disappear mid-project, and your competitors are already live capturing your market share.
+            </p>
+          </div>
+        </section>
+
+        {/* Solution Overview */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Launch in Days, Not Months</h2>
+                <p className="text-muted-foreground mb-6">
+                  Our proven fast-launch methodology combines pre-built frameworks, expert developers, and streamlined processes to get your website live 10x faster than traditional development—without sacrificing quality.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-center"><CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" /><span>Pre-built templates accelerate development</span></li>
+                  <li className="flex items-center"><CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" /><span>Dedicated launch team ready to start immediately</span></li>
+                  <li className="flex items-center"><CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" /><span>Quality assurance built into every step</span></li>
+                </ul>
+              </div>
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-xl border border-primary/20">
+                <div className="text-center">
+                  <div className="text-5xl font-bold bg-gradient-to-r from-primary to-primary-variant bg-clip-text text-transparent mb-2">10x</div>
+                  <div className="text-muted-foreground mb-6">Faster Than Traditional</div>
+                  <div className="text-5xl font-bold bg-gradient-to-r from-primary to-primary-variant bg-clip-text text-transparent mb-2">5-7</div>
+                  <div className="text-muted-foreground">Days to Launch</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Process Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Our Fast Launch Process</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {process.map((item, index) => (
                 <div key={index} className="text-center group">
@@ -312,13 +349,34 @@ const LaunchFaster = () => {
           </div>
         </section>
 
+        {/* Related Resources */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl font-bold text-center mb-8">Related Resources</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <Link to="/resources/web-launch-checklist" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover-scale">
+                <h3 className="font-semibold mb-2">Web Launch Checklist</h3>
+                <p className="text-sm text-muted-foreground">Complete pre-launch checklist for success</p>
+              </Link>
+              <Link to="/resources/delivery-pods-playbook" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover-scale">
+                <h3 className="font-semibold mb-2">Delivery Pods Playbook</h3>
+                <p className="text-sm text-muted-foreground">How fast launch teams operate</p>
+              </Link>
+              <Link to="/case-studies" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover-scale">
+                <h3 className="font-semibold mb-2">Launch Success Stories</h3>
+                <p className="text-sm text-muted-foreground">See real launch timelines and results</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary to-primary-variant text-primary-foreground">
           <div className="max-w-4xl mx-auto text-center">
             <Award className="h-12 w-12 mx-auto mb-6 opacity-80" />
-            <h2 className="text-3xl font-bold mb-6">Launch Your Website in Record Time</h2>
+            <h2 className="text-3xl font-bold mb-6">Get started in 24 hours with our expert team</h2>
             <p className="text-xl opacity-90 mb-8">
-              Join 100+ companies who chose speed without compromising quality.
+              Join 100+ companies who chose speed without compromising quality. Launch your website in record time.
             </p>
             <Link
               to="/configure-pod"
