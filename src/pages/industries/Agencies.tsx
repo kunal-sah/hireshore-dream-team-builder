@@ -40,7 +40,7 @@ const Agencies = () => {
       <NavBar />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-primary/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-6">
@@ -48,26 +48,26 @@ const Agencies = () => {
               For Agencies
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Scale Your Agency
-              <span className="text-primary"> Without Limits</span>
+              Scale Your Agency Without
+              <span className="text-primary"> Hiring Headaches</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Partner with HireShore to expand your capabilities, handle overflow projects, and deliver exceptional results to more clients without increasing your overhead.
+              Stop turning down clients because you lack capacity. Our white-label delivery pods help you expand services, handle overflow work, and grow revenue—all without hiring overhead.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/configure-pod"
-                className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors shadow-lg"
               >
-                Scale Your Agency
+                Scale My Agency Now
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
               <button
                 onClick={() => window.open('https://calendly.com/hireshore/30min', '_blank')}
-                className="inline-flex items-center justify-center border border-border text-foreground font-semibold py-3 px-8 rounded-lg hover:bg-muted transition-colors"
+                className="inline-flex items-center justify-center border-2 border-primary text-primary font-semibold py-3 px-8 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <Users className="mr-2 h-4 w-4" />
-                Agency Partnership Call
+                Book Strategy Call
               </button>
             </div>
           </div>
@@ -118,14 +118,24 @@ const Agencies = () => {
         </div>
       </section>
 
-      {/* Agency Challenges */}
+      {/* Problem Statement */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">The Agency Growth Trap</h2>
+          <p className="text-xl text-muted-foreground mb-12">
+            You're turning down projects because you can't hire fast enough. Traditional hiring takes 3-6 months and costs $80k+ per person. Meanwhile, competitors are delivering faster and winning your clients.
+          </p>
+        </div>
+      </section>
+
+      {/* Solution Overview */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">We Understand Agency Challenges</h2>
+              <h2 className="text-3xl font-bold mb-6">Scale Without The Hiring Hassle</h2>
               <p className="text-muted-foreground mb-8">
-                Running an agency means constantly balancing client demands with resource constraints. We help you break free from these limitations.
+                Get instant access to specialized talent across design, development, marketing, and support. White-label services that integrate seamlessly with your agency brand—ready in days, not months.
               </p>
               <div className="space-y-4">
                 {challenges.map((challenge, index) => (

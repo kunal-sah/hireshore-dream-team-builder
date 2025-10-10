@@ -57,21 +57,25 @@ const SaasTech = () => {
       <NavBar />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
+      <section className="pt-24 pb-16 px-4 bg-gradient-to-br from-primary/5 to-primary/10">
         <div className="max-w-7xl mx-auto text-center">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-6">
+            <Code className="mr-2 h-4 w-4" />
+            For SaaS & Tech Companies
+          </div>
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            SaaS & Tech Solutions
+            Build Your SaaS Product
+            <span className="text-primary"> 60% Faster</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Build, scale, and optimize your SaaS products with our specialized tech teams. 
-            From MVP to enterprise, we deliver world-class software solutions.
+            Stop waiting months to find developers. Get a full-stack team that starts delivering production-ready code in days—from MVP to scale.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link to="/configure-pod">Build Your SaaS</Link>
+              <Link to="/configure-pod">Start Building Today</Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <Link to="/case-studies">View Tech Cases</Link>
+              <Link to="/case-studies">View SaaS Success Stories</Link>
             </Button>
           </div>
         </div>
@@ -91,10 +95,23 @@ const SaasTech = () => {
         </div>
       </section>
 
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Hiring Developers Takes Too Long</h2>
+          <p className="text-xl text-muted-foreground">
+            Your competitors are shipping features while you're stuck in hiring loops. Finding senior developers takes 4-6 months and costs $150k+. Meanwhile, your product roadmap collects dust and market opportunities disappear.
+          </p>
+        </div>
+      </section>
+
       {/* Services */}
-      <section className="py-16 px-4 bg-muted/50">
+      <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">SaaS Development Services</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Complete SaaS Development Services</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
+            From MVP to enterprise scale, we deliver the full stack of talent you need
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => (
               <Card key={service} className="p-6">
