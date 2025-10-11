@@ -84,6 +84,16 @@ const RealEstate = () => {
         </div>
       </section>
 
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Real Estate Growth Demands Better Technology</h2>
+          <p className="text-xl text-muted-foreground">
+            Manual lead follow-up loses deals. Outdated websites fail to capture leads. Managing properties, clients, and marketing across multiple platforms overwhelms your team. You need real estate technology that helps you close more deals, not slow you down.
+          </p>
+        </div>
+      </section>
+
       {/* Services Grid */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
@@ -121,19 +131,40 @@ const RealEstate = () => {
         </div>
       </section>
 
-      {/* Common Challenges */}
+      {/* How It Works */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Common Real Estate Challenges We Solve</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {challenges.map((item, index) => (
-              <Card key={index} className="p-8">
-                <CardContent className="p-0">
-                  <h3 className="text-xl font-semibold mb-4 text-primary">{item.challenge}</h3>
-                  <p className="text-muted-foreground">{item.solution}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8 text-center">
+              <CardContent className="p-0">
+                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+                <h3 className="text-xl font-semibold mb-4">Lead System Audit</h3>
+                <p className="text-muted-foreground">
+                  Analyze your current lead generation and identify opportunities to capture more qualified prospects
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="p-8 text-center">
+              <CardContent className="p-0">
+                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+                <h3 className="text-xl font-semibold mb-4">Build & Automate</h3>
+                <p className="text-muted-foreground">
+                  Create IDX websites, automated follow-up systems, and seamless CRM integration
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="p-8 text-center">
+              <CardContent className="p-0">
+                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+                <h3 className="text-xl font-semibold mb-4">Convert & Close</h3>
+                <p className="text-muted-foreground">
+                  Track leads through your pipeline and close more deals with data-driven insights
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -225,6 +256,45 @@ const RealEstate = () => {
         </div>
       </section>
 
+      {/* Related Resources */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Related Resources</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-6 hover:border-primary transition-colors">
+              <CardContent className="p-0">
+                <h3 className="text-lg font-semibold mb-2">
+                  <Link to="/resources/guides/funnel-guide" className="hover:text-primary">
+                    Real Estate Lead Generation Guide
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">Learn how to capture and convert more qualified property leads</p>
+              </CardContent>
+            </Card>
+            <Card className="p-6 hover:border-primary transition-colors">
+              <CardContent className="p-0">
+                <h3 className="text-lg font-semibold mb-2">
+                  <Link to="/case-studies/propertystack" className="hover:text-primary">
+                    PropertyStack Case Study
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">See how we increased qualified leads by 400%</p>
+              </CardContent>
+            </Card>
+            <Card className="p-6 hover:border-primary transition-colors">
+              <CardContent className="p-0">
+                <h3 className="text-lg font-semibold mb-2">
+                  <Link to="/resources/cost-calculator" className="hover:text-primary">
+                    Real Estate ROI Calculator
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">Calculate potential revenue from improved lead conversion</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
@@ -232,7 +302,7 @@ const RealEstate = () => {
             Ready to Transform Your Real Estate Business?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Get the digital tools and systems you need to generate more leads and close more deals.
+            Get the digital tools and systems you need to generate more leads and close more deals. Get started in 24 hours with our real estate experts.
           </p>
           <Button size="lg" variant="secondary" asChild>
             <Link to="/configure-pod">Start Your Transformation</Link>

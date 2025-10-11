@@ -118,8 +118,87 @@ const Healthcare = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Healthcare Deserves Better Technology</h2>
           <p className="text-xl text-muted-foreground">
-            Outdated systems, compliance headaches, and slow development are holding healthcare providers back from delivering exceptional patient care.
+            Outdated systems, compliance headaches, and slow development are holding healthcare providers back from delivering exceptional patient care. Manual workflows drain staff time, security vulnerabilities create risk, and legacy systems can't keep up with modern healthcare demands.
           </p>
+        </div>
+      </section>
+
+      {/* Solution Overview */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-6">How Hireshore Solves This</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              We build HIPAA-compliant healthcare technology that streamlines operations, protects patient data, and scales with your organization.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <Shield className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-semibold mb-4">HIPAA Compliance Built-In</h3>
+                <p className="text-muted-foreground">
+                  Security and compliance from day one, no exceptions
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <Clock className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-semibold mb-4">Automated Workflows</h3>
+                <p className="text-muted-foreground">
+                  Reduce administrative burden by 80% with intelligent automation
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <Database className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-semibold mb-4">Seamless Integration</h3>
+                <p className="text-muted-foreground">
+                  Connect with existing EHR systems and healthcare platforms
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16 px-4 bg-muted/50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8 text-center">
+              <CardContent className="p-0">
+                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+                <h3 className="text-xl font-semibold mb-4">Compliance Assessment</h3>
+                <p className="text-muted-foreground">
+                  Review your requirements and ensure HIPAA compliance from the start
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="p-8 text-center">
+              <CardContent className="p-0">
+                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+                <h3 className="text-xl font-semibold mb-4">Secure Development</h3>
+                <p className="text-muted-foreground">
+                  Build compliant systems with encrypted data and automated workflows
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="p-8 text-center">
+              <CardContent className="p-0">
+                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+                <h3 className="text-xl font-semibold mb-4">Deploy & Monitor</h3>
+                <p className="text-muted-foreground">
+                  Launch with confidence and maintain compliance with ongoing support
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
@@ -185,9 +264,51 @@ const Healthcare = () => {
         </div>
       </section>
 
+      {/* Related Resources */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Related Resources</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-6 hover:border-primary transition-colors">
+              <CardContent className="p-0">
+                <h3 className="text-lg font-semibold mb-2">
+                  <Link to="/resources/guides/automation-guide" className="hover:text-primary">
+                    Healthcare Automation Guide
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">Learn how to automate healthcare workflows while maintaining compliance</p>
+              </CardContent>
+            </Card>
+            <Card className="p-6 hover:border-primary transition-colors">
+              <CardContent className="p-0">
+                <h3 className="text-lg font-semibold mb-2">
+                  <Link to="/case-studies/affective-care" className="hover:text-primary">
+                    Affective Care Case Study
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">See how we modernized healthcare operations with 80% efficiency gain</p>
+              </CardContent>
+            </Card>
+            <Card className="p-6 hover:border-primary transition-colors">
+              <CardContent className="p-0">
+                <h3 className="text-lg font-semibold mb-2">
+                  <Link to="/staffing/compliance" className="hover:text-primary">
+                    Healthcare Compliance Services
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">Ensure your operations meet HIPAA and healthcare standards</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Improve Healthcare?</h2>
+          <p className="text-xl mb-8 opacity-90">
+            Get started in 24 hours with HIPAA-compliant solutions built by healthcare technology experts.
+          </p>
           <Button size="lg" variant="secondary" asChild>
             <Link to="/configure-pod">Start Your Healthcare Project</Link>
           </Button>

@@ -53,8 +53,49 @@ const Finance = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Solution Overview */}
       <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-6">How Hireshore Solves This</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              We build secure, compliant fintech solutions with bank-grade security and regulatory expertise baked in from day one.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <Shield className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-semibold mb-4">Security First</h3>
+                <p className="text-muted-foreground">
+                  Bank-grade encryption and security protocols on every transaction
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <Check className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-semibold mb-4">Regulatory Compliance</h3>
+                <p className="text-muted-foreground">
+                  Built-in compliance with SOC 2, PCI-DSS, and financial regulations
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <TrendingUp className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-semibold mb-4">Scalable Infrastructure</h3>
+                <p className="text-muted-foreground">
+                  Handle millions of transactions without compromising speed or security
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Financial Services</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -137,38 +178,39 @@ const Finance = () => {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* Related Resources */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Related Resources</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-8 text-center">
+            <Card className="p-6 hover:border-primary transition-colors">
               <CardContent className="p-0">
-                <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">1. Security Assessment</h3>
-                <p className="text-muted-foreground">
-                  Comprehensive security and compliance requirements analysis
-                </p>
+                <h3 className="text-lg font-semibold mb-2">
+                  <Link to="/staffing/compliance" className="hover:text-primary">
+                    Financial Compliance Guide
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">Ensure your fintech operations meet all regulatory standards</p>
               </CardContent>
             </Card>
-            
-            <Card className="p-8 text-center">
+            <Card className="p-6 hover:border-primary transition-colors">
               <CardContent className="p-0">
-                <DollarSign className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">2. Secure Development</h3>
-                <p className="text-muted-foreground">
-                  Build with industry-leading security protocols and compliance standards
-                </p>
+                <h3 className="text-lg font-semibold mb-2">
+                  <Link to="/case-studies/digital-six" className="hover:text-primary">
+                    Digital Six Case Study
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">See how we accelerated fintech marketing by 80%</p>
               </CardContent>
             </Card>
-            
-            <Card className="p-8 text-center">
+            <Card className="p-6 hover:border-primary transition-colors">
               <CardContent className="p-0">
-                <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">3. Launch & Monitor</h3>
-                <p className="text-muted-foreground">
-                  Continuous security monitoring and compliance updates
-                </p>
+                <h3 className="text-lg font-semibold mb-2">
+                  <Link to="/resources/cost-calculator" className="hover:text-primary">
+                    Fintech ROI Calculator
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">Calculate the value of secure, compliant development</p>
               </CardContent>
             </Card>
           </div>
@@ -182,7 +224,7 @@ const Finance = () => {
             Ready to Build Secure Fintech Solutions?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Partner with experts who understand the complexities of financial technology.
+            Partner with experts who understand the complexities of financial technology. Get started in 24 hours with our secure fintech solutions.
           </p>
           <Button size="lg" variant="secondary" asChild>
             <Link to="/configure-pod">Start Your Fintech Project</Link>

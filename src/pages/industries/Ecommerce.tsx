@@ -86,6 +86,57 @@ const Ecommerce = () => {
         </div>
       </section>
 
+      {/* Problem Statement */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">E-commerce Growth Shouldn't Be This Hard</h2>
+          <p className="text-xl text-muted-foreground">
+            Slow page loads kill conversions. High cart abandonment drains revenue. Managing inventory, marketing, and customer support across multiple channels overwhelms your team. You need e-commerce technology that grows with you, not holds you back.
+          </p>
+        </div>
+      </section>
+
+      {/* Solution Overview */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-6">How Hireshore Solves This</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              We build lightning-fast e-commerce platforms that convert visitors into customers, automate your operations, and scale effortlessly.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <Zap className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-semibold mb-4">Optimized Performance</h3>
+                <p className="text-muted-foreground">
+                  Lightning-fast load times that improve conversions by up to 45%
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <TrendingUp className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-semibold mb-4">Seamless Integration</h3>
+                <p className="text-muted-foreground">
+                  Connect all your tools: payments, inventory, shipping, and marketing
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <Users className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-semibold mb-4">Scale Without Limits</h3>
+                <p className="text-muted-foreground">
+                  Handle thousands of orders with automated workflows and support
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
@@ -123,37 +174,37 @@ const Ecommerce = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* How It Works */}
       <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Why E-commerce Businesses Choose Us</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="p-8 text-center">
               <CardContent className="p-0">
-                <Users className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">E-commerce Expertise</h3>
+                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+                <h3 className="text-xl font-semibold mb-4">Platform Audit & Strategy</h3>
                 <p className="text-muted-foreground">
-                  Specialized team with deep experience in e-commerce platforms and best practices.
+                  Analyze your current e-commerce setup and identify optimization opportunities
                 </p>
               </CardContent>
             </Card>
             
             <Card className="p-8 text-center">
               <CardContent className="p-0">
-                <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Rapid Deployment</h3>
+                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+                <h3 className="text-xl font-semibold mb-4">Build & Optimize</h3>
                 <p className="text-muted-foreground">
-                  Get your store online quickly with our streamlined development and launch process.
+                  Develop high-performance stores with seamless integrations and automated workflows
                 </p>
               </CardContent>
             </Card>
             
             <Card className="p-8 text-center">
               <CardContent className="p-0">
-                <Globe className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Global Scale</h3>
+                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+                <h3 className="text-xl font-semibold mb-4">Scale & Grow</h3>
                 <p className="text-muted-foreground">
-                  Build for international markets with multi-currency, multi-language support.
+                  Monitor performance, optimize conversions, and scale operations effortlessly
                 </p>
               </CardContent>
             </Card>
@@ -223,6 +274,45 @@ const Ecommerce = () => {
         </div>
       </section>
 
+      {/* Related Resources */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Related Resources</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-6 hover:border-primary transition-colors">
+              <CardContent className="p-0">
+                <h3 className="text-lg font-semibold mb-2">
+                  <Link to="/resources/guides/funnel-guide" className="hover:text-primary">
+                    E-commerce Funnel Optimization Guide
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">Learn how to increase conversion rates and reduce cart abandonment</p>
+              </CardContent>
+            </Card>
+            <Card className="p-6 hover:border-primary transition-colors">
+              <CardContent className="p-0">
+                <h3 className="text-lg font-semibold mb-2">
+                  <Link to="/resources/cost-calculator" className="hover:text-primary">
+                    E-commerce ROI Calculator
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">Calculate potential revenue increase from platform optimization</p>
+              </CardContent>
+            </Card>
+            <Card className="p-6 hover:border-primary transition-colors">
+              <CardContent className="p-0">
+                <h3 className="text-lg font-semibold mb-2">
+                  <Link to="/case-studies/uncommon-solutions" className="hover:text-primary">
+                    Uncommon Solutions Case Study
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">See how we helped scale an e-commerce brand by 285%</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
@@ -230,7 +320,7 @@ const Ecommerce = () => {
             Ready to Scale Your E-commerce Business?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Partner with e-commerce experts who understand your industry and growth challenges.
+            Partner with e-commerce experts who understand your industry and growth challenges. Get started in 24 hours with our expert team.
           </p>
           <Button size="lg" variant="secondary" asChild>
             <Link to="/configure-pod">Start Your E-commerce Project</Link>
