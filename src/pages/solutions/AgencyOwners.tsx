@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Building, TrendingUp, Users, CheckCircle, Clock, Target, Star } from 'lucide-react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const AgencyOwners: React.FC = () => {
   const challenges = [
@@ -25,8 +33,27 @@ const AgencyOwners: React.FC = () => {
     <div className="min-h-screen bg-white">
       <NavBar />
       
+      {/* Breadcrumb */}
+      <div className="container mx-auto px-4 py-4 pt-20">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/solutions">Solutions</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Agency Owners</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+      
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-primary/5 to-primary/10">
+      <section className="pt-8 pb-16 bg-gradient-to-br from-primary/5 to-primary/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex justify-center mb-6">
