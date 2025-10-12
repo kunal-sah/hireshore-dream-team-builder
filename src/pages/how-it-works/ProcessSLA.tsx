@@ -2,8 +2,16 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, Clock, Users, Target, Shield, Zap, ArrowRight } from "lucide-react";
+import { Check, Clock, Users, Target, Shield, Zap, ArrowRight, Home, ChevronRight, Star } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
 
 const ProcessSLA = () => {
   const slaMetrics = [
@@ -64,8 +72,34 @@ const ProcessSLA = () => {
     <div className="min-h-screen bg-background">
       <NavBar />
       
+      {/* Breadcrumb */}
+      <nav className="pt-20 pb-4 px-4 sm:px-6 lg:px-8 bg-muted/20" aria-label="Breadcrumb">
+        <div className="max-w-7xl mx-auto">
+          <Breadcrumb>
+            <BreadcrumbList className="flex flex-wrap">
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/" className="flex items-center">
+                    <Home className="h-4 w-4" />
+                    <span className="sr-only">Home</span>
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator><ChevronRight className="h-4 w-4" /></BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild><Link to="/how-it-works">How It Works</Link></BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator><ChevronRight className="h-4 w-4" /></BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbPage>Process & SLA</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </nav>
+      
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
+      <section className="pt-16 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
             Process & SLA
@@ -145,21 +179,80 @@ const ProcessSLA = () => {
         </div>
       </section>
 
-      {/* Testimonial */}
+      {/* Case Study Section */}
       <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Success Story: Cove Digital</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-4">
+                Reliable Process Delivery
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Consistent 2-Week Turnaround on Complex Websites</h3>
+              <p className="text-muted-foreground mb-6">
+                Cove Digital needed a reliable partner who could consistently deliver high-quality WordPress websites on tight deadlines. Our proven process and SLA commitments enabled them to scale from 1 to 3 projects per month.
+              </p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center">
+                  <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>40+ hours freed monthly for business development</span>
+                </div>
+                <div className="flex items-center">
+                  <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>Completed 3 full website projects in one month</span>
+                </div>
+                <div className="flex items-center">
+                  <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>40-page websites delivered in just 2 weeks</span>
+                </div>
+              </div>
+              <Link to="/case-studies/cove-digital" className="inline-flex items-center text-primary font-semibold hover:underline">
+                Read Full Case Study
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-xl border border-primary/20">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">40+</div>
+                  <div className="text-sm text-muted-foreground">Hours saved monthly</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">3</div>
+                  <div className="text-sm text-muted-foreground">Projects per month</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">2</div>
+                  <div className="text-sm text-muted-foreground">Weeks for 40-page site</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                  <div className="text-sm text-muted-foreground">On-time delivery</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial */}
+      <section className="py-16 px-4 bg-muted/20">
         <div className="max-w-4xl mx-auto">
           <Card className="p-8 bg-card">
             <CardContent className="p-0">
+              <div className="flex items-center justify-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+                ))}
+              </div>
               <div className="flex items-start gap-4">
                 <div className="flex-1 text-center">
                   <p className="text-lg italic mb-6">
-                    "The clarity of their process and the reliability of their SLA commitments set them apart. 
-                    For the first time, we have a partner that actually delivers when they say they will. The 
-                    daily updates and fast revision turnaround keep our projects moving at the pace we need."
+                    "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver without compromise is a game changer. I hand over the project and SOP, and it's done before the deadline and to the highest quality standard I could imagine."
                   </p>
                   <div>
-                    <div className="font-semibold">Emily Roberts</div>
-                    <div className="text-sm text-muted-foreground">COO, Cove Digital</div>
+                    <div className="font-semibold">Chloe Bundy</div>
+                    <div className="text-sm text-muted-foreground">Founder, Cove Digital</div>
                   </div>
                 </div>
               </div>
@@ -202,6 +295,27 @@ const ProcessSLA = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-8">Related Resources</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Link to="/how-it-works/onboarding-process" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover-scale">
+              <h3 className="font-semibold mb-2">Onboarding Process</h3>
+              <p className="text-sm text-muted-foreground">5-7 day onboarding timeline</p>
+            </Link>
+            <Link to="/how-it-works/qa-framework" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover-scale">
+              <h3 className="font-semibold mb-2">QA Framework</h3>
+              <p className="text-sm text-muted-foreground">Quality assurance standards</p>
+            </Link>
+            <Link to="/case-studies" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover-scale">
+              <h3 className="font-semibold mb-2">Case Studies</h3>
+              <p className="text-sm text-muted-foreground">Real client success stories</p>
+            </Link>
           </div>
         </div>
       </section>

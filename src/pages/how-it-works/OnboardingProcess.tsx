@@ -2,8 +2,16 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, Calendar, Users, Rocket, FileText, MessageSquare, Settings, Target } from "lucide-react";
+import { Check, Calendar, Users, Rocket, FileText, MessageSquare, Settings, Target, Home, ChevronRight, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
 
 const OnboardingProcess = () => {
   const onboardingSteps = [
@@ -52,8 +60,34 @@ const OnboardingProcess = () => {
     <div className="min-h-screen bg-background">
       <NavBar />
       
+      {/* Breadcrumb */}
+      <nav className="pt-20 pb-4 px-4 sm:px-6 lg:px-8 bg-muted/20" aria-label="Breadcrumb">
+        <div className="max-w-7xl mx-auto">
+          <Breadcrumb>
+            <BreadcrumbList className="flex flex-wrap">
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/" className="flex items-center">
+                    <Home className="h-4 w-4" />
+                    <span className="sr-only">Home</span>
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator><ChevronRight className="h-4 w-4" /></BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild><Link to="/how-it-works">How It Works</Link></BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator><ChevronRight className="h-4 w-4" /></BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbPage>Onboarding Process</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </nav>
+      
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
+      <section className="pt-16 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
             5-7 Day Onboarding
@@ -140,21 +174,75 @@ const OnboardingProcess = () => {
         </div>
       </section>
 
-      {/* Testimonial */}
+      {/* Case Study Section */}
       <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Success Story: PropertyStack</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-4">
+                Fast Onboarding Success
+              </div>
+              <h3 className="text-2xl font-bold mb-4">From First Call to First Hire in Under 3 Weeks</h3>
+              <p className="text-muted-foreground mb-6">
+                PropertyStack needed to rapidly scale their team across multiple roles. Our streamlined onboarding process helped them hire 15+ quality team members within a year, with each hire taking less than 3 weeks from start to finish.
+              </p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center">
+                  <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>Reduced hiring time from 1.5 months to under 3 weeks</span>
+                </div>
+                <div className="flex items-center">
+                  <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>15+ team members onboarded in just one year</span>
+                </div>
+                <div className="flex items-center">
+                  <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <span>Zero ramp-up time with immediate productivity</span>
+                </div>
+              </div>
+              <Link to="/case-studies/property-stack" className="inline-flex items-center text-primary font-semibold hover:underline">
+                Read Full Case Study
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-xl border border-primary/20">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">15+</div>
+                  <div className="text-sm text-muted-foreground">Team members hired</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">&lt;3</div>
+                  <div className="text-sm text-muted-foreground">Weeks per hire</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">$1M+</div>
+                  <div className="text-sm text-muted-foreground">Annual savings</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                  <div className="text-sm text-muted-foreground">Retention rate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial */}
+      <section className="py-16 px-4 bg-muted/20">
         <div className="max-w-4xl mx-auto">
           <Card className="p-8 bg-card">
             <CardContent className="p-0">
               <div className="flex items-start gap-4">
                 <div className="flex-1 text-center">
                   <p className="text-lg italic mb-6">
-                    "I was skeptical about the 7-day onboarding timeline, but they delivered exactly what they promised. 
-                    Within a week, we had a fully functional team producing quality work. No other agency has come close 
-                    to this speed without sacrificing quality."
+                    "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. You guys have helped us grow fast and we've referred you to many of our partners."
                   </p>
                   <div>
-                    <div className="font-semibold">James Patterson</div>
-                    <div className="text-sm text-muted-foreground">VP of Operations, PropertyStack</div>
+                    <div className="font-semibold">Ryan Jope</div>
+                    <div className="text-sm text-muted-foreground">Founder, PropertyStack</div>
                   </div>
                 </div>
               </div>
@@ -191,6 +279,27 @@ const OnboardingProcess = () => {
                 <p className="text-muted-foreground">Projects delivered on time</p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-8">Related Resources</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Link to="/how-it-works/process-sla" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover-scale">
+              <h3 className="font-semibold mb-2">Process & SLA</h3>
+              <p className="text-sm text-muted-foreground">Our service level agreements</p>
+            </Link>
+            <Link to="/how-it-works/qa-framework" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover-scale">
+              <h3 className="font-semibold mb-2">QA Framework</h3>
+              <p className="text-sm text-muted-foreground">Quality assurance standards</p>
+            </Link>
+            <Link to="/case-studies" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover-scale">
+              <h3 className="font-semibold mb-2">Case Studies</h3>
+              <p className="text-sm text-muted-foreground">Real client success stories</p>
+            </Link>
           </div>
         </div>
       </section>

@@ -2,8 +2,16 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Users, Globe, Target, Star, Coffee, Zap, Award } from "lucide-react";
+import { Heart, Users, Globe, Target, Star, Coffee, Zap, Award, Home, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
 
 const TeamCulture = () => {
   const values = [
@@ -51,8 +59,34 @@ const TeamCulture = () => {
     <div className="min-h-screen bg-background">
       <NavBar />
       
+      {/* Breadcrumb */}
+      <nav className="pt-20 pb-4 px-4 sm:px-6 lg:px-8 bg-muted/20" aria-label="Breadcrumb">
+        <div className="max-w-7xl mx-auto">
+          <Breadcrumb>
+            <BreadcrumbList className="flex flex-wrap">
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/" className="flex items-center">
+                    <Home className="h-4 w-4" />
+                    <span className="sr-only">Home</span>
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator><ChevronRight className="h-4 w-4" /></BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild><Link to="/company">Company</Link></BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator><ChevronRight className="h-4 w-4" /></BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbPage>Team & Culture</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </nav>
+      
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
+      <section className="pt-16 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
             Team & Culture
