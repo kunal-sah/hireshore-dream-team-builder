@@ -2,8 +2,16 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, MapPin, Calendar, CreditCard, Users } from "lucide-react";
+import { Check, MapPin, Calendar, CreditCard, Users, Home, ChevronRight, Star, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
 
 const Hospitality = () => {
   const services = [
@@ -20,6 +28,32 @@ const Hospitality = () => {
   return (
     <div className="min-h-screen bg-background">
       <NavBar />
+      
+      {/* Breadcrumb */}
+      <nav className="pt-20 pb-4 px-4 bg-muted/20" aria-label="Breadcrumb">
+        <div className="max-w-7xl mx-auto">
+          <Breadcrumb>
+            <BreadcrumbList className="flex flex-wrap">
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/" className="flex items-center">
+                    <Home className="h-4 w-4" />
+                    <span className="sr-only">Home</span>
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator><ChevronRight className="h-4 w-4" /></BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild><Link to="/industries">Industries</Link></BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator><ChevronRight className="h-4 w-4" /></BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbPage>Hospitality</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </nav>
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4">
@@ -121,8 +155,13 @@ const Hospitality = () => {
           {/* Testimonial */}
           <Card className="p-8 bg-card">
             <CardContent className="p-0">
+              <div className="flex items-center justify-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+                ))}
+              </div>
               <div className="flex items-start gap-4">
-                <div className="flex-1">
+                <div className="flex-1 text-center">
                   <p className="text-lg italic mb-6">
                     "The technology solutions delivered exceeded our expectations. The booking system is 
                     intuitive and has significantly improved our guest experience."
@@ -172,6 +211,27 @@ const Hospitality = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-8">Related Resources</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Link to="/resources/guides" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300">
+              <h3 className="font-semibold mb-2">Hospitality Tech Guide</h3>
+              <p className="text-sm text-muted-foreground">Best practices for hospitality tech</p>
+            </Link>
+            <Link to="/case-studies/swimply" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300">
+              <h3 className="font-semibold mb-2">Swimply Case Study</h3>
+              <p className="text-sm text-muted-foreground">Full success story details</p>
+            </Link>
+            <Link to="/resources/cost-calculator" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300">
+              <h3 className="font-semibold mb-2">ROI Calculator</h3>
+              <p className="text-sm text-muted-foreground">Calculate your potential savings</p>
+            </Link>
           </div>
         </div>
       </section>

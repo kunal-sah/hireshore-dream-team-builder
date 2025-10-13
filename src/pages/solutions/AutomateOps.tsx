@@ -59,6 +59,32 @@ const AutomateOps = () => {
       
       <div className="min-h-screen bg-background">
         <NavBar />
+        
+        {/* Breadcrumb */}
+        <nav className="pt-20 pb-4 px-4 bg-muted/20" aria-label="Breadcrumb">
+          <div className="max-w-7xl mx-auto">
+            <Breadcrumb>
+              <BreadcrumbList className="flex flex-wrap">
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/" className="flex items-center">
+                      <Home className="h-4 w-4" />
+                      <span className="sr-only">Home</span>
+                    </Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator><ChevronRight className="h-4 w-4" /></BreadcrumbSeparator>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild><Link to="/solutions">Solutions</Link></BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator><ChevronRight className="h-4 w-4" /></BreadcrumbSeparator>
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Automate Operations</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+          </div>
+        </nav>
       
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br from-primary/5 to-primary/10">
