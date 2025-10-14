@@ -2,8 +2,16 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, Search, FileText, BarChart3, Target, TrendingUp, Users, Clock } from "lucide-react";
+import { Check, Search, FileText, BarChart3, Target, TrendingUp, Users, Clock, Home, ChevronRight, Award, Star } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const SEOContentPod = () => {
   const features = [
@@ -39,8 +47,31 @@ const SEOContentPod = () => {
     <div className="min-h-screen bg-background">
       <NavBar />
       
+      {/* Breadcrumbs */}
+      <nav className="pt-20 pb-4 px-4 bg-muted/20" aria-label="Breadcrumb">
+        <div className="max-w-7xl mx-auto">
+          <Breadcrumb>
+            <BreadcrumbList className="flex-wrap">
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/"><Home className="h-4 w-4" /></Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator><ChevronRight className="h-4 w-4" /></BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild><Link to="/services">Services</Link></BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator><ChevronRight className="h-4 w-4" /></BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbPage>SEO Content Pod</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </nav>
+      
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
+      <section className="pt-16 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
             Dominate Search Rankings
@@ -219,6 +250,11 @@ const SEOContentPod = () => {
             <CardContent className="p-0">
               <div className="flex items-start gap-4">
                 <div className="flex-1">
+                  <div className="flex items-center mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+                    ))}
+                  </div>
                   <p className="text-lg italic mb-6">
                     "The SEO Content Pod delivered results beyond our expectations. Our organic traffic has more than doubled, and we're now ranking for competitive keywords we never thought possible."
                   </p>
@@ -230,6 +266,27 @@ const SEOContentPod = () => {
               </div>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-8">Related Resources</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Link to="/resources/guides/seo-basics" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover:shadow-md">
+              <h3 className="font-semibold mb-2">SEO Basics Guide</h3>
+              <p className="text-sm text-muted-foreground">Learn the fundamentals of SEO</p>
+            </Link>
+            <Link to="/resources/templates/content-calendar" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover:shadow-md">
+              <h3 className="font-semibold mb-2">Content Calendar</h3>
+              <p className="text-sm text-muted-foreground">Plan your content strategy</p>
+            </Link>
+            <Link to="/case-studies" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300 hover:shadow-md">
+              <h3 className="font-semibold mb-2">SEO Case Studies</h3>
+              <p className="text-sm text-muted-foreground">See real SEO results</p>
+            </Link>
+          </div>
         </div>
       </section>
 

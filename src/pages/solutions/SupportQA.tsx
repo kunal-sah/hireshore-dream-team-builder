@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
-import { Headphones, Clock, CheckCircle, ArrowRight, Award, Target, Users, Home, ChevronRight, BarChart, MessageCircle } from 'lucide-react';
+import { Headphones, Clock, CheckCircle, ArrowRight, Award, Target, Users, Home, ChevronRight, BarChart, MessageCircle, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
   Breadcrumb,
@@ -239,6 +239,26 @@ const SupportQA = () => {
                     <div className="text-sm text-muted-foreground">CSAT score</div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonial Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-card p-8 md:p-12 rounded-xl border border-border shadow-elegant">
+              <div className="flex items-center justify-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+                ))}
+              </div>
+              <blockquote className="text-xl text-center text-foreground mb-6 italic">
+                "The support team from Hireshore is exceptional. They consistently rank #1 on our performance leaderboard and maintain a 95% CSAT score. Their dedication to customer success is unmatched."
+              </blockquote>
+              <div className="text-center">
+                <div className="font-semibold text-foreground">Bunim Laskin</div>
+                <div className="text-muted-foreground">Founder, Swimply</div>
               </div>
             </div>
           </div>

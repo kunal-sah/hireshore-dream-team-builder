@@ -3,7 +3,7 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, Palette, Layout, Image, Zap, Users, Clock, Home, ChevronRight, TrendingUp, Award } from "lucide-react";
+import { Check, Palette, Layout, Image, Zap, Users, Clock, Home, ChevronRight, TrendingUp, Award, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   Breadcrumb,
@@ -311,6 +311,11 @@ const DesignPod = () => {
               <CardContent className="p-0">
                 <div className="flex items-start gap-4">
                   <div className="flex-1">
+                    <div className="flex items-center mb-6">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+                      ))}
+                    </div>
                     <p className="text-lg italic mb-6">
                       "The Design Pod transformed how we work. We get professional, on-brand designs delivered quickly without any of the hassles of hiring and managing designers."
                     </p>

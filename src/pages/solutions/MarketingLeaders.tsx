@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Target, BarChart, Users, CheckCircle, TrendingUp, Zap, Award, Rocket } from 'lucide-react';
+import { ArrowRight, Target, BarChart, Users, CheckCircle, TrendingUp, Zap, Award, Rocket, Star } from 'lucide-react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 
@@ -85,9 +85,9 @@ const MarketingLeaders: React.FC = () => {
         <NavBar />
         
         {/* Breadcrumbs */}
-        <div className="bg-muted/30 border-b">
+        <div className="bg-muted/30 border-b pt-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <nav className="flex text-sm">
+            <nav className="flex flex-wrap text-sm">
               <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link>
               <span className="mx-2 text-muted-foreground">/</span>
               <Link to="/solutions" className="text-muted-foreground hover:text-foreground transition-colors">Solutions</Link>
@@ -307,6 +307,11 @@ const MarketingLeaders: React.FC = () => {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-card rounded-2xl p-8 md:p-12 border border-border shadow-lg">
               <div>
+                <div className="flex items-center justify-center lg:justify-start mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+                  ))}
+                </div>
                 <blockquote className="text-xl font-medium text-foreground mb-6 italic">
                   "{caseStudy.testimonial.quote}"
                 </blockquote>

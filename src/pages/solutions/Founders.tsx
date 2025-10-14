@@ -68,7 +68,7 @@ const Founders: React.FC = () => {
       {/* Breadcrumb */}
       <div className="container mx-auto px-4 py-4 pt-20">
         <Breadcrumb>
-          <BreadcrumbList>
+          <BreadcrumbList className="flex-wrap">
             <BreadcrumbItem>
               <BreadcrumbLink href="/">Home</BreadcrumbLink>
             </BreadcrumbItem>
@@ -309,6 +309,27 @@ const Founders: React.FC = () => {
                 ></iframe>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-center mb-8">Helpful Resources for Founders</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Link to="/resources/cost-calculator" className="p-6 bg-white border border-gray-200 rounded-lg hover:border-primary/40 transition-all duration-300 hover:shadow-md">
+              <h3 className="font-semibold mb-2">Cost Calculator</h3>
+              <p className="text-sm text-gray-600">Calculate your savings vs traditional hiring</p>
+            </Link>
+            <Link to="/staffing/one-week-trial" className="p-6 bg-white border border-gray-200 rounded-lg hover:border-primary/40 transition-all duration-300 hover:shadow-md">
+              <h3 className="font-semibold mb-2">One Week Trial</h3>
+              <p className="text-sm text-gray-600">Test our talent risk-free</p>
+            </Link>
+            <Link to="/resources/guides" className="p-6 bg-white border border-gray-200 rounded-lg hover:border-primary/40 transition-all duration-300 hover:shadow-md">
+              <h3 className="font-semibold mb-2">Startup Guides</h3>
+              <p className="text-sm text-gray-600">Learn how to scale efficiently</p>
+            </Link>
           </div>
         </div>
       </section>
