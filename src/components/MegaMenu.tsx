@@ -91,7 +91,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
           items: [
             { title: 'Process & SLAs', href: '/how-it-works/process-sla', icon: FileText },
             { title: 'QA & PM Framework', href: '/how-it-works/qa-framework', icon: Award },
-            { title: 'Onboarding 5–7 days', href: '/how-it-works/onboarding', icon: Rocket }
+            { title: 'Onboarding 5–7 days', href: '/how-it-works/onboarding', icon: Rocket },
+            { title: 'Case Studies', href: '/case-studies', icon: Award }
           ]
         }
       ],
@@ -182,6 +183,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
           title: 'Deep Dives',
           items: [
             { title: 'Delivery Pods Playbook', href: '/resources/delivery-pods-playbook', icon: BookOpen },
+            { title: 'Case Studies', href: '/case-studies', icon: Award },
             { title: 'Case Notes', href: '/resources/case-notes', icon: FileText },
             { title: 'Webinars', href: '/resources/webinars', icon: Video },
             { title: 'FAQs', href: '/resources/faqs', icon: MessageCircle }
