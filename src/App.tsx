@@ -90,6 +90,7 @@ const PropertyStackCaseStudy = lazy(() => import("./pages/case-studies/PropertyS
 const AffectiveCareCaseStudy = lazy(() => import("./pages/case-studies/AffectiveCare"));
 const UncommonSolutionsCaseStudy = lazy(() => import("./pages/case-studies/UncommonSolutions"));
 const CoveDigitalCaseStudy = lazy(() => import("./pages/case-studies/CoveDigital"));
+const EkleipsiDigitalCaseStudy = lazy(() => import("./pages/case-studies/EkleipsiDigital"));
 
 // Lazy load resource pages
 const FAQs = lazy(() => import("./pages/resources/FAQs"));
@@ -200,6 +201,7 @@ const App = () => (
             <Route path="/case-studies/affective-care" element={<AffectiveCareCaseStudy />} />
             <Route path="/case-studies/uncommon-solutions" element={<UncommonSolutionsCaseStudy />} />
             <Route path="/case-studies/cove-digital" element={<CoveDigitalCaseStudy />} />
+            <Route path="/case-studies/ekleipsi-digital" element={<EkleipsiDigitalCaseStudy />} />
             <Route path="/resources/guides" element={<GuidesLibrary />} />
             <Route path="/resources/templates" element={<TemplatesLibrary />} />
             <Route path="/resources/case-notes" element={<CaseNotesLibrary />} />

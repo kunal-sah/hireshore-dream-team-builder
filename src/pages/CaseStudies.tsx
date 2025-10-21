@@ -22,6 +22,7 @@ import affectiveCareThumbnail from '../assets/thumbnails/affective-care-thumbnai
 import uncommonSolutionsThumbnail from '../assets/thumbnails/uncommon-solutions-thumbnail-v2.jpg';
 import coveDigitalThumbnail from '../assets/thumbnails/cove-digital-thumbnail-v2.jpg';
 import digitalSixLogo from '../assets/digital-six-logo.png';
+import ekleipsiLogo from '../assets/ekleipsi-logo.png';
  
 interface CaseStudy {
   id: string;
@@ -120,6 +121,18 @@ const caseStudies: CaseStudy[] = [
     thumbnail: coveDigitalThumbnail,
     tags: ['Website Migration', 'SEO', 'Agency Growth'],
     readTime: '5 min'
+  },
+  {
+    id: 'ekleipsi-digital',
+    title: 'How Ekleipsi Digital Streamlined Operations and Cut Costs by 80%',
+    client: 'Ekleipsi Digital',
+    industry: 'Digital Marketing',
+    challenge: 'Overloaded founders managing all operations manually with rising freelancer costs',
+    result: '80% cost reduction, 10 hours/week managed service, consistent high-quality leads',
+    metrics: '80% Cost Reduction',
+    thumbnail: coveDigitalThumbnail,
+    tags: ['Cost Reduction', 'Operations', 'Marketing'],
+    readTime: '6 min'
   }
 ];
 
@@ -290,6 +303,14 @@ const CaseStudies = () => {
                     <img 
                       src={digitalSixLogo}
                       alt="Digital Six logo - case study thumbnail"
+                      className="absolute top-14 right-4 h-10 w-auto object-contain drop-shadow-md"
+                      loading="lazy"
+                    />
+                  )}
+                  {caseStudy.id === 'ekleipsi-digital' && (
+                    <img 
+                      src={ekleipsiLogo}
+                      alt="Ekleipsi Digital logo - case study thumbnail"
                       className="absolute top-14 right-4 h-10 w-auto object-contain drop-shadow-md"
                       loading="lazy"
                     />
