@@ -4,6 +4,7 @@ import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import { CheckCircle, ArrowRight, Users, Clock, Zap } from 'lucide-react';
 import { toast } from 'sonner';
+import emailjs from 'emailjs-com';
 
 const ConfigurePod = () => {
   const [selectedPods, setSelectedPods] = useState<string[]>([]);
@@ -69,32 +70,32 @@ const ConfigurePod = () => {
     setIsSubmitting(true);
 
     try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      // EmailJS Configuration - Replace with your credentials
+      const serviceId = 'YOUR_SERVICE_ID';
+      const templateId = 'YOUR_TEMPLATE_ID';
+      const publicKey = 'YOUR_PUBLIC_KEY';
       
       // Get pod names from selected pod IDs
       const selectedPodNames = podTypes
         .filter(pod => selectedPods.includes(pod.id))
-        .map(pod => pod.name);
+        .map(pod => pod.name)
+        .join(', ');
 
-      const response = await fetch(`${supabaseUrl}/functions/v1/send-contact-email`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          company: formData.company || 'Not provided',
+          project_description: formData.projectDescription || 'Not provided',
+          timeline: formData.timeline || 'Not provided',
+          budget: formData.budget || 'Not provided',
+          selected_pods: selectedPodNames || 'None selected',
+          to_email: 'kunalsah29@gmail.com',
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          projectDescription: formData.projectDescription,
-          timeline: formData.timeline,
-          budget: formData.budget,
-          selectedPods: selectedPodNames,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send request');
-      }
+        publicKey
+      );
 
       toast.success('Request sent successfully! We\'ll send you a proposal within 24 hours.');
       

@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar';
 import SiteFooter from '../components/SiteFooter';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import emailjs from 'emailjs-com';
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -37,25 +38,24 @@ const ContactUs = () => {
     setIsSubmitting(true);
 
     try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const response = await fetch(`${supabaseUrl}/functions/v1/send-contact-email`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          email: formData.email,
-          company: formData.company,
-          service: formData.service,
-          message: formData.message,
-        }),
-      });
+      // EmailJS Configuration - Replace with your credentials
+      const serviceId = 'YOUR_SERVICE_ID';
+      const templateId = 'YOUR_TEMPLATE_ID'; 
+      const publicKey = 'YOUR_PUBLIC_KEY';
 
-      if (!response.ok) {
-        throw new Error('Failed to send message');
-      }
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: `${formData.firstName} ${formData.lastName}`,
+          from_email: formData.email,
+          company: formData.company || 'Not provided',
+          service: formData.service || 'Not provided',
+          message: formData.message,
+          to_email: 'kunalsah29@gmail.com',
+        },
+        publicKey
+      );
 
       toast.success('Message sent successfully! We\'ll get back to you soon.');
       
