@@ -37,8 +37,8 @@ const ContactUs = () => {
     setIsSubmitting(true);
 
     try {
-      // Send to our backend API (Supabase Edge Function)
-      const response = await fetch('/api/send-contact-email', {
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const response = await fetch(`${supabaseUrl}/functions/v1/send-contact-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,19 +70,7 @@ const ContactUs = () => {
       });
     } catch (error) {
       console.error('Error sending message:', error);
-      // For now, show success message since we don't have backend set up yet
-      // In production, you'd want to show the actual error
-      toast.success('Thank you for your message! Please also email us directly at sales@hireshore.co for immediate assistance.');
-      
-      // Reset form even if there's an error, so user knows their message was "received"
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        company: '',
-        service: '',
-        message: ''
-      });
+      toast.error('Failed to send message. Please try again or email us directly at kunalsah29@gmail.com');
     } finally {
       setIsSubmitting(false);
     }

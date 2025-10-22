@@ -3,9 +3,11 @@ import { Helmet } from 'react-helmet-async';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import { CheckCircle, ArrowRight, Users, Clock, Zap } from 'lucide-react';
+import { toast } from 'sonner';
 
 const ConfigurePod = () => {
   const [selectedPods, setSelectedPods] = useState<string[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -62,10 +64,56 @@ const ConfigurePod = () => {
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', { formData, selectedPods });
+    setIsSubmitting(true);
+
+    try {
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      
+      // Get pod names from selected pod IDs
+      const selectedPodNames = podTypes
+        .filter(pod => selectedPods.includes(pod.id))
+        .map(pod => pod.name);
+
+      const response = await fetch(`${supabaseUrl}/functions/v1/send-contact-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          projectDescription: formData.projectDescription,
+          timeline: formData.timeline,
+          budget: formData.budget,
+          selectedPods: selectedPodNames,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send request');
+      }
+
+      toast.success('Request sent successfully! We\'ll send you a proposal within 24 hours.');
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        projectDescription: '',
+        timeline: '',
+        budget: ''
+      });
+      setSelectedPods([]);
+    } catch (error) {
+      console.error('Error sending request:', error);
+      toast.error('Failed to send request. Please try again or email us directly at kunalsah29@gmail.com');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -183,10 +231,10 @@ const ConfigurePod = () => {
               <div className="text-center">
                 <button
                   type="submit"
-                  disabled={selectedPods.length === 0}
+                  disabled={selectedPods.length === 0 || isSubmitting}
                   className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold py-4 px-8 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Get Custom Proposal
+                  {isSubmitting ? 'Sending...' : 'Get Custom Proposal'}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
                 <p className="text-muted-foreground text-sm mt-2">
