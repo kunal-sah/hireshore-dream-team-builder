@@ -12,6 +12,8 @@ export const siteRoutes: SitemapEntry[] = [
   { path: '/', priority: 1.0, changefreq: 'weekly' },
   { path: '/services', priority: 0.9, changefreq: 'monthly' },
   { path: '/case-studies', priority: 0.9, changefreq: 'weekly' },
+  { path: '/solutions', priority: 0.9, changefreq: 'monthly' },
+  { path: '/staffing', priority: 0.9, changefreq: 'monthly' },
   
   // Important pages
   { path: '/about-us', priority: 0.8, changefreq: 'monthly' },
@@ -19,6 +21,7 @@ export const siteRoutes: SitemapEntry[] = [
   { path: '/resources', priority: 0.8, changefreq: 'weekly' },
   { path: '/industries', priority: 0.7, changefreq: 'monthly' },
   { path: '/contact-us', priority: 0.7, changefreq: 'monthly' },
+  { path: '/configure-pod', priority: 0.7, changefreq: 'monthly' },
 
   // Case Studies - high priority for SEO
   { path: '/case-studies/digital-six', priority: 0.8, changefreq: 'monthly' },
@@ -28,6 +31,56 @@ export const siteRoutes: SitemapEntry[] = [
   { path: '/case-studies/affective-care', priority: 0.8, changefreq: 'monthly' },
   { path: '/case-studies/uncommon-solutions', priority: 0.8, changefreq: 'monthly' },
   { path: '/case-studies/cove-digital', priority: 0.8, changefreq: 'monthly' },
+  { path: '/case-studies/ekleipsi-digital', priority: 0.8, changefreq: 'monthly' },
+
+  // Solutions pages
+  { path: '/solutions/launch-faster', priority: 0.7, changefreq: 'monthly' },
+  { path: '/solutions/scale-design', priority: 0.7, changefreq: 'monthly' },
+  { path: '/solutions/automate-ops', priority: 0.7, changefreq: 'monthly' },
+  { path: '/solutions/sales-pipeline', priority: 0.7, changefreq: 'monthly' },
+  { path: '/solutions/support-qa', priority: 0.7, changefreq: 'monthly' },
+  { path: '/solutions/agency-owners', priority: 0.7, changefreq: 'monthly' },
+  { path: '/solutions/marketing-leaders', priority: 0.7, changefreq: 'monthly' },
+  { path: '/solutions/founders', priority: 0.7, changefreq: 'monthly' },
+  { path: '/solutions/hr-recruiters', priority: 0.7, changefreq: 'monthly' },
+
+  // Services/Pod pages
+  { path: '/services/web-dev', priority: 0.7, changefreq: 'monthly' },
+  { path: '/services/design', priority: 0.7, changefreq: 'monthly' },
+  { path: '/services/video', priority: 0.7, changefreq: 'monthly' },
+  { path: '/services/seo-content', priority: 0.7, changefreq: 'monthly' },
+  { path: '/services/marketing-ops', priority: 0.7, changefreq: 'monthly' },
+  { path: '/services/data-ai', priority: 0.7, changefreq: 'monthly' },
+  { path: '/services/support-qa', priority: 0.7, changefreq: 'monthly' },
+
+  // Staffing pages
+  { path: '/staffing/recruitment', priority: 0.7, changefreq: 'monthly' },
+  { path: '/staffing/compliance', priority: 0.7, changefreq: 'monthly' },
+  { path: '/staffing/trial', priority: 0.7, changefreq: 'monthly' },
+  { path: '/staffing/rates', priority: 0.7, changefreq: 'monthly' },
+  { path: '/staffing/talent-profiles', priority: 0.7, changefreq: 'monthly' },
+  { path: '/staffing/dedicated', priority: 0.7, changefreq: 'monthly' },
+  { path: '/staffing/build-team', priority: 0.7, changefreq: 'monthly' },
+
+  // How It Works pages
+  { path: '/how-it-works/qa-framework', priority: 0.6, changefreq: 'monthly' },
+  { path: '/how-it-works/onboarding', priority: 0.6, changefreq: 'monthly' },
+  { path: '/how-it-works/process-sla', priority: 0.6, changefreq: 'monthly' },
+
+  // Industries pages
+  { path: '/industries/ecommerce', priority: 0.7, changefreq: 'monthly' },
+  { path: '/industries/saas-tech', priority: 0.7, changefreq: 'monthly' },
+  { path: '/industries/healthcare', priority: 0.7, changefreq: 'monthly' },
+  { path: '/industries/education', priority: 0.7, changefreq: 'monthly' },
+  { path: '/industries/hospitality', priority: 0.7, changefreq: 'monthly' },
+  { path: '/industries/finance', priority: 0.7, changefreq: 'monthly' },
+  { path: '/industries/agencies', priority: 0.7, changefreq: 'monthly' },
+  { path: '/industries/real-estate', priority: 0.7, changefreq: 'monthly' },
+
+  // Company pages
+  { path: '/company/careers', priority: 0.6, changefreq: 'monthly' },
+  { path: '/company/partners', priority: 0.6, changefreq: 'monthly' },
+  { path: '/company/team-culture', priority: 0.6, changefreq: 'monthly' },
 
   // Resource Categories
   { path: '/resources/guides', priority: 0.7, changefreq: 'weekly' },

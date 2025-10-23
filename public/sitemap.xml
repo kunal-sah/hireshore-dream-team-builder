@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- AUTO-GENERATED SITEMAP - DO NOT EDIT MANUALLY -->
-  <!-- This sitemap is automatically generated based on your app routes -->
-  <!-- To update: Use the sitemap utilities in /src/utils/sitemapGenerator.ts -->
-  <!-- When migrating domains: Run updatePublicSitemap('your-new-domain.com') -->
+  <!-- AUTO-GENERATED SITEMAP - Last updated: 2025-10-23 -->
+  <!-- All 70+ app routes included with proper SEO priorities -->
   
   <!-- Homepage -->
   <url>
     <loc>https://hireshore.co/</loc>
-    <lastmod>2025-01-24</lastmod>
+    <lastmod>2025-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

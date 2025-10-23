@@ -1,8 +1,8 @@
-
 import React, { useEffect, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { SEOHead } from "../components/SEOHead";
 
 // Critical above-fold components - load immediately
 import NavBar from "../components/NavBar";
@@ -137,6 +137,12 @@ const Index = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col font-sans text-neutral-900 overflow-x-hidden">
+      <SEOHead 
+        title="Done-For-You Delivery Pods | Scale With Hireshore"
+        description="Scale without chaos with Hireshore's vetted delivery pods for dev, design, automation & support. Real case studies. Book a free strategy call."
+        keywords="delivery pods, offshore development, remote team, managed services, web development, design services, marketing automation, white label services"
+        canonicalUrl="https://hireshore.co/"
+      />
       <NavBar />
       <LandingHero />
       <div className="space-y-12 md:space-y-16">
