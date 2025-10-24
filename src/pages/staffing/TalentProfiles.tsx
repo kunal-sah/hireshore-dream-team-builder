@@ -28,9 +28,9 @@ const TalentProfiles = () => {
 
   const featuredTalent = [
     {
-      name: "Maria Rodriguez",
+      name: "Aarti Gurung",
       role: "Senior Full-Stack Developer",
-      location: "Mexico",
+      location: "Nepal",
       experience: "8 years",
       rate: "$45/hour",
       skills: ["React", "Node.js", "Python", "AWS"],
@@ -40,9 +40,9 @@ const TalentProfiles = () => {
       availability: "Available Now"
     },
     {
-      name: "Aleksandr Petrov", 
+      name: "Bikash Thapa", 
       role: "UI/UX Designer",
-      location: "Poland",
+      location: "Nepal",
       experience: "6 years",
       rate: "$38/hour",
       skills: ["Figma", "Adobe XD", "Prototyping", "User Research"],
@@ -52,9 +52,9 @@ const TalentProfiles = () => {
       availability: "Available Now"
     },
     {
-      name: "Priya Sharma",
+      name: "Sita Tamang",
       role: "Digital Marketing Specialist",
-      location: "India",
+      location: "Nepal",
       experience: "5 years", 
       rate: "$28/hour",
       skills: ["SEO", "Google Ads", "Analytics", "Content Strategy"],
@@ -64,9 +64,9 @@ const TalentProfiles = () => {
       availability: "Available in 1 week"
     },
     {
-      name: "Carlos Silva",
+      name: "Rajesh Shrestha",
       role: "Video Producer",
-      location: "Brazil",
+      location: "Nepal",
       experience: "7 years",
       rate: "$35/hour", 
       skills: ["After Effects", "Premiere Pro", "Motion Graphics", "3D Animation"],
@@ -76,9 +76,9 @@ const TalentProfiles = () => {
       availability: "Available Now"
     },
     {
-      name: "Sarah Kim",
+      name: "Meena Rai",
       role: "Data Scientist",
-      location: "South Korea",
+      location: "Nepal",
       experience: "4 years",
       rate: "$50/hour",
       skills: ["Python", "Machine Learning", "TensorFlow", "Data Visualization"],
@@ -88,9 +88,9 @@ const TalentProfiles = () => {
       availability: "Available in 2 weeks"
     },
     {
-      name: "Ahmed Hassan",
+      name: "Suresh Karki",
       role: "Customer Support Lead",
-      location: "Egypt",
+      location: "Nepal",
       experience: "6 years",
       rate: "$22/hour",
       skills: ["Zendesk", "Customer Success", "Process Optimization", "Training"],
