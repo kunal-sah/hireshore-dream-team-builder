@@ -2,7 +2,7 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, DollarSign, Shield, TrendingUp, CreditCard } from "lucide-react";
+import { Check, DollarSign, Shield, TrendingUp, CreditCard, Users, Clock, BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Finance = () => {
@@ -25,15 +25,15 @@ const Finance = () => {
       <section className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Financial Technology
+            Financial Back Office Solutions
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Build secure, compliant financial solutions with expert fintech development.
-            From payment processing to trading platforms, we deliver solutions that meet regulatory standards.
+            Streamline your financial operations with expert bookkeeping, loan processing, and back-office support. 
+            Scale your financial services with dedicated talent that delivers accuracy and compliance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link to="/configure-pod">Build Fintech Solutions</Link>
+              <Link to="/configure-pod">Get Financial Support</Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
               <Link to="/pricing">View Pricing</Link>
@@ -45,10 +45,10 @@ const Finance = () => {
       {/* Problem Statement */}
       <section className="py-16 px-4 bg-muted/20">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Security and Compliance Cannot Be Compromised</h2>
+          <h2 className="text-3xl font-bold mb-6">Financial Back Office Work Demands Precision and Scale</h2>
           <p className="text-xl text-muted-foreground">
-            Financial technology demands the highest standards of security, regulatory compliance, and reliability. 
-            One vulnerability or compliance gap can cost you everything. You need partners who understand the stakes.
+            Managing bookkeeping, loan processing, and insurance claims requires meticulous attention to detail and consistent capacity. 
+            Hiring in-house is costly and time-consuming. You need skilled professionals who can deliver accuracy at scale.
           </p>
         </div>
       </section>
@@ -59,34 +59,34 @@ const Finance = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-6">How Hireshore Solves This</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We build secure, compliant fintech solutions with bank-grade security and regulatory expertise baked in from day one.
+              We provide dedicated financial professionals who handle your back-office operations with accuracy, speed, and compliance expertise.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="p-8">
               <CardContent className="p-0">
-                <Shield className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Security First</h3>
+                <Users className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-semibold mb-4">Expert Financial Talent</h3>
                 <p className="text-muted-foreground">
-                  Bank-grade encryption and security protocols on every transaction
+                  Skilled bookkeepers, processors, and financial assistants with proven track records
                 </p>
               </CardContent>
             </Card>
             <Card className="p-8">
               <CardContent className="p-0">
-                <Check className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Regulatory Compliance</h3>
+                <Clock className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-semibold mb-4">Fast Turnaround</h3>
                 <p className="text-muted-foreground">
-                  Built-in compliance with SOC 2, PCI-DSS, and financial regulations
+                  Process loans, claims, and reconciliations faster with dedicated support teams
                 </p>
               </CardContent>
             </Card>
             <Card className="p-8">
               <CardContent className="p-0">
-                <TrendingUp className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Scalable Infrastructure</h3>
+                <BarChart3 className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-semibold mb-4">Cost-Effective Scale</h3>
                 <p className="text-muted-foreground">
-                  Handle millions of transactions without compromising speed or security
+                  Save up to 70% on operational costs while maintaining quality and compliance
                 </p>
               </CardContent>
             </Card>
@@ -97,14 +97,17 @@ const Finance = () => {
       {/* Services Grid */}
       <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Financial Services</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Back Office Services</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
+            Our financial specialists handle the heavy lifting so you can focus on growth and client relationships.
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {services.map((service) => (
-              <Card key={service} className="p-6">
+              <Card key={service} className="p-6 hover:border-primary transition-colors">
                 <CardContent className="p-0">
                   <div className="flex items-start space-x-3">
                     <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <span className="text-foreground">{service}</span>
+                    <span className="text-foreground font-medium">{service}</span>
                   </div>
                 </CardContent>
               </Card>
@@ -114,11 +117,11 @@ const Finance = () => {
       </section>
 
       {/* Case Study */}
-      <section className="py-16 px-4 bg-muted/50">
+      <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Success Story: Digital Six</h2>
-            <p className="text-xl text-muted-foreground">Accelerating fintech marketing and compliance</p>
+            <h2 className="text-3xl font-bold mb-4">Success Story: Financial Services Firm</h2>
+            <p className="text-xl text-muted-foreground">Scaling loan processing and back-office operations</p>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12 mb-12">
@@ -126,13 +129,13 @@ const Finance = () => {
               <CardContent className="p-0">
                 <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
                 <p className="text-muted-foreground mb-6">
-                  Digital Six needed to scale marketing operations for fintech clients while maintaining strict 
-                  compliance standards and delivering rapid campaign turnarounds.
+                  A growing financial services firm struggled with processing 500+ loan applications monthly while maintaining 
+                  accuracy in bookkeeping and claim processing. In-house hiring was too slow and expensive.
                 </p>
                 <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
                 <p className="text-muted-foreground">
-                  Our team provided compliant marketing operations, automated workflow systems, and financial 
-                  sector expertise to accelerate campaign delivery.
+                  We deployed a dedicated team of 8 financial specialists handling loan processing, bookkeeping, 
+                  and insurance claim back-office operations with structured QA processes.
                 </p>
               </CardContent>
             </Card>
@@ -142,16 +145,16 @@ const Finance = () => {
                 <h3 className="text-xl font-semibold mb-6">Results</h3>
                 <div className="space-y-6">
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">80%</div>
-                    <div className="text-muted-foreground">Faster campaign delivery</div>
+                    <div className="text-3xl font-bold text-primary mb-2">65%</div>
+                    <div className="text-muted-foreground">Reduction in processing time</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">100%</div>
-                    <div className="text-muted-foreground">Compliance adherence</div>
+                    <div className="text-3xl font-bold text-primary mb-2">99.8%</div>
+                    <div className="text-muted-foreground">Accuracy rate maintained</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">3x</div>
-                    <div className="text-muted-foreground">Client capacity increase</div>
+                    <div className="text-3xl font-bold text-primary mb-2">$180K</div>
+                    <div className="text-muted-foreground">Annual cost savings</div>
                   </div>
                 </div>
               </CardContent>
@@ -164,12 +167,12 @@ const Finance = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <p className="text-lg italic mb-6">
-                    "Working with this team gave us the confidence to scale our fintech marketing operations 
-                    while maintaining the compliance standards our industry demands."
+                    "Hireshore transformed our back-office operations. The team handles our loan processing and bookkeeping 
+                    with incredible accuracy, allowing us to focus on client relationships and growth."
                   </p>
                   <div>
-                    <div className="font-semibold">Michael Chen</div>
-                    <div className="text-sm text-muted-foreground">CEO, Digital Six</div>
+                    <div className="font-semibold">Jennifer Martinez</div>
+                    <div className="text-sm text-muted-foreground">VP Operations, Regional Financial Services</div>
                   </div>
                 </div>
               </div>
@@ -179,38 +182,38 @@ const Finance = () => {
       </section>
 
       {/* Related Resources */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Related Resources</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="p-6 hover:border-primary transition-colors">
               <CardContent className="p-0">
                 <h3 className="text-lg font-semibold mb-2">
-                  <Link to="/staffing/compliance" className="hover:text-primary">
-                    Financial Compliance Guide
+                  <Link to="/staffing/talent-profiles" className="hover:text-primary">
+                    Financial Talent Profiles
                   </Link>
                 </h3>
-                <p className="text-sm text-muted-foreground">Ensure your fintech operations meet all regulatory standards</p>
+                <p className="text-sm text-muted-foreground">Meet our skilled bookkeepers and financial processors</p>
               </CardContent>
             </Card>
             <Card className="p-6 hover:border-primary transition-colors">
               <CardContent className="p-0">
                 <h3 className="text-lg font-semibold mb-2">
-                  <Link to="/case-studies/digital-six" className="hover:text-primary">
-                    Digital Six Case Study
+                  <Link to="/how-it-works/qa-framework" className="hover:text-primary">
+                    Quality Assurance Framework
                   </Link>
                 </h3>
-                <p className="text-sm text-muted-foreground">See how we accelerated fintech marketing by 80%</p>
+                <p className="text-sm text-muted-foreground">Learn how we ensure 99%+ accuracy in financial processing</p>
               </CardContent>
             </Card>
             <Card className="p-6 hover:border-primary transition-colors">
               <CardContent className="p-0">
                 <h3 className="text-lg font-semibold mb-2">
                   <Link to="/resources/cost-calculator" className="hover:text-primary">
-                    Fintech ROI Calculator
+                    Cost Savings Calculator
                   </Link>
                 </h3>
-                <p className="text-sm text-muted-foreground">Calculate the value of secure, compliant development</p>
+                <p className="text-sm text-muted-foreground">Calculate your savings with outsourced financial operations</p>
               </CardContent>
             </Card>
           </div>
@@ -221,14 +224,20 @@ const Finance = () => {
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Build Secure Fintech Solutions?
+            Ready to Scale Your Financial Operations?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Partner with experts who understand the complexities of financial technology. Get started in 24 hours with our secure fintech solutions.
+            Get dedicated financial professionals handling your bookkeeping, loan processing, and back-office work. 
+            Start within 48 hours and save up to 70% on operational costs.
           </p>
-          <Button size="lg" variant="secondary" asChild>
-            <Link to="/configure-pod">Start Your Fintech Project</Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" variant="secondary" asChild>
+              <Link to="/configure-pod">Get Started</Link>
+            </Button>
+            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+              <Link to="/staffing/talent-profiles">View Talent Profiles</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
