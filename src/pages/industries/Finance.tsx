@@ -7,14 +7,14 @@ import { Link } from "react-router-dom";
 
 const Finance = () => {
   const services = [
-    "Fintech Application Development",
-    "Payment Processing Systems",
-    "Trading Platforms",
-    "Blockchain & Cryptocurrency",
-    "Compliance & Regulatory",
-    "Financial Analytics",
-    "Mobile Banking Apps",
-    "Risk Management Systems"
+    "Bookkeeping & Accounting",
+    "Back Office Processing",
+    "Loan Processing & Servicing",
+    "Insurance Claim Processing",
+    "Financial Data Entry",
+    "Account Reconciliation",
+    "Invoice Management",
+    "Financial Document Processing"
   ];
 
   return (
