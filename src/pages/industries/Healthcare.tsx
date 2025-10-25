@@ -20,13 +20,13 @@ const Healthcare = () => {
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Healthcare Technology Solutions",
-      "description": "Transform healthcare delivery with secure, HIPAA-compliant technology solutions and development services.",
+      "name": "Healthcare Back Office & Virtual Assistant Services",
+      "description": "HIPAA-compliant back office support and virtual assistants for healthcare practices. Medical billing, claims processing, patient scheduling, and more.",
       "url": typeof window !== 'undefined' ? window.location.href : 'https://hireshore.co/industries/healthcare',
       "mainEntity": {
         "@type": "Service",
-        "name": "Healthcare Technology Services",
-        "description": "HIPAA-compliant development, EHR systems, telemedicine platforms, and healthcare analytics",
+        "name": "Healthcare Virtual Assistant Services",
+        "description": "Medical billing, coding, claims processing, patient scheduling, insurance verification, and HIPAA-compliant back office support",
         "provider": {
           "@type": "Organization",
           "name": "Hireshore",
@@ -48,14 +48,38 @@ const Healthcare = () => {
   }, []);
 
   const services = [
-    "HIPAA-Compliant Development",
-    "Electronic Health Records (EHR)",
-    "Telemedicine Platforms",
-    "Healthcare Analytics",
-    "Patient Management Systems",
-    "Medical Device Integration",
-    "Healthcare Mobile Apps",
-    "Compliance & Security"
+    {
+      title: "Medical Billing & Coding",
+      description: "Accurate claims processing, ICD-10 coding, and revenue cycle management"
+    },
+    {
+      title: "Patient Scheduling & Coordination",
+      description: "Appointment management, reminders, and patient communication"
+    },
+    {
+      title: "Insurance Verification & Authorization",
+      description: "Eligibility checks, prior authorizations, and benefits verification"
+    },
+    {
+      title: "Medical Transcription",
+      description: "HIPAA-compliant transcription of clinical notes and documentation"
+    },
+    {
+      title: "Claims Processing & Follow-up",
+      description: "Claim submissions, denials management, and appeals handling"
+    },
+    {
+      title: "Patient Record Management",
+      description: "EMR/EHR data entry, chart preparation, and record maintenance"
+    },
+    {
+      title: "Healthcare Data Entry",
+      description: "Patient demographics, clinical data, and administrative documentation"
+    },
+    {
+      title: "Prior Authorization Processing",
+      description: "Authorization requests, follow-ups, and compliance tracking"
+    }
   ];
 
   return (
@@ -84,28 +108,29 @@ const Healthcare = () => {
       <section className="pt-8 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Healthcare Solutions
+            Healthcare Back Office & Virtual Assistant Services
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Transform healthcare delivery with secure, compliant technology solutions.
+            Scale your healthcare practice with HIPAA-compliant back office support and virtual assistants. Reduce administrative burden and focus on patient care.
           </p>
           <Button size="lg" asChild>
-            <Link to="/configure-pod">Get Healthcare Solutions</Link>
+            <Link to="/configure-pod">Get Healthcare Support</Link>
           </Button>
         </div>
       </section>
 
       <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Healthcare Services</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Healthcare Back Office Services</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => (
-              <Card key={service} className="p-6">
+              <Card key={service.title} className="p-6 hover:shadow-lg transition-shadow">
                 <CardContent className="p-0">
-                  <div className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <span className="text-foreground">{service}</span>
+                  <div className="mb-3">
+                    <Check className="w-6 h-6 text-primary mb-2" />
+                    <h3 className="font-semibold text-foreground mb-2">{service.title}</h3>
                   </div>
+                  <p className="text-sm text-muted-foreground">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -116,9 +141,9 @@ const Healthcare = () => {
       {/* Problem Statement */}
       <section className="py-16 px-4 bg-muted/20">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Healthcare Deserves Better Technology</h2>
+          <h2 className="text-3xl font-bold mb-6">Healthcare Administrative Burden is Overwhelming</h2>
           <p className="text-xl text-muted-foreground">
-            Outdated systems, compliance headaches, and slow development are holding healthcare providers back from delivering exceptional patient care. Manual workflows drain staff time, security vulnerabilities create risk, and legacy systems can't keep up with modern healthcare demands.
+            Healthcare providers spend countless hours on billing, claims, scheduling, and data entry—taking valuable time away from patient care. High administrative costs, staffing challenges, compliance requirements, and claim denials drain resources while impacting the quality of care delivery.
           </p>
         </div>
       </section>
@@ -129,34 +154,34 @@ const Healthcare = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-6">How Hireshore Solves This</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We build HIPAA-compliant healthcare technology that streamlines operations, protects patient data, and scales with your organization.
+              Our HIPAA-trained virtual assistants and back office specialists handle your administrative workload, allowing your team to focus on delivering exceptional patient care.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="p-8">
               <CardContent className="p-0">
                 <Shield className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-4">HIPAA Compliance Built-In</h3>
+                <h3 className="text-xl font-semibold mb-4">HIPAA-Trained Specialists</h3>
                 <p className="text-muted-foreground">
-                  Security and compliance from day one, no exceptions
+                  Certified professionals trained in healthcare compliance and data security
                 </p>
               </CardContent>
             </Card>
             <Card className="p-8">
               <CardContent className="p-0">
                 <Clock className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Automated Workflows</h3>
+                <h3 className="text-xl font-semibold mb-4">Reduce Admin Costs by 70%</h3>
                 <p className="text-muted-foreground">
-                  Reduce administrative burden by 80% with intelligent automation
+                  Lower operational costs while increasing billing accuracy and efficiency
                 </p>
               </CardContent>
             </Card>
             <Card className="p-8">
               <CardContent className="p-0">
                 <Database className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Seamless Integration</h3>
+                <h3 className="text-xl font-semibold mb-4">Seamless System Integration</h3>
                 <p className="text-muted-foreground">
-                  Connect with existing EHR systems and healthcare platforms
+                  Work directly in your EMR/EHR systems and existing workflows
                 </p>
               </CardContent>
             </Card>
@@ -172,9 +197,9 @@ const Healthcare = () => {
             <Card className="p-8 text-center">
               <CardContent className="p-0">
                 <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
-                <h3 className="text-xl font-semibold mb-4">Compliance Assessment</h3>
+                <h3 className="text-xl font-semibold mb-4">Needs Assessment</h3>
                 <p className="text-muted-foreground">
-                  Review your requirements and ensure HIPAA compliance from the start
+                  We analyze your administrative workflows and identify optimization opportunities
                 </p>
               </CardContent>
             </Card>
@@ -182,9 +207,9 @@ const Healthcare = () => {
             <Card className="p-8 text-center">
               <CardContent className="p-0">
                 <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
-                <h3 className="text-xl font-semibold mb-4">Secure Development</h3>
+                <h3 className="text-xl font-semibold mb-4">Team Deployment</h3>
                 <p className="text-muted-foreground">
-                  Build compliant systems with encrypted data and automated workflows
+                  HIPAA-trained specialists onboard and integrate with your systems in 5 days
                 </p>
               </CardContent>
             </Card>
@@ -192,9 +217,9 @@ const Healthcare = () => {
             <Card className="p-8 text-center">
               <CardContent className="p-0">
                 <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
-                <h3 className="text-xl font-semibold mb-4">Deploy & Monitor</h3>
+                <h3 className="text-xl font-semibold mb-4">Ongoing Support</h3>
                 <p className="text-muted-foreground">
-                  Launch with confidence and maintain compliance with ongoing support
+                  Continuous quality management, performance tracking, and scalable support
                 </p>
               </CardContent>
             </Card>
@@ -206,8 +231,8 @@ const Healthcare = () => {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Success Story: Affective Care</h2>
-            <p className="text-xl text-muted-foreground">Modernizing healthcare operations with compliant technology</p>
+            <h2 className="text-3xl font-bold mb-4">Success Story: Multi-Specialty Healthcare Group</h2>
+            <p className="text-xl text-muted-foreground">Streamlining medical billing and back office operations</p>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12 mb-12">
@@ -215,11 +240,11 @@ const Healthcare = () => {
               <CardContent className="p-0">
                 <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
                 <p className="text-muted-foreground mb-6">
-                  Affective Care needed to modernize their patient management systems while maintaining HIPAA compliance and minimizing disruption to care delivery.
+                  A growing multi-specialty practice struggled with claim denials, slow billing cycles, and overwhelmed administrative staff. Patient scheduling errors and authorization delays were impacting revenue and patient satisfaction.
                 </p>
                 <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
                 <p className="text-muted-foreground">
-                  We built a HIPAA-compliant platform with automated workflows, real-time reporting, and seamless integration with existing EHR systems.
+                  We deployed a dedicated team of HIPAA-trained medical billing specialists, coders, and virtual assistants to handle claims processing, insurance verification, patient scheduling, and EMR data entry.
                 </p>
               </CardContent>
             </Card>
@@ -229,16 +254,16 @@ const Healthcare = () => {
                 <h3 className="text-xl font-semibold mb-6">Results</h3>
                 <div className="space-y-6">
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">80%</div>
-                    <div className="text-muted-foreground">Reduction in administrative work</div>
+                    <div className="text-3xl font-bold text-primary mb-2">98%</div>
+                    <div className="text-muted-foreground">First-pass claim acceptance rate</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">100%</div>
-                    <div className="text-muted-foreground">HIPAA compliance maintained</div>
+                    <div className="text-3xl font-bold text-primary mb-2">72%</div>
+                    <div className="text-muted-foreground">Reduction in administrative costs</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">3 Months</div>
-                    <div className="text-muted-foreground">From concept to launch</div>
+                    <div className="text-3xl font-bold text-primary mb-2">5 Days</div>
+                    <div className="text-muted-foreground">Team deployment and integration</div>
                   </div>
                 </div>
               </CardContent>
@@ -251,11 +276,11 @@ const Healthcare = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <p className="text-lg italic mb-6">
-                    "HireShore understood the complexity of healthcare technology and delivered a solution that improved our operations while maintaining the highest compliance standards."
+                    "HireShore's healthcare back office team transformed our billing operations. We've seen faster reimbursements, fewer denials, and our in-house staff can finally focus on patient care instead of paperwork."
                   </p>
                   <div>
-                    <div className="font-semibold">Sarah Chen</div>
-                    <div className="text-sm text-muted-foreground">Operations Director, Affective Care</div>
+                    <div className="font-semibold">Dr. Michael Torres</div>
+                    <div className="text-sm text-muted-foreground">Practice Administrator, Regional Health Partners</div>
                   </div>
                 </div>
               </div>
@@ -272,11 +297,11 @@ const Healthcare = () => {
             <Card className="p-6 hover:border-primary transition-colors">
               <CardContent className="p-0">
                 <h3 className="text-lg font-semibold mb-2">
-                  <Link to="/resources/guides/automation-guide" className="hover:text-primary">
-                    Healthcare Automation Guide
+                  <Link to="/resources/cost-calculator" className="hover:text-primary">
+                    Healthcare Staffing Cost Calculator
                   </Link>
                 </h3>
-                <p className="text-sm text-muted-foreground">Learn how to automate healthcare workflows while maintaining compliance</p>
+                <p className="text-sm text-muted-foreground">Calculate potential savings with outsourced healthcare back office support</p>
               </CardContent>
             </Card>
             <Card className="p-6 hover:border-primary transition-colors">
@@ -286,17 +311,17 @@ const Healthcare = () => {
                     Affective Care Case Study
                   </Link>
                 </h3>
-                <p className="text-sm text-muted-foreground">See how we modernized healthcare operations with 80% efficiency gain</p>
+                <p className="text-sm text-muted-foreground">See how we streamlined healthcare operations and reduced admin burden</p>
               </CardContent>
             </Card>
             <Card className="p-6 hover:border-primary transition-colors">
               <CardContent className="p-0">
                 <h3 className="text-lg font-semibold mb-2">
                   <Link to="/staffing/compliance" className="hover:text-primary">
-                    Healthcare Compliance Services
+                    HIPAA Compliance Training
                   </Link>
                 </h3>
-                <p className="text-sm text-muted-foreground">Ensure your operations meet HIPAA and healthcare standards</p>
+                <p className="text-sm text-muted-foreground">Learn how our team maintains healthcare compliance standards</p>
               </CardContent>
             </Card>
           </div>
@@ -305,12 +330,12 @@ const Healthcare = () => {
 
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Improve Healthcare?</h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Reduce Healthcare Admin Burden?</h2>
           <p className="text-xl mb-8 opacity-90">
-            Get started in 24 hours with HIPAA-compliant solutions built by healthcare technology experts.
+            Get HIPAA-trained back office support deployed in 5 days. Lower costs, improve accuracy, focus on patient care.
           </p>
           <Button size="lg" variant="secondary" asChild>
-            <Link to="/configure-pod">Start Your Healthcare Project</Link>
+            <Link to="/configure-pod">Start Your Healthcare Support</Link>
           </Button>
         </div>
       </section>
