@@ -11,6 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import founderImage from '@/assets/kunal-sah-founder.jpeg';
 
 const AboutUs = () => {
   const stats = [
@@ -215,8 +216,74 @@ const AboutUs = () => {
           </div>
         </section>
 
+        {/* Message from Founder */}
+        <section className="py-12 sm:py-16 lg:py-20">
+          <div className="max-w-6xl mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Message from the Founder
+              </h2>
+            </motion.div>
+
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="order-2 lg:order-1"
+              >
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg">
+                    When I started Hireshore in 2021, I had a simple vision: to bridge the gap between talented professionals in Nepal and businesses around the world that needed quality work at a fair price.
+                  </p>
+                  <p className="text-lg">
+                    Growing up in Nepal, I witnessed incredible talent that often went unnoticed on the global stage. At the same time, I saw businesses struggling with high costs and unreliable freelancers. I knew there had to be a better way.
+                  </p>
+                  <p className="text-lg">
+                    Today, Hireshore has grown beyond my initial expectations. We've built 40+ dedicated pods, helped save our clients over $1M annually per business, and created meaningful careers for 300+ talented individuals. But what I'm most proud of is the relationships we've built - with our clients who trust us to be an extension of their teams, and with our team members who bring their best to work every day.
+                  </p>
+                  <p className="text-lg">
+                    Our journey is just beginning. We're committed to continuing to innovate, to provide exceptional value to our clients, and to create opportunities for talented professionals in Nepal and beyond.
+                  </p>
+                  <div className="pt-4">
+                    <p className="text-xl font-semibold text-gray-900">Kunal Sah</p>
+                    <p className="text-gray-500">Founder & CEO, Hireshore</p>
+                    <p className="text-sm text-gray-400 mt-1">Nepal</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="order-1 lg:order-2"
+              >
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl transform rotate-3"></div>
+                  <div className="relative bg-white p-2 rounded-2xl shadow-xl">
+                    <img 
+                      src={founderImage} 
+                      alt="Kunal Sah, Founder of Hireshore" 
+                      className="w-full h-auto rounded-xl object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Video Section */}
-        <section className="py-20">
+        <section className="py-20 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -266,7 +333,7 @@ const AboutUs = () => {
         </section>
 
         {/* Our Values */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20">
           <div className="max-w-6xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
