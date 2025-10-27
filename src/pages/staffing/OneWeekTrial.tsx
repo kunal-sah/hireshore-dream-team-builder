@@ -8,12 +8,12 @@ import { Link } from "react-router-dom";
 
 const OneWeekTrial = () => {
   const trialFeatures = [
-    "No upfront payment required",
+    "Choose 1 week or 15 days trial period",
     "Full access to talent pool",
     "Direct communication with team member",
     "Project management support",
     "Quality assurance included",
-    "Cancel anytime during trial"
+    "No long-term commitment required"
   ];
 
   const processSteps = [
@@ -71,17 +71,17 @@ const OneWeekTrial = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <Badge variant="secondary" className="mb-4">Risk-Free Trial</Badge>
+          <Badge variant="secondary" className="mb-4">Paid Trial - No Commitment</Badge>
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
             Try World-Class Talent
-            <span className="text-primary"> Free for 1 Week</span>
+            <span className="text-primary"> Risk-Free</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Test our talent quality with zero commitment. Work with a dedicated professional for one week, completely free. Only pay if you're 100% satisfied.
+            Test our talent quality with a low-risk paid trial. Choose 1 week or 15 days with no long-term commitment. Only continue if you're 100% satisfied.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link to="/contact-us">Start Free Trial</Link>
+              <Link to="/contact-us">Start Your Trial</Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
               <Link to="/staffing/dedicated">Learn More</Link>
@@ -93,10 +93,10 @@ const OneWeekTrial = () => {
       {/* Problem Statement */}
       <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Hiring Blind Is Too Risky</h2>
+          <h2 className="text-3xl font-bold mb-6">Long-Term Contracts Are Too Risky</h2>
           <p className="text-xl text-muted-foreground">
-            Most agencies force you to commit before seeing results. Pay upfront, sign contracts, and hope it works out. 
-            But what if the talent doesn't deliver? What if communication is poor? You're stuck with wasted money and lost time.
+            Most agencies force you to commit long-term before seeing results. Sign contracts, hope it works out, and get locked in. 
+            Our paid trial lets you test talent quality with minimal investment and zero commitment. Continue only if you're satisfied.
           </p>
         </div>
       </section>
@@ -118,8 +118,8 @@ const OneWeekTrial = () => {
               <div className="text-muted-foreground">Successful Trials</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary">0</div>
-              <div className="text-muted-foreground">Upfront Costs</div>
+              <div className="text-3xl font-bold text-primary">100%</div>
+              <div className="text-muted-foreground">No Commitment</div>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@ const OneWeekTrial = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">What's Included in Your Free Trial</h2>
+              <h2 className="text-3xl font-bold mb-6">What's Included in Your Paid Trial</h2>
               <div className="space-y-4">
                 {trialFeatures.map((feature, index) => (
                   <div key={index} className="flex items-center">
@@ -148,15 +148,15 @@ const OneWeekTrial = () => {
                 </div>
                 <div className="bg-muted/50 p-6 rounded-lg mb-6">
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-primary mb-2">$0</div>
-                    <div className="text-muted-foreground">Trial Cost</div>
+                    <div className="text-2xl font-bold text-primary mb-2">Low-Cost Trial</div>
+                    <div className="text-muted-foreground">1 Week or 15 Days</div>
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground text-center mb-6">
-                  No contracts, no commitments, no hidden fees. Just pure talent evaluation.
+                  No long-term contracts, no commitments. Test quality with minimal risk.
                 </p>
                 <Button className="w-full" size="lg" asChild>
-                  <Link to="/contact-us">Start Your Free Trial</Link>
+                  <Link to="/contact-us">Start Your Trial</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -219,17 +219,17 @@ const OneWeekTrial = () => {
           <div className="space-y-6">
             <Card className="p-6">
               <CardContent className="p-0">
-                <h3 className="font-semibold mb-2">What happens after the free week?</h3>
+                <h3 className="font-semibold mb-2">What happens after the trial period?</h3>
                 <p className="text-muted-foreground">
-                  If you're satisfied, continue with our standard rates. If not, simply walk away with no charges or commitments.
+                  If you're satisfied, continue with our standard rates. If not, simply walk away with no long-term commitment required.
                 </p>
               </CardContent>
             </Card>
             <Card className="p-6">
               <CardContent className="p-0">
-                <h3 className="font-semibold mb-2">Are there any hidden costs?</h3>
+                <h3 className="font-semibold mb-2">How much does the trial cost?</h3>
                 <p className="text-muted-foreground">
-                  Absolutely none. The trial week is completely free with no setup fees, contracts, or obligations.
+                  The trial is billed at our standard rates for the duration you choose (1 week or 15 days). No setup fees, no long-term contracts.
                 </p>
               </CardContent>
             </Card>
@@ -251,7 +251,7 @@ const OneWeekTrial = () => {
           <h2 className="text-3xl font-bold text-center mb-8">Trial to Hire Success</h2>
           <Card className="p-8"><CardContent className="p-0">
             <div className="flex items-center mb-4">{[...Array(5)].map((_, i) => (<Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />))}</div>
-            <p className="text-lg italic mb-4">"The one-week trial let us test without any risk. The developer solved a critical issue in 3 days. We hired him immediately and now have 3 full-time team members from HireShore."</p>
+            <p className="text-lg italic mb-4">"The paid trial let us test quality without long-term commitment. The developer solved a critical issue in 3 days. We continued immediately and now have 3 full-time team members from HireShore."</p>
             <div className="font-semibold">Sarah Chen, CEO TechStart Inc</div>
           </CardContent></Card>
         </div>
@@ -261,8 +261,8 @@ const OneWeekTrial = () => {
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Test Our Talent Quality?</h2>
-          <p className="text-xl mb-8 opacity-90">Join hundreds of companies who discovered their perfect team members through our risk-free trial.</p>
-          <Button size="lg" variant="secondary" asChild><Link to="/contact-us">Start Free Trial Today</Link></Button>
+          <p className="text-xl mb-8 opacity-90">Join hundreds of companies who discovered their perfect team members through our low-risk paid trial with no commitment.</p>
+          <Button size="lg" variant="secondary" asChild><Link to="/contact-us">Start Your Trial Today</Link></Button>
         </div>
       </section>
 
