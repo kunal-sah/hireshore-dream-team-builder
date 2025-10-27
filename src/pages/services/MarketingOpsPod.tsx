@@ -197,8 +197,8 @@ const MarketingOpsPod = () => {
                     "The Marketing Ops Pod transformed our chaos into a well-oiled machine. We finally have visibility into what's working and can scale with confidence."
                   </p>
                   <div>
-                    <div className="font-semibold">Sarah Mitchell</div>
-                    <div className="text-sm text-muted-foreground">CEO, Cove Digital</div>
+                    <div className="font-semibold">Chloe Bundy</div>
+                    <div className="text-sm text-muted-foreground">Founder, Cove Digital</div>
                   </div>
                 </div>
               </div>

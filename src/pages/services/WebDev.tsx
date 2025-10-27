@@ -325,8 +325,8 @@ const WebDev = () => {
                   "HireShore delivered our website faster than we thought possible. The quality exceeded our expectations, and the entire process was seamless from start to finish."
                 </p>
                 <div>
-                  <div className="font-semibold">Sarah Mitchell</div>
-                  <div className="text-sm text-muted-foreground">CEO, Cove Digital</div>
+                  <div className="font-semibold">Chloe Bundy</div>
+                  <div className="text-sm text-muted-foreground">Founder, Cove Digital</div>
                 </div>
               </div>
             </div>
