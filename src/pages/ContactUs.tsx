@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, MessageSquare, Send } from 'lucide-react';
+import { z } from 'zod';
 import NavBar from '../components/NavBar';
 import SiteFooter from '../components/SiteFooter';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
-import emailjs from 'emailjs-com';
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -14,6 +14,15 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+
+const contactSchema = z.object({
+  firstName: z.string().trim().min(1, "First name is required").max(50, "First name must be less than 50 characters"),
+  lastName: z.string().trim().min(1, "Last name is required").max(50, "Last name must be less than 50 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  company: z.string().trim().max(100, "Company name must be less than 100 characters").optional(),
+  service: z.string().min(1, "Please select a service"),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(2000, "Message must be less than 2000 characters"),
+});
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -38,24 +47,44 @@ const ContactUs = () => {
     setIsSubmitting(true);
 
     try {
-      // EmailJS Configuration - Replace with your credentials
-      const serviceId = 'YOUR_SERVICE_ID';
-      const templateId = 'YOUR_TEMPLATE_ID'; 
-      const publicKey = 'YOUR_PUBLIC_KEY';
+      // Validate form data
+      const validatedData = contactSchema.parse(formData);
 
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: `${formData.firstName} ${formData.lastName}`,
-          from_email: formData.email,
-          company: formData.company || 'Not provided',
-          service: formData.service || 'Not provided',
-          message: formData.message,
-          to_email: 'kunalsah29@gmail.com',
+      // Send email via Brevo API
+      const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'api-key': import.meta.env.VITE_BREVO_API_KEY,
+          'content-type': 'application/json',
         },
-        publicKey
-      );
+        body: JSON.stringify({
+          sender: {
+            name: 'Hireshore Contact Form',
+            email: 'noreply@hireshore.co',
+          },
+          to: [
+            {
+              email: 'kunalsah29@gmail.com',
+              name: 'Kunal Sah',
+            },
+          ],
+          subject: `New Contact Form Submission from ${validatedData.firstName} ${validatedData.lastName}`,
+          htmlContent: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${validatedData.firstName} ${validatedData.lastName}</p>
+            <p><strong>Email:</strong> ${validatedData.email}</p>
+            <p><strong>Company:</strong> ${validatedData.company || 'Not provided'}</p>
+            <p><strong>Service Interest:</strong> ${validatedData.service}</p>
+            <p><strong>Message:</strong></p>
+            <p>${validatedData.message.replace(/\n/g, '<br>')}</p>
+          `,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
 
       toast.success('Message sent successfully! We\'ll get back to you soon.');
       
@@ -69,12 +98,16 @@ const ContactUs = () => {
         message: ''
       });
     } catch (error) {
-      console.error('Error sending message:', error);
-      toast.error('Failed to send message. Please try again or email us directly at kunalsah29@gmail.com');
+      if (error instanceof z.ZodError) {
+        toast.error(error.errors[0].message);
+      } else {
+        toast.error('Failed to send message. Please try again or email us directly at kunalsah29@gmail.com');
+      }
     } finally {
       setIsSubmitting(false);
     }
   };
+
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <title>Contact Us - Hireshore | Get In Touch</title>
@@ -99,6 +132,7 @@ const ContactUs = () => {
             </Breadcrumb>
           </div>
         </div>
+
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-12 sm:py-16 lg:py-20">
           <div className="max-w-6xl mx-auto px-4">

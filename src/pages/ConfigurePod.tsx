@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { z } from 'zod';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import { CheckCircle, ArrowRight, Users, Clock, Zap } from 'lucide-react';
 import { toast } from 'sonner';
-import emailjs from 'emailjs-com';
+
+const configurePodSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  company: z.string().trim().max(100, "Company name must be less than 100 characters").optional(),
+  timeline: z.string().min(1, "Please select a timeline"),
+  projectDescription: z.string().trim().min(20, "Project description must be at least 20 characters").max(2000, "Description must be less than 2000 characters"),
+});
 
 const ConfigurePod = () => {
   const [selectedPods, setSelectedPods] = useState<string[]>([]);
@@ -70,32 +78,52 @@ const ConfigurePod = () => {
     setIsSubmitting(true);
 
     try {
-      // EmailJS Configuration - Replace with your credentials
-      const serviceId = 'YOUR_SERVICE_ID';
-      const templateId = 'YOUR_TEMPLATE_ID';
-      const publicKey = 'YOUR_PUBLIC_KEY';
-      
+      // Validate form data
+      const validatedData = configurePodSchema.parse(formData);
+
       // Get pod names from selected pod IDs
       const selectedPodNames = podTypes
         .filter(pod => selectedPods.includes(pod.id))
         .map(pod => pod.name)
         .join(', ');
 
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          company: formData.company || 'Not provided',
-          project_description: formData.projectDescription || 'Not provided',
-          timeline: formData.timeline || 'Not provided',
-          budget: formData.budget || 'Not provided',
-          selected_pods: selectedPodNames || 'None selected',
-          to_email: 'kunalsah29@gmail.com',
+      // Send email via Brevo API
+      const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'api-key': import.meta.env.VITE_BREVO_API_KEY,
+          'content-type': 'application/json',
         },
-        publicKey
-      );
+        body: JSON.stringify({
+          sender: {
+            name: 'Hireshore Pod Configuration',
+            email: 'noreply@hireshore.co',
+          },
+          to: [
+            {
+              email: 'kunalsah29@gmail.com',
+              name: 'Kunal Sah',
+            },
+          ],
+          subject: `New Pod Configuration Request from ${validatedData.name}`,
+          htmlContent: `
+            <h2>New Pod Configuration Request</h2>
+            <p><strong>Name:</strong> ${validatedData.name}</p>
+            <p><strong>Email:</strong> ${validatedData.email}</p>
+            <p><strong>Company:</strong> ${validatedData.company || 'Not provided'}</p>
+            <p><strong>Timeline:</strong> ${validatedData.timeline}</p>
+            <p><strong>Budget:</strong> ${formData.budget || 'Not provided'}</p>
+            <p><strong>Selected Pods:</strong> ${selectedPodNames || 'None selected'}</p>
+            <p><strong>Project Description:</strong></p>
+            <p>${validatedData.projectDescription.replace(/\n/g, '<br>')}</p>
+          `,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
 
       toast.success('Request sent successfully! We\'ll send you a proposal within 24 hours.');
       
@@ -110,8 +138,11 @@ const ConfigurePod = () => {
       });
       setSelectedPods([]);
     } catch (error) {
-      console.error('Error sending request:', error);
-      toast.error('Failed to send request. Please try again or email us directly at kunalsah29@gmail.com');
+      if (error instanceof z.ZodError) {
+        toast.error(error.errors[0].message);
+      } else {
+        toast.error('Failed to send request. Please try again or email us directly at kunalsah29@gmail.com');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -200,8 +231,9 @@ const ConfigurePod = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Timeline</label>
+                    <label className="block text-sm font-medium mb-2">Timeline *</label>
                     <select
+                      required
                       value={formData.timeline}
                       onChange={(e) => setFormData(prev => ({...prev, timeline: e.target.value}))}
                       className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
@@ -218,8 +250,9 @@ const ConfigurePod = () => {
 
               {/* Project Details */}
               <div>
-                <label className="block text-sm font-medium mb-2">Project Description</label>
+                <label className="block text-sm font-medium mb-2">Project Description *</label>
                 <textarea
+                  required
                   value={formData.projectDescription}
                   onChange={(e) => setFormData(prev => ({...prev, projectDescription: e.target.value}))}
                   rows={4}
