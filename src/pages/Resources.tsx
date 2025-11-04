@@ -79,11 +79,47 @@ const Resources = () => {
     window.open('https://calendly.com/hireshore/30min', '_blank');
   };
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter subscription
-    console.log("Subscribe email:", email);
-    setEmail("");
+    
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-newsletter-subscription`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to subscribe');
+      }
+
+      // Show success message
+      const successMessage = document.createElement('div');
+      successMessage.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+      successMessage.textContent = 'Successfully subscribed to Ship Notes!';
+      document.body.appendChild(successMessage);
+      
+      setTimeout(() => {
+        successMessage.remove();
+      }, 3000);
+      
+      setEmail("");
+    } catch (error) {
+      // Show error message
+      const errorMessage = document.createElement('div');
+      errorMessage.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+      errorMessage.textContent = 'Failed to subscribe. Please try again.';
+      document.body.appendChild(errorMessage);
+      
+      setTimeout(() => {
+        errorMessage.remove();
+      }, 3000);
+    }
   };
 
   const featuredResources = [

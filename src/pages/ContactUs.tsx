@@ -50,37 +50,17 @@ const ContactUs = () => {
       // Validate form data
       const validatedData = contactSchema.parse(formData);
 
-      // Send email via Brevo API
-      const response = await fetch('https://api.brevo.com/v3/smtp/email', {
-        method: 'POST',
-        headers: {
-          'accept': 'application/json',
-          'api-key': import.meta.env.VITE_BREVO_API_KEY,
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          sender: {
-            name: 'Hireshore Contact Form',
-            email: 'noreply@hireshore.co',
+      // Send email via edge function
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
           },
-          to: [
-            {
-              email: 'kunalsah29@gmail.com',
-              name: 'Kunal Sah',
-            },
-          ],
-          subject: `New Contact Form Submission from ${validatedData.firstName} ${validatedData.lastName}`,
-          htmlContent: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${validatedData.firstName} ${validatedData.lastName}</p>
-            <p><strong>Email:</strong> ${validatedData.email}</p>
-            <p><strong>Company:</strong> ${validatedData.company || 'Not provided'}</p>
-            <p><strong>Service Interest:</strong> ${validatedData.service}</p>
-            <p><strong>Message:</strong></p>
-            <p>${validatedData.message.replace(/\n/g, '<br>')}</p>
-          `,
-        }),
-      });
+          body: JSON.stringify(validatedData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error('Failed to send email');
