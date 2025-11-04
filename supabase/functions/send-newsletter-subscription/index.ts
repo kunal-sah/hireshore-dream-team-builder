@@ -1,5 +1,4 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -16,14 +15,12 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+    const BREVO_API_KEY = Deno.env.get("VITE_BREVO_API_KEY");
     
-    if (!RESEND_API_KEY) {
-      console.error("RESEND_API_KEY is not set");
+    if (!BREVO_API_KEY) {
+      console.error("VITE_BREVO_API_KEY is not set");
       throw new Error("Email service is not configured");
     }
-
-    const resend = new Resend(RESEND_API_KEY);
 
     const { email }: NewsletterRequest = await req.json();
 
@@ -42,20 +39,43 @@ const handler = async (req: Request): Promise<Response> => {
       throw new Error("Invalid email format");
     }
 
-    console.log("Sending newsletter subscription via Resend...");
+    console.log("Sending newsletter subscription via Brevo API...");
     
-    const emailResponse = await resend.emails.send({
-      from: "Hireshore Ship Notes <onboarding@resend.dev>",
-      to: ["kunalsah29@gmail.com"],
-      subject: `New Newsletter Subscription: ${email}`,
-      html: `
-        <h2>New Ship Notes Newsletter Subscription</h2>
-        <p><strong>Email:</strong> ${email}</p>
-        <p>This person wants to receive monthly insights on ops, creative cadence, and automation.</p>
-      `,
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'api-key': BREVO_API_KEY,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        sender: {
+          name: 'Hireshore Ship Notes',
+          email: 'noreply@hireshore.co',
+        },
+        to: [
+          {
+            email: 'kunalsah29@gmail.com',
+            name: 'Kunal Sah',
+          },
+        ],
+        subject: `New Newsletter Subscription: ${email}`,
+        htmlContent: `
+          <h2>New Ship Notes Newsletter Subscription</h2>
+          <p><strong>Email:</strong> ${email}</p>
+          <p>This person wants to receive monthly insights on ops, creative cadence, and automation.</p>
+        `,
+      }),
     });
 
-    console.log("Newsletter subscription sent successfully:", emailResponse);
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Brevo API error:', errorText);
+      throw new Error(`Failed to send email: ${errorText}`);
+    }
+
+    const result = await response.json();
+    console.log("Newsletter subscription sent successfully:", result);
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
