@@ -1,1 +1,4 @@
 project_id = "eymapbckavncyviworlh"
+
+[functions.send-pod-configuration-email]
+verify_jwt = false
