@@ -87,37 +87,20 @@ const ConfigurePod = () => {
         .map(pod => pod.name)
         .join(', ');
 
-      // Send email via Brevo API
-      const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+      // Send email via backend function
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-pod-configuration-email`, {
         method: 'POST',
         headers: {
-          'accept': 'application/json',
-          'api-key': import.meta.env.VITE_BREVO_API_KEY,
-          'content-type': 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          sender: {
-            name: 'Hireshore Pod Configuration',
-            email: 'noreply@hireshore.co',
-          },
-          to: [
-            {
-              email: 'kunalsah29@gmail.com',
-              name: 'Kunal Sah',
-            },
-          ],
-          subject: `New Pod Configuration Request from ${validatedData.name}`,
-          htmlContent: `
-            <h2>New Pod Configuration Request</h2>
-            <p><strong>Name:</strong> ${validatedData.name}</p>
-            <p><strong>Email:</strong> ${validatedData.email}</p>
-            <p><strong>Company:</strong> ${validatedData.company || 'Not provided'}</p>
-            <p><strong>Timeline:</strong> ${validatedData.timeline}</p>
-            <p><strong>Budget:</strong> ${formData.budget || 'Not provided'}</p>
-            <p><strong>Selected Pods:</strong> ${selectedPodNames || 'None selected'}</p>
-            <p><strong>Project Description:</strong></p>
-            <p>${validatedData.projectDescription.replace(/\n/g, '<br>')}</p>
-          `,
+          name: validatedData.name,
+          email: validatedData.email,
+          company: validatedData.company,
+          timeline: validatedData.timeline,
+          budget: formData.budget,
+          selectedPods: selectedPodNames,
+          projectDescription: validatedData.projectDescription,
         }),
       });
 
