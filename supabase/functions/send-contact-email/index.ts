@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { Resend } from "npm:resend@2.0.0";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -20,12 +21,14 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const BREVO_API_KEY = Deno.env.get("VITE_BREVO_API_KEY");
+    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
     
-    if (!BREVO_API_KEY) {
-      console.error("BREVO_API_KEY is not set");
+    if (!RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not set");
       throw new Error("Email service is not configured");
     }
+
+    const resend = new Resend(RESEND_API_KEY);
 
     const { firstName, lastName, email, company, service, message }: ContactEmailRequest = await req.json();
 
@@ -46,46 +49,24 @@ const handler = async (req: Request): Promise<Response> => {
       throw new Error("Message must be less than 2000 characters");
     }
 
-    console.log("Sending email to Brevo API...");
-    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {
-        'accept': 'application/json',
-        'api-key': BREVO_API_KEY,
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        sender: {
-          name: 'Hireshore Contact Form',
-          email: 'noreply@hireshore.co',
-        },
-        to: [
-          {
-            email: 'kunalsah29@gmail.com',
-            name: 'Kunal Sah',
-          },
-        ],
-        subject: `New Contact Form Submission from ${firstName} ${lastName}`,
-        htmlContent: `
-          <h2>New Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Company:</strong> ${company || 'Not provided'}</p>
-          <p><strong>Service Interest:</strong> ${service}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message.replace(/\n/g, '<br>')}</p>
-        `,
-      }),
+    console.log("Sending email via Resend...");
+    
+    const emailResponse = await resend.emails.send({
+      from: "Hireshore <onboarding@resend.dev>",
+      to: ["kunalsah29@gmail.com"],
+      subject: `New Contact Form Submission from ${firstName} ${lastName}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Company:</strong> ${company || 'Not provided'}</p>
+        <p><strong>Service Interest:</strong> ${service}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `,
     });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Brevo API error:', errorText);
-      throw new Error(`Failed to send email: ${errorText}`);
-    }
-
-    const result = await response.json();
-    console.log("Email sent successfully:", result);
+    console.log("Email sent successfully:", emailResponse);
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
