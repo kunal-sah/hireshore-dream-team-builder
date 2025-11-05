@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar';
 import SiteFooter from '../components/SiteFooter';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import { trackFormSubmission, trackLeadGeneration, getCalendlyURL, getWhatsAppURL } from '@/utils/utmTracking';
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -63,9 +64,12 @@ const ContactUs = () => {
       );
 
       if (!response.ok) {
+        trackFormSubmission('contact_us', 'contact_us_page', false);
         throw new Error('Failed to send email');
       }
 
+      trackFormSubmission('contact_us', 'contact_us_page', true);
+      trackLeadGeneration('contact_form', 'general_inquiry');
       toast.success('Message sent successfully! We\'ll get back to you soon.');
       
       // Reset form
@@ -81,6 +85,7 @@ const ContactUs = () => {
       if (error instanceof z.ZodError) {
         toast.error(error.errors[0].message);
       } else {
+        trackFormSubmission('contact_us', 'contact_us_page', false);
         toast.error('Failed to send message. Please try again or email us directly at kunalsah29@gmail.com');
       }
     } finally {
@@ -354,7 +359,11 @@ const ContactUs = () => {
                 <p className="mb-6 text-sm sm:text-base">Choose a time that works for you - we'll discuss your project and how our delivery pods can help you scale.</p>
                 <Button 
                   className="bg-white text-primary hover:bg-gray-100 font-semibold px-6 sm:px-8 py-3 text-sm sm:text-base"
-                  onClick={() => window.open('https://calendly.com/hireshore/30min', '_blank')}
+                  onClick={() => {
+                    const { getCalendlyURL, trackCTAClick } = require('@/utils/utmTracking');
+                    trackCTAClick('contact_page_schedule_now', 'contact_cta_section');
+                    window.open(getCalendlyURL('contact_page_schedule_now'), '_blank');
+                  }}
                 >
                   Schedule Now
                 </Button>

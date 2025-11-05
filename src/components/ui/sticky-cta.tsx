@@ -2,28 +2,17 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Phone, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { getCalendlyURL, trackCTAClick, getCurrentPagePath } from "@/utils/utmTracking";
 
 export function StickyCTA() {
   const bookCall = () => {
-    window.open('https://calendly.com/hireshore/30min', '_blank');
-    
-    // Analytics event
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'cta_click', {
-        cta_type: 'sticky_book_pilot',
-        page_location: window.location.href
-      });
-    }
+    const utmURL = getCalendlyURL(`sticky_cta_${getCurrentPagePath()}`);
+    trackCTAClick('sticky_book_pilot', getCurrentPagePath());
+    window.open(utmURL, '_blank');
   };
 
   const handleContact = () => {
-    // Analytics event
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'cta_click', {
-        cta_type: 'sticky_contact',
-        page_location: window.location.href
-      });
-    }
+    trackCTAClick('sticky_contact', getCurrentPagePath());
   };
 
   return (

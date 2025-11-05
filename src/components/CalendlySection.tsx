@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { getCalendlyURL, getCurrentPagePath } from '@/utils/utmTracking';
 
 const CalendlySection = () => {
+  const calendlyURL = getCalendlyURL(`calendly_section_${getCurrentPagePath()}`);
   const [isCalendlyLoaded, setIsCalendlyLoaded] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -70,7 +72,7 @@ const CalendlySection = () => {
         {/* Calendly inline widget */}
         <div 
           className="calendly-inline-widget bg-white rounded-lg shadow-lg overflow-hidden mx-auto"
-          data-url="https://calendly.com/hireshore/30min"
+          data-url={calendlyURL}
           style={{ minWidth: '280px', maxWidth: '100%', height: '600px' }}
         />
         
@@ -78,7 +80,7 @@ const CalendlySection = () => {
           <div className="text-center mt-8">
             <p className="text-gray-600 mb-4">JavaScript is required to book. Open here:</p>
             <a 
-              href="https://calendly.com/hireshore/30min" 
+              href={calendlyURL}
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
 import { Phone, Users, Headphones, Pointer, ArrowDown } from "lucide-react";
 import beforeAfterImage from "../assets/before-after-comparison.jpg";
+import { trackCTAClick } from "@/utils/utmTracking";
 
 const LandingHero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -23,6 +24,7 @@ const LandingHero = () => {
   const scrollToCalendly = () => {
     // Trigger Calendly loading before scrolling
     document.dispatchEvent(new CustomEvent('calendly-load'));
+    trackCTAClick('hero_get_delivery_pod', 'hero_section');
     const element = document.getElementById('book');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -300,6 +302,7 @@ const LandingHero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
+                  trackCTAClick('hero_see_how_pods_work', 'hero_section');
                   const element = document.getElementById('how-it-works');
                   if (element) {
                     element.scrollIntoView({ behavior: 'smooth' });

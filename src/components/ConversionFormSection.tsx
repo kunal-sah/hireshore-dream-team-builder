@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, MessageSquare } from 'lucide-react';
+import { getWhatsAppURL, trackCTAClick, getCurrentPagePath } from "@/utils/utmTracking";
 
 const ConversionFormSection = () => {
   const ref = useRef<HTMLElement>(null);
@@ -18,6 +19,7 @@ const ConversionFormSection = () => {
   });
 
   const scrollToCalendly = () => {
+    trackCTAClick('conversion_form_book_session', getCurrentPagePath());
     const element = document.getElementById('book');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -27,8 +29,10 @@ const ConversionFormSection = () => {
   };
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent(`Hi! I'm interested in learning more about Hireshore's Delivery Pods. My company is ${formData.company || '[Company]'} and I need help with ${formData.primaryNeed || 'general business operations'}.`);
-    window.open(`https://wa.me/9779819074501?text=${message}`, '_blank');
+    const message = `Hi! I'm interested in learning more about Hireshore's Delivery Pods. My company is ${formData.company || '[Company]'} and I need help with ${formData.primaryNeed || 'general business operations'}.`;
+    const whatsappURL = getWhatsAppURL(message, `conversion_form_${getCurrentPagePath()}`);
+    trackCTAClick('conversion_form_whatsapp', getCurrentPagePath());
+    window.open(whatsappURL, '_blank');
   };
 
   const containerVariants = {

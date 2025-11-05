@@ -5,6 +5,7 @@ import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import { CheckCircle, ArrowRight, Users, Clock, Zap } from 'lucide-react';
 import { toast } from 'sonner';
+import { trackFormSubmission, trackLeadGeneration } from '@/utils/utmTracking';
 
 const configurePodSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -105,9 +106,12 @@ const ConfigurePod = () => {
       });
 
       if (!response.ok) {
+        trackFormSubmission('configure_pod', 'configure_pod_page', false);
         throw new Error('Failed to send email');
       }
 
+      trackFormSubmission('configure_pod', 'configure_pod_page', true);
+      trackLeadGeneration('configure_pod_form', 'pod_configuration');
       toast.success('Request sent successfully! We\'ll send you a proposal within 24 hours.');
       
       // Reset form
@@ -124,6 +128,7 @@ const ConfigurePod = () => {
       if (error instanceof z.ZodError) {
         toast.error(error.errors[0].message);
       } else {
+        trackFormSubmission('configure_pod', 'configure_pod_page', false);
         toast.error('Failed to send request. Please try again or email us directly at kunalsah29@gmail.com');
       }
     } finally {

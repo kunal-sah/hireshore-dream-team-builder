@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -31,7 +31,7 @@ import {
   ArrowRight,
   Star
 } from "lucide-react";
-import { useState } from "react";
+import { getCalendlyURL, trackCTAClick, trackFormSubmission, trackLeadGeneration } from "@/utils/utmTracking";
 
 const Resources = () => {
   const [email, setEmail] = useState("");
@@ -76,7 +76,9 @@ const Resources = () => {
   const navigate = useNavigate();
 
   const bookCall = () => {
-    window.open('https://calendly.com/hireshore/30min', '_blank');
+    const utmURL = getCalendlyURL('resources_page_book_call');
+    trackCTAClick('resources_page_book_call', 'resources_page');
+    window.open(utmURL, '_blank');
   };
 
   const handleSubscribe = async (e: React.FormEvent) => {
@@ -95,8 +97,12 @@ const Resources = () => {
       );
 
       if (!response.ok) {
+        trackFormSubmission('newsletter', 'resources_page', false);
         throw new Error('Failed to subscribe');
       }
+
+      trackFormSubmission('newsletter', 'resources_page', true);
+      trackLeadGeneration('newsletter_subscription', 'email_marketing');
 
       // Show success message
       const successMessage = document.createElement('div');
@@ -110,6 +116,7 @@ const Resources = () => {
       
       setEmail("");
     } catch (error) {
+      trackFormSubmission('newsletter', 'resources_page', false);
       // Show error message
       const errorMessage = document.createElement('div');
       errorMessage.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';

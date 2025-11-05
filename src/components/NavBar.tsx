@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motio
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import MegaMenu from './MegaMenu';
 import { cn } from "@/lib/utils";
+import { getCalendlyURL, trackCTAClick } from "@/utils/utmTracking";
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -234,7 +235,11 @@ const NavBar = () => {
               className="ml-4 inline-flex items-center justify-center bg-primary text-white font-semibold px-6 py-3 rounded-lg text-sm hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open('https://calendly.com/hireshore/30min', '_blank')}
+              onClick={() => {
+                const utmURL = getCalendlyURL('navbar_book_call');
+                trackCTAClick('navbar_book_call', 'main_navigation');
+                window.open(utmURL, '_blank');
+              }}
             >
               <Phone className="mr-2 h-4 w-4" />
               Book a Call
@@ -324,7 +329,9 @@ const NavBar = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
-                    window.open('https://calendly.com/hireshore/30min', '_blank');
+                    const utmURL = getCalendlyURL('mobile_menu_book_call');
+                    trackCTAClick('mobile_menu_book_call', 'mobile_navigation');
+                    window.open(utmURL, '_blank');
                     setMobileMenuOpen(false);
                   }}
                 >

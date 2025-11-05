@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MessageSquare, UserPlus, Linkedin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { getWhatsAppURL, getSocialMediaURL, trackExternalLink } from "@/utils/utmTracking";
 
 
 const SiteFooter = () => {
@@ -139,10 +140,11 @@ const SiteFooter = () => {
                       +977 981 9074501
                     </a>
                     <a 
-                      href="https://wa.me/9779819074501" 
+                      href={getWhatsAppURL('Hi, I found you through hireshore.co', 'footer_whatsapp')}
                       className="text-sm text-[#7346e6] hover:underline flex items-center"
                       target="_blank" 
                       rel="noopener noreferrer"
+                      onClick={() => trackExternalLink('whatsapp', 'messaging', 'footer')}
                     >
                       <MessageSquare size={16} className="mr-1" />
                       WhatsApp Us
@@ -156,10 +158,11 @@ const SiteFooter = () => {
                 <div>
                   <p className="text-sm font-medium text-gray-700">LinkedIn</p>
                   <a 
-                    href="https://www.linkedin.com/in/digitalkunalsah/" 
+                    href={getSocialMediaURL('linkedin', 'https://www.linkedin.com/in/digitalkunalsah/', 'footer_linkedin')}
                     className="text-sm text-[#7346e6] hover:underline flex items-center"
                     target="_blank" 
                     rel="noopener noreferrer"
+                    onClick={() => trackExternalLink('linkedin', 'social', 'footer')}
                   >
                     <Linkedin size={16} className="mr-1" />
                     Kunal Sah

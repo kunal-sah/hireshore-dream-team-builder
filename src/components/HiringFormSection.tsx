@@ -1,12 +1,14 @@
 
 import React, { useRef } from "react";
 import { motion, useInView, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import { trackCTAClick, getCurrentPagePath } from "@/utils/utmTracking";
 
 const HiringFormSection = () => {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   
   const scrollToCalendly = () => {
+    trackCTAClick('hiring_form_book_call', getCurrentPagePath());
     const element = document.getElementById('book');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
