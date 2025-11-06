@@ -320,8 +320,8 @@ const DesignPod = () => {
                       "The Design Pod transformed how we work. We get professional, on-brand designs delivered quickly without any of the hassles of hiring and managing designers."
                     </p>
                     <div>
-                      <div className="font-semibold">Marcus Thompson</div>
-                      <div className="text-sm text-muted-foreground">Creative Director, Digital Six</div>
+                      <div className="font-semibold">Jac Humphreys</div>
+                      <div className="text-sm text-muted-foreground">Head of Project Delivery, Digital Six</div>
                     </div>
                   </div>
                 </div>

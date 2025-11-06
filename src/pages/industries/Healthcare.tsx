@@ -279,8 +279,8 @@ const Healthcare = () => {
                     "HireShore's healthcare back office team transformed our billing operations. We've seen faster reimbursements, fewer denials, and our in-house staff can finally focus on patient care instead of paperwork."
                   </p>
                   <div>
-                    <div className="font-semibold">Dr. Michael Torres</div>
-                    <div className="text-sm text-muted-foreground">Practice Administrator, Regional Health Partners</div>
+                    <div className="font-semibold">Rita Dagher</div>
+                    <div className="text-sm text-muted-foreground">CEO & Psychologist, Affective Care</div>
                   </div>
                 </div>
               </div>

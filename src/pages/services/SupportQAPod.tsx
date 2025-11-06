@@ -197,8 +197,8 @@ const SupportQAPod = () => {
                     "The Support & QA Pod gave us enterprise-level support and testing capabilities without the massive overhead. Our customers are happier than ever."
                   </p>
                   <div>
-                    <div className="font-semibold">Bunim Laskin</div>
-                    <div className="text-sm text-muted-foreground">CEO, Swimply</div>
+                    <div className="font-semibold">Kyle Batten</div>
+                    <div className="text-sm text-muted-foreground">Sr. Manager, Customer Support and Trust & Safety, Swimply</div>
                   </div>
                 </div>
               </div>

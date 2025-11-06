@@ -264,7 +264,7 @@ const Ecommerce = () => {
                     "HireShore transformed our e-commerce platform into a conversion machine. The results speak for themselves - our sales have nearly tripled."
                   </p>
                   <div>
-                    <div className="font-semibold">Emma Williams</div>
+                    <div className="font-semibold">Breearna Jope</div>
                     <div className="text-sm text-muted-foreground">Founder, Uncommon Solutions</div>
                   </div>
                 </div>

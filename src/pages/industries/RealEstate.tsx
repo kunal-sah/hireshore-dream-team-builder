@@ -246,8 +246,8 @@ const RealEstate = () => {
                     "The platform HireShore built transformed our business. We can now manage thousands of properties and leads efficiently while providing exceptional client service."
                   </p>
                   <div>
-                    <div className="font-semibold">Michael Rodriguez</div>
-                    <div className="text-sm text-muted-foreground">CTO, PropertyStack</div>
+                    <div className="font-semibold">Ryan Jope</div>
+                    <div className="text-sm text-muted-foreground">Founder, PropertyStack</div>
                   </div>
                 </div>
               </div>

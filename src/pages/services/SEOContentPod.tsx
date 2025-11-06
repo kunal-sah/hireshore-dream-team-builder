@@ -259,8 +259,8 @@ const SEOContentPod = () => {
                     "The SEO Content Pod delivered results beyond our expectations. Our organic traffic has more than doubled, and we're now ranking for competitive keywords we never thought possible."
                   </p>
                   <div>
-                    <div className="font-semibold">Bunim Laskin</div>
-                    <div className="text-sm text-muted-foreground">CEO, Swimply</div>
+                    <div className="font-semibold">Marlon M.</div>
+                    <div className="text-sm text-muted-foreground">Founder, Medz Media</div>
                   </div>
                 </div>
               </div>

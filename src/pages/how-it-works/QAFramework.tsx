@@ -222,8 +222,8 @@ const QAFramework = () => {
                     "The quality of their work is consistently outstanding. Their QA framework catches issues before they reach us, which means we spend less time on revisions and more time launching features. It's rare to find a team that moves fast without compromising quality."
                   </p>
                   <div>
-                    <div className="font-semibold">Dr. Rebecca Martinez</div>
-                    <div className="text-sm text-muted-foreground">CTO, Affective Care</div>
+                    <div className="font-semibold">Rita Dagher</div>
+                    <div className="text-sm text-muted-foreground">CEO & Psychologist, Affective Care</div>
                   </div>
                 </div>
               </div>

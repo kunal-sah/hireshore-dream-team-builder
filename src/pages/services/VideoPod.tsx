@@ -315,8 +315,8 @@ const VideoPod = () => {
                       "The Video Pod completely changed our content strategy. We can now produce high-quality videos consistently without breaking the budget or missing deadlines."
                     </p>
                     <div>
-                      <div className="font-semibold">Marcus Thompson</div>
-                      <div className="text-sm text-muted-foreground">Creative Director, Digital Six</div>
+                      <div className="font-semibold">Jac Humphreys</div>
+                      <div className="text-sm text-muted-foreground">Head of Project Delivery, Digital Six</div>
                     </div>
                   </div>
                 </div>

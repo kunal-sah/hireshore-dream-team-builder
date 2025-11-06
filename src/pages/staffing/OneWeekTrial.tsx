@@ -45,22 +45,22 @@ const OneWeekTrial = () => {
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      company: "TechStart Inc",
+      name: "Chloe Bundy",
+      company: "Cove Digital",
       quote: "The one-week trial let us test the waters without any risk. Now we have 3 full-time team members from HireShore.",
-      role: "CEO"
+      role: "Founder"
     },
     {
-      name: "Mike Rodriguez", 
-      company: "Growth Agency",
+      name: "Kushal Dura", 
+      company: "PropertyStack",
       quote: "Best decision we made. The trial developer solved a critical issue in 3 days. We hired him immediately.",
-      role: "CTO"
+      role: "Engineering Manager"
     },
     {
-      name: "Emma Thompson",
-      company: "E-commerce Co",
+      name: "Breearna Jope",
+      company: "Uncommon Solutions",
       quote: "No other agency offers this level of confidence in their talent. The trial proved their quality.",
-      role: "Operations Director"
+      role: "Founder"
     }
   ];
 

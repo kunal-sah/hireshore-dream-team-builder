@@ -171,8 +171,8 @@ const Finance = () => {
                     with incredible accuracy, allowing us to focus on client relationships and growth."
                   </p>
                   <div>
-                    <div className="font-semibold">Jennifer Martinez</div>
-                    <div className="text-sm text-muted-foreground">VP Operations, Regional Financial Services</div>
+                    <div className="font-semibold">Ryan Jope</div>
+                    <div className="text-sm text-muted-foreground">Founder, PropertyStack</div>
                   </div>
                 </div>
               </div>

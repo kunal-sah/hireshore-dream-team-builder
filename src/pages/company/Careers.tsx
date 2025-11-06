@@ -164,8 +164,8 @@ const Careers = () => {
                     challenging projects with brilliant people while maintaining flexibility in my schedule."
                   </p>
                   <div>
-                    <div className="font-semibold">Alex Rodriguez</div>
-                    <div className="text-sm text-muted-foreground">Senior Developer, Engineering Team</div>
+                    <div className="font-semibold">Kushal Dura</div>
+                    <div className="text-sm text-muted-foreground">Engineering Manager, PropertyStack</div>
                   </div>
                 </div>
               </div>

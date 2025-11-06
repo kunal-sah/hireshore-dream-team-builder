@@ -315,8 +315,8 @@ const DedicatedTalent = () => {
                   "HireShore gave us access to top talent immediately. What would have taken us months to hire took just days, and the quality exceeded our expectations."
                 </p>
                 <div>
-                  <div className="font-semibold">Michael Rodriguez</div>
-                  <div className="text-sm text-muted-foreground">CTO, PropertyStack</div>
+                  <div className="font-semibold">Ryan Jope</div>
+                  <div className="text-sm text-muted-foreground">Founder, PropertyStack</div>
                 </div>
               </div>
             </div>

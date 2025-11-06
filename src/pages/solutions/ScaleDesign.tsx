@@ -398,8 +398,8 @@ const ScaleDesign = () => {
                       "HireShore's design pod gave us the creative capacity we needed without the overhead of hiring. We get professional work delivered fast, and the quality is consistently excellent."
                     </p>
                     <div>
-                      <div className="font-semibold">Marcus Thompson</div>
-                      <div className="text-sm text-muted-foreground">Creative Director, Digital Six</div>
+                      <div className="font-semibold">Aaron Erwich</div>
+                      <div className="text-sm text-muted-foreground">Founder, Digital Six</div>
                     </div>
                   </div>
                 </div>

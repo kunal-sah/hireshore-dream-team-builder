@@ -247,8 +247,8 @@ const Agencies = () => {
                   "HireShore became our secret weapon. We can now take on any project, knowing we have the capacity to deliver exceptional work without the overhead of hiring."
                 </p>
                 <div>
-                  <div className="font-semibold">Marcus Thompson</div>
-                  <div className="text-sm text-muted-foreground">Creative Director, Digital Six</div>
+                  <div className="font-semibold">Aaron Erwich</div>
+                  <div className="text-sm text-muted-foreground">Founder, Digital Six</div>
                 </div>
               </div>
             </div>

@@ -298,8 +298,8 @@ const SaasTech = () => {
                     "HireShore built a SaaS platform that scales effortlessly. Their expertise in cloud architecture and security gave us the confidence to grow rapidly."
                   </p>
                   <div>
-                    <div className="font-semibold">Michael Rodriguez</div>
-                    <div className="text-sm text-muted-foreground">CTO, PropertyStack</div>
+                    <div className="font-semibold">Kushal Dura</div>
+                    <div className="text-sm text-muted-foreground">Engineering Manager, PropertyStack</div>
                   </div>
                 </div>
               </div>

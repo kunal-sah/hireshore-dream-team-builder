@@ -186,8 +186,8 @@ const Education = () => {
                     "HireShore's admissions team transformed our enrollment operations. We processed record applications with zero backlogs, and our internal staff can now focus on strategic student success initiatives."
                   </p>
                   <div>
-                    <div className="font-semibold">Jennifer Martinez</div>
-                    <div className="text-sm text-muted-foreground">VP of Enrollment Management, State University</div>
+                    <div className="font-semibold">Lilian N. Peyman</div>
+                    <div className="text-sm text-muted-foreground">Branding & Marketing, Affective Care</div>
                   </div>
                 </div>
               </div>

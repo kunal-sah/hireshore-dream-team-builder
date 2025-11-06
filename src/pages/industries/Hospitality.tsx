@@ -167,8 +167,8 @@ const Hospitality = () => {
                     intuitive and has significantly improved our guest experience."
                   </p>
                   <div>
-                    <div className="font-semibold">Bunim Laskin</div>
-                    <div className="text-sm text-muted-foreground">Founder, Swimply</div>
+                    <div className="font-semibold">Yona Meissner</div>
+                    <div className="text-sm text-muted-foreground">Head of Operations, Swimply</div>
                   </div>
                 </div>
               </div>

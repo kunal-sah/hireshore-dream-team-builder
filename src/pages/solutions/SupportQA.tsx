@@ -257,8 +257,8 @@ const SupportQA = () => {
                 "The support team from Hireshore is exceptional. They consistently rank #1 on our performance leaderboard and maintain a 95% CSAT score. Their dedication to customer success is unmatched."
               </blockquote>
               <div className="text-center">
-                <div className="font-semibold text-foreground">Bunim Laskin</div>
-                <div className="text-muted-foreground">Founder, Swimply</div>
+                <div className="font-semibold text-foreground">Kyle Batten</div>
+                <div className="text-muted-foreground">Sr. Manager, Customer Support and Trust & Safety, Swimply</div>
               </div>
             </div>
           </div>
