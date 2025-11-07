@@ -230,7 +230,7 @@ const SwimplyCaseStudy = () => {
         </motion.div>
 
         <motion.div 
-          className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100"
+          className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100 mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.9 }}
@@ -255,6 +255,48 @@ const SwimplyCaseStudy = () => {
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 mb-2">#1</div>
                 <div className="text-gray-600">Leaderboard Position</div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Client Testimonials */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.0 }}
+        >
+          <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 border border-purple-100">
+            <div className="flex items-center mb-6">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+              ))}
+            </div>
+            <blockquote className="text-lg text-gray-700 italic mb-6">
+              "The Hireshore team consistently delivers exceptional customer support. They maintain top performance metrics and truly understand our brand values, making them an integral part of our customer success strategy."
+            </blockquote>
+            <div className="flex items-center gap-4">
+              <div>
+                <div className="font-semibold text-gray-900">Yona Meissner</div>
+                <div className="text-sm text-gray-600">Head of Operations, Swimply</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
+            <div className="flex items-center mb-6">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+              ))}
+            </div>
+            <blockquote className="text-lg text-gray-700 italic mb-6">
+              "The support team from Hireshore consistently ranks #1 on our performance leaderboard with a 95% CSAT score. Their professionalism and dedication to customer success is truly exceptional."
+            </blockquote>
+            <div className="flex items-center gap-4">
+              <div>
+                <div className="font-semibold text-gray-900">Kyle Batten</div>
+                <div className="text-sm text-gray-600">Sr. Manager, Customer Support and Trust & Safety, Swimply</div>
               </div>
             </div>
           </div>

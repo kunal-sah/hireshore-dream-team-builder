@@ -163,12 +163,13 @@ const Hospitality = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1 text-center">
                   <p className="text-lg italic mb-6">
-                    "Working with Hireshore has been transformative for our operations. Their team delivers 
-                    consistently and helps us scale our hospitality services effectively."
+                    "The Hireshore team consistently delivers exceptional customer support. They maintain top 
+                    performance metrics and truly understand our brand values, making them an integral part of 
+                    our customer success strategy."
                   </p>
                   <div>
-                    <div className="font-semibold">Hospitality Client</div>
-                    <div className="text-sm text-muted-foreground">Operations Manager</div>
+                    <div className="font-semibold">Yona Meissner</div>
+                    <div className="text-sm text-muted-foreground">Head of Operations, Swimply</div>
                   </div>
                 </div>
               </div>
