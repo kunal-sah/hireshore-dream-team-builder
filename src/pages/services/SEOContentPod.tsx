@@ -256,7 +256,7 @@ const SEOContentPod = () => {
                     ))}
                   </div>
                   <p className="text-lg italic mb-6">
-                    "The SEO Content Pod delivered results beyond our expectations. Our organic traffic has more than doubled, and we're now ranking for competitive keywords we never thought possible."
+                    "The team delivers consistently high-quality work. Their expertise and proactive approach have helped us scale our digital presence effectively."
                   </p>
                   <div>
                     <div className="font-semibold">Marlon M.</div>

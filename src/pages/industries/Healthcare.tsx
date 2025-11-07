@@ -276,7 +276,7 @@ const Healthcare = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <p className="text-lg italic mb-6">
-                    "HireShore's healthcare back office team transformed our billing operations. We've seen faster reimbursements, fewer denials, and our in-house staff can finally focus on patient care instead of paperwork."
+                    "Hireshore helped us streamline our digital operations and improve our service delivery. Their expertise in web development and project management has been invaluable."
                   </p>
                   <div>
                     <div className="font-semibold">Rita Dagher</div>

@@ -243,7 +243,7 @@ const RealEstate = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <p className="text-lg italic mb-6">
-                    "The platform HireShore built transformed our business. We can now manage thousands of properties and leads efficiently while providing exceptional client service."
+                    "Hireshore helped us hire talented developers and support staff who transformed our operations. The team they connected us with is exceptional and has been instrumental in our growth."
                   </p>
                   <div>
                     <div className="font-semibold">Ryan Jope</div>

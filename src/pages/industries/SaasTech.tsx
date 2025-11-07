@@ -295,7 +295,7 @@ const SaasTech = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1 text-center">
                   <p className="text-lg italic mb-6">
-                    "HireShore built a SaaS platform that scales effortlessly. Their expertise in cloud architecture and security gave us the confidence to grow rapidly."
+                    "The developers and QA engineers Hireshore helped us hire have been exceptional. They've brought strong technical skills and helped us scale our engineering team effectively."
                   </p>
                   <div>
                     <div className="font-semibold">Kushal Dura</div>

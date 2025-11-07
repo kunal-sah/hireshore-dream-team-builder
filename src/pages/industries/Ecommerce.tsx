@@ -261,7 +261,7 @@ const Ecommerce = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <p className="text-lg italic mb-6">
-                    "HireShore transformed our e-commerce platform into a conversion machine. The results speak for themselves - our sales have nearly tripled."
+                    "The team is well-skilled and delivers on time. Their expertise in web development and design has helped us deliver exceptional results for our clients."
                   </p>
                   <div>
                     <div className="font-semibold">Breearna Jope</div>

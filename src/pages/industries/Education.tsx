@@ -183,7 +183,7 @@ const Education = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1 text-center">
                   <p className="text-lg italic mb-6">
-                    "HireShore's admissions team transformed our enrollment operations. We processed record applications with zero backlogs, and our internal staff can now focus on strategic student success initiatives."
+                    "Hireshore's expertise in digital operations and project management has been valuable for our organization. Their team is professional and delivers quality work."
                   </p>
                   <div>
                     <div className="font-semibold">Lilian N. Peyman</div>

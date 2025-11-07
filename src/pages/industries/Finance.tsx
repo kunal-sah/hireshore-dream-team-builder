@@ -167,8 +167,7 @@ const Finance = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <p className="text-lg italic mb-6">
-                    "Hireshore transformed our back-office operations. The team handles our loan processing and bookkeeping 
-                    with incredible accuracy, allowing us to focus on client relationships and growth."
+                    "Hireshore helped us build a talented team that handles operations efficiently. The quality of candidates and support has been excellent, allowing us to scale effectively."
                   </p>
                   <div>
                     <div className="font-semibold">Ryan Jope</div>

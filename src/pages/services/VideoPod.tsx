@@ -312,7 +312,7 @@ const VideoPod = () => {
                 <div className="flex items-start gap-4">
                   <div className="flex-1">
                     <p className="text-lg italic mb-6">
-                      "The Video Pod completely changed our content strategy. We can now produce high-quality videos consistently without breaking the budget or missing deadlines."
+                      "The team's expertise and efficiency have helped us deliver quality projects consistently. Their work has been a game changer for our operations."
                     </p>
                     <div>
                       <div className="font-semibold">Jac Humphreys</div>
