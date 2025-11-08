@@ -194,11 +194,11 @@ const MarketingOpsPod = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <p className="text-lg italic mb-6">
-                    "The Marketing Ops Pod transformed our chaos into a well-oiled machine. We finally have visibility into what's working and can scale with confidence."
+                    "Hireshore's team helped us streamline our marketing operations and automate key workflows. The efficiency gains have been remarkable for our business."
                   </p>
                   <div>
-                    <div className="font-semibold">Chloe Bundy</div>
-                    <div className="text-sm text-muted-foreground">Founder, Cove Digital</div>
+                    <div className="font-semibold">Operations Team</div>
+                    <div className="text-sm text-muted-foreground">Growing Business</div>
                   </div>
                 </div>
               </div>

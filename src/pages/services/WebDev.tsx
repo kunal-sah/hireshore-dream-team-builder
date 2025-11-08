@@ -322,7 +322,7 @@ const WebDev = () => {
             <div className="flex items-start gap-4">
               <div className="flex-1">
                 <p className="text-lg italic mb-6">
-                  "HireShore delivered our website faster than we thought possible. The quality exceeded our expectations, and the entire process was seamless from start to finish."
+                  "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver without compromise is a game changer. I hand over the project and SOP, and it's done before the deadline and to the highest quality standard I could imagine."
                 </p>
                 <div>
                   <div className="font-semibold">Chloe Bundy</div>

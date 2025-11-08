@@ -233,11 +233,11 @@ const DataAIPod = () => {
                     ))}
                   </div>
                   <p className="text-lg italic mb-6">
-                    "The Data/AI Pod completely transformed how we handle information. We went from spending hours on manual reports to having real-time insights at our fingertips. The automation they built saved us countless hours and improved our decision-making dramatically."
+                    "The team helped us build data automation and streamline our operations. The efficiency improvements and insights we gained have been valuable for our growing business."
                   </p>
                   <div>
                     <div className="font-semibold">Operations Team</div>
-                    <div className="text-sm text-muted-foreground">Affective Care</div>
+                    <div className="text-sm text-muted-foreground">Growing Business</div>
                   </div>
                 </div>
               </div>

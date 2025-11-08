@@ -47,19 +47,19 @@ const OneWeekTrial = () => {
     {
       name: "Chloe Bundy",
       company: "Cove Digital",
-      quote: "The one-week trial let us test the waters without any risk. Now we have 3 full-time team members from HireShore.",
+      quote: "Working with Hireshore has given me more time to grow my business. Having a pod I trust to deliver without compromise is a game changer.",
       role: "Founder"
     },
     {
-      name: "Kushal Dura", 
+      name: "Ryan Jope", 
       company: "PropertyStack",
-      quote: "Best decision we made. The trial developer solved a critical issue in 3 days. We hired him immediately.",
-      role: "Engineering Manager"
+      quote: "We've hired over 15 people through Hireshore in just a year. The quality from Nepal has been significantly better than freelancers.",
+      role: "Founder"
     },
     {
       name: "Breearna Jope",
       company: "Uncommon Solutions",
-      quote: "No other agency offers this level of confidence in their talent. The trial proved their quality.",
+      quote: "The team is well-skilled, easy to work with, and they deliver on time. I don't need to search for freelancers anymore.",
       role: "Founder"
     }
   ];

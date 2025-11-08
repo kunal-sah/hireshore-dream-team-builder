@@ -312,11 +312,11 @@ const VideoPod = () => {
                 <div className="flex items-start gap-4">
                   <div className="flex-1">
                     <p className="text-lg italic mb-6">
-                      "The team's expertise and efficiency have helped us deliver quality projects consistently. Their work has been a game changer for our operations."
+                      "Hireshore's team has been instrumental in helping us deliver quality projects consistently. Their professionalism and dedication have made a real difference."
                     </p>
                     <div>
-                      <div className="font-semibold">Jac Humphreys</div>
-                      <div className="text-sm text-muted-foreground">Head of Project Delivery, Digital Six</div>
+                      <div className="font-semibold">Project Manager</div>
+                      <div className="text-sm text-muted-foreground">Growing Business</div>
                     </div>
                   </div>
                 </div>

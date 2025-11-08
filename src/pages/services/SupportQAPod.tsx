@@ -194,7 +194,7 @@ const SupportQAPod = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <p className="text-lg italic mb-6">
-                    "The Support & QA Pod gave us enterprise-level support and testing capabilities without the massive overhead. Our customers are happier than ever."
+                    "The Hireshore team consistently delivers exceptional customer support. They maintain top performance metrics and truly understand our brand values."
                   </p>
                   <div>
                     <div className="font-semibold">Kyle Batten</div>
