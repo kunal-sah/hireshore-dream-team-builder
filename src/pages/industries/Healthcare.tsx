@@ -279,8 +279,8 @@ const Healthcare = () => {
                     "Hireshore helped us streamline our digital operations and improve our service delivery. Their expertise in web development and project management has been invaluable."
                   </p>
                   <div>
-                    <div className="font-semibold">Rita Dagher</div>
-                    <div className="text-sm text-muted-foreground">CEO & Psychologist, Affective Care</div>
+                    <div className="font-semibold">Client Operations Lead</div>
+                    <div className="text-sm text-muted-foreground">Healthcare Provider</div>
                   </div>
                 </div>
               </div>

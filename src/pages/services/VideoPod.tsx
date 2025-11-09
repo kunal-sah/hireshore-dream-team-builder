@@ -263,31 +263,31 @@ const VideoPod = () => {
           </div>
         </section>
 
-        {/* Case Study Section */}
+        {/* Outcomes Section */}
         <section className="py-16 px-4 bg-muted/20">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Success Story: Digital Six</h2>
-              <p className="text-xl text-muted-foreground">Creating engaging video content at scale</p>
+              <h2 className="text-3xl font-bold mb-4">Example Outcomes from Video Pods</h2>
+              <p className="text-xl text-muted-foreground">What teams often achieve with an on-demand video pod</p>
             </div>
             
             <div className="grid lg:grid-cols-2 gap-12 mb-12">
               <Card className="p-8">
                 <CardContent className="p-0">
-                  <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
+                  <h3 className="text-xl font-semibold mb-4 text-primary">Typical Challenges</h3>
                   <p className="text-muted-foreground mb-6">
-                    Digital Six needed consistent video content for multiple clients but production agencies were too expensive and freelancers were unreliable.
+                    Need for consistent, high-quality video across channels without the cost and risk of hiring a full team.
                   </p>
-                  <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
+                  <h3 className="text-xl font-semibold mb-4 text-primary">Our Approach</h3>
                   <p className="text-muted-foreground">
-                    Our Video Pod provided on-demand video production with fast turnarounds, delivering everything from explainer videos to social media content.
+                    Dedicated video pod for concept, production, and post—delivering predictable quality and speed.
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="p-8 border-primary">
                 <CardContent className="p-0">
-                  <h3 className="text-xl font-semibold mb-6">Results</h3>
+                  <h3 className="text-xl font-semibold mb-6">Typical Results</h3>
                   <div className="space-y-6">
                     <div>
                       <div className="text-3xl font-bold text-primary mb-2">25+</div>

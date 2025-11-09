@@ -179,70 +179,46 @@ const DataAIPod = () => {
         </div>
       </section>
 
-      {/* Case Study Section */}
+      {/* Outcomes Section */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Success Story: Affective Care</h2>
-            <p className="text-xl text-muted-foreground">Automating operations with intelligent data solutions</p>
+            <h2 className="text-3xl font-bold mb-4">Example Outcomes from Data / AI Pods</h2>
+            <p className="text-xl text-muted-foreground">Common business wins from analytics, automation, and AI</p>
           </div>
-          
           <div className="grid lg:grid-cols-2 gap-12 mb-12">
             <Card className="p-8">
               <CardContent className="p-0">
-                <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
+                <h3 className="text-xl font-semibold mb-4 text-primary">Typical Challenges</h3>
                 <p className="text-muted-foreground mb-6">
-                  Affective Care struggled with manual data processing across multiple systems, leading to inefficiencies and missed insights in their healthcare operations.
+                  Manual data processing across multiple systems leads to slow decisions and missed insights.
                 </p>
-                <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
+                <h3 className="text-xl font-semibold mb-4 text-primary">Our Approach</h3>
                 <p className="text-muted-foreground">
-                  Our Data/AI Pod implemented automated data pipelines, predictive analytics, and AI-powered reporting that transformed their operations and decision-making.
+                  We build automated pipelines, analytics dashboards, and predictive models tailored to your goals.
                 </p>
               </CardContent>
             </Card>
-
             <Card className="p-8 border-primary">
               <CardContent className="p-0">
-                <h3 className="text-xl font-semibold mb-6">Results</h3>
+                <h3 className="text-xl font-semibold mb-6">Typical Results</h3>
                 <div className="space-y-6">
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">80%</div>
-                    <div className="text-muted-foreground">Reduction in manual work</div>
+                    <div className="text-3xl font-bold text-primary mb-2">Faster Decisions</div>
+                    <div className="text-muted-foreground">Real-time reporting and alerts</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">$250k</div>
-                    <div className="text-muted-foreground">Annual operational savings</div>
+                    <div className="text-3xl font-bold text-primary mb-2">Lower Costs</div>
+                    <div className="text-muted-foreground">Automations reduce manual effort</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">Real-time</div>
-                    <div className="text-muted-foreground">Data insights & reporting</div>
+                    <div className="text-3xl font-bold text-primary mb-2">Better Forecasts</div>
+                    <div className="text-muted-foreground">Predictive models guide decisions</div>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
-
-          {/* Testimonial */}
-          <Card className="p-8 bg-card">
-            <CardContent className="p-0">
-              <div className="flex items-start gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center mb-6">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-lg italic mb-6">
-                    "The team helped us build data automation and streamline our operations. The efficiency improvements and insights we gained have been valuable for our growing business."
-                  </p>
-                  <div>
-                    <div className="font-semibold">Operations Team</div>
-                    <div className="text-sm text-muted-foreground">Growing Business</div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </section>
 

@@ -290,11 +290,11 @@ const WebDev = () => {
             <div className="p-8 rounded-xl bg-card border border-border">
               <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
               <p className="text-muted-foreground mb-6">
-                Cove Digital needed to launch their new website quickly to capture market opportunities, but traditional development timelines would take 3-4 months.
+                Cove Digital needed to migrate and launch a complex 40-page website while preserving SEO visibility and content integrity.
               </p>
               <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
               <p className="text-muted-foreground">
-                Our Web Dev Pod delivered a fully functional, SEO-optimized website on Webflow in just 3 weeks, including custom features and integrations.
+                Our dedicated migration pod completed a 40-page migration in just 2 weeks using WordPress/Wix workflows and checklist-driven SEO QA.
               </p>
             </div>
 
@@ -302,16 +302,16 @@ const WebDev = () => {
               <h3 className="text-xl font-semibold mb-6">Results</h3>
               <div className="space-y-6">
                 <div>
-                  <div className="text-3xl font-bold text-primary mb-2">3 Weeks</div>
-                  <div className="text-muted-foreground">From start to launch</div>
+                  <div className="text-3xl font-bold text-primary mb-2">2 Weeks</div>
+                  <div className="text-muted-foreground">40-page migration completed</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-primary mb-2">95/100</div>
-                  <div className="text-muted-foreground">Performance score</div>
+                  <div className="text-3xl font-bold text-primary mb-2">3 Projects</div>
+                  <div className="text-muted-foreground">Delivered in one month</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-primary mb-2">150%</div>
-                  <div className="text-muted-foreground">Increase in conversions</div>
+                  <div className="text-3xl font-bold text-primary mb-2">40+ Hours</div>
+                  <div className="text-muted-foreground">Founder time saved monthly</div>
                 </div>
               </div>
             </div>

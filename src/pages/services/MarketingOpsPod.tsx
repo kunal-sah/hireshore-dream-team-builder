@@ -145,65 +145,46 @@ const MarketingOpsPod = () => {
         </div>
       </section>
 
-      {/* Case Study Section */}
+      {/* Outcomes Section */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Success Story: Cove Digital</h2>
-            <p className="text-xl text-muted-foreground">Streamlining marketing operations for predictable growth</p>
+            <h2 className="text-3xl font-bold mb-4">Example Outcomes from Marketing Ops Pods</h2>
+            <p className="text-xl text-muted-foreground">What teams commonly achieve after unifying stack and automating workflows</p>
           </div>
-          
           <div className="grid lg:grid-cols-2 gap-12 mb-12">
             <Card className="p-8">
               <CardContent className="p-0">
-                <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
+                <h3 className="text-xl font-semibold mb-4 text-primary">Common Challenges</h3>
                 <p className="text-muted-foreground mb-6">
-                  Cove Digital struggled with disconnected marketing tools, manual lead tracking, and no clear attribution, making it impossible to scale efficiently.
+                  Disconnected tools, manual lead tracking, and poor attribution make scaling inefficient and error-prone.
                 </p>
-                <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
+                <h3 className="text-xl font-semibold mb-4 text-primary">Our Approach</h3>
                 <p className="text-muted-foreground">
-                  Our Marketing Ops Pod integrated their entire stack, automated lead nurturing, and implemented comprehensive attribution tracking.
+                  We integrate your stack end-to-end, automate nurturing, and implement full-funnel attribution with clear reporting.
                 </p>
               </CardContent>
             </Card>
-
             <Card className="p-8 border-primary">
               <CardContent className="p-0">
-                <h3 className="text-xl font-semibold mb-6">Results</h3>
+                <h3 className="text-xl font-semibold mb-6">Typical Results</h3>
                 <div className="space-y-6">
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">60%</div>
-                    <div className="text-muted-foreground">Reduction in manual work</div>
+                    <div className="text-3xl font-bold text-primary mb-2">Less Manual Work</div>
+                    <div className="text-muted-foreground">Automations replace repetitive tasks</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">2.5x</div>
-                    <div className="text-muted-foreground">Increase in lead conversion</div>
+                    <div className="text-3xl font-bold text-primary mb-2">Higher Conversions</div>
+                    <div className="text-muted-foreground">Lead scoring + nurturing improve close rates</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">100%</div>
-                    <div className="text-muted-foreground">Marketing attribution visibility</div>
+                    <div className="text-3xl font-bold text-primary mb-2">Clear Attribution</div>
+                    <div className="text-muted-foreground">Visibility across campaigns and channels</div>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
-
-          {/* Testimonial */}
-          <Card className="p-8 bg-card">
-            <CardContent className="p-0">
-              <div className="flex items-start gap-4">
-                <div className="flex-1">
-                  <p className="text-lg italic mb-6">
-                    "Hireshore's team helped us streamline our marketing operations and automate key workflows. The efficiency gains have been remarkable for our business."
-                  </p>
-                  <div>
-                    <div className="font-semibold">Operations Team</div>
-                    <div className="text-sm text-muted-foreground">Growing Business</div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </section>
 

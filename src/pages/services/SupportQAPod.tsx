@@ -172,16 +172,16 @@ const SupportQAPod = () => {
                 <h3 className="text-xl font-semibold mb-6">Results</h3>
                 <div className="space-y-6">
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">85%</div>
+                    <div className="text-3xl font-bold text-primary mb-2">95%</div>
                     <div className="text-muted-foreground">Customer satisfaction score</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">2hr</div>
-                    <div className="text-muted-foreground">Average response time</div>
+                    <div className="text-3xl font-bold text-primary mb-2">99%</div>
+                    <div className="text-muted-foreground">Response time achievement</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">70%</div>
-                    <div className="text-muted-foreground">Reduction in critical bugs</div>
+                    <div className="text-3xl font-bold text-primary mb-2">#1</div>
+                    <div className="text-muted-foreground">Performance leaderboard position</div>
                   </div>
                 </div>
               </CardContent>

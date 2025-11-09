@@ -224,16 +224,16 @@ const Agencies = () => {
               <h3 className="text-xl font-semibold mb-6">Results</h3>
               <div className="space-y-6">
                 <div>
-                  <div className="text-3xl font-bold text-primary mb-2">400%</div>
-                  <div className="text-muted-foreground">Increase in client capacity</div>
+                  <div className="text-3xl font-bold text-primary mb-2">21→47</div>
+                  <div className="text-muted-foreground">Team growth in months</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-primary mb-2">$500k</div>
-                  <div className="text-muted-foreground">Additional annual revenue</div>
+                  <div className="text-3xl font-bold text-primary mb-2">$1M+</div>
+                  <div className="text-muted-foreground">Monthly savings vs in-house hiring</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-primary mb-2">Zero</div>
-                  <div className="text-muted-foreground">New full-time hires needed</div>
+                  <div className="text-3xl font-bold text-primary mb-2">100%</div>
+                  <div className="text-muted-foreground">Quality delivery on WordPress & SEO</div>
                 </div>
               </div>
             </div>
