@@ -145,7 +145,7 @@ const Index = () => {
       />
       <NavBar />
       <LandingHero />
-      <div className="space-y-12 md:space-y-16">
+      <main className="space-y-16 md:space-y-20 py-8">
         <TrustedStartups />
         <DeliveryPodDefinition />
         <Suspense fallback={<ComponentLoader />}>
@@ -154,21 +154,21 @@ const Index = () => {
         <Suspense fallback={<ComponentLoader />}>
           <InsideDeliveryPod />
         </Suspense>
-        <div id="how-it-works">
+        <section id="how-it-works">
           <Suspense fallback={<ComponentLoader />}>
             <HowItWorksSection />
           </Suspense>
-        </div>
-        <div id="why-pods">
+        </section>
+        <section id="why-pods">
           <Suspense fallback={<ComponentLoader />}>
             <WhyPodsSection />
           </Suspense>
-        </div>
-        <div id="proof">
+        </section>
+        <section id="proof">
           <Suspense fallback={<ComponentLoader />}>
             <ProofSection />
           </Suspense>
-        </div>
+        </section>
         <Suspense fallback={<ComponentLoader />}>
           <BenefitsSection />
         </Suspense>
@@ -177,7 +177,7 @@ const Index = () => {
         </Suspense>
         
         {/* Marlon's Medz Media Testimonial */}
-        <section className="max-w-6xl mx-auto py-12 px-4">
+        <section className="max-w-6xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -218,7 +218,7 @@ const Index = () => {
         </section>
 
         {/* Aaron's Digital Six Testimonial */}
-        <section className="max-w-6xl mx-auto py-12 px-4">
+        <section className="max-w-6xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -261,7 +261,7 @@ const Index = () => {
         </section>
 
         {/* Ryan's PropertyStack Testimonial */}
-        <section className="max-w-6xl mx-auto py-12 px-4">
+        <section className="max-w-6xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -301,7 +301,7 @@ const Index = () => {
         </section>
 
         {/* Yona's Swimply Testimonial */}
-        <section className="max-w-6xl mx-auto py-12 px-4">
+        <section className="max-w-6xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -342,31 +342,30 @@ const Index = () => {
         </section>
 
         {/* View All Case Studies CTA */}
-        <section className="py-12 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8"
+        <section className="max-w-4xl mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8"
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              See Our Success Stories
+            </h3>
+            <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+              Discover how agencies and startups transformed their operations with Hireshore's managed delivery pods
+            </p>
+            <Link 
+              to="/case-studies"
+              className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg"
             >
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                See Our Success Stories
-              </h3>
-              <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-                Discover how agencies and startups transformed their operations with Hireshore's managed delivery pods
-              </p>
-              <Link 
-                to="/case-studies"
-                className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg"
-              >
-                View All Case Studies
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </motion.div>
-          </div>
+              View All Case Studies
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </motion.div>
         </section>
+
         <Suspense fallback={<ComponentLoader />}>
           <ServicesSection />
         </Suspense>
@@ -382,7 +381,7 @@ const Index = () => {
         <Suspense fallback={<ComponentLoader />}>
           <CalendlySection />
         </Suspense>
-      </div>
+      </main>
       <SiteFooter />
     </div>
   );
