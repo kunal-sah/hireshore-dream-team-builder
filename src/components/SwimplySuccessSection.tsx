@@ -118,12 +118,50 @@ const SwimplySuccessSection = () => {
         ))}
       </motion.div>
 
+      {/* Video Testimonial */}
       <motion.div 
-        className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 md:p-12"
+        className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 md:p-12 mb-8"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.7 }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <div className="flex items-center mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+              ))}
+            </div>
+            <blockquote className="text-lg text-gray-700 italic mb-6">
+              "Easy to work with and well priced. The business was growing, so we needed to staff up our customer support team because great customer support is a core pillar of our business. However, as we wanted to keep focusing on profitability, costs were also top of mind. That's where Hireshore came in—we could achieve both. Definitely would recommend."
+            </blockquote>
+            <div>
+              <div className="font-semibold text-gray-900">Yona Meissner</div>
+              <div className="text-sm text-gray-600">Head of Operations, Swimply</div>
+            </div>
+          </div>
+          <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src="https://www.youtube.com/embed/LjnthdX87Ao" 
+              title="Swimply Testimonial - Yona Meissner"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+              className="border-0"
+            />
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Integration Details */}
+      <motion.div 
+        className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.8 }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
@@ -155,7 +193,7 @@ const SwimplySuccessSection = () => {
             </div>
           </div>
           <div className="text-center lg:text-right">
-            <div className="inline-block bg-white rounded-xl p-6 shadow-lg">
+            <div className="inline-block bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6 shadow-lg">
               <div className="text-4xl font-bold text-purple-600 mb-2">Top Performers</div>
               <div className="text-gray-600">Consistently ranking #1 on the leaderboard among all representatives</div>
             </div>
