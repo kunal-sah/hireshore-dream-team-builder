@@ -260,44 +260,63 @@ const SwimplyCaseStudy = () => {
           </div>
         </motion.div>
 
-        {/* Client Testimonials */}
+        {/* Video Testimonial */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 md:p-12 border border-purple-100 mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.0 }}
         >
-          <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 border border-purple-100">
-            <div className="flex items-center mb-6">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
-              ))}
-            </div>
-            <blockquote className="text-lg text-gray-700 italic mb-6">
-              "The Hireshore team consistently delivers exceptional customer support. They maintain top performance metrics and truly understand our brand values, making them an integral part of our customer success strategy."
-            </blockquote>
-            <div className="flex items-center gap-4">
-              <div>
-                <div className="font-semibold text-gray-900">Yona Meissner</div>
-                <div className="text-sm text-gray-600">Head of Operations, Swimply</div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+                ))}
               </div>
+              <blockquote className="text-lg text-gray-700 italic mb-6">
+                "Easy to work with and well priced. The business was growing, so we needed to staff up our customer support team because great customer support is a core pillar of our business. However, as we wanted to keep focusing on profitability, costs were also top of mind. That's where Hireshore came in—we could achieve both. If you have similar needs including focus on cost, the ease to scale up and down, and the speed... definitely would recommend."
+              </blockquote>
+              <div className="flex items-center gap-4">
+                <div>
+                  <div className="font-semibold text-gray-900">Yona Meissner</div>
+                  <div className="text-sm text-gray-600">Head of Operations, Swimply</div>
+                </div>
+              </div>
+            </div>
+            <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/LjnthdX87Ao" 
+                title="Swimply Testimonial - Yona Meissner"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+                className="border-0"
+              />
             </div>
           </div>
+        </motion.div>
 
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
-            <div className="flex items-center mb-6">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
-              ))}
-            </div>
-            <blockquote className="text-lg text-gray-700 italic mb-6">
-              "The support team from Hireshore consistently ranks #1 on our performance leaderboard with a 95% CSAT score. Their professionalism and dedication to customer success is truly exceptional."
-            </blockquote>
-            <div className="flex items-center gap-4">
-              <div>
-                <div className="font-semibold text-gray-900">Kyle Batten</div>
-                <div className="text-sm text-gray-600">Sr. Manager, Customer Support and Trust & Safety, Swimply</div>
-              </div>
+        {/* Client Testimonials */}
+        <motion.div 
+          className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.1 }}
+        >
+          <div className="flex items-center mb-6">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+            ))}
+          </div>
+          <blockquote className="text-lg text-gray-700 italic mb-6">
+            "The support team from Hireshore consistently ranks #1 on our performance leaderboard with a 95% CSAT score. Their professionalism and dedication to customer success is truly exceptional."
+          </blockquote>
+          <div className="flex items-center gap-4">
+            <div>
+              <div className="font-semibold text-gray-900">Kyle Batten</div>
+              <div className="text-sm text-gray-600">Sr. Manager, Customer Support and Trust & Safety, Swimply</div>
             </div>
           </div>
         </motion.div>

@@ -2,7 +2,7 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, Headphones, Shield, Bug, Clock, MessageCircle, Users, CheckCircle } from "lucide-react";
+import { Check, Headphones, Shield, Bug, Clock, MessageCircle, Users, CheckCircle, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const SupportQAPod = () => {
@@ -188,18 +188,34 @@ const SupportQAPod = () => {
             </Card>
           </div>
 
-          {/* Testimonial */}
+          {/* Video Testimonial */}
           <Card className="p-8 bg-card">
             <CardContent className="p-0">
-              <div className="flex items-start gap-4">
-                <div className="flex-1">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                  <div className="flex items-center mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+                    ))}
+                  </div>
                   <p className="text-lg italic mb-6">
-                    "The Hireshore team consistently delivers exceptional customer support. They maintain top performance metrics and truly understand our brand values."
+                    "Easy to work with and well priced. The business was growing, so we needed to staff up our customer support team because great customer support is a core pillar of our business. However, as we wanted to keep focusing on profitability, costs were also top of mind. That's where Hireshore came in—we could achieve both. Definitely would recommend."
                   </p>
                   <div>
-                    <div className="font-semibold">Kyle Batten</div>
-                    <div className="text-sm text-muted-foreground">Sr. Manager, Customer Support and Trust & Safety, Swimply</div>
+                    <div className="font-semibold">Yona Meissner</div>
+                    <div className="text-sm text-muted-foreground">Head of Operations, Swimply</div>
                   </div>
+                </div>
+                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                  <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/LjnthdX87Ao" 
+                    title="Swimply Testimonial - Yona Meissner"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                    className="border-0"
+                  />
                 </div>
               </div>
             </CardContent>
