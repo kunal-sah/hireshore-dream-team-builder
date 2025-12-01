@@ -300,6 +300,47 @@ const Index = () => {
           </motion.div>
         </section>
 
+        {/* Yona's Swimply Testimonial */}
+        <section className="max-w-6xl mx-auto py-12 px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 md:p-12 border border-purple-100"
+          >
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
+                <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-6">
+                  "Easy to work with and well priced. The business was growing, so we needed to staff up our 
+                  customer support team because great customer support is a core pillar of our business. However, 
+                  as we wanted to keep focusing on profitability, costs were also top of mind. That's where 
+                  Hireshore came in—we could achieve both. If you have similar needs including focus on cost, 
+                  the ease to scale up and down, and the speed... definitely would recommend."
+                </blockquote>
+                <div className="flex items-center">
+                  <div>
+                    <p className="font-semibold text-gray-900">Yona Meissner</p>
+                    <p className="text-sm text-gray-600">Head of Operations, Swimply</p>
+                  </div>
+                </div>
+              </div>
+              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  src="https://www.youtube.com/embed/LjnthdX87Ao"
+                  title="Swimply Testimonial - Yona Meissner"
+                  className="w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
         {/* View All Case Studies CTA */}
         <section className="py-12 px-4">
           <div className="max-w-4xl mx-auto text-center">
