@@ -42,6 +42,7 @@ const Terms = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/terms"
         title="Terms & Conditions | Hireshore"
         description="Read Hireshore's terms and conditions for using our services."
         keywords="terms, conditions, agreement"

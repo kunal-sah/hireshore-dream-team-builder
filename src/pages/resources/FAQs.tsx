@@ -125,6 +125,7 @@ const FAQs = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/faqs"
         title="FAQs | Frequently Asked Questions | Hireshore"
         description="Find answers to common questions about Hireshore's delivery pods and services."
         keywords="faqs, questions, delivery pods help"

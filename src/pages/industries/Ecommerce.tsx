@@ -51,6 +51,7 @@ const Ecommerce = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/industries/ecommerce"
         title="E-commerce | Delivery Pods for Online Stores | Hireshore"
         description="Scale your e-commerce business with dedicated delivery pods for development, design, and support."
         keywords="ecommerce, online store, delivery pods"

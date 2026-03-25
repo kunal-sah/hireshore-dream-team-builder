@@ -121,6 +121,7 @@ const EkleipsiDigitalCaseStudy = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/case-studies/ekleipsi-digital"
         title="Ekleipsi Digital Case Study | Hireshore"
         description="How Ekleipsi Digital leveraged Hireshore's delivery pods to scale their digital agency."
         keywords="ekleipsi digital, case study, digital agency"

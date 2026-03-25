@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from "@/components/SEOHead";
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import { TrendingUp, Target, Users, CheckCircle, ArrowRight, Zap, Award, Home, ChevronRight, BarChart, MessageCircle, Star } from 'lucide-react';
@@ -48,14 +48,11 @@ const SalesPipeline = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Fill Your Sales Pipeline with Qualified Leads | HireShore</title>
-        <meta name="description" content="Generate 3x more qualified leads with automated outreach and nurture systems. Build a consistent sales pipeline that drives predictable revenue." />
-        <link rel="canonical" href="https://hireshore.com/solutions/sales-pipeline" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
+      <SEOHead
+        canonicalUrl="https://hireshore.co/solutions/sales-pipeline"
+        title="Fill Your Sales Pipeline with Qualified Leads | HireShore"
+        description="Generate 3x more qualified leads with automated outreach and nurture systems. Build a consistent sales pipeline that drives predictable revenue."
+      />
       
       <div className="min-h-screen bg-background">
         <NavBar />

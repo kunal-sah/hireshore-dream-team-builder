@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from "@/components/SEOHead";
 import { z } from 'zod';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
@@ -138,6 +138,11 @@ const ConfigurePod = () => {
 
   return (
     <>
+      <SEOHead
+        canonicalUrl="https://hireshore.co/configure-pod"
+        title="Configure Your Pod | Hireshore"
+        description="Build your custom delivery pod configuration and get a tailored team estimate."
+      />
       <div className="min-h-screen bg-background">
         <NavBar />
         

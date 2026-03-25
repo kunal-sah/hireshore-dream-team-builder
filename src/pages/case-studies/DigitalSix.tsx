@@ -97,6 +97,7 @@ const DigitalSixCaseStudy = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/case-studies/digital-six"
         title="Digital Six Case Study | Agency Scaling | Hireshore"
         description="How Digital Six grew from 5 to 47 team members with Hireshore's managed delivery pods."
         keywords="digital six, agency scaling, case study"

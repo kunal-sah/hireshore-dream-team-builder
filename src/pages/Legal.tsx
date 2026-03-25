@@ -15,6 +15,7 @@ const Legal = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/legal"
         title="Legal Mentions | Hireshore"
         description="Legal information and mentions for Hireshore LLC."
         keywords="legal, terms, hireshore"

@@ -201,6 +201,7 @@ const CaseStudies = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/case-studies"
         title="Case Studies | Real Results from Delivery Pods | Hireshore"
         description="See how agencies and startups scaled with Hireshore's delivery pods. Real case studies with measurable results."
         keywords="case studies, client success, delivery pods results"

@@ -39,6 +39,7 @@ const AutomationGuide = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/guides/automation-starters"
         title="Automation Guide | Automate Your Operations | Hireshore"
         description="Complete guide to automating your business operations for efficiency and scale."
         keywords="automation, guide, operations"

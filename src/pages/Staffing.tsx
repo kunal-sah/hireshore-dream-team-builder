@@ -89,6 +89,7 @@ const Staffing = () => {
   return (
     <>
       <SEOHead
+        canonicalUrl="https://hireshore.co/staffing"
         title="Staffing Solutions | Build Your Remote Team | Hireshore"
         description="Build dedicated remote teams with Hireshore. Pre-vetted talent, compliance handled, one-week trial available."
         keywords="staffing, remote team, dedicated talent, hiring"

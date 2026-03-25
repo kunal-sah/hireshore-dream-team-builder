@@ -81,6 +81,7 @@ const DedicatedTalent = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/staffing/dedicated"
         title="Dedicated Talent | Full-Time Remote Professionals | Hireshore"
         description="Hire dedicated, full-time remote professionals vetted and managed by Hireshore."
         keywords="dedicated talent, remote professionals, full-time hire"

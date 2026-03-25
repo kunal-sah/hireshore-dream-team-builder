@@ -101,6 +101,7 @@ const MedzMediaCaseStudy = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/case-studies/medz-media"
         title="Medz Media Case Study | Work-Life Balance | Hireshore"
         description="How Medz Media transformed operations and work-life balance with Hireshore's delivery pods."
         keywords="medz media, case study, work-life balance"

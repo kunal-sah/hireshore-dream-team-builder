@@ -68,6 +68,7 @@ const OneWeekTrial = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/staffing/trial"
         title="One-Week Trial | Risk-Free Talent Trial | Hireshore"
         description="Try before you commit. Start a risk-free one-week trial with pre-vetted talent."
         keywords="one week trial, risk free, talent trial"

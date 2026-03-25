@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from "@/components/SEOHead";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
@@ -57,15 +57,11 @@ const DesignPod = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Design Pod | Unlimited UI/UX & Brand Design Services | HireShore</title>
-        <meta name="description" content="Get unlimited design work from dedicated designers. Professional UI/UX, branding, and marketing design with fast turnarounds and unlimited revisions." />
-        <meta name="keywords" content="design pod, UI/UX design, brand identity, web design, graphic design, design services" />
-        <link rel="canonical" href="https://hireshore.com/services/design-pod" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
+      <SEOHead
+        canonicalUrl="https://hireshore.co/services/design"
+        title="Design Pod | Unlimited UI/UX & Brand Design Services | HireShore"
+        description="Get unlimited design work from dedicated designers. Professional UI/UX, branding, and marketing design with fast turnarounds and unlimited revisions."
+      />
 
       <div className="min-h-screen bg-background">
         <NavBar />

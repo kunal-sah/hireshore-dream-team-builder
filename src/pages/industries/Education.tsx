@@ -53,6 +53,7 @@ const Education = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/industries/education"
         title="Education | EdTech Delivery Pods | Hireshore"
         description="Build and scale educational technology with Hireshore's managed delivery pods."
         keywords="education, edtech, delivery pods"

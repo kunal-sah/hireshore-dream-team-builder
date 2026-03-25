@@ -47,6 +47,7 @@ const Agencies = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/industries/agencies"
         title="Digital Agencies | Scale with Delivery Pods | Hireshore"
         description="Scale your digital agency with Hireshore's white-label delivery pods for dev, design, and marketing."
         keywords="digital agencies, white label, agency scaling"

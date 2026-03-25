@@ -64,6 +64,7 @@ const SaasTech = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/industries/saas-tech"
         title="SaaS & Tech | Scale Your Product Team | Hireshore"
         description="Scale your SaaS product team with Hireshore's managed delivery pods for development, QA, and support."
         keywords="saas, tech, product team, delivery pods"

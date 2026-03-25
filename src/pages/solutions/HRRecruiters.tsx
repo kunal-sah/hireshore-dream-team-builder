@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from "@/components/SEOHead";
 import { ArrowRight, Users, Search, Clock, CheckCircle, Target, Shield, TrendingUp, Award, Star } from 'lucide-react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
@@ -43,45 +43,11 @@ const HRRecruiters: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>HR & Recruitment Solutions | Fill Positions 60% Faster | HireShore</title>
-        <meta name="description" content="Transform your recruitment process with HireShore's pre-vetted talent pools and streamlined hiring. Fill positions 60% faster with 95% success rate." />
-        <meta name="keywords" content="HR recruitment solutions, talent acquisition, pre-vetted candidates, recruitment process outsourcing, hiring efficiency" />
-        <link rel="canonical" href="https://hireshore.com/solutions/hr-recruiters" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "HR & Recruitment Solutions",
-            "provider": {
-              "@type": "Organization",
-              "name": "HireShore"
-            },
-            "description": "Pre-vetted talent pools and streamlined recruitment processes that cut time-to-hire by 60%",
-            "areaServed": "Worldwide",
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Recruitment Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Talent Sourcing & Screening"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Recruitment Process Outsourcing"
-                  }
-                }
-              ]
-            }
-          })}
-        </script>
-      </Helmet>
+      <SEOHead
+        canonicalUrl="https://hireshore.co/solutions/hr-recruiters"
+        title="HR & Recruitment Solutions | Fill Positions 60% Faster | HireShore"
+        description="Transform your recruitment process with HireShore's pre-vetted talent pools and streamlined hiring. Fill positions 60% faster with 95% success rate."
+      />
       <div className="min-h-screen bg-background">
         <NavBar />
         

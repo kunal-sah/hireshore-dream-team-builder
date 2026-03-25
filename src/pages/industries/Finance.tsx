@@ -21,6 +21,7 @@ const Finance = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/industries/finance"
         title="Finance | FinTech Delivery Pods | Hireshore"
         description="Scale your fintech operations with Hireshore's secure, compliant delivery pods."
         keywords="finance, fintech, delivery pods, compliance"

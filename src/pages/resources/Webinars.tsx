@@ -88,6 +88,7 @@ const Webinars = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/webinars"
         title="Webinars | Learn from Experts | Hireshore"
         description="Watch webinars on scaling, remote team management, and delivery pod best practices."
         keywords="webinars, learning, expert insights"

@@ -93,6 +93,7 @@ const Careers = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/company/careers"
         title="Careers | Join the Hireshore Team"
         description="Join Hireshore and work with global startups and agencies. Explore career opportunities."
         keywords="careers, jobs, hiring, join hireshore"

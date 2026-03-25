@@ -50,6 +50,7 @@ const BuildTeam = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/staffing/build-team"
         title="Build Your Team | Custom Team Assembly | Hireshore"
         description="Build a dedicated remote team tailored to your needs. Pre-vetted talent, fast onboarding."
         keywords="build team, remote team, custom team"

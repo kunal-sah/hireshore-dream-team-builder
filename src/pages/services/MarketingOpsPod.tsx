@@ -39,6 +39,7 @@ const MarketingOpsPod = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/services/marketing-ops"
         title="Marketing Ops Pod | Automation & Analytics | Hireshore"
         description="Automate your marketing stack with Hireshore's Marketing Ops delivery pod."
         keywords="marketing ops, automation, analytics, delivery pod"

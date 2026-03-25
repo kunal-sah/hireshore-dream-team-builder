@@ -21,6 +21,7 @@ const SaaSOnboarding = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/case-notes/saas-onboarding"
         title="SaaS Onboarding Case Note | Hireshore"
         description="Case note on optimizing SaaS onboarding workflows."
         keywords="saas, onboarding, case note"

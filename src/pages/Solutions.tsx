@@ -115,6 +115,7 @@ const Solutions = () => {
   return (
     <>
       <SEOHead
+        canonicalUrl="https://hireshore.co/solutions"
         title="Solutions | Scale Your Business | Hireshore"
         description="Solutions for founders, agencies, HR teams, and marketing leaders. Scale with managed delivery pods."
         keywords="solutions, scale business, founders, agencies"

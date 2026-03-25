@@ -97,6 +97,7 @@ const AboutUs = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/about-us"
         title="About Us | Meet the Team Behind Hireshore"
         description="Learn about Hireshore's mission, team, and values. Founded to help startups and agencies scale with managed delivery pods."
         keywords="about hireshore, team, mission, remote team management"

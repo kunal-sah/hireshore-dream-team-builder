@@ -71,6 +71,7 @@ const Compliance = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/staffing/compliance"
         title="Compliance | Global Compliance Solutions | Hireshore"
         description="Ensure global compliance with Hireshore. GDPR, SOC 2, and more handled for you."
         keywords="compliance, gdpr, soc 2, global compliance"

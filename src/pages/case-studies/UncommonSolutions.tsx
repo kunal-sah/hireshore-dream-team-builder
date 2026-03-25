@@ -93,6 +93,7 @@ const UncommonSolutionsCaseStudy = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/case-studies/uncommon-solutions"
         title="Uncommon Solutions Case Study | Creative Delivery | Hireshore"
         description="How Uncommon Solutions streamlined creative delivery with Hireshore's plug & play pods."
         keywords="uncommon solutions, case study, creative delivery"

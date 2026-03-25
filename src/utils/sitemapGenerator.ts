@@ -23,7 +23,7 @@ export const siteRoutes: SitemapEntry[] = [
   { path: '/contact-us', priority: 0.7, changefreq: 'monthly' },
   { path: '/configure-pod', priority: 0.7, changefreq: 'monthly' },
 
-  // Case Studies - high priority for SEO
+  // Case Studies
   { path: '/case-studies/digital-six', priority: 0.8, changefreq: 'monthly' },
   { path: '/case-studies/medz-media', priority: 0.8, changefreq: 'monthly' },
   { path: '/case-studies/swimply', priority: 0.8, changefreq: 'monthly' },
@@ -44,7 +44,7 @@ export const siteRoutes: SitemapEntry[] = [
   { path: '/solutions/founders', priority: 0.7, changefreq: 'monthly' },
   { path: '/solutions/hr-recruiters', priority: 0.7, changefreq: 'monthly' },
 
-  // Services/Pod pages
+  // Services pages (corrected routes)
   { path: '/services/web-dev', priority: 0.7, changefreq: 'monthly' },
   { path: '/services/design', priority: 0.7, changefreq: 'monthly' },
   { path: '/services/video', priority: 0.7, changefreq: 'monthly' },
@@ -53,7 +53,7 @@ export const siteRoutes: SitemapEntry[] = [
   { path: '/services/data-ai', priority: 0.7, changefreq: 'monthly' },
   { path: '/services/support-qa', priority: 0.7, changefreq: 'monthly' },
 
-  // Staffing pages
+  // Staffing pages (corrected routes)
   { path: '/staffing/recruitment', priority: 0.7, changefreq: 'monthly' },
   { path: '/staffing/compliance', priority: 0.7, changefreq: 'monthly' },
   { path: '/staffing/trial', priority: 0.7, changefreq: 'monthly' },
@@ -117,7 +117,7 @@ export const siteRoutes: SitemapEntry[] = [
   { path: '/resources/case-notes/coaching-booking-optimization', priority: 0.6, changefreq: 'monthly' },
   { path: '/resources/case-notes/real-estate-lead-nurture', priority: 0.6, changefreq: 'monthly' },
 
-  // Legal pages - lowest priority
+  // Legal pages
   { path: '/privacy', priority: 0.3, changefreq: 'yearly' },
   { path: '/terms', priority: 0.3, changefreq: 'yearly' },
   { path: '/legal', priority: 0.3, changefreq: 'yearly' },

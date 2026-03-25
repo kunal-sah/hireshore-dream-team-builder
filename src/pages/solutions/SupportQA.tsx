@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from "@/components/SEOHead";
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import { Headphones, Clock, CheckCircle, ArrowRight, Award, Target, Users, Home, ChevronRight, BarChart, MessageCircle, Star } from 'lucide-react';
@@ -48,14 +48,11 @@ const SupportQA = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Ongoing Support & QA Services | 24/7 Customer Support | HireShore</title>
-        <meta name="description" content="Deliver exceptional customer experience with 24/7 support and systematic QA. Respond 90% faster and catch 99% of bugs before they reach customers." />
-        <link rel="canonical" href="https://hireshore.com/solutions/support-qa" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
+      <SEOHead
+        canonicalUrl="https://hireshore.co/solutions/support-qa"
+        title="Ongoing Support & QA Services | 24/7 Customer Support | HireShore"
+        description="Deliver exceptional customer experience with 24/7 support and systematic QA. Respond 90% faster and catch 99% of bugs before they reach customers."
+      />
       
       <div className="min-h-screen bg-background">
         <NavBar />

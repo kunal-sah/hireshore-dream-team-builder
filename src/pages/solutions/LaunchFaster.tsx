@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from "@/components/SEOHead";
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import { Rocket, Clock, Zap, CheckCircle, ArrowRight, Users, Target, Award, Home, ChevronRight, Star } from 'lucide-react';
@@ -72,22 +72,11 @@ const LaunchFaster = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Launch Websites 10x Faster | Fast Web Development Service | HireShore</title>
-        <meta name="description" content="Launch your website in days, not months. Our proven fast launch methodology delivers enterprise-quality websites 90% faster than traditional development." />
-        <meta name="keywords" content="fast website launch, rapid web development, quick website deployment, website launch service, fast web design" />
-        <meta property="og:title" content="Launch Websites 10x Faster | HireShore" />
-        <meta property="og:description" content="Launch your website in days, not months with our proven fast launch methodology." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://hireshore.com/solutions/launch-faster" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Launch Websites 10x Faster | HireShore" />
-        <meta name="twitter:description" content="Launch your website in days, not months with our proven fast launch methodology." />
-        <link rel="canonical" href="https://hireshore.com/solutions/launch-faster" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
+      <SEOHead
+        canonicalUrl="https://hireshore.co/solutions/launch-faster"
+        title="Launch Websites 10x Faster | Fast Web Development Service | HireShore"
+        description="Launch your website in days, not months. Our proven fast launch methodology delivers enterprise-quality websites 90% faster than traditional development."
+      />
       
       <div className="min-h-screen bg-background">
         <NavBar />

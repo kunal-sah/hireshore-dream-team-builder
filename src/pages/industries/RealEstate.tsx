@@ -63,6 +63,7 @@ const RealEstate = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/industries/real-estate"
         title="Real Estate | PropTech Delivery Pods | Hireshore"
         description="Scale real estate technology with Hireshore's managed delivery pods."
         keywords="real estate, proptech, delivery pods"

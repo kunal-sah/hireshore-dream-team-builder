@@ -47,6 +47,7 @@ const SEOContentPod = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/services/seo-content"
         title="SEO & Content Pod | Organic Growth | Hireshore"
         description="Drive organic growth with Hireshore's SEO & Content delivery pod. Strategy, content, and optimization."
         keywords="seo, content, organic growth, delivery pod"

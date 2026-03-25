@@ -78,6 +78,7 @@ const WebDev = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/services/web-dev"
         title="Web Dev Pod | Full-Stack Development | Hireshore"
         description="Build and scale web applications with Hireshore's Web Development delivery pod."
         keywords="web development, full stack, delivery pod"

@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from "@/components/SEOHead";
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import { Button } from '@/components/ui/button';
@@ -63,15 +63,11 @@ const ScaleDesign = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Scale Design Without Hiring | Unlimited Design Services | HireShore</title>
-        <meta name="description" content="Get unlimited access to world-class design talent without the overhead of hiring. Save $120k+/year while scaling your creative output instantly." />
-        <meta name="keywords" content="scale design, unlimited design, design services, design team, design pod, creative services" />
-        <link rel="canonical" href="https://hireshore.com/solutions/scale-design" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
+      <SEOHead
+        canonicalUrl="https://hireshore.co/solutions/scale-design"
+        title="Scale Design Without Hiring | Unlimited Design Services | HireShore"
+        description="Get unlimited access to world-class design talent without the overhead of hiring. Save $120k+/year while scaling your creative output instantly."
+      />
 
       <div className="min-h-screen bg-background">
         <NavBar />

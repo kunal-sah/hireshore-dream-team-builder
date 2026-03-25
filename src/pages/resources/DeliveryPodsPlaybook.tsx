@@ -427,6 +427,7 @@ Success indicators for evolution:
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/delivery-pods-playbook"
         title="Delivery Pods Playbook | Scale Your Team | Hireshore"
         description="The complete playbook for implementing delivery pods in your organization."
         keywords="delivery pods, playbook, scaling guide"

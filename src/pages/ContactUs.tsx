@@ -97,6 +97,7 @@ const ContactUs = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/contact-us"
         title="Contact Us | Book a Free Strategy Call | Hireshore"
         description="Get in touch with Hireshore. Book a free strategy call to discuss how delivery pods can help you scale."
         keywords="contact hireshore, strategy call, get in touch"

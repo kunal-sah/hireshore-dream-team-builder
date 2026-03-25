@@ -181,6 +181,7 @@ const CreativeBriefTemplate = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/creative-brief-template"
         title="Creative Brief Template | Free Download | Hireshore"
         description="Download our free creative brief template to streamline your design projects."
         keywords="creative brief, template, design brief"

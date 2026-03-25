@@ -47,6 +47,7 @@ const DataAIPod = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/services/data-ai"
         title="Data & AI Pod | Analytics & AI Solutions | Hireshore"
         description="Get dedicated data analytics and AI solutions with Hireshore's Data/AI delivery pod."
         keywords="data, ai, analytics, delivery pod"

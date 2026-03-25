@@ -353,6 +353,7 @@ const SEOBasicsGuide = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/guides/seo-basics"
         title="SEO Basics Guide | Free SEO Guide | Hireshore"
         description="Learn SEO fundamentals with our free guide. Improve your search rankings and organic traffic."
         keywords="seo guide, seo basics, search optimization"
