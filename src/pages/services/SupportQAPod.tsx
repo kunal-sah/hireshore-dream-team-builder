@@ -206,17 +206,11 @@ const SupportQAPod = () => {
                     <div className="text-sm text-muted-foreground">Head of Operations, Swimply</div>
                   </div>
                 </div>
-                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                  <iframe 
-                    width="100%" 
-                    height="100%" 
-                    src="https://www.youtube.com/embed/LjnthdX87Ao" 
-                    title="Swimply Testimonial - Yona Meissner"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowFullScreen
-                    className="border-0"
-                  />
-                </div>
+                <YouTubeFacade
+                  videoId="LjnthdX87Ao"
+                  title="Swimply Testimonial - Yona Meissner"
+                  className="aspect-video rounded-xl overflow-hidden shadow-lg"
+                />
               </div>
             </CardContent>
           </Card>

@@ -205,17 +205,11 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.youtube.com/embed/43qQdLve5Ps"
-                  title="Medz Media Testimonial - Marlon M."
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
+              <YouTubeFacade
+                videoId="43qQdLve5Ps"
+                title="Medz Media Testimonial - Marlon M."
+                className="aspect-video rounded-xl overflow-hidden shadow-lg"
+              />
             </div>
           </motion.div>
         </section>
@@ -246,17 +240,11 @@ const Index = () => {
               </div>
               
               <div className="text-center">
-                <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                  <iframe
-                    src="https://www.youtube.com/embed/yW90cSyX_iI"
-                    title="Digital Six Testimonial - Aaron Erwich"
-                    className="w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                  />
-                </div>
+                <YouTubeFacade
+                  videoId="yW90cSyX_iI"
+                  title="Digital Six Testimonial - Aaron Erwich"
+                  className="aspect-video bg-gray-100 rounded-lg overflow-hidden"
+                />
                 <p className="text-sm text-gray-600 mt-2">Watch Aaron's full testimonial</p>
               </div>
             </div>
@@ -288,17 +276,11 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.youtube.com/embed/9xMVgH1j9XE"
-                  title="PropertyStack Testimonial - Ryan Jope"
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
+              <YouTubeFacade
+                videoId="9xMVgH1j9XE"
+                title="PropertyStack Testimonial - Ryan Jope"
+                className="aspect-video rounded-xl overflow-hidden shadow-lg"
+              />
             </div>
           </motion.div>
         </section>
@@ -329,17 +311,11 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.youtube.com/embed/LjnthdX87Ao"
-                  title="Swimply Testimonial - Yona Meissner"
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
+              <YouTubeFacade
+                videoId="LjnthdX87Ao"
+                title="Swimply Testimonial - Yona Meissner"
+                className="aspect-video rounded-xl overflow-hidden shadow-lg"
+              />
             </div>
           </motion.div>
         </section>
