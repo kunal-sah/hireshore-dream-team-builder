@@ -80,6 +80,7 @@ const SwimplyCaseStudy = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/case-studies/swimply"
         title="Swimply Case Study | Customer Support Scaling | Hireshore"
         description="How Swimply scaled customer support with Hireshore while maintaining profitability."
         keywords="swimply, case study, customer support, scaling"

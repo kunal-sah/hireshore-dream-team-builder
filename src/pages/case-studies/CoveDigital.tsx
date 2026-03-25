@@ -107,6 +107,7 @@ const CoveDigitalCaseStudy = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/case-studies/cove-digital"
         title="Cove Digital Case Study | Website Migration Pod | Hireshore"
         description="How Hireshore's migration pod helped Cove Digital scale website delivery and complete complex migrations."
         keywords="cove digital, migration, case study, website delivery"

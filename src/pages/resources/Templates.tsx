@@ -116,6 +116,7 @@ const Templates = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/templates"
         title="Templates | Free Business Templates | Hireshore"
         description="Download free templates for project management, content planning, and team operations."
         keywords="templates, free downloads, project management"

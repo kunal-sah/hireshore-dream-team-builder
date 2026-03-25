@@ -98,6 +98,7 @@ const PropertyStackCaseStudy = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/case-studies/property-stack"
         title="PropertyStack Case Study | 15+ Hires in 12 Months | Hireshore"
         description="How PropertyStack hired 15+ team members through Hireshore, saving $1M+ annually."
         keywords="propertystack, case study, hiring, proptech"

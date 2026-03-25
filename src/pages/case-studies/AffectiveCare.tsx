@@ -88,6 +88,7 @@ const AffectiveCareCaseStudy = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/case-studies/affective-care"
         title="Affective Care Case Study | NDIS Service Delivery | Hireshore"
         description="How Hireshore helped Affective Care scale NDIS service delivery and e-commerce operations."
         keywords="affective care, ndis, case study, healthcare"

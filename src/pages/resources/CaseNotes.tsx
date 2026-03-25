@@ -81,6 +81,7 @@ const CaseNotes = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/case-notes"
         title="Case Notes | Implementation Insights | Hireshore"
         description="Read detailed case notes about real implementation projects and lessons learned."
         keywords="case notes, implementation, insights"

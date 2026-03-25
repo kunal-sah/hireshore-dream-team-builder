@@ -15,6 +15,7 @@ const Privacy = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <SEOHead
+        canonicalUrl="https://hireshore.co/privacy"
         title="Privacy Policy | Hireshore"
         description="Hireshore's privacy policy. Learn how we collect, use, and protect your data."
         keywords="privacy policy, data protection"

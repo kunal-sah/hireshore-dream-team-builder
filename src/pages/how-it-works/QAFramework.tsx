@@ -52,6 +52,7 @@ const QAFramework = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/how-it-works/qa-framework"
         title="QA Framework | Quality Assurance | Hireshore"
         description="Hireshore's QA framework ensures consistent, high-quality delivery across all pods."
         keywords="qa framework, quality assurance, testing"

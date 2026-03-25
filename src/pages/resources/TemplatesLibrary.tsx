@@ -66,6 +66,7 @@ const TemplatesLibrary = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/templates"
         title="Templates Library | Hireshore Resources"
         description="Browse our library of free templates for business operations and project management."
         keywords="templates, library, resources"

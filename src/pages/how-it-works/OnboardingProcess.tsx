@@ -60,6 +60,7 @@ const OnboardingProcess = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/how-it-works/onboarding"
         title="Onboarding Process | How Hireshore Works"
         description="Learn about Hireshore's streamlined onboarding process for delivery pods."
         keywords="onboarding, process, getting started"

@@ -33,6 +33,7 @@ const AgencyOwners: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEOHead
+        canonicalUrl="https://hireshore.co/solutions/agency-owners"
         title="Agency Owners | Scale Your Agency | Hireshore"
         description="Scale your agency without the overhead. White-label delivery pods for agency owners."
         keywords="agency owners, scale agency, white label"

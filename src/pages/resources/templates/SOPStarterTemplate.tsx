@@ -224,6 +224,7 @@ IMPLEMENTATION CHECKLIST
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/templates/sop-starter"
         title="SOP Starter Template | Free Download | Hireshore"
         description="Download our free SOP starter template to document and standardize your processes."
         keywords="sop, template, standard operating procedures"

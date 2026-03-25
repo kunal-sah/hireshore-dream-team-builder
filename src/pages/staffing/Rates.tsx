@@ -105,6 +105,7 @@ const Rates = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/staffing/rates"
         title="Rates | Transparent Staffing Pricing | Hireshore"
         description="Transparent staffing rates for dedicated remote talent. No hidden fees."
         keywords="rates, pricing, staffing costs"

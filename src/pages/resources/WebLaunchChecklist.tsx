@@ -98,6 +98,7 @@ const WebLaunchChecklist = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/web-launch-checklist"
         title="Web Launch Checklist | Free Download | Hireshore"
         description="Download our comprehensive web launch checklist to ensure a smooth website launch."
         keywords="web launch, checklist, website launch"

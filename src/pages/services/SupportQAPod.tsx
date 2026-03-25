@@ -40,6 +40,7 @@ const SupportQAPod = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/services/support-qa"
         title="Support & QA Pod | Customer Support & Testing | Hireshore"
         description="Deliver exceptional customer support and QA with Hireshore's Support & QA delivery pod."
         keywords="support, qa, customer support, testing, delivery pod"

@@ -100,6 +100,7 @@ const WebinarsLibrary = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/webinars"
         title="Webinars Library | Hireshore Resources"
         description="Browse our library of recorded webinars on scaling and team management."
         keywords="webinars, library, resources"

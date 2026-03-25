@@ -79,6 +79,7 @@ const Guides = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/guides"
         title="Guides | Growth & Scaling Resources | Hireshore"
         description="Free guides to help you scale your business with delivery pods and remote teams."
         keywords="guides, scaling, growth resources"

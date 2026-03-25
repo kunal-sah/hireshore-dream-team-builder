@@ -101,6 +101,7 @@ const RecruitmentService = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/staffing/recruitment"
         title="Recruitment Service | Hire Pre-Vetted Talent | Hireshore"
         description="Streamlined recruitment service to find and hire pre-vetted remote talent fast."
         keywords="recruitment, hiring, pre-vetted talent"

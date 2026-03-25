@@ -30,6 +30,7 @@ const Hospitality = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/industries/hospitality"
         title="Hospitality | Delivery Pods for Hotels & Tourism | Hireshore"
         description="Scale hospitality technology with Hireshore's managed delivery pods for hotels, travel, and tourism."
         keywords="hospitality, hotels, tourism, delivery pods"

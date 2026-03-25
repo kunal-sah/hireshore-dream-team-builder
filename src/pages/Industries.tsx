@@ -131,6 +131,7 @@ const Industries = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/industries"
         title="Industries We Serve | Hireshore Delivery Pods"
         description="Hireshore serves SaaS, e-commerce, healthcare, finance, education, and more with managed delivery pods."
         keywords="industries, saas, ecommerce, healthcare, delivery pods"

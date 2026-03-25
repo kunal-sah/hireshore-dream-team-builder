@@ -66,6 +66,7 @@ const Founders: React.FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/solutions/founders"
         title="Founders | Scale Your Startup | Hireshore"
         description="Scale your startup lean and fast with Hireshore's managed delivery pods."
         keywords="founders, startup, scale, delivery pods"

@@ -21,6 +21,7 @@ const NDISAutomation = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/case-notes/ndis-automation"
         title="NDIS Automation Case Note | Hireshore"
         description="Case note on automating NDIS service delivery processes."
         keywords="ndis, automation, case note"

@@ -81,6 +81,7 @@ const Partners = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/company/partners"
         title="Partners | Hireshore Partner Program"
         description="Partner with Hireshore to offer managed delivery pods to your clients."
         keywords="partners, partner program, referral"

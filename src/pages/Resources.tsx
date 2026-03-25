@@ -197,6 +197,7 @@ const Resources = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources"
         title="Resources | Guides, Templates & Tools | Hireshore"
         description="Free resources to help you scale: guides, templates, case notes, webinars, and more from Hireshore."
         keywords="resources, guides, templates, scaling tools"

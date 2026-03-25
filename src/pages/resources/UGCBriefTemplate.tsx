@@ -195,6 +195,7 @@ const UGCBriefTemplate = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/templates/ugc-brief"
         title="UGC Brief Template | Free Download | Hireshore"
         description="Download our free UGC brief template to streamline your user-generated content campaigns."
         keywords="ugc brief, template, user generated content"

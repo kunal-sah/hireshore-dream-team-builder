@@ -72,6 +72,7 @@ const ProcessSLA = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/how-it-works/process-sla"
         title="Process & SLA | Hireshore Quality Standards"
         description="Understand Hireshore's process and SLA commitments for delivery pod services."
         keywords="process, sla, quality standards"

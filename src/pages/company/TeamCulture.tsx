@@ -59,6 +59,7 @@ const TeamCulture = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/company/team-culture"
         title="Team Culture | Life at Hireshore"
         description="Discover Hireshore's team culture, values, and what it's like to work with us."
         keywords="team culture, values, remote work culture"

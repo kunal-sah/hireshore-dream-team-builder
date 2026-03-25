@@ -173,6 +173,7 @@ Documentation: [Confluence, Notion, etc.]`;
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/templates/sprint-plan"
         title="Sprint Plan Template | Free Download | Hireshore"
         description="Download our free sprint planning template for agile project management."
         keywords="sprint plan, template, agile, project management"

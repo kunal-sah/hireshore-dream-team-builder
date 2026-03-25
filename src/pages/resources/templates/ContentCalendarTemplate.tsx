@@ -185,6 +185,7 @@ Questions? Drop them below 👇
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/templates/content-calendar"
         title="Content Calendar Template | Free Download | Hireshore"
         description="Download our free content calendar template to plan and organize your content strategy."
         keywords="content calendar, template, content planning"

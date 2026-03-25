@@ -21,6 +21,7 @@ const EcommerceReplatform = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/case-notes/ecommerce-replatform"
         title="E-commerce Replatform Case Note | Hireshore"
         description="Detailed case note on a successful e-commerce replatforming project."
         keywords="ecommerce, replatform, case note"

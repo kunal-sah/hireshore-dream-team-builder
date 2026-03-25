@@ -40,6 +40,7 @@ P.S. Here's a [relevant resource] that might be helpful regardless: [link]`;
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/guides/outreach-systems"
         title="Outreach Guide | Scale Your Outreach | Hireshore"
         description="Master outreach strategies to generate leads and grow your business."
         keywords="outreach, guide, lead generation"

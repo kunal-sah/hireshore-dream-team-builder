@@ -162,6 +162,7 @@ const CostCalculator = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
+        canonicalUrl="https://hireshore.co/resources/cost-calculator"
         title="Cost Calculator | Compare Hiring Costs | Hireshore"
         description="Calculate how much you can save with Hireshore's delivery pods vs traditional hiring."
         keywords="cost calculator, savings, hiring costs"
