@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from "@/components/SEOHead";
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
 import { Settings, Clock, Zap, CheckCircle, ArrowRight, TrendingUp, Target, Award, Home, ChevronRight, Users, BarChart, Star } from 'lucide-react';
@@ -48,14 +48,11 @@ const AutomateOps = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Automate Your Agency Operations and Save Time | HireShore</title>
-        <meta name="description" content="Save 20+ hours/week and manage projects efficiently with HireShore's automation solutions. Streamline workflows, reduce errors, and scale without hiring." />
-        <link rel="canonical" href="https://hireshore.com/solutions/automate-ops" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
+      <SEOHead
+        canonicalUrl="https://hireshore.co/solutions/automate-ops"
+        title="Automate Your Agency Operations and Save Time | HireShore"
+        description="Save 20+ hours/week and manage projects efficiently with HireShore's automation solutions. Streamline workflows, reduce errors, and scale without hiring."
+      />
       
       <div className="min-h-screen bg-background">
         <NavBar />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from "@/components/SEOHead";
 import { ArrowRight, Target, BarChart, Users, CheckCircle, TrendingUp, Zap, Award, Rocket, Star } from 'lucide-react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
@@ -42,45 +42,11 @@ const MarketingLeaders: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Marketing Leadership Solutions | Scale Your Marketing Team | HireShore</title>
-        <meta name="description" content="Hit your growth targets every quarter with HireShore's marketing pods. Scale your team 3x faster with 40% better ROI and 90% target achievement rate." />
-        <meta name="keywords" content="marketing team scaling, CMO solutions, performance marketing, marketing operations, growth marketing services" />
-        <link rel="canonical" href="https://hireshore.com/solutions/marketing-leaders" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Marketing Leadership Solutions",
-            "provider": {
-              "@type": "Organization",
-              "name": "HireShore"
-            },
-            "description": "Marketing pods that provide expertise and capacity to consistently deliver results and exceed KPIs",
-            "areaServed": "Worldwide",
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Marketing Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Performance Marketing Teams"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Marketing Operations & Automation"
-                  }
-                }
-              ]
-            }
-          })}
-        </script>
-      </Helmet>
+      <SEOHead
+        canonicalUrl="https://hireshore.co/solutions/marketing-leaders"
+        title="Marketing Leadership Solutions | Scale Your Marketing Team | HireShore"
+        description="Hit your growth targets every quarter with HireShore's marketing pods. Scale your team 3x faster with 40% better ROI and 90% target achievement rate."
+      />
       <div className="min-h-screen bg-background">
         <NavBar />
         

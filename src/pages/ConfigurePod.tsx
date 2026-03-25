@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from "@/components/SEOHead";
 import { z } from 'zod';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';

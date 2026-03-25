@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from "@/components/SEOHead";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
@@ -120,15 +120,11 @@ const TalentProfiles = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Talent Profiles | Browse Pre-Vetted Professionals | HireShore</title>
-        <meta name="description" content="Browse profiles of pre-vetted professionals across development, design, marketing, support, and more. Find the perfect talent for your team." />
-        <meta name="keywords" content="talent profiles, hire developers, hire designers, remote team, vetted professionals" />
-        <link rel="canonical" href="https://hireshore.com/staffing/talent-profiles" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
+      <SEOHead
+        canonicalUrl="https://hireshore.co/staffing/talent-profiles"
+        title="Talent Profiles | Browse Pre-Vetted Professionals | HireShore"
+        description="Browse profiles of pre-vetted professionals across development, design, marketing, support, and more. Find the perfect talent for your team."
+      />
 
       <div className="min-h-screen bg-background">
         <NavBar />

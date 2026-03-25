@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from "@/components/SEOHead";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
@@ -57,15 +57,11 @@ const VideoPod = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Video Pod | Professional Video Production & Editing Services | HireShore</title>
-        <meta name="description" content="Professional video production and editing services on-demand. Create engaging videos that drive results with expert videographers and editors." />
-        <meta name="keywords" content="video production, video editing, video pod, explainer videos, product videos, social media videos" />
-        <link rel="canonical" href="https://hireshore.com/services/video-pod" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
+      <SEOHead
+        canonicalUrl="https://hireshore.co/services/video"
+        title="Video Pod | Professional Video Production & Editing Services | HireShore"
+        description="Professional video production and editing services on-demand. Create engaging videos that drive results with expert videographers and editors."
+      />
 
       <div className="min-h-screen bg-background">
         <NavBar />
