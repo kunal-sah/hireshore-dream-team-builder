@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { SEOHead } from "../components/SEOHead";
+import YouTubeFacade from "../components/ui/youtube-facade";
 
 // Critical above-fold components - load immediately
 import NavBar from "../components/NavBar";
@@ -10,7 +11,7 @@ import LandingHero from "../components/LandingHero";
 import TrustedStartups from "../components/TrustedStartups";
 import DeliveryPodDefinition from "../components/DeliveryPodDefinition";
 import SiteFooter from "../components/SiteFooter";
-import { deferExecution, preloadCriticalResources, optimizeImageLoading } from "../utils/performanceOptimizer";
+import { preloadCriticalResources, optimizeImageLoading } from "../utils/performanceOptimizer";
 import { deferHeavyWork, preloadCriticalAssets, optimizeThirdPartyScripts } from "../utils/criticalPathOptimizer";
 
 // Lazy load below-fold components to reduce initial bundle
@@ -27,8 +28,7 @@ const TestimonialsSection = lazy(() => import("../components/TestimonialsSection
 const FAQSection = lazy(() => import("../components/FAQSection"));
 const CalendlySection = lazy(() => import("../components/CalendlySection"));
 
-// Lazy load motion for animations
-const LazyMotion = lazy(() => import('framer-motion').then(module => ({ default: module.motion })));
+// Removed unused LazyMotion
 
 // Component loader for better UX
 const ComponentLoader = () => (
@@ -54,7 +54,6 @@ const Index = () => {
   }, []);
 
    const addStructuredData = () => {
-    // Add JSON-LD structured data for SEO - uses dynamic domain
     const currentDomain = typeof window !== 'undefined' ? window.location.origin : "https://hireshore.co";
     const jsonLd = {
       "@context": "https://schema.org",
@@ -85,8 +84,12 @@ const Index = () => {
       }
     };
 
+    const existingScript = document.getElementById('org-structured-data');
+    if (existingScript) return; // Don't add duplicates
+
     const jsonLdScript = document.createElement('script');
     jsonLdScript.type = 'application/ld+json';
+    jsonLdScript.id = 'org-structured-data';
     jsonLdScript.textContent = JSON.stringify(jsonLd);
     document.head.appendChild(jsonLdScript);
   };
