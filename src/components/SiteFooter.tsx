@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Phone, MessageSquare, UserPlus, Linkedin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -235,15 +236,15 @@ const SiteFooter = () => {
             
             {/* Legal Links */}
             <div className="flex flex-wrap justify-center space-x-3 sm:space-x-4">
-              <a href="/privacy" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+              <Link to="/privacy" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
                 Privacy Policy
-              </a>
-              <a href="/terms" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+              </Link>
+              <Link to="/terms" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
                 Terms & Conditions
-              </a>
-              <a href="/legal" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+              </Link>
+              <Link to="/legal" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
                 Legal Mentions
-              </a>
+              </Link>
             </div>
           </div>
           
