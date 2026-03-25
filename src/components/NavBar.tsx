@@ -35,7 +35,7 @@ const NavBar = () => {
   const handleMenuLeave = () => {
     const timeout = setTimeout(() => {
       setActiveMenu('');
-    }, 400);
+    }, 600);
     setMenuTimeout(timeout);
   };
 
@@ -49,7 +49,7 @@ const NavBar = () => {
   const handleMegaMenuLeave = () => {
     const timeout = setTimeout(() => {
       setActiveMenu('');
-    }, 250); // Close shortly after actually leaving the mega menu
+    }, 500);
     setMenuTimeout(timeout);
   };
 
@@ -118,7 +118,9 @@ const NavBar = () => {
           </motion.div>
           
             {/* Navigation Links */}
-            <div className="hidden lg:flex items-center space-x-1 relative">
+            <div className="hidden lg:flex items-center space-x-1 relative"
+              onMouseLeave={handleMenuLeave}
+            >
             {/* Solutions */}
             <div
               className="relative group"
@@ -244,6 +246,14 @@ const NavBar = () => {
               <Phone className="mr-2 h-4 w-4" />
               Book a Call
             </motion.button>
+            {/* Mega Menu inside nav container */}
+            <MegaMenu
+              isOpen={!!activeMenu}
+              menuType={activeMenu}
+              onClose={closeMegaMenu}
+              onHoverEnter={handleMegaMenuEnter}
+              onHoverLeave={handleMegaMenuLeave}
+            />
           </div>
 
           {/* Mobile Menu Button */}
@@ -344,19 +354,6 @@ const NavBar = () => {
         </AnimatePresence>
       </div>
 
-      {/* Mega Menu */}
-      <div
-        onMouseEnter={handleMegaMenuEnter}
-        onMouseLeave={handleMegaMenuLeave}
-      >
-        <MegaMenu
-          isOpen={!!activeMenu}
-          menuType={activeMenu}
-          onClose={closeMegaMenu}
-          onHoverEnter={handleMegaMenuEnter}
-          onHoverLeave={handleMegaMenuLeave}
-        />
-      </div>
     </motion.nav>
   );
 };

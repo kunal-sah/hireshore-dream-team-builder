@@ -234,7 +234,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
           transition={{ duration: 0.3 }}
           role="menu"
           aria-label={`${currentMenu?.title || 'Mega'} menu`}
-          className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-[100] pointer-events-auto"
+          className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-[100] pointer-events-auto pt-0"
           style={{ 
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05)' 
           }}
@@ -243,9 +243,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
           onPointerEnter={onHoverEnter}
           onPointerLeave={onHoverLeave}
         >
+        {/* Hover bridge to prevent gap between nav and menu */}
+        <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          {/* Add hover buffer area */}
-          <div className="absolute -top-8 left-0 w-full h-8 bg-transparent"></div>
           
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
               {/* Menu Columns */}
