@@ -23,6 +23,7 @@ import uncommonSolutionsThumbnail from '../assets/thumbnails/uncommon-solutions-
 import coveDigitalThumbnail from '../assets/thumbnails/cove-digital-thumbnail-v2.jpg';
 import digitalSixLogo from '../assets/digital-six-logo.png';
 import ekleipsiLogo from '../assets/ekleipsi-logo.png';
+import { SEOHead } from "@/components/SEOHead";
  
 interface CaseStudy {
   id: string;
@@ -199,6 +200,11 @@ const CaseStudies = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Case Studies | Real Results from Delivery Pods | Hireshore"
+        description="See how agencies and startups scaled with Hireshore's delivery pods. Real case studies with measurable results."
+        keywords="case studies, client success, delivery pods results"
+      />
       {/* SEO Meta Tags */}
       <title>Case Studies & Proof - Hireshore Success Stories</title>
       <meta name="description" content="Explore real case studies showing how Hireshore's managed delivery pods helped agencies and startups scale operations, reduce costs, and improve outcomes." />

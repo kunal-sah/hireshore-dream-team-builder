@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { SEOHead } from "@/components/SEOHead";
 
 const TeamCulture = () => {
   const values = [
@@ -57,6 +58,11 @@ const TeamCulture = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Team Culture | Life at Hireshore"
+        description="Discover Hireshore's team culture, values, and what it's like to work with us."
+        keywords="team culture, values, remote work culture"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const UncommonSolutionsCaseStudy = () => {
   const challenges = [
@@ -91,6 +92,11 @@ const UncommonSolutionsCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Uncommon Solutions Case Study | Creative Delivery | Hireshore"
+        description="How Uncommon Solutions streamlined creative delivery with Hireshore's plug & play pods."
+        keywords="uncommon solutions, case study, creative delivery"
+      />
       <title>Uncommon Solutions Case Study - Digital Marketing Success Story</title>
       <meta name="description" content="See how Uncommon Solutions streamlined creative delivery and scaled client projects with Hireshore's plug & play delivery pod solution, saving 40+ hours weekly." />
       

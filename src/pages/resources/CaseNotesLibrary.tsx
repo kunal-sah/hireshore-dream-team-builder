@@ -16,6 +16,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 
 const CaseNotesLibrary = () => {
   const navigate = useNavigate();
@@ -78,6 +79,11 @@ const CaseNotesLibrary = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Case Notes Library | Hireshore Resources"
+        description="Browse our library of detailed case notes from real client projects."
+        keywords="case notes, library, resources"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

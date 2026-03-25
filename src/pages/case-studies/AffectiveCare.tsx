@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const AffectiveCareCaseStudy = () => {
   const stats = [
@@ -86,6 +87,11 @@ const AffectiveCareCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Affective Care Case Study | NDIS Service Delivery | Hireshore"
+        description="How Hireshore helped Affective Care scale NDIS service delivery and e-commerce operations."
+        keywords="affective care, ndis, case study, healthcare"
+      />
       <title>Affective Care Case Study - NDIS Service Provider Success Story</title>
       <meta name="description" content="See how Affective Care scaled their NDIS service delivery and e-commerce operations, saving 40+ hours weekly with Hireshore's delivery pod solution." />
       

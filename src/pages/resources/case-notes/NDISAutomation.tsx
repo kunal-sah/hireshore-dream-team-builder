@@ -15,10 +15,16 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { FileText, Clock, TrendingUp, ArrowRight, Target, Zap } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const NDISAutomation = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="NDIS Automation Case Note | Hireshore"
+        description="Case note on automating NDIS service delivery processes."
+        keywords="ndis, automation, case note"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { FileText, ChevronDown, CheckCircle, Users, Target, Zap } from "lucide-react";
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 
 const SOPStarterTemplate = () => {
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
@@ -222,6 +223,11 @@ IMPLEMENTATION CHECKLIST
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="SOP Starter Template | Free Download | Hireshore"
+        description="Download our free SOP starter template to document and standardize your processes."
+        keywords="sop, template, standard operating procedures"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

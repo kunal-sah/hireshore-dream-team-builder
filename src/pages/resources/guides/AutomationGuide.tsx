@@ -33,10 +33,16 @@ import {
   Mail,
   Smartphone
 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const AutomationGuide = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Automation Guide | Automate Your Operations | Hireshore"
+        description="Complete guide to automating your business operations for efficiency and scale."
+        keywords="automation, guide, operations"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

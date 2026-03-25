@@ -13,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const SwimplyCaseStudy = () => {
   const stats = [
@@ -78,6 +79,11 @@ const SwimplyCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Swimply Case Study | Customer Support Scaling | Hireshore"
+        description="How Swimply scaled customer support with Hireshore while maintaining profitability."
+        keywords="swimply, case study, customer support, scaling"
+      />
       <title>Swimply Case Study - Powering Customer Success</title>
       <meta name="description" content="See how Hireshore's 7 dedicated USA timezone customer representatives delivered exceptional support for Swimply with 95% CSAT scores and top performance." />
       

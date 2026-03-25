@@ -15,6 +15,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const contactSchema = z.object({
   firstName: z.string().trim().min(1, "First name is required").max(50, "First name must be less than 50 characters"),
@@ -95,6 +96,11 @@ const ContactUs = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Contact Us | Book a Free Strategy Call | Hireshore"
+        description="Get in touch with Hireshore. Book a free strategy call to discuss how delivery pods can help you scale."
+        keywords="contact hireshore, strategy call, get in touch"
+      />
       <title>Contact Us - Hireshore | Get In Touch</title>
       <meta name="description" content="Contact Hireshore for your offshore development needs. Book a free strategy session or get in touch with our team." />
       

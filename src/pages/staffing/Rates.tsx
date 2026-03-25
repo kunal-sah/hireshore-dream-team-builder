@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, DollarSign, Users, Clock, Globe, Star, Zap, Award, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SEOHead } from "@/components/SEOHead";
 
 const Rates = () => {
   const pricingTiers = [
@@ -103,6 +104,11 @@ const Rates = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Rates | Transparent Staffing Pricing | Hireshore"
+        description="Transparent staffing rates for dedicated remote talent. No hidden fees."
+        keywords="rates, pricing, staffing costs"
+      />
       <NavBar />
       
       {/* Hero Section */}

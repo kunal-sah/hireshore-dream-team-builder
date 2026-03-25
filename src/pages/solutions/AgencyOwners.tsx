@@ -11,6 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const AgencyOwners: React.FC = () => {
   const challenges = [
@@ -31,6 +32,11 @@ const AgencyOwners: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Agency Owners | Scale Your Agency | Hireshore"
+        description="Scale your agency without the overhead. White-label delivery pods for agency owners."
+        keywords="agency owners, scale agency, white label"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

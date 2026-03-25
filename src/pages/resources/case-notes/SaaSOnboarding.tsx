@@ -15,10 +15,16 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Users, Clock, TrendingUp, ArrowRight, Target, Zap, CheckCircle, BarChart3, Lightbulb, Rocket } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const SaaSOnboarding = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="SaaS Onboarding Case Note | Hireshore"
+        description="Case note on optimizing SaaS onboarding workflows."
+        keywords="saas, onboarding, case note"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

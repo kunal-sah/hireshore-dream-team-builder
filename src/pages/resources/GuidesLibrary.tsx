@@ -15,6 +15,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { BookOpen, ArrowRight, TrendingUp, Search, Zap, MessageSquare, Clock, Target } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const GuidesLibrary = () => {
   const navigate = useNavigate();
@@ -68,6 +69,11 @@ const GuidesLibrary = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Guides Library | Hireshore Resources"
+        description="Browse our library of in-depth guides for scaling your business."
+        keywords="guides, library, resources"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

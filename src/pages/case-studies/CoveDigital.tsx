@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const CoveDigitalCaseStudy = () => {
   const stats = [
@@ -105,6 +106,11 @@ const CoveDigitalCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Cove Digital Case Study | Website Migration Pod | Hireshore"
+        description="How Hireshore's migration pod helped Cove Digital scale website delivery and complete complex migrations."
+        keywords="cove digital, migration, case study, website delivery"
+      />
       <title>Cove Digital Case Study - Website Migration & SEO Success Story</title>
       <meta name="description" content="See how Cove Digital scaled website delivery with Hireshore's dedicated migration pod, completing 40-page migrations in 2 weeks and saving 40+ hours monthly." />
       

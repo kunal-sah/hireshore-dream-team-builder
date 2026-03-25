@@ -23,6 +23,7 @@ import {
   Search,
   Mail
 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const Guides = () => {
   const bookCall = () => {
@@ -77,6 +78,11 @@ const Guides = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Guides | Growth & Scaling Resources | Hireshore"
+        description="Free guides to help you scale your business with delivery pods and remote teams."
+        keywords="guides, scaling, growth resources"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

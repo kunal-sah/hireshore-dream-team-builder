@@ -23,6 +23,7 @@ import {
   Code,
   Briefcase
 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const Services = () => {
   const bookCall = () => {
@@ -179,6 +180,11 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Services | Managed Delivery Pods | Hireshore"
+        description="Explore Hireshore's managed delivery pods: web dev, design, SEO, marketing ops, support & QA, video, and data/AI."
+        keywords="services, delivery pods, web development, design, seo"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

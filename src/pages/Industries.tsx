@@ -29,6 +29,7 @@ import {
   ArrowRight,
   Phone
 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const Industries = () => {
   const bookCall = () => {
@@ -129,6 +130,11 @@ const Industries = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Industries We Serve | Hireshore Delivery Pods"
+        description="Hireshore serves SaaS, e-commerce, healthcare, finance, education, and more with managed delivery pods."
+        keywords="industries, saas, ecommerce, healthcare, delivery pods"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

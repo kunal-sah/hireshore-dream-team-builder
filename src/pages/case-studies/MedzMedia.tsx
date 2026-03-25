@@ -13,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const MedzMediaCaseStudy = () => {
   const stats = [
@@ -99,6 +100,11 @@ const MedzMediaCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Medz Media Case Study | Work-Life Balance | Hireshore"
+        description="How Medz Media transformed operations and work-life balance with Hireshore's delivery pods."
+        keywords="medz media, case study, work-life balance"
+      />
       <title>Medz Media Case Study - Hireshore Success Story</title>
       <meta name="description" content="See how Medz Media founder saved 40+ hours weekly and increased client retention by 50% with Hireshore's managed delivery pods. Real results, better work-life balance." />
       

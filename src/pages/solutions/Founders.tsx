@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const Founders: React.FC = () => {
   useEffect(() => {
@@ -64,6 +65,11 @@ const Founders: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Founders | Scale Your Startup | Hireshore"
+        description="Scale your startup lean and fast with Hireshore's managed delivery pods."
+        keywords="founders, startup, scale, delivery pods"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

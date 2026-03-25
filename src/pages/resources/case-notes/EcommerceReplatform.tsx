@@ -15,10 +15,16 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { ShoppingCart, Clock, TrendingUp, ArrowRight, Target, Zap, CheckCircle, Users, BarChart3 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const EcommerceReplatform = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="E-commerce Replatform Case Note | Hireshore"
+        description="Detailed case note on a successful e-commerce replatforming project."
+        keywords="ecommerce, replatform, case note"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

@@ -37,6 +37,7 @@ import {
   ExternalLink
 } from "lucide-react";
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 
 const SEOBasicsGuide = () => {
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
@@ -351,6 +352,11 @@ const SEOBasicsGuide = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="SEO Basics Guide | Free SEO Guide | Hireshore"
+        description="Learn SEO fundamentals with our free guide. Improve your search rankings and organic traffic."
+        keywords="seo guide, seo basics, search optimization"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

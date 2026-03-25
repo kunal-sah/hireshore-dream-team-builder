@@ -15,6 +15,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { FileText, ArrowRight, Calendar, Video, Zap, FileCheck } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const TemplatesLibrary = () => {
   const navigate = useNavigate();
@@ -64,6 +65,11 @@ const TemplatesLibrary = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Templates Library | Hireshore Resources"
+        description="Browse our library of free templates for business operations and project management."
+        keywords="templates, library, resources"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

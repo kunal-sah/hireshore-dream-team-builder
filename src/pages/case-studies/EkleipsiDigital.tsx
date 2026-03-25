@@ -13,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const EkleipsiDigitalCaseStudy = () => {
   const stats = [
@@ -119,6 +120,11 @@ const EkleipsiDigitalCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Ekleipsi Digital Case Study | Hireshore"
+        description="How Ekleipsi Digital leveraged Hireshore's delivery pods to scale their digital agency."
+        keywords="ekleipsi digital, case study, digital agency"
+      />
       <title>Ekleipsi Digital Case Study - Hireshore Success Story</title>
       <meta name="description" content="See how Ekleipsi Digital cut costs by 80% and streamlined operations with Hireshore's managed delivery pod. Real results from Brisbane-based digital marketing agency." />
       

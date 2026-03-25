@@ -13,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { SEOHead } from "@/components/SEOHead";
 
 const Partners = () => {
   const partnerTypes = [
@@ -79,6 +80,11 @@ const Partners = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Partners | Hireshore Partner Program"
+        description="Partner with Hireshore to offer managed delivery pods to your clients."
+        keywords="partners, partner program, referral"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

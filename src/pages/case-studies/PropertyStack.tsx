@@ -13,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const PropertyStackCaseStudy = () => {
   const stats = [
@@ -96,6 +97,11 @@ const PropertyStackCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="PropertyStack Case Study | 15+ Hires in 12 Months | Hireshore"
+        description="How PropertyStack hired 15+ team members through Hireshore, saving $1M+ annually."
+        keywords="propertystack, case study, hiring, proptech"
+      />
       <title>PropertyStack Case Study - Building a Scalable Product & Support Team</title>
       <meta name="description" content="See how PropertyStack hired 15+ team members in under 3 weeks per hire and saved $1M+ annually with Hireshore's recruitment-as-a-service solution." />
       

@@ -13,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { SEOHead } from "@/components/SEOHead";
 
 const Hospitality = () => {
   const services = [
@@ -28,6 +29,11 @@ const Hospitality = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Hospitality | Delivery Pods for Hotels & Tourism | Hireshore"
+        description="Scale hospitality technology with Hireshore's managed delivery pods for hotels, travel, and tourism."
+        keywords="hospitality, hotels, tourism, delivery pods"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

@@ -11,6 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const WebDev = () => {
   useEffect(() => {
@@ -76,6 +77,11 @@ const WebDev = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Web Dev Pod | Full-Stack Development | Hireshore"
+        description="Build and scale web applications with Hireshore's Web Development delivery pod."
+        keywords="web development, full stack, delivery pod"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

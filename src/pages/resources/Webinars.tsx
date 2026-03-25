@@ -21,6 +21,7 @@ import {
   Clock,
   Users
 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const Webinars = () => {
   const bookCall = () => {
@@ -86,6 +87,11 @@ const Webinars = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Webinars | Learn from Experts | Hireshore"
+        description="Watch webinars on scaling, remote team management, and delivery pod best practices."
+        keywords="webinars, learning, expert insights"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

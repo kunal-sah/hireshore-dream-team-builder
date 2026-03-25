@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, ShoppingCart, TrendingUp, Users, Zap, Package, CreditCard, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SEOHead } from "@/components/SEOHead";
 
 const Ecommerce = () => {
   const services = [
@@ -49,6 +50,11 @@ const Ecommerce = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="E-commerce | Delivery Pods for Online Stores | Hireshore"
+        description="Scale your e-commerce business with dedicated delivery pods for development, design, and support."
+        keywords="ecommerce, online store, delivery pods"
+      />
       <NavBar />
       
       {/* Hero Section */}

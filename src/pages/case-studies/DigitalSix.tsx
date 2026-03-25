@@ -14,6 +14,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const DigitalSixCaseStudy = () => {
   const stats = [
@@ -95,6 +96,11 @@ const DigitalSixCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Digital Six Case Study | Agency Scaling | Hireshore"
+        description="How Digital Six grew from 5 to 47 team members with Hireshore's managed delivery pods."
+        keywords="digital six, agency scaling, case study"
+      />
       <title>Digital Six Case Study - Hireshore Success Story</title>
       <meta name="description" content="See how Digital Six scaled from 22 to 47 team members and saved over $1M monthly with Hireshore's managed delivery pods. Real results, measurable outcomes." />
       

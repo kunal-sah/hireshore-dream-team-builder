@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Home, ArrowLeft, Search } from "lucide-react";
 import NavBar from "@/components/NavBar";
+import { SEOHead } from "@/components/SEOHead";
 
 const NotFound = () => {
   const location = useLocation();
@@ -39,6 +40,11 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEOHead
+        title="Page Not Found | Hireshore"
+        description="The page you're looking for doesn't exist. Return to Hireshore's homepage."
+        keywords="404, not found"
+      />
       <NavBar />
       <div className="flex-1 flex items-center justify-center">
         <div className="text-center max-w-md mx-auto px-6">

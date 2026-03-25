@@ -13,6 +13,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import founderImage from '@/assets/kunal-sah-founder.jpeg';
+import { SEOHead } from "@/components/SEOHead";
 
 const AboutUs = () => {
   const stats = [
@@ -95,6 +96,11 @@ const AboutUs = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="About Us | Meet the Team Behind Hireshore"
+        description="Learn about Hireshore's mission, team, and values. Founded to help startups and agencies scale with managed delivery pods."
+        keywords="about hireshore, team, mission, remote team management"
+      />
       <title>About Us - Hireshore | Offshore Development Experts</title>
       <meta name="description" content="Learn about Hireshore's mission to help businesses scale through dedicated offshore delivery pods. 500+ team members serving 50+ countries." />
       
