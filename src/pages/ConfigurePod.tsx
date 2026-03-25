@@ -138,6 +138,11 @@ const ConfigurePod = () => {
 
   return (
     <>
+      <SEOHead
+        canonicalUrl="https://hireshore.co/configure-pod"
+        title="Configure Your Pod | Hireshore"
+        description="Build your custom delivery pod configuration and get a tailored team estimate."
+      />
       <div className="min-h-screen bg-background">
         <NavBar />
         
