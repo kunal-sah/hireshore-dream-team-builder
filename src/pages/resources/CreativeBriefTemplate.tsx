@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { FileText, ChevronDown, Target, Users, Lightbulb, MapPin, Image, Calendar } from "lucide-react";
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 
 const CreativeBriefTemplate = () => {
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
@@ -179,6 +180,11 @@ const CreativeBriefTemplate = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Creative Brief Template | Free Download | Hireshore"
+        description="Download our free creative brief template to streamline your design projects."
+        keywords="creative brief, template, design brief"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

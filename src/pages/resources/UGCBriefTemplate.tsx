@@ -27,6 +27,7 @@ import {
   Clock
 } from "lucide-react";
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 
 const UGCBriefTemplate = () => {
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
@@ -193,6 +194,11 @@ const UGCBriefTemplate = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="UGC Brief Template | Free Download | Hireshore"
+        description="Download our free UGC brief template to streamline your user-generated content campaigns."
+        keywords="ugc brief, template, user generated content"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

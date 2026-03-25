@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Users, Target, Award, Globe, Heart, Zap, Shield, TrendingUp } from 'lucide-react';
 import NavBar from '../components/NavBar';
 import SiteFooter from '../components/SiteFooter';
+import YouTubeFacade from '../components/ui/youtube-facade';
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -12,6 +13,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import founderImage from '@/assets/kunal-sah-founder.jpeg';
+import { SEOHead } from "@/components/SEOHead";
 
 const AboutUs = () => {
   const stats = [
@@ -94,6 +96,11 @@ const AboutUs = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="About Us | Meet the Team Behind Hireshore"
+        description="Learn about Hireshore's mission, team, and values. Founded to help startups and agencies scale with managed delivery pods."
+        keywords="about hireshore, team, mission, remote team management"
+      />
       <title>About Us - Hireshore | Offshore Development Experts</title>
       <meta name="description" content="Learn about Hireshore's mission to help businesses scale through dedicated offshore delivery pods. 500+ team members serving 50+ countries." />
       
@@ -309,16 +316,11 @@ const AboutUs = () => {
               className="max-w-4xl mx-auto"
             >
               <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
-                <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
-                  <iframe
-                    src="https://www.youtube.com/embed/hCa98Yfnt-U"
-                    title="How Agency Owners Can Delegate & Scale Without Hiring Full-Time Staff"
-                    className="w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
+                <YouTubeFacade
+                  videoId="hCa98Yfnt-U"
+                  title="How Agency Owners Can Delegate & Scale Without Hiring Full-Time Staff"
+                  className="aspect-video bg-gray-100 rounded-xl overflow-hidden"
+                />
                 <div className="mt-4 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     How Agency Owners Can Delegate & Scale Without Hiring Full-Time Staff

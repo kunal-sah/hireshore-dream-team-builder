@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, Home, Users, BarChart3, Search, Globe, Calendar, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SEOHead } from "@/components/SEOHead";
 
 const RealEstate = () => {
   const services = [
@@ -61,6 +62,11 @@ const RealEstate = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Real Estate | PropTech Delivery Pods | Hireshore"
+        description="Scale real estate technology with Hireshore's managed delivery pods."
+        keywords="real estate, proptech, delivery pods"
+      />
       <NavBar />
       
       {/* Hero Section */}

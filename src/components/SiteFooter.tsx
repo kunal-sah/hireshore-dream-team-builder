@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Phone, MessageSquare, UserPlus, Linkedin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -10,18 +11,23 @@ const SiteFooter = () => {
 
   // Add useEffect to load chat widget only
   useEffect(() => {
-    // Add LeadConnector chat widget script
-    const chatScript = document.createElement('script');
-    chatScript.src = "https://widgets.leadconnectorhq.com/loader.js";
-    chatScript.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
-    chatScript.setAttribute('data-widget-id', '68298cb376ba227d5563113e');
-    document.body.appendChild(chatScript);
+    // Defer chat widget loading until after 5 seconds
+    const deferTimer = setTimeout(() => {
+      const chatScript = document.createElement('script');
+      chatScript.src = "https://widgets.leadconnectorhq.com/loader.js";
+      chatScript.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+      chatScript.setAttribute('data-widget-id', '68298cb376ba227d5563113e');
+      document.body.appendChild(chatScript);
+
+      return () => {
+        if (document.body.contains(chatScript)) {
+          document.body.removeChild(chatScript);
+        }
+      };
+    }, 5000);
 
     return () => {
-      // Clean up scripts when component unmounts
-      if (document.body.contains(chatScript)) {
-        document.body.removeChild(chatScript);
-      }
+      clearTimeout(deferTimer);
     };
   }, []);
 
@@ -230,15 +236,15 @@ const SiteFooter = () => {
             
             {/* Legal Links */}
             <div className="flex flex-wrap justify-center space-x-3 sm:space-x-4">
-              <a href="/privacy" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+              <Link to="/privacy" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
                 Privacy Policy
-              </a>
-              <a href="/terms" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+              </Link>
+              <Link to="/terms" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
                 Terms & Conditions
-              </a>
-              <a href="/legal" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
+              </Link>
+              <Link to="/legal" className="text-gray-500 hover:text-[#7346e6] hover:underline text-sm">
                 Legal Mentions
-              </a>
+              </Link>
             </div>
           </div>
           

@@ -2,8 +2,10 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import YouTubeFacade from "@/components/ui/youtube-facade";
 import { Check, Headphones, Shield, Bug, Clock, MessageCircle, Users, CheckCircle, Star } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SEOHead } from "@/components/SEOHead";
 
 const SupportQAPod = () => {
   const features = [
@@ -37,6 +39,11 @@ const SupportQAPod = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Support & QA Pod | Customer Support & Testing | Hireshore"
+        description="Deliver exceptional customer support and QA with Hireshore's Support & QA delivery pod."
+        keywords="support, qa, customer support, testing, delivery pod"
+      />
       <NavBar />
       
       {/* Hero Section */}
@@ -206,17 +213,11 @@ const SupportQAPod = () => {
                     <div className="text-sm text-muted-foreground">Head of Operations, Swimply</div>
                   </div>
                 </div>
-                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                  <iframe 
-                    width="100%" 
-                    height="100%" 
-                    src="https://www.youtube.com/embed/LjnthdX87Ao" 
-                    title="Swimply Testimonial - Yona Meissner"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowFullScreen
-                    className="border-0"
-                  />
-                </div>
+                <YouTubeFacade
+                  videoId="LjnthdX87Ao"
+                  title="Swimply Testimonial - Yona Meissner"
+                  className="aspect-video rounded-xl overflow-hidden shadow-lg"
+                />
               </div>
             </CardContent>
           </Card>

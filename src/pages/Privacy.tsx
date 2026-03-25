@@ -9,10 +9,16 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const Privacy = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Privacy Policy | Hireshore"
+        description="Hireshore's privacy policy. Learn how we collect, use, and protect your data."
+        keywords="privacy policy, data protection"
+      />
       <title>Privacy Policy | Hireshore</title>
       <meta name="description" content="Hireshore Privacy Policy outlining how we collect, use, and protect your data." />
       <link rel="canonical" href="/privacy" />

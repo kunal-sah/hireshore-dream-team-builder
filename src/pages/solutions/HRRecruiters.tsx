@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Users, Search, Clock, CheckCircle, Target, Shield, TrendingUp, Award, Star } from 'lucide-react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
+import YouTubeFacade from '@/components/ui/youtube-facade';
 
 const HRRecruiters: React.FC = () => {
   const challenges = [
@@ -326,16 +327,11 @@ const HRRecruiters: React.FC = () => {
                 </div>
               </div>
               <div className="text-center">
-                <div className="aspect-video bg-muted rounded-lg overflow-hidden">
-                  <iframe
-                    src={caseStudy.testimonial.videoUrl}
-                    title={`${caseStudy.company} Testimonial`}
-                    className="w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
+                <YouTubeFacade
+                  videoId="9xMVgH1j9XE"
+                  title={`${caseStudy.company} Testimonial`}
+                  className="aspect-video bg-muted rounded-lg overflow-hidden"
+                />
                 <p className="text-sm text-muted-foreground mt-2">Watch the full testimonial</p>
               </div>
             </div>

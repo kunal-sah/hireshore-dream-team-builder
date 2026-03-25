@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { TrendingUp, ChevronDown, Target, Users, Mail, BarChart3, Lightbulb } from "lucide-react";
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 
 const FunnelGuide = () => {
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
@@ -187,6 +188,11 @@ Best,
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Funnel Guide | Build High-Converting Funnels | Hireshore"
+        description="Learn to build high-converting sales funnels with our step-by-step guide."
+        keywords="funnel, guide, conversion optimization"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

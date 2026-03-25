@@ -22,6 +22,7 @@ import {
   CheckSquare,
   Video
 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const Templates = () => {
   useEffect(() => {
@@ -114,6 +115,11 @@ const Templates = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Templates | Free Business Templates | Hireshore"
+        description="Download free templates for project management, content planning, and team operations."
+        keywords="templates, free downloads, project management"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Clock, Users, Target, Search, FileText, Award, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SEOHead } from "@/components/SEOHead";
 
 const RecruitmentService = () => {
   const processSteps = [
@@ -99,6 +100,11 @@ const RecruitmentService = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Recruitment Service | Hire Pre-Vetted Talent | Hireshore"
+        description="Streamlined recruitment service to find and hire pre-vetted remote talent fast."
+        keywords="recruitment, hiring, pre-vetted talent"
+      />
       <NavBar />
       
       {/* Hero Section */}

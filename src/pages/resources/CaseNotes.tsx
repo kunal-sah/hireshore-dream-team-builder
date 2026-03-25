@@ -22,6 +22,7 @@ import {
   Target,
   ShoppingCart
 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const CaseNotes = () => {
   const bookCall = () => {
@@ -79,6 +80,11 @@ const CaseNotes = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Case Notes | Implementation Insights | Hireshore"
+        description="Read detailed case notes about real implementation projects and lessons learned."
+        keywords="case notes, implementation, insights"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

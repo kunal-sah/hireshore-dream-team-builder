@@ -11,6 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const Solutions = () => {
   useEffect(() => {
@@ -113,6 +114,11 @@ const Solutions = () => {
 
   return (
     <>
+      <SEOHead
+        title="Solutions | Scale Your Business | Hireshore"
+        description="Solutions for founders, agencies, HR teams, and marketing leaders. Scale with managed delivery pods."
+        keywords="solutions, scale business, founders, agencies"
+      />
       <div className="min-h-screen bg-background">
         <NavBar />
         

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Users, Clock, MessageSquare, Zap } from 'lucide-react';
+import YouTubeFacade from '../../components/ui/youtube-facade';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
 import CaseStudyCTA from '../../components/CaseStudyCTA';
@@ -12,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const SwimplyCaseStudy = () => {
   const stats = [
@@ -77,6 +79,11 @@ const SwimplyCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Swimply Case Study | Customer Support Scaling | Hireshore"
+        description="How Swimply scaled customer support with Hireshore while maintaining profitability."
+        keywords="swimply, case study, customer support, scaling"
+      />
       <title>Swimply Case Study - Powering Customer Success</title>
       <meta name="description" content="See how Hireshore's 7 dedicated USA timezone customer representatives delivered exceptional support for Swimply with 95% CSAT scores and top performance." />
       
@@ -284,17 +291,11 @@ const SwimplyCaseStudy = () => {
                 </div>
               </div>
             </div>
-            <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/LjnthdX87Ao" 
-                title="Swimply Testimonial - Yona Meissner"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-                className="border-0"
-              />
-            </div>
+            <YouTubeFacade
+              videoId="LjnthdX87Ao"
+              title="Swimply Testimonial - Yona Meissner"
+              className="aspect-video rounded-xl overflow-hidden shadow-lg"
+            />
           </div>
         </motion.div>
 

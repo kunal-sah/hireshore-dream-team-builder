@@ -13,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const Careers = () => {
   const openPositions = [
@@ -91,6 +92,11 @@ const Careers = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Careers | Join the Hireshore Team"
+        description="Join Hireshore and work with global startups and agencies. Explore career opportunities."
+        keywords="careers, jobs, hiring, join hireshore"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

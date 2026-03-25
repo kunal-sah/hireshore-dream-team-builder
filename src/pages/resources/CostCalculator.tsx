@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Calculator, DollarSign, TrendingDown, Users, Clock, Code, Palette } from "lucide-react";
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 
 const CostCalculator = () => {
   // Agency Pod Calculator State
@@ -160,6 +161,11 @@ const CostCalculator = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Cost Calculator | Compare Hiring Costs | Hireshore"
+        description="Calculate how much you can save with Hireshore's delivery pods vs traditional hiring."
+        keywords="cost calculator, savings, hiring costs"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

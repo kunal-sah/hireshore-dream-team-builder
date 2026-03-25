@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Zap, ChevronDown, Target, Calendar, Users, CheckCircle, Timer, TrendingUp } from "lucide-react";
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 
 const SprintPlanTemplate = () => {
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
@@ -171,6 +172,11 @@ Documentation: [Confluence, Notion, etc.]`;
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Sprint Plan Template | Free Download | Hireshore"
+        description="Download our free sprint planning template for agile project management."
+        keywords="sprint plan, template, agile, project management"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

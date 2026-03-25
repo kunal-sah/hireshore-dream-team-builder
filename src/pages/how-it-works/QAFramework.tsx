@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { SEOHead } from "@/components/SEOHead";
 
 const QAFramework = () => {
   const qaStandards = [
@@ -50,6 +51,11 @@ const QAFramework = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="QA Framework | Quality Assurance | Hireshore"
+        description="Hireshore's QA framework ensures consistent, high-quality delivery across all pods."
+        keywords="qa framework, quality assurance, testing"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const SEOContentPod = () => {
   const features = [
@@ -45,6 +46,11 @@ const SEOContentPod = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="SEO & Content Pod | Organic Growth | Hireshore"
+        description="Drive organic growth with Hireshore's SEO & Content delivery pod. Strategy, content, and optimization."
+        keywords="seo, content, organic growth, delivery pod"
+      />
       <NavBar />
       
       {/* Breadcrumbs */}

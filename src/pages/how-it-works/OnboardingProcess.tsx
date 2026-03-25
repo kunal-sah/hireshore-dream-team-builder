@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { SEOHead } from "@/components/SEOHead";
 
 const OnboardingProcess = () => {
   const onboardingSteps = [
@@ -58,6 +59,11 @@ const OnboardingProcess = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Onboarding Process | How Hireshore Works"
+        description="Learn about Hireshore's streamlined onboarding process for delivery pods."
+        keywords="onboarding, process, getting started"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

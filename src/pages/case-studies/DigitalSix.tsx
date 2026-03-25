@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Users, DollarSign, Clock, Target, Zap } from 'lucide-react';
+import YouTubeFacade from '../../components/ui/youtube-facade';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
 import CaseStudyCTA from '../../components/CaseStudyCTA';
@@ -13,6 +14,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const DigitalSixCaseStudy = () => {
   const stats = [
@@ -94,6 +96,11 @@ const DigitalSixCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Digital Six Case Study | Agency Scaling | Hireshore"
+        description="How Digital Six grew from 5 to 47 team members with Hireshore's managed delivery pods."
+        keywords="digital six, agency scaling, case study"
+      />
       <title>Digital Six Case Study - Hireshore Success Story</title>
       <meta name="description" content="See how Digital Six scaled from 22 to 47 team members and saved over $1M monthly with Hireshore's managed delivery pods. Real results, measurable outcomes." />
       
@@ -289,16 +296,11 @@ const DigitalSixCaseStudy = () => {
             </div>
             
             <div className="text-center">
-              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.youtube.com/embed/yW90cSyX_iI"
-                  title="Digital Six Testimonial"
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
+              <YouTubeFacade
+                videoId="yW90cSyX_iI"
+                title="Digital Six Testimonial"
+                className="aspect-video bg-gray-100 rounded-lg overflow-hidden"
+              />
               <p className="text-sm text-gray-600 mt-2">Watch Aaron's full testimonial</p>
             </div>
           </div>

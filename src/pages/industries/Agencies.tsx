@@ -11,6 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const Agencies = () => {
   const challenges = [
@@ -45,6 +46,11 @@ const Agencies = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Digital Agencies | Scale with Delivery Pods | Hireshore"
+        description="Scale your digital agency with Hireshore's white-label delivery pods for dev, design, and marketing."
+        keywords="digital agencies, white label, agency scaling"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

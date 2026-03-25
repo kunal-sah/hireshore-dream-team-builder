@@ -11,6 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const Staffing = () => {
   useEffect(() => {
@@ -87,6 +88,11 @@ const Staffing = () => {
 
   return (
     <>
+      <SEOHead
+        title="Staffing Solutions | Build Your Remote Team | Hireshore"
+        description="Build dedicated remote teams with Hireshore. Pre-vetted talent, compliance handled, one-week trial available."
+        keywords="staffing, remote team, dedicated talent, hiring"
+      />
       <div className="min-h-screen bg-background">
         <NavBar />
         

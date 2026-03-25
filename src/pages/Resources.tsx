@@ -32,6 +32,7 @@ import {
   Star
 } from "lucide-react";
 import { getCalendlyURL, trackCTAClick, trackFormSubmission, trackLeadGeneration } from "@/utils/utmTracking";
+import { SEOHead } from "@/components/SEOHead";
 
 const Resources = () => {
   const [email, setEmail] = useState("");
@@ -195,6 +196,11 @@ const Resources = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Resources | Guides, Templates & Tools | Hireshore"
+        description="Free resources to help you scale: guides, templates, case notes, webinars, and more from Hireshore."
+        keywords="resources, guides, templates, scaling tools"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { SEOHead } from "@/components/SEOHead";
 
 const ProcessSLA = () => {
   const slaMetrics = [
@@ -70,6 +71,11 @@ const ProcessSLA = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Process & SLA | Hireshore Quality Standards"
+        description="Understand Hireshore's process and SLA commitments for delivery pod services."
+        keywords="process, sla, quality standards"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

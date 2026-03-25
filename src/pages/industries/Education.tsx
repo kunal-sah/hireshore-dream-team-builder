@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { SEOHead } from "@/components/SEOHead";
 
 const Education = () => {
   const services = [
@@ -51,6 +52,11 @@ const Education = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Education | EdTech Delivery Pods | Hireshore"
+        description="Build and scale educational technology with Hireshore's managed delivery pods."
+        keywords="education, edtech, delivery pods"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

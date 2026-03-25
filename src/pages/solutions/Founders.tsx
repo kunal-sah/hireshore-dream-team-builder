@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Rocket, DollarSign, Users, CheckCircle, Clock, Zap, Star } from 'lucide-react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
+import YouTubeFacade from '@/components/ui/youtube-facade';
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -11,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const Founders: React.FC = () => {
   useEffect(() => {
@@ -63,6 +65,11 @@ const Founders: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Founders | Scale Your Startup | Hireshore"
+        description="Scale your startup lean and fast with Hireshore's managed delivery pods."
+        keywords="founders, startup, scale, delivery pods"
+      />
       <NavBar />
       
       {/* Breadcrumb */}
@@ -298,16 +305,11 @@ const Founders: React.FC = () => {
               <div className="text-gray-600">Founder, PropertyStack</div>
             </div>
             <div className="max-w-3xl mx-auto">
-              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.youtube.com/embed/9xMVgH1j9XE"
-                  title="PropertyStack Testimonial - Ryan Jope"
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
+              <YouTubeFacade
+                videoId="9xMVgH1j9XE"
+                title="PropertyStack Testimonial - Ryan Jope"
+                className="aspect-video bg-gray-100 rounded-lg overflow-hidden"
+              />
             </div>
           </div>
         </div>

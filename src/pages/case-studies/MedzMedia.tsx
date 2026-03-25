@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, Users, TrendingUp, Heart, Zap, Target } from 'lucide-react';
+import YouTubeFacade from '../../components/ui/youtube-facade';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
 import CaseStudyCTA from '../../components/CaseStudyCTA';
@@ -12,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const MedzMediaCaseStudy = () => {
   const stats = [
@@ -98,6 +100,11 @@ const MedzMediaCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Medz Media Case Study | Work-Life Balance | Hireshore"
+        description="How Medz Media transformed operations and work-life balance with Hireshore's delivery pods."
+        keywords="medz media, case study, work-life balance"
+      />
       <title>Medz Media Case Study - Hireshore Success Story</title>
       <meta name="description" content="See how Medz Media founder saved 40+ hours weekly and increased client retention by 50% with Hireshore's managed delivery pods. Real results, better work-life balance." />
       
@@ -275,18 +282,11 @@ const MedzMediaCaseStudy = () => {
                 </div>
               </div>
             </div>
-            <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/43qQdLve5Ps"
-                title="Medz Media Testimonial"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
-            </div>
+            <YouTubeFacade
+              videoId="43qQdLve5Ps"
+              title="Medz Media Testimonial"
+              className="aspect-video rounded-xl overflow-hidden shadow-lg"
+            />
           </div>
         </motion.div>
 

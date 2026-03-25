@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Clock, Shield, Star, Users, Target, Award } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SEOHead } from "@/components/SEOHead";
 
 const OneWeekTrial = () => {
   const trialFeatures = [
@@ -66,6 +67,11 @@ const OneWeekTrial = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="One-Week Trial | Risk-Free Talent Trial | Hireshore"
+        description="Try before you commit. Start a risk-free one-week trial with pre-vetted talent."
+        keywords="one week trial, risk free, talent trial"
+      />
       <NavBar />
       
       {/* Hero Section */}

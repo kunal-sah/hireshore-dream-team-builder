@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, Shield, FileText, Lock, Globe, Award, Users, Zap, ArrowRight, Star } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SEOHead } from "@/components/SEOHead";
 
 const Compliance = () => {
   const compliance = [
@@ -69,6 +70,11 @@ const Compliance = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Compliance | Global Compliance Solutions | Hireshore"
+        description="Ensure global compliance with Hireshore. GDPR, SOC 2, and more handled for you."
+        keywords="compliance, gdpr, soc 2, global compliance"
+      />
       <NavBar />
       
       {/* Hero Section */}

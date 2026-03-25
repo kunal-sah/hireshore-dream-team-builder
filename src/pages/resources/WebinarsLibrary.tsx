@@ -14,6 +14,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Video, Calendar, Users, ArrowRight, ExternalLink, Clock } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const WebinarsLibrary = () => {
   const bookCall = () => {
@@ -98,6 +99,11 @@ const WebinarsLibrary = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Webinars Library | Hireshore Resources"
+        description="Browse our library of recorded webinars on scaling and team management."
+        keywords="webinars, library, resources"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

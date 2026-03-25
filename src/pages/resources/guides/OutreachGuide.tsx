@@ -15,6 +15,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { MessageSquare, Clock, Target, ArrowRight, Mail, Users, Phone, Video, TrendingUp, CheckCircle, Copy, Star, Zap, BarChart3 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const OutreachGuide = () => {
   const copyTemplate = (template: string) => {
@@ -38,6 +39,11 @@ P.S. Here's a [relevant resource] that might be helpful regardless: [link]`;
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Outreach Guide | Scale Your Outreach | Hireshore"
+        description="Master outreach strategies to generate leads and grow your business."
+        keywords="outreach, guide, lead generation"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

@@ -9,6 +9,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const Terms = () => {
   useEffect(() => {
@@ -40,6 +41,11 @@ const Terms = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Terms & Conditions | Hireshore"
+        description="Read Hireshore's terms and conditions for using our services."
+        keywords="terms, conditions, agreement"
+      />
       <title>Terms & Conditions | Hireshore</title>
       <meta name="description" content="Terms and conditions for using Hireshore services and website." />
       <link rel="canonical" href="/terms" />

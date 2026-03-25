@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { CheckSquare, Gauge, Search, BarChart3, Shield, Printer } from "lucide-react";
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 
 const WebLaunchChecklist = () => {
   const [checkedItems, setCheckedItems] = useState<{ [key: string]: boolean }>({});
@@ -96,6 +97,11 @@ const WebLaunchChecklist = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Web Launch Checklist | Free Download | Hireshore"
+        description="Download our comprehensive web launch checklist to ensure a smooth website launch."
+        keywords="web launch, checklist, website launch"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

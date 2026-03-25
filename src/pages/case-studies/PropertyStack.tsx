@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Users, Target, Clock, Zap, Award } from 'lucide-react';
+import YouTubeFacade from '../../components/ui/youtube-facade';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
 import CaseStudyCTA from '../../components/CaseStudyCTA';
@@ -12,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const PropertyStackCaseStudy = () => {
   const stats = [
@@ -95,6 +97,11 @@ const PropertyStackCaseStudy = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="PropertyStack Case Study | 15+ Hires in 12 Months | Hireshore"
+        description="How PropertyStack hired 15+ team members through Hireshore, saving $1M+ annually."
+        keywords="propertystack, case study, hiring, proptech"
+      />
       <title>PropertyStack Case Study - Building a Scalable Product & Support Team</title>
       <meta name="description" content="See how PropertyStack hired 15+ team members in under 3 weeks per hire and saved $1M+ annually with Hireshore's recruitment-as-a-service solution." />
       
@@ -334,16 +341,11 @@ const PropertyStackCaseStudy = () => {
             </div>
             
             <div className="max-w-4xl mx-auto">
-              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.youtube.com/embed/9xMVgH1j9XE"
-                  title="PropertyStack Testimonial - Ryan Jope"
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
+              <YouTubeFacade
+                videoId="9xMVgH1j9XE"
+                title="PropertyStack Testimonial - Ryan Jope"
+                className="aspect-video bg-gray-100 rounded-lg overflow-hidden"
+              />
               <p className="text-sm text-gray-600 mt-2">Watch Ryan's full testimonial about working with Hireshore</p>
             </div>
           </div>

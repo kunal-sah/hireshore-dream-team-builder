@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const BuildTeam = () => {
   const features = [
@@ -48,6 +49,11 @@ const BuildTeam = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Build Your Team | Custom Team Assembly | Hireshore"
+        description="Build a dedicated remote team tailored to your needs. Pre-vetted talent, fast onboarding."
+        keywords="build team, remote team, custom team"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

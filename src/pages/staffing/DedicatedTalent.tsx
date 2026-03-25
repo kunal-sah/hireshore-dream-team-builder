@@ -11,6 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const DedicatedTalent = () => {
   useEffect(() => {
@@ -79,6 +80,11 @@ const DedicatedTalent = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Dedicated Talent | Full-Time Remote Professionals | Hireshore"
+        description="Hire dedicated, full-time remote professionals vetted and managed by Hireshore."
+        keywords="dedicated talent, remote professionals, full-time hire"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

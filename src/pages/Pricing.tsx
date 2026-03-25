@@ -22,6 +22,7 @@ import {
   Users,
   DollarSign
 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const Pricing = () => {
   const bookCall = () => {
@@ -149,6 +150,11 @@ const Pricing = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Pricing | Transparent Pod Pricing | Hireshore"
+        description="Transparent pricing for Hireshore delivery pods. Choose the plan that fits your team and budget."
+        keywords="pricing, delivery pod cost, managed team pricing"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

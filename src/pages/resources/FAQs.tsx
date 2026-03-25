@@ -24,6 +24,7 @@ import {
   Shield,
   Zap
 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const FAQs = () => {
   const bookCall = () => {
@@ -123,6 +124,11 @@ const FAQs = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="FAQs | Frequently Asked Questions | Hireshore"
+        description="Find answers to common questions about Hireshore's delivery pods and services."
+        keywords="faqs, questions, delivery pods help"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

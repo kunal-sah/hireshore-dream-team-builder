@@ -15,6 +15,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { BookOpen, Clock, Users, CheckCircle, ArrowRight } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const DeliveryPodsPlaybook = () => {
   const bookCall = () => {
@@ -425,6 +426,11 @@ Success indicators for evolution:
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Delivery Pods Playbook | Scale Your Team | Hireshore"
+        description="The complete playbook for implementing delivery pods in your organization."
+        keywords="delivery pods, playbook, scaling guide"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

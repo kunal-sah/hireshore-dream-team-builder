@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, DollarSign, Shield, TrendingUp, CreditCard, Users, Clock, BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SEOHead } from "@/components/SEOHead";
 
 const Finance = () => {
   const services = [
@@ -19,6 +20,11 @@ const Finance = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Finance | FinTech Delivery Pods | Hireshore"
+        description="Scale your fintech operations with Hireshore's secure, compliant delivery pods."
+        keywords="finance, fintech, delivery pods, compliance"
+      />
       <NavBar />
       
       {/* Hero Section */}

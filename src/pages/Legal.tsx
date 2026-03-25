@@ -9,10 +9,16 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const Legal = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col">
+      <SEOHead
+        title="Legal Mentions | Hireshore"
+        description="Legal information and mentions for Hireshore LLC."
+        keywords="legal, terms, hireshore"
+      />
       <title>Legal Mentions | Hireshore</title>
       <meta name="description" content="Legal information about Hireshore including company and contact details." />
       <link rel="canonical" href="/legal" />

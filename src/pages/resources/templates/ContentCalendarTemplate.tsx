@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Calendar, ChevronDown, Instagram, Twitter, Linkedin, Youtube, Hash, Target } from "lucide-react";
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 
 const ContentCalendarTemplate = () => {
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
@@ -183,6 +184,11 @@ Questions? Drop them below 👇
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Content Calendar Template | Free Download | Hireshore"
+        description="Download our free content calendar template to plan and organize your content strategy."
+        keywords="content calendar, template, content planning"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

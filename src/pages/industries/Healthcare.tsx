@@ -13,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 const Healthcare = () => {
   useEffect(() => {
@@ -84,6 +85,11 @@ const Healthcare = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Healthcare | Health Tech Delivery Pods | Hireshore"
+        description="Scale healthcare technology with Hireshore's compliant delivery pods."
+        keywords="healthcare, health tech, delivery pods, hipaa"
+      />
       <NavBar />
       
       {/* Breadcrumb */}

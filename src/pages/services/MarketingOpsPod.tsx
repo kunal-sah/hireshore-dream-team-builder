@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, Settings, Zap, BarChart, Workflow, Target, Users, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SEOHead } from "@/components/SEOHead";
 
 const MarketingOpsPod = () => {
   const features = [
@@ -37,6 +38,11 @@ const MarketingOpsPod = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Marketing Ops Pod | Automation & Analytics | Hireshore"
+        description="Automate your marketing stack with Hireshore's Marketing Ops delivery pod."
+        keywords="marketing ops, automation, analytics, delivery pod"
+      />
       <NavBar />
       
       {/* Hero Section */}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { SEOHead } from "../components/SEOHead";
+import YouTubeFacade from "../components/ui/youtube-facade";
 
 // Critical above-fold components - load immediately
 import NavBar from "../components/NavBar";
@@ -10,7 +11,7 @@ import LandingHero from "../components/LandingHero";
 import TrustedStartups from "../components/TrustedStartups";
 import DeliveryPodDefinition from "../components/DeliveryPodDefinition";
 import SiteFooter from "../components/SiteFooter";
-import { deferExecution, preloadCriticalResources, optimizeImageLoading } from "../utils/performanceOptimizer";
+import { preloadCriticalResources, optimizeImageLoading } from "../utils/performanceOptimizer";
 import { deferHeavyWork, preloadCriticalAssets, optimizeThirdPartyScripts } from "../utils/criticalPathOptimizer";
 
 // Lazy load below-fold components to reduce initial bundle
@@ -27,8 +28,7 @@ const TestimonialsSection = lazy(() => import("../components/TestimonialsSection
 const FAQSection = lazy(() => import("../components/FAQSection"));
 const CalendlySection = lazy(() => import("../components/CalendlySection"));
 
-// Lazy load motion for animations
-const LazyMotion = lazy(() => import('framer-motion').then(module => ({ default: module.motion })));
+// Removed unused LazyMotion
 
 // Component loader for better UX
 const ComponentLoader = () => (
@@ -54,7 +54,6 @@ const Index = () => {
   }, []);
 
    const addStructuredData = () => {
-    // Add JSON-LD structured data for SEO - uses dynamic domain
     const currentDomain = typeof window !== 'undefined' ? window.location.origin : "https://hireshore.co";
     const jsonLd = {
       "@context": "https://schema.org",
@@ -85,8 +84,12 @@ const Index = () => {
       }
     };
 
+    const existingScript = document.getElementById('org-structured-data');
+    if (existingScript) return; // Don't add duplicates
+
     const jsonLdScript = document.createElement('script');
     jsonLdScript.type = 'application/ld+json';
+    jsonLdScript.id = 'org-structured-data';
     jsonLdScript.textContent = JSON.stringify(jsonLd);
     document.head.appendChild(jsonLdScript);
   };
@@ -202,17 +205,11 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.youtube.com/embed/43qQdLve5Ps"
-                  title="Medz Media Testimonial - Marlon M."
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
+              <YouTubeFacade
+                videoId="43qQdLve5Ps"
+                title="Medz Media Testimonial - Marlon M."
+                className="aspect-video rounded-xl overflow-hidden shadow-lg"
+              />
             </div>
           </motion.div>
         </section>
@@ -243,17 +240,11 @@ const Index = () => {
               </div>
               
               <div className="text-center">
-                <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                  <iframe
-                    src="https://www.youtube.com/embed/yW90cSyX_iI"
-                    title="Digital Six Testimonial - Aaron Erwich"
-                    className="w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                  />
-                </div>
+                <YouTubeFacade
+                  videoId="yW90cSyX_iI"
+                  title="Digital Six Testimonial - Aaron Erwich"
+                  className="aspect-video bg-gray-100 rounded-lg overflow-hidden"
+                />
                 <p className="text-sm text-gray-600 mt-2">Watch Aaron's full testimonial</p>
               </div>
             </div>
@@ -285,17 +276,11 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.youtube.com/embed/9xMVgH1j9XE"
-                  title="PropertyStack Testimonial - Ryan Jope"
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
+              <YouTubeFacade
+                videoId="9xMVgH1j9XE"
+                title="PropertyStack Testimonial - Ryan Jope"
+                className="aspect-video rounded-xl overflow-hidden shadow-lg"
+              />
             </div>
           </motion.div>
         </section>
@@ -326,17 +311,11 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.youtube.com/embed/LjnthdX87Ao"
-                  title="Swimply Testimonial - Yona Meissner"
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
+              <YouTubeFacade
+                videoId="LjnthdX87Ao"
+                title="Swimply Testimonial - Yona Meissner"
+                className="aspect-video rounded-xl overflow-hidden shadow-lg"
+              />
             </div>
           </motion.div>
         </section>

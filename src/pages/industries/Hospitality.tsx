@@ -2,6 +2,7 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import YouTubeFacade from "@/components/ui/youtube-facade";
 import { Check, MapPin, Calendar, CreditCard, Users, Home, ChevronRight, Star, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
@@ -12,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { SEOHead } from "@/components/SEOHead";
 
 const Hospitality = () => {
   const services = [
@@ -27,6 +29,11 @@ const Hospitality = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Hospitality | Delivery Pods for Hotels & Tourism | Hireshore"
+        description="Scale hospitality technology with Hireshore's managed delivery pods for hotels, travel, and tourism."
+        keywords="hospitality, hotels, tourism, delivery pods"
+      />
       <NavBar />
       
       {/* Breadcrumb */}
@@ -170,17 +177,11 @@ const Hospitality = () => {
                     <div className="text-sm text-muted-foreground">Head of Operations, Swimply</div>
                   </div>
                 </div>
-                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                  <iframe 
-                    width="100%" 
-                    height="100%" 
-                    src="https://www.youtube.com/embed/LjnthdX87Ao" 
-                    title="Swimply Testimonial - Yona Meissner"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowFullScreen
-                    className="border-0"
-                  />
-                </div>
+                <YouTubeFacade
+                  videoId="LjnthdX87Ao"
+                  title="Swimply Testimonial - Yona Meissner"
+                  className="aspect-video rounded-xl overflow-hidden shadow-lg"
+                />
               </div>
             </CardContent>
           </Card>
