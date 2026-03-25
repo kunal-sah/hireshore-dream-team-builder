@@ -119,13 +119,11 @@ const NavBar = () => {
           
             {/* Navigation Links */}
             <div className="hidden lg:flex items-center space-x-1 relative"
-              onMouseLeave={handleMenuLeave}
             >
             {/* Solutions */}
             <div
               className="relative group"
               onMouseEnter={() => handleMenuEnter('solutions')}
-              onMouseLeave={handleMenuLeave}
             >
               {/* Hover buffer area above */}
               <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
@@ -143,7 +141,6 @@ const NavBar = () => {
             <div
               className="relative group"
               onMouseEnter={() => handleMenuEnter('services')}
-              onMouseLeave={handleMenuLeave}
             >
               <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
               
@@ -160,7 +157,6 @@ const NavBar = () => {
             <div
               className="relative group"
               onMouseEnter={() => handleMenuEnter('staffing')}
-              onMouseLeave={handleMenuLeave}
             >
               <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
               
@@ -177,7 +173,6 @@ const NavBar = () => {
             <div
               className="relative group"
               onMouseEnter={() => handleMenuEnter('industries')}
-              onMouseLeave={handleMenuLeave}
             >
               <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
               
@@ -202,7 +197,6 @@ const NavBar = () => {
             <div
               className="relative group"
               onMouseEnter={() => handleMenuEnter('resources')}
-              onMouseLeave={handleMenuLeave}
             >
               <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
               
@@ -219,7 +213,6 @@ const NavBar = () => {
             <div
               className="relative group"
               onMouseEnter={() => handleMenuEnter('company')}
-              onMouseLeave={handleMenuLeave}
             >
               <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
               
