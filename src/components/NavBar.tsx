@@ -35,7 +35,7 @@ const NavBar = () => {
   const handleMenuLeave = () => {
     const timeout = setTimeout(() => {
       setActiveMenu('');
-    }, 5000); // Extended delay to prevent accidental closure while navigating to cards
+    }, 400);
     setMenuTimeout(timeout);
   };
 
