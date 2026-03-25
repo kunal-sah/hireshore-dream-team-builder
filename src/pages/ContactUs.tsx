@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar';
 import SiteFooter from '../components/SiteFooter';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
-import { trackFormSubmission, trackLeadGeneration, getCalendlyURL, getWhatsAppURL } from '@/utils/utmTracking';
+import { trackFormSubmission, trackLeadGeneration, trackCTAClick, getCalendlyURL, getWhatsAppURL } from '@/utils/utmTracking';
 import {
   Breadcrumb,
   BreadcrumbList,
