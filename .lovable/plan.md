@@ -1,106 +1,32 @@
 
 
-# Technical SEO Audit Report
+# Fix: Mega Menu Disappearing Too Quickly
 
-## CRITICAL Issues (Will Hurt Rankings)
+## Problem
+The mega menu closes before users can reach it because:
+1. The nav item triggers `handleMenuLeave` (400ms timeout) when the mouse leaves the nav trigger
+2. There's a physical gap between the nav triggers and the mega menu panel — the mouse enters "no man's land"
+3. The hover buffer zone inside the mega menu (`-top-8`) is inside the `motion.div` which only renders when `isOpen` is true, so it can't catch hover events during the exit animation
+4. `handleMegaMenuLeave` uses only 250ms — too fast for users moving slowly
 
-### 1. Sitemap URLs Don't Match Actual Routes (9 broken URLs)
-The `public/sitemap.xml` has URLs that differ from the actual routes in `App.tsx`. Google will crawl these and get 404s (soft 404s via the SPA catch-all), wasting crawl budget and flagging errors in Search Console.
+## Fix (2 files)
 
-| Sitemap URL | Actual Route |
-|---|---|
-| `/services/design-pod` | `/services/design` |
-| `/services/seo-content-pod` | `/services/seo-content` |
-| `/services/marketing-ops-pod` | `/services/marketing-ops` |
-| `/services/video-pod` | `/services/video` |
-| `/services/support-qa-pod` | `/services/support-qa` |
-| `/services/data-ai-pod` | `/services/data-ai` |
-| `/staffing/dedicated-talent` | `/staffing/dedicated` |
-| `/staffing/recruitment-service` | `/staffing/recruitment` |
-| `/staffing/one-week-trial` | `/staffing/trial` |
+### NavBar.tsx
+- Wrap the nav links and mega menu in a single parent container so hovering between them doesn't trigger leave events
+- Remove the separate `<div>` wrapper around `MegaMenu` — instead place the `MegaMenu` directly inside the nav links container
+- Increase `handleMenuLeave` timeout to **600ms** and `handleMegaMenuLeave` to **500ms**
 
-**Fix:** Update all 9 sitemap URLs to match actual routes.
+### MegaMenu.tsx
+- Move the hover buffer div (`-top-8 h-8`) **outside** the `motion.div` content area but still inside the component's pointer-events area, so it catches the mouse during the gap between the nav trigger and the menu panel
+- Add `pointer-events-auto` to ensure the buffer zone captures hover events even during animation
 
-### 2. Two Pages Missing from Sitemap
-- `/case-studies/ekleipsi-digital` -- exists in routes, not in sitemap
-- `/configure-pod` -- exists in routes, not in sitemap
+### Specific changes:
 
-**Fix:** Add both URLs to sitemap.
+**NavBar.tsx (~line 120-121):** Wrap the entire nav links section + mega menu in one `<div>` with shared mouse handlers, removing the separate mega menu wrapper at the bottom (lines 347-359). Place the `<MegaMenu>` directly after the nav links inside the same relative container.
 
-### 3. 404 Page Listed in Sitemap
-`/404` is in the sitemap. Search engines should never index a 404 page.
+**NavBar.tsx (lines 35-53):** Change timeouts:
+- `handleMenuLeave`: 400ms → 600ms  
+- `handleMegaMenuLeave`: 250ms → 500ms
 
-**Fix:** Remove the `/404` entry from sitemap.
-
-### 4. Sitemap `lastmod` Dates Are Stale
-All dates show `2025-01-24` (over a year old). Google uses `lastmod` to decide crawl priority. Stale dates reduce recrawl frequency.
-
-**Fix:** Update all `lastmod` to `2026-03-25` (today).
-
----
-
-## HIGH Priority Issues
-
-### 5. No Canonical URLs on 73 of 74 Pages
-Only `Index.tsx` passes `canonicalUrl` to `SEOHead`. The remaining 73 pages rely on `window.location.href` which will include query strings, preview domains, and trailing slashes -- causing duplicate content issues.
-
-**Fix:** Add explicit `canonicalUrl="https://hireshore.co/[path]"` to every `SEOHead` usage.
-
-### 6. Structured Data Not Cleaned Up on Unmount
-In `Index.tsx`, the JSON-LD script has a dedup check (`getElementById`) but is never removed on component unmount. If React re-mounts, the script persists from previous renders. Minor memory leak.
-
-**Fix:** Add cleanup in the `useEffect` return to remove the script element.
-
-### 7. Duplicate Meta Tags (index.html + Helmet)
-`index.html` has hardcoded `<title>`, `<meta description>`, `<link canonical>`, OG tags, and Twitter tags. Helmet on each page also sets these. This creates duplicate tags in the DOM -- some crawlers may pick the wrong one.
-
-**Fix:** Remove all SEO meta tags from `index.html` (keep only charset, viewport, theme-color, favicon, fonts). Let Helmet handle all SEO tags dynamically.
-
-### 8. SPA Rendering -- No Pre-rendering for Crawlers
-This is a client-side SPA. Google can render JS, but Bing/Twitter/Facebook/LinkedIn cannot. When social crawlers hit any page, they only see the `index.html` meta tags (homepage meta), not the page-specific ones.
-
-**Fix (informational):** Consider adding a pre-rendering service (e.g., prerender.io) or deploy with SSR/SSG in the future. For now, the `index.html` hardcoded tags at least provide a fallback.
-
----
-
-## MEDIUM Priority Issues
-
-### 9. Chat Widget Script Leaks on Every Page
-The `SiteFooter` chat widget script is appended but the cleanup function is inside the `setTimeout` callback's return (which is ignored). The script is never removed on unmount.
-
-**Fix:** Move cleanup logic to the outer `useEffect` return.
-
-### 10. No `og:locale` Tag
-Missing `og:locale` meta tag. Facebook and social crawlers use this to determine content language.
-
-**Fix:** Add `<meta property="og:locale" content="en_US" />` to `SEOHead`.
-
-### 11. No `og:site_name` Tag
-Missing site name for social sharing context.
-
-**Fix:** Add `<meta property="og:site_name" content="Hireshore" />` to `SEOHead`.
-
----
-
-## Implementation Plan
-
-### Step 1: Fix sitemap.xml
-- Correct 9 mismatched URLs to match actual routes
-- Add `/case-studies/ekleipsi-digital` and `/configure-pod`
-- Remove `/404` entry
-- Update all `lastmod` dates to `2026-03-25`
-
-### Step 2: Clean up index.html
-- Remove duplicate title, description, canonical, OG, and Twitter meta tags
-- Keep only: charset, viewport, theme-color, favicon, apple-touch-icon, fonts, preconnects
-
-### Step 3: Enhance SEOHead component
-- Add `og:locale` and `og:site_name` meta tags
-- Add explicit canonical URLs to all 73 pages that are missing them
-
-### Step 4: Fix Index.tsx structured data
-- Add cleanup in `useEffect` return to remove JSON-LD script on unmount
-
-### Step 5: Fix SiteFooter chat widget cleanup
-- Move script cleanup to outer useEffect return
+**MegaMenu.tsx (line 237):** Add a persistent (always-rendered when open) transparent bridge div with `absolute -top-4 left-0 w-full h-4` positioned above the mega menu panel to bridge the gap.
 
