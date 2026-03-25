@@ -19,9 +19,9 @@ export const SEOHead = ({
   canonicalUrl,
   noindex = false,
 }: SEOHeadProps) => {
-  const currentUrl = typeof window !== 'undefined' 
-    ? window.location.href 
-    : canonicalUrl || "https://hireshore.co/";
+  const resolvedCanonical = canonicalUrl || (typeof window !== 'undefined' 
+    ? `https://hireshore.co${window.location.pathname}`
+    : "https://hireshore.co/");
 
   return (
     <Helmet>
@@ -32,19 +32,21 @@ export const SEOHead = ({
       {noindex && <meta name="robots" content="noindex, nofollow" />}
       
       {/* Canonical URL */}
-      <link rel="canonical" href={canonicalUrl || currentUrl} />
+      <link rel="canonical" href={resolvedCanonical} />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={currentUrl} />
+      <meta property="og:url" content={resolvedCanonical} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:locale" content="en_US" />
+      <meta property="og:site_name" content="Hireshore" />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@hireshore" />
-      <meta name="twitter:url" content={currentUrl} />
+      <meta name="twitter:url" content={resolvedCanonical} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />

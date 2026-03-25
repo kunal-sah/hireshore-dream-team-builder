@@ -11,23 +11,21 @@ const SiteFooter = () => {
 
   // Add useEffect to load chat widget only
   useEffect(() => {
-    // Defer chat widget loading until after 5 seconds
+    let chatScript: HTMLScriptElement | null = null;
+    
     const deferTimer = setTimeout(() => {
-      const chatScript = document.createElement('script');
+      chatScript = document.createElement('script');
       chatScript.src = "https://widgets.leadconnectorhq.com/loader.js";
       chatScript.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
       chatScript.setAttribute('data-widget-id', '68298cb376ba227d5563113e');
       document.body.appendChild(chatScript);
-
-      return () => {
-        if (document.body.contains(chatScript)) {
-          document.body.removeChild(chatScript);
-        }
-      };
     }, 5000);
 
     return () => {
       clearTimeout(deferTimer);
+      if (chatScript && document.body.contains(chatScript)) {
+        document.body.removeChild(chatScript);
+      }
     };
   }, []);
 

@@ -51,6 +51,11 @@ const Index = () => {
       addStructuredData();
       setupScrollBehavior();
     }, 100);
+
+    return () => {
+      const script = document.getElementById('org-structured-data');
+      if (script) script.remove();
+    };
   }, []);
 
    const addStructuredData = () => {
