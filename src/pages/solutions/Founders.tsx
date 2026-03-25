@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Rocket, DollarSign, Users, CheckCircle, Clock, Zap, Star } from 'lucide-react';
 import NavBar from '@/components/NavBar';
 import SiteFooter from '@/components/SiteFooter';
+import YouTubeFacade from '@/components/ui/youtube-facade';
 import {
   Breadcrumb,
   BreadcrumbList,

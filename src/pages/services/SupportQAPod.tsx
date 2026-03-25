@@ -2,6 +2,7 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import YouTubeFacade from "@/components/ui/youtube-facade";
 import { Check, Headphones, Shield, Bug, Clock, MessageCircle, Users, CheckCircle, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 

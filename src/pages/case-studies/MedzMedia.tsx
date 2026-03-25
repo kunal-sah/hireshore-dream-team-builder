@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, Users, TrendingUp, Heart, Zap, Target } from 'lucide-react';
+import YouTubeFacade from '../../components/ui/youtube-facade';
 import NavBar from '../../components/NavBar';
 import SiteFooter from '../../components/SiteFooter';
 import CaseStudyCTA from '../../components/CaseStudyCTA';

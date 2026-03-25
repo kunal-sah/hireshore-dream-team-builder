@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Users, Target, Award, Globe, Heart, Zap, Shield, TrendingUp } from 'lucide-react';
 import NavBar from '../components/NavBar';
 import SiteFooter from '../components/SiteFooter';
+import YouTubeFacade from '../components/ui/youtube-facade';
 import {
   Breadcrumb,
   BreadcrumbList,

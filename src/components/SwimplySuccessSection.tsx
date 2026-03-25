@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Star, Users, Clock, MessageSquare, Zap } from "lucide-react";
+import YouTubeFacade from "./ui/youtube-facade";
 
 const SwimplySuccessSection = () => {
   const stats = [

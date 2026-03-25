@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Users, DollarSign, Clock, Target, Zap } from "lucide-react";
+import YouTubeFacade from "./ui/youtube-facade";
 
 const DigitalSixSuccessSection = () => {
   const stats = [
