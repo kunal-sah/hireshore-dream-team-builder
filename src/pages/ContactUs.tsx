@@ -360,7 +360,6 @@ const ContactUs = () => {
                 <Button 
                   className="bg-white text-primary hover:bg-gray-100 font-semibold px-6 sm:px-8 py-3 text-sm sm:text-base"
                   onClick={() => {
-                    const { getCalendlyURL, trackCTAClick } = require('@/utils/utmTracking');
                     trackCTAClick('contact_page_schedule_now', 'contact_cta_section');
                     window.open(getCalendlyURL('contact_page_schedule_now'), '_blank');
                   }}
