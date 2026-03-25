@@ -1,108 +1,106 @@
 
 
-# Website Optimization Checklist
+# Technical SEO Audit Report
 
-## Current State Summary
-After reviewing the full codebase, here are all optimization opportunities organized by priority.
+## CRITICAL Issues (Will Hurt Rankings)
 
----
+### 1. Sitemap URLs Don't Match Actual Routes (9 broken URLs)
+The `public/sitemap.xml` has URLs that differ from the actual routes in `App.tsx`. Google will crawl these and get 404s (soft 404s via the SPA catch-all), wasting crawl budget and flagging errors in Search Console.
 
-## HIGH PRIORITY
+| Sitemap URL | Actual Route |
+|---|---|
+| `/services/design-pod` | `/services/design` |
+| `/services/seo-content-pod` | `/services/seo-content` |
+| `/services/marketing-ops-pod` | `/services/marketing-ops` |
+| `/services/video-pod` | `/services/video` |
+| `/services/support-qa-pod` | `/services/support-qa` |
+| `/services/data-ai-pod` | `/services/data-ai` |
+| `/staffing/dedicated-talent` | `/staffing/dedicated` |
+| `/staffing/recruitment-service` | `/staffing/recruitment` |
+| `/staffing/one-week-trial` | `/staffing/trial` |
 
-### 1. YouTube Embeds Killing Performance
-**Problem:** 18+ raw YouTube iframes across the site. Each iframe loads ~1-2MB of JavaScript from YouTube on page load, even with `loading="lazy"`. The homepage alone has 5 iframes (hero + 4 testimonials).
+**Fix:** Update all 9 sitemap URLs to match actual routes.
 
-**Fix:** Replace all `<iframe>` YouTube embeds with a lightweight facade component (`youtube-facade.tsx` already exists but is unused). Show a thumbnail + play button; only load the iframe when clicked. This alone could save 5-10MB on homepage.
+### 2. Two Pages Missing from Sitemap
+- `/case-studies/ekleipsi-digital` -- exists in routes, not in sitemap
+- `/configure-pod` -- exists in routes, not in sitemap
 
-### 2. SEOHead Only Used on Homepage
-**Problem:** The `SEOHead` component exists but is only used on `Index.tsx`. ~60+ pages have no per-page meta titles/descriptions. Some pages use `Helmet` directly (about 11 pages), but the majority have nothing.
+**Fix:** Add both URLs to sitemap.
 
-**Fix:** Add `SEOHead` to every page with unique title, description, and keywords. Priority pages: Services (7), Solutions (9), Case Studies (8), Industries (8).
+### 3. 404 Page Listed in Sitemap
+`/404` is in the sitemap. Search engines should never index a 404 page.
 
-### 3. robots.txt Missing Sitemap Reference
-**Problem:** `robots.txt` has no `Sitemap:` directive pointing to `/sitemap.xml`.
+**Fix:** Remove the `/404` entry from sitemap.
 
-**Fix:** Add `Sitemap: https://hireshore.co/sitemap.xml` to robots.txt.
+### 4. Sitemap `lastmod` Dates Are Stale
+All dates show `2025-01-24` (over a year old). Google uses `lastmod` to decide crawl priority. Stale dates reduce recrawl frequency.
 
-### 4. Structured Data Leak (No Cleanup)
-**Problem:** In `Index.tsx`, `addStructuredData()` appends a `<script>` tag to `<head>` on every mount but never removes it. Navigating away and back creates duplicates.
-
-**Fix:** Add cleanup in the `useEffect` return, or use the `SEOHead`/`Helmet` component to manage JSON-LD.
-
----
-
-## MEDIUM PRIORITY
-
-### 5. Heavy Framer Motion Usage
-**Problem:** Nearly every component imports and uses `framer-motion` with `whileInView`, `whileHover`, floating background animations, parallax effects, and ripple effects. The hero alone has 5+ animated background blobs running infinite animations.
-
-**Fix:** Remove infinite background animations (floating blobs) or reduce them. Use CSS transitions instead of framer-motion for simple hover/fade effects. Consider `will-change` sparingly.
-
-### 6. Chat Widget Loaded on Every Page
-**Problem:** `SiteFooter` loads LeadConnector chat widget script on every page mount. This is a third-party script that adds weight.
-
-**Fix:** Defer chat widget loading until user interaction (e.g., scroll past 50% or after 5 seconds idle).
-
-### 7. Font Loading Not Optimized
-**Problem:** Google Fonts loaded via render-blocking `<link>` in `index.html`. Two font families (Inter + Playfair Display) with multiple weights.
-
-**Fix:** Add `font-display: swap` (already in URL via `display=swap`), but also add `media="print" onload="this.media='all'"` pattern for non-blocking load, or self-host the fonts.
-
-### 8. NavBar Menu Timeout of 5 Seconds
-**Problem:** `handleMenuLeave` sets a 5-second timeout before closing the mega menu. This is extremely long and will feel buggy.
-
-**Fix:** Reduce to 300-500ms with a buffer zone approach.
-
-### 9. No Image Optimization / WebP
-**Problem:** All images are served as PNG from `lovable-uploads`. No width/height attributes on most images (causes layout shift / poor CLS).
-
-**Fix:** Add explicit `width` and `height` attributes to all `<img>` tags. Consider converting hero/key images to WebP.
+**Fix:** Update all `lastmod` to `2026-03-25` (today).
 
 ---
 
-## LOW PRIORITY
+## HIGH Priority Issues
 
-### 10. Duplicate Testimonials on Homepage
-**Problem:** The homepage shows 4 individual video testimonials (Marlon, Aaron, Ryan, Yona) AND a `TestimonialsSection` carousel that repeats the same people. Redundant content hurts scroll depth and page weight.
+### 5. No Canonical URLs on 73 of 74 Pages
+Only `Index.tsx` passes `canonicalUrl` to `SEOHead`. The remaining 73 pages rely on `window.location.href` which will include query strings, preview domains, and trailing slashes -- causing duplicate content issues.
 
-**Fix:** Keep either the video testimonials OR the carousel, not both. Or make the carousel show different quotes from different clients.
+**Fix:** Add explicit `canonicalUrl="https://hireshore.co/[path]"` to every `SEOHead` usage.
 
-### 11. Missing Error Boundaries
-**Problem:** No error boundaries around lazy-loaded components. If a chunk fails to load, the whole page crashes.
+### 6. Structured Data Not Cleaned Up on Unmount
+In `Index.tsx`, the JSON-LD script has a dedup check (`getElementById`) but is never removed on component unmount. If React re-mounts, the script persists from previous renders. Minor memory leak.
 
-**Fix:** Add React error boundaries around `Suspense` groups.
+**Fix:** Add cleanup in the `useEffect` return to remove the script element.
 
-### 12. No 404 Handling in Footer Links
-**Problem:** Footer uses `<a>` tags instead of React Router `<Link>` for internal routes (`/privacy`, `/terms`, `/legal`), causing full page reloads.
+### 7. Duplicate Meta Tags (index.html + Helmet)
+`index.html` has hardcoded `<title>`, `<meta description>`, `<link canonical>`, OG tags, and Twitter tags. Helmet on each page also sets these. This creates duplicate tags in the DOM -- some crawlers may pick the wrong one.
 
-**Fix:** Replace with `<Link>` components.
+**Fix:** Remove all SEO meta tags from `index.html` (keep only charset, viewport, theme-color, favicon, fonts). Let Helmet handle all SEO tags dynamically.
 
-### 13. Unused Imports/Code
-**Problem:** `LazyMotion` is declared in `Index.tsx` but never used. `deferExecution` is imported but unused. `beforeAfterImage` imported in `LandingHero.tsx` but never rendered.
+### 8. SPA Rendering -- No Pre-rendering for Crawlers
+This is a client-side SPA. Google can render JS, but Bing/Twitter/Facebook/LinkedIn cannot. When social crawlers hit any page, they only see the `index.html` meta tags (homepage meta), not the page-specific ones.
 
-**Fix:** Remove dead code to reduce bundle size.
-
-### 14. Vite Build Not Optimized
-**Problem:** No manual chunk splitting configured. No compression plugin. No tree-shaking hints for large libraries like framer-motion and lucide-react.
-
-**Fix:** Add `build.rollupOptions.output.manualChunks` to split vendor chunks (framer-motion, react, lucide-react). Add `vite-plugin-compression` for gzip/brotli.
-
-### 15. Missing Accessibility Improvements
-**Problem:** Mega menu lacks keyboard navigation (Tab/Escape support). Mobile menu has no focus trap. No skip-to-content link.
-
-**Fix:** Add `onKeyDown` handlers for Escape to close menus, focus trapping for mobile menu, and a skip navigation link.
+**Fix (informational):** Consider adding a pre-rendering service (e.g., prerender.io) or deploy with SSR/SSG in the future. For now, the `index.html` hardcoded tags at least provide a fallback.
 
 ---
 
-## Implementation Order
-1. YouTube facade (biggest performance win)
-2. robots.txt sitemap directive (2-minute fix, big SEO impact)
-3. JSON-LD cleanup (prevent duplicates)
-4. SEOHead on all pages (SEO lift)
-5. Defer chat widget
-6. NavBar timeout fix
-7. Remove unused code
-8. Add image dimensions
-9. Vite chunk splitting
-10. Reduce framer-motion usage
+## MEDIUM Priority Issues
+
+### 9. Chat Widget Script Leaks on Every Page
+The `SiteFooter` chat widget script is appended but the cleanup function is inside the `setTimeout` callback's return (which is ignored). The script is never removed on unmount.
+
+**Fix:** Move cleanup logic to the outer `useEffect` return.
+
+### 10. No `og:locale` Tag
+Missing `og:locale` meta tag. Facebook and social crawlers use this to determine content language.
+
+**Fix:** Add `<meta property="og:locale" content="en_US" />` to `SEOHead`.
+
+### 11. No `og:site_name` Tag
+Missing site name for social sharing context.
+
+**Fix:** Add `<meta property="og:site_name" content="Hireshore" />` to `SEOHead`.
+
+---
+
+## Implementation Plan
+
+### Step 1: Fix sitemap.xml
+- Correct 9 mismatched URLs to match actual routes
+- Add `/case-studies/ekleipsi-digital` and `/configure-pod`
+- Remove `/404` entry
+- Update all `lastmod` dates to `2026-03-25`
+
+### Step 2: Clean up index.html
+- Remove duplicate title, description, canonical, OG, and Twitter meta tags
+- Keep only: charset, viewport, theme-color, favicon, apple-touch-icon, fonts, preconnects
+
+### Step 3: Enhance SEOHead component
+- Add `og:locale` and `og:site_name` meta tags
+- Add explicit canonical URLs to all 73 pages that are missing them
+
+### Step 4: Fix Index.tsx structured data
+- Add cleanup in `useEffect` return to remove JSON-LD script on unmount
+
+### Step 5: Fix SiteFooter chat widget cleanup
+- Move script cleanup to outer useEffect return
 
