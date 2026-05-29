@@ -410,16 +410,16 @@ const AboutUs = () => {
                     className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
                   >
                     <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                      <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-                        <div className="text-2xl font-bold text-blue-600 mb-2">{item.year}</div>
-                        <div className="text-xl font-bold text-gray-900 mb-2">{item.title}</div>
-                        <div className="text-gray-600">{item.description}</div>
+                      <div className="bg-white rounded-xl p-6 shadow-lg border border-border">
+                        <div className="font-display text-2xl font-bold text-primary mb-2">{item.year}</div>
+                        <div className="font-display text-xl font-bold text-foreground mb-2">{item.title}</div>
+                        <div className="text-muted-foreground">{item.description}</div>
                       </div>
                     </div>
                     
                     {/* Timeline dot */}
                     <div className="relative z-10">
-                      <div className="w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
+                      <div className="w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg"></div>
                     </div>
                     
                     <div className="w-1/2"></div>
