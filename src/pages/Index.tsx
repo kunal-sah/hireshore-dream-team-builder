@@ -12,10 +12,8 @@ import { preloadCriticalResources, optimizeImageLoading } from "../utils/perform
 import { deferHeavyWork, preloadCriticalAssets, optimizeThirdPartyScripts } from "../utils/criticalPathOptimizer";
 
 // Lazy load below-fold components to reduce initial bundle
-const PodAtAGlance = lazy(() => import("../components/PodAtAGlance"));
-const HowItWorksSection = lazy(() => import("../components/HowItWorksSection"));
-const WhyPodsSection = lazy(() => import("../components/WhyPodsSection"));
-const ProofSection = lazy(() => import("../components/ProofSection"));
+const NepalAdvantage = lazy(() => import("../components/NepalAdvantage"));
+const TwoWaysToHire = lazy(() => import("../components/TwoWaysToHire"));
 const BenefitsSection = lazy(() => import("../components/BenefitsSection"));
 const MediaFeatures = lazy(() => import("../components/MediaFeatures"));
 const ServicesSection = lazy(() => import("../components/ServicesSection"));
@@ -153,41 +151,26 @@ const Index = () => {
         <TrustedStartups />
         <FoundersWall />
 
-
         <Suspense fallback={<ComponentLoader />}>
-          <PodAtAGlance />
-        </Suspense>
-        <section id="how-it-works">
-          <Suspense fallback={<ComponentLoader />}>
-            <HowItWorksSection />
-          </Suspense>
-        </section>
-        <section id="why-pods">
-          <Suspense fallback={<ComponentLoader />}>
-            <WhyPodsSection />
-          </Suspense>
-        </section>
-        <section id="proof">
-          <Suspense fallback={<ComponentLoader />}>
-            <ProofSection />
-          </Suspense>
-        </section>
-        <Suspense fallback={<ComponentLoader />}>
-          <BenefitsSection />
+          <NepalAdvantage />
         </Suspense>
         <Suspense fallback={<ComponentLoader />}>
-          <MediaFeatures />
+          <TwoWaysToHire />
         </Suspense>
-
-
         <Suspense fallback={<ComponentLoader />}>
           <ServicesSection />
+        </Suspense>
+        <Suspense fallback={<ComponentLoader />}>
+          <BenefitsSection />
         </Suspense>
         <Suspense fallback={<ComponentLoader />}>
           <RolesSection />
         </Suspense>
         <Suspense fallback={<ComponentLoader />}>
           <TestimonialsSection />
+        </Suspense>
+        <Suspense fallback={<ComponentLoader />}>
+          <MediaFeatures />
         </Suspense>
         <Suspense fallback={<ComponentLoader />}>
           <FAQSection />
