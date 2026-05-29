@@ -348,10 +348,10 @@ const AboutUs = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Our Values
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 These core values guide everything we do and shape how we work with our clients and team members.
               </p>
             </motion.div>
@@ -366,11 +366,11 @@ const AboutUs = () => {
                   viewport={{ once: true }}
                   className="text-center"
                 >
-                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <value.icon className="w-8 h-8 text-blue-600" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <value.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <h3 className="font-display text-xl font-bold text-foreground mb-3">{value.title}</h3>
+                  <p className="text-muted-foreground">{value.description}</p>
                 </motion.div>
               ))}
             </div>
