@@ -13,6 +13,12 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
+    name: "Dave Cannell",
+    title: "Cofounder & CEO, Sendr",
+    text: "Hireshore helped us hire reliable remote talent for key support and GTM roles at Sendr, including an EA/VA to the CEO and a GTM Engineer Consultant / Account Manager. Their team understood our needs quickly, shared relevant profiles, and made the hiring process smooth and efficient.",
+    photo: "/lovable-uploads/dave-cannell.png",
+  },
+  {
     name: "Aaron Erwich",
     title: "Founder, Digital Six",
     text: "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal. The WordPress guys are killing it. The SEO side is strong. This is way better than our past freelancer experience. I've already referred several people to Hireshore.",
