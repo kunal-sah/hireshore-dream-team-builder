@@ -397,7 +397,7 @@ const AboutUs = () => {
 
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-blue-200"></div>
+              <div className="absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-primary/20"></div>
               
               <div className="space-y-12">
                 {timeline.map((item, index) => (
