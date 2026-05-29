@@ -23,6 +23,7 @@ import uncommonSolutionsThumbnail from '../assets/thumbnails/uncommon-solutions-
 import coveDigitalThumbnail from '../assets/thumbnails/cove-digital-thumbnail-v2.jpg';
 import digitalSixLogo from '../assets/digital-six-logo.png';
 import ekleipsiLogo from '../assets/ekleipsi-logo.png';
+const sendrLogo = '/lovable-uploads/sendr-logo.png';
 import { SEOHead } from "@/components/SEOHead";
  
 interface CaseStudy {
