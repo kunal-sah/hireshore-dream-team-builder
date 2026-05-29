@@ -19,14 +19,8 @@ const testimonials: Testimonial[] = [
     videoId: "yW90cSyX_iI",
   },
   {
-    name: "Ryan Jope",
-    title: "Founder, PropertyStack",
-    text: "We've hired over 15 people through Hireshore in just a year — and could've done 10 more. Resume videos and pre-vetted candidates make the process easy. The quality from Nepal has been significantly better.",
-    photo: "/lovable-uploads/d4be4a5a-7f58-4205-b403-c137a43e5d8b.png",
-    videoId: "9xMVgH1j9XE",
-  },
-  {
     name: "Marlon M.",
+
     title: "Founder, Medz Media",
     text: "The best experience I've had working with a remote team. Websites came out fantastic — fast, secure, beautifully designed. Their energy, proactiveness, and suggestions make them feel like a real part of my business.",
     photo: "/lovable-uploads/fbdcffaa-5b42-4efe-ae99-e7cec23a54c8.png",
