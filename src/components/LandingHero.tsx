@@ -233,7 +233,7 @@ const LandingHero = () => {
               animate="visible"
             >
               <motion.button
-                className="inline-flex items-center justify-center h-12 sm:h-14 gradient-btn bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg text-sm sm:text-base transition-all hover:shadow-xl ripple-effect relative overflow-hidden w-full sm:min-w-[280px]"
+                className="inline-flex items-center justify-center h-12 sm:h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md text-sm sm:text-base transition-colors w-full sm:min-w-[280px]"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)"
