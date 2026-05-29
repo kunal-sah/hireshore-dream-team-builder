@@ -92,7 +92,7 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-12 sm:py-16 lg:py-20 bg-white">
+    <section id="services" className="py-16 md:py-24 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <motion.h2 
