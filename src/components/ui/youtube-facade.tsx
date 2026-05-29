@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Play } from 'lucide-react';
 
 interface YouTubeFacadeProps {
@@ -10,10 +10,25 @@ interface YouTubeFacadeProps {
 const YouTubeFacade: React.FC<YouTubeFacadeProps> = ({ videoId, title, className = "" }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [thumbnailUrl, setThumbnailUrl] = useState(
+    `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+  );
 
-  const handlePlayClick = () => {
-    setIsLoaded(true);
-  };
+  // Try to upgrade to maxresdefault; only swap in if it's a real image
+  // (YouTube returns a 120x90 gray placeholder when maxres doesn't exist).
+  useEffect(() => {
+    const hq = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+    const max = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+    setThumbnailUrl(hq);
+    setImageError(false);
+    const img = new Image();
+    img.onload = () => {
+      if (img.naturalWidth > 120) setThumbnailUrl(max);
+    };
+    img.src = max;
+  }, [videoId]);
+
+  const handlePlayClick = () => setIsLoaded(true);
 
   if (isLoaded) {
     return (
@@ -32,20 +47,22 @@ const YouTubeFacade: React.FC<YouTubeFacadeProps> = ({ videoId, title, className
   }
 
   return (
-    <div 
+    <div
       className={`${className} relative bg-gradient-to-br from-gray-800 to-gray-900 cursor-pointer group min-h-[200px] flex items-center justify-center`}
       onClick={handlePlayClick}
+      role="button"
+      aria-label={`Play video: ${title}`}
     >
-      {/* YouTube thumbnail image */}
       <img
-        src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+        src={thumbnailUrl}
         alt={title}
         className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
         onError={() => setImageError(true)}
         style={{ display: imageError ? 'none' : 'block' }}
       />
-      
-      {/* Fallback for when image fails to load */}
+
       {imageError && (
         <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
           <div className="text-center text-white p-6">
@@ -56,21 +73,12 @@ const YouTubeFacade: React.FC<YouTubeFacadeProps> = ({ videoId, title, className
           </div>
         </div>
       )}
-      
-      {/* Dark overlay */}
+
       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-      
-      {/* Play button */}
+
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="bg-red-600 hover:bg-red-700 rounded-full p-4 transition-all group-hover:scale-110 shadow-2xl">
           <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
-        </div>
-      </div>
-      
-      {/* Video title overlay */}
-      <div className="absolute bottom-4 left-4 right-4">
-        <div className="bg-black/80 text-white px-3 py-2 rounded text-sm font-medium">
-          {title}
         </div>
       </div>
     </div>
