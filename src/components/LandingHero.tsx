@@ -127,74 +127,8 @@ const LandingHero = () => {
   };
 
   return (
-    <header ref={heroRef} className="w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-20 sm:pt-28 pb-12 sm:pb-16 md:pb-20 px-4 relative overflow-hidden spotlight" style={{
-      '--x': '50%',
-      '--y': '50%',
-    } as React.CSSProperties}>
-      {/* Animated morphing background elements */}
-      <motion.div 
-        className="absolute inset-0 w-full h-full"
-        style={{ opacity }}
-      >
-        <motion.div 
-          className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-blue-200 to-purple-200 opacity-20 blur-3xl morphing-shape" 
-          style={{ y: bgY1 }}
-          animate={{ 
-            x: [0, 10, 0],
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-20 right-[15%] w-80 h-80 rounded-full bg-gradient-to-tr from-blue-200 to-indigo-200 opacity-20 blur-3xl morphing-shape"
-          style={{ y: bgY2 }}
-          animate={{
-            x: [0, -15, 0],
-            scale: [1, 1.07, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-            delay: 1
-          }}
-        />
-        
-        {/* Add more subtle floating elements */}
-        <motion.div 
-          className="absolute top-[30%] right-[25%] w-24 h-24 rounded-full bg-gradient-to-r from-cyan-200 to-blue-200 opacity-10 blur-xl"
-          animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            repeatType: "reverse",
-            delay: 0.5
-          }}
-        />
-        
-        <motion.div 
-          className="absolute bottom-[40%] left-[20%] w-32 h-32 rounded-full bg-gradient-to-r from-purple-200 to-pink-200 opacity-10 blur-xl"
-          animate={{
-            y: [0, 15, 0],
-            x: [0, -10, 0],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            repeatType: "reverse",
-            delay: 2
-          }}
-        />
-      </motion.div>
+    <header ref={heroRef} className="w-full bg-background pt-20 sm:pt-28 pb-12 sm:pb-16 md:pb-20 px-4 relative overflow-hidden border-b border-border">
+
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Side-by-side layout */}
