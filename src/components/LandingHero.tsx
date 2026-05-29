@@ -290,7 +290,7 @@ const LandingHero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           >
-            <div className="relative bg-white rounded-2xl shadow-2xl p-4">
+            <div className="relative bg-white rounded-lg border border-border shadow-sm p-3">
               <YouTubeFacade
                 videoId="kdXYdRxr4qA"
                 title="Stop Chasing Updates: Organize Tasks & Teams in One Place"
