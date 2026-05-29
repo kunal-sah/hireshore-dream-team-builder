@@ -1,48 +1,48 @@
-## Goal
+# Navigation Restructure Plan
 
-Tighten the homepage by replacing the dense 11-role grid in `ServicesSection` with a compact "What our pods cover" category strip. Preserve the detailed role content by moving it to `/services` (full catalog) — relevant `/services/*` pod pages already exist and remain the destination for deep dives.
+## New top-level structure
 
-## Homepage change
-
-Replace `src/components/ServicesSection.tsx` content with a slim section:
-
-- Heading: **What our pods cover**
-- Subhead: One line reinforcing managed pods (not job-board hiring)
-- 6 category cards (icon + title + 1-line description), single row on desktop / 2-col on mobile:
-
-```text
-1. Bookkeeping & Billing       → /services/web-dev (replace with finance pod when added)
-2. Virtual Assistants & Admin  → /services/support-qa-pod
-3. Customer Support (calls/chat/24·7) → /services/support-qa-pod
-4. Appointment Setting         → /services/marketing-ops-pod
-5. Design & Content            → /services/design-pod
-6. SEO & Marketing Ops         → /services/seo-content-pod
+```
+Services ▾   Staffing ▾   Pricing   Case Studies   Resources ▾   [Book a paid trial]
 ```
 
-- Single CTA: **"See all roles →"** linking to `/services`
-- Keep existing `id="services"` anchor and section spacing tokens
+Reduces 7 items → 5, removes overlap, promotes Case Studies (highest-converting page), aligns CTA with "paid trial" rule.
 
-Result: removes ~60% of vertical scroll between `TwoWaysToHire` and `FoundersWall`, gets users to social proof + Calendly faster.
+---
 
-## Move detailed roles to /services
+## Changes
 
-Update `src/pages/Services.tsx` to host the full catalog currently on the homepage:
+### 1. `src/components/NavBar.tsx`
+- Remove top-level items: **Pod**, **Solutions**, **Industries**, **Company**.
+- Add **Services** (merged) and **Case Studies** (flat link to `/case-studies`).
+- Final order: Services ▾ · Staffing ▾ · Pricing · Case Studies · Resources ▾ · CTA.
+- Rename CTA button "Book a Call" → "Book a paid trial" (keeps existing Calendly URL + UTM tracking).
+- Mobile menu: convert flat links to **accordion** — each section expands to show sub-items from the mega-menu data, so mobile users get parity with desktop.
 
-- Two columns retained: **Admin & Support Roles** and **Back-Office & Marketing Roles**
-- All 11 roles with full descriptions (Virtual Assistants, Call Answering, Web Chat, Appointment Setters, 24/7 Support, Business Continuity, Bookkeepers, Billing & Accounts, Graphics Designers, SEO Specialists, Content Creators)
-- Each role links to its matching `/services/*` pod page where applicable
-- Keeps Paid-trial CTA at the bottom
+### 2. `src/components/MegaMenu.tsx`
+- **Merge `solutions` + `services` → single `services` menu** with 3 columns:
+  - *Delivery Pods*: Web Dev, Design, Video, SEO & Content, Marketing Ops, Data/AI, Support & QA
+  - *By Outcome*: Launch faster, Scale design, Automate ops, Fill pipeline, Support & QA
+  - *How it works*: Process & SLAs, QA Framework, Onboarding, Case Studies
+  - Spotlight card: "Configure your Delivery Pod" → `/configure-pod`
+- **Update `resources` menu** — add a 4th column **"Browse by industry"** with the 8 industry links (Agencies, Real Estate, E-commerce, SaaS/Tech, Healthcare, Education, Hospitality, Finance).
+- **Remove `solutions` and `company` menu definitions** (no longer triggered from nav).
 
-I'll first read `src/pages/Services.tsx` to merge cleanly without duplicating sections it already renders.
+### 3. `src/components/SiteFooter.tsx`
+- Ensure footer columns include the demoted items: **Company** (About, Team, Careers, Partners, Contact), **Industries** (full list), and **Solutions by role** (Agency Owners, Marketing Leaders, Founders, HR/Recruiters). Add/expand columns as needed. All existing pages remain reachable.
+
+### 4. Routes
+- No route changes. All existing pages (`/solutions/*`, `/industries/*`, `/company/*`, `/about-us`) remain live and linked from footer + mega-menu + internal pages. Nothing breaks SEO.
+
+---
+
+## Out of scope
+- No page content changes
+- No design-token / color / typography changes
+- No new pages created
+- Edge functions, backend, forms untouched
 
 ## Files touched
-
-- `src/components/ServicesSection.tsx` — replaced with compact category strip
-- `src/pages/Services.tsx` — full role catalog added/merged
-- `.lovable/plan.md` — short note appended to record the change
-
-## Not changed
-
-- `src/pages/Index.tsx` order stays the same (ServicesSection keeps its slot)
-- `TwoWaysToHire`, `NepalAdvantage`, `FoundersWall`, `TestimonialsSection`, `FAQ`, `Calendly` untouched
-- No design-token, typography, or color changes (Navy Trust palette preserved, no gradients)
+- `src/components/NavBar.tsx`
+- `src/components/MegaMenu.tsx`
+- `src/components/SiteFooter.tsx`
