@@ -253,7 +253,7 @@ const LandingHero = () => {
               </motion.button>
 
               <motion.button
-                className="inline-flex items-center justify-center h-12 sm:h-14 border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-sm sm:text-base transition-all w-full sm:min-w-[220px]"
+                className="inline-flex items-center justify-center h-12 sm:h-14 border border-border text-foreground hover:bg-secondary font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md text-sm sm:text-base transition-colors w-full sm:min-w-[220px]"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
