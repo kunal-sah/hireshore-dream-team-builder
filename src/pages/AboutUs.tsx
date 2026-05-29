@@ -176,7 +176,7 @@ const AboutUs = () => {
         </section>
 
         {/* Our Story */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <section className="py-12 sm:py-16 lg:py-20 bg-surface">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
