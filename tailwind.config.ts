@@ -113,6 +113,10 @@ export default {
 					'50%': { borderRadius: '50% 50% 33% 67% / 55% 27% 73% 45%' },
 					'75%': { borderRadius: '33% 67% 58% 42% / 63% 68% 32% 37%' },
 					'100%': { borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%' }
+				},
+				'marquee': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
@@ -122,7 +126,8 @@ export default {
 				'pulse-subtle': 'pulse-subtle 4s ease-in-out infinite',
 				'shimmer': 'shimmer 2s infinite',
 				'text-gradient': 'text-gradient 5s linear infinite',
-				'morph': 'morph 15s ease-in-out infinite alternate'
+				'morph': 'morph 15s ease-in-out infinite alternate',
+				'marquee': 'marquee 30s linear infinite'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
