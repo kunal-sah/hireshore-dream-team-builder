@@ -35,11 +35,11 @@ const LandingHero = () => {
   const getSubtitleText = () => {
     switch (selectedAudience) {
       case 'agencies':
-        return "Agency buried in client work? Our managed Delivery Pods cut fulfillment by up to 80% in a week - no hiring, no freelancer chasing.";
+        return "Agency buried in client work? Hire vetted Nepal-based specialists or a full Delivery Pod — fully managed, 70–80% lower cost than local hires, no freelancer chasing.";
       case 'startups':
-        return "Building a product on a budget? Get the output of a full‑time hire with a managed, multi‑skill team that ships by Day 5.";
+        return "Building on a budget? Get senior offshore talent or a cross-functional pod from Nepal — same expertise, a fraction of the cost, fully managed by us.";
       default:
-        return "Whether you're a product team racing to ship or an agency buried in client work, our managed Delivery Pods give you the output of a full-time hire, with multiple skills, faster onboarding, and zero hiring headaches.";
+        return "Managed offshore teams from Nepal. Dedicated specialists or full cross-functional pods — same senior expertise as US/UK/AU hires, 70–80% lower cost, zero hiring headaches.";
     }
   };
 
@@ -177,14 +177,14 @@ const LandingHero = () => {
               </div>
             </motion.div>
 
-            <h1 className="text-[28px] sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-[1.1] sm:leading-[1.05] tracking-tight text-balance">
+            <h1 className="text-[28px] sm:text-4xl md:text-5xl lg:text-6xl font-bold font-display text-gray-900 leading-[1.1] sm:leading-[1.05] tracking-tight text-balance">
               <motion.span 
                 className="inline-block"
                 initial={{ opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                Full-Time Capacity. Without the Overhead.
+                Senior offshore teams from Nepal. <span className="text-primary-variant">70–80% less cost.</span>
               </motion.span>
             </h1>
 
@@ -264,7 +264,7 @@ const LandingHero = () => {
                   }
                 }}
               >
-                <span>See How Pods Work</span>
+                <span>How it works</span>
               </motion.button>
             </motion.div>
             

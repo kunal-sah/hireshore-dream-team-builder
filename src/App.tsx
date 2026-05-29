@@ -17,6 +17,7 @@ const Services = lazy(() => import("./pages/Services"));
 const Solutions = lazy(() => import("./pages/Solutions"));
 const Staffing = lazy(() => import("./pages/Staffing"));
 const ConfigurePod = lazy(() => import("./pages/ConfigurePod"));
+const DeliveryPods = lazy(() => import("./pages/DeliveryPods"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Industries = lazy(() => import("./pages/Industries"));
 const Resources = lazy(() => import("./pages/Resources"));
@@ -186,6 +187,7 @@ const App = () => (
             <Route path="/staffing/build-team" element={<BuildTeam />} />
             <Route path="/how-it-works/process-sla" element={<ProcessSLA />} />
             <Route path="/configure-pod" element={<ConfigurePod />} />
+            <Route path="/delivery-pods" element={<DeliveryPods />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/industries/agencies" element={<Agencies />} />
