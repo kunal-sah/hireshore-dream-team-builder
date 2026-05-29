@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
-import { Phone, Users, Headphones, Pointer, ArrowDown } from "lucide-react";
+import { Phone, Users, Headphones, Pointer, ArrowDown, Star } from "lucide-react";
 import YouTubeFacade from "./ui/youtube-facade";
 import { trackCTAClick } from "@/utils/utmTracking";
 
@@ -315,7 +315,7 @@ const LandingHero = () => {
             
             {/* Micro-reassurance */}
             <motion.div 
-              className="mb-6"
+              className="mb-6 space-y-4"
               custom={6}
               variants={textVariants}
               initial="hidden"
@@ -324,6 +324,37 @@ const LandingHero = () => {
               <p className="text-sm text-gray-600 font-medium">
                 Paid trial available · 1–2 weeks, no long-term commitment · ~30 seconds to book.
               </p>
+
+              {/* Trust badge: avatar stack + stars */}
+              <div className="flex items-center gap-3 flex-wrap">
+                <div className="flex -space-x-3">
+                  {[
+                    "/lovable-uploads/dave-cannell.png",
+                    "/lovable-uploads/john-bromley.png",
+                    "/lovable-uploads/8d290392-3676-42f7-91a8-d1bb48f6fca7.png",
+                    "/lovable-uploads/d4be4a5a-7f58-4205-b403-c137a43e5d8b.png",
+                    "/lovable-uploads/fbdcffaa-5b42-4efe-ae99-e7cec23a54c8.png",
+                  ].map((src, i) => (
+                    <img
+                      key={i}
+                      src={src}
+                      alt=""
+                      loading="lazy"
+                      className="w-9 h-9 rounded-full object-cover ring-2 ring-white shadow-sm bg-gray-100"
+                    />
+                  ))}
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-0.5 text-yellow-400">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-sm text-gray-600 font-medium">
+                    Trusted by 25+ global founders &amp; agencies
+                  </p>
+                </div>
+              </div>
             </motion.div>
             
           </motion.div>
