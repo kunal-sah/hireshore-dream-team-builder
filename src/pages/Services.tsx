@@ -21,7 +21,14 @@ import {
   ArrowRight,
   Phone,
   Code,
-  Briefcase
+  Briefcase,
+  Calculator,
+  Receipt,
+  User,
+  Headphones,
+  Calendar,
+  Search,
+  FileEdit
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 
