@@ -161,14 +161,14 @@ const AboutUs = () => {
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05 }}
-                  className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center"
+                  className="bg-white rounded-2xl p-6 shadow-lg border border-border text-center"
                 >
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <stat.icon className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <stat.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-1">{stat.number}</div>
-                  <div className="text-lg font-semibold text-gray-700 mb-2">{stat.label}</div>
-                  <div className="text-sm text-gray-500">{stat.description}</div>
+                  <div className="font-display text-3xl font-bold text-foreground mb-1">{stat.number}</div>
+                  <div className="text-lg font-semibold text-foreground/80 mb-2">{stat.label}</div>
+                  <div className="text-sm text-muted-foreground">{stat.description}</div>
                 </motion.div>
               ))}
             </motion.div>
