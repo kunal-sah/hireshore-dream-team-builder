@@ -206,68 +206,89 @@ const LandingHero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-tight tracking-tight">
+            {/* Eyebrow trust badge */}
+            <motion.div
+              className="flex items-center gap-3 flex-wrap"
+              custom={1}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <div className="flex -space-x-3">
+                {[
+                  "/lovable-uploads/dave-cannell.png",
+                  "/lovable-uploads/john-bromley.png",
+                  "/lovable-uploads/8d290392-3676-42f7-91a8-d1bb48f6fca7.png",
+                  "/lovable-uploads/d4be4a5a-7f58-4205-b403-c137a43e5d8b.png",
+                  "/lovable-uploads/fbdcffaa-5b42-4efe-ae99-e7cec23a54c8.png",
+                ].map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt=""
+                    loading="lazy"
+                    className="w-8 h-8 rounded-full object-cover ring-2 ring-white shadow-sm bg-gray-100"
+                  />
+                ))}
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-0.5 text-yellow-400">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-current" />
+                  ))}
+                </div>
+                <p className="text-sm text-gray-600 font-medium">
+                  Trusted by 25+ founders &amp; agencies
+                </p>
+              </div>
+            </motion.div>
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-[1.05] tracking-tight text-balance">
               <motion.span 
                 className="inline-block"
                 initial={{ opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                Get Full-Time Capacity Without the Full-Time Overhead
+                Full-Time Capacity. Without the Overhead.
               </motion.span>
             </h1>
-            
-            <motion.p 
-              className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl"
+
+            {/* Audience tabs — above subtitle so users filter before reading */}
+            <motion.div
               custom={2}
               variants={textVariants}
               initial="hidden"
               animate="visible"
-              key={selectedAudience} // Add key to re-animate when audience changes
             >
-              {getSubtitleText()}
-            </motion.p>
-            
-            <motion.div 
-              className=""
+              <div className="flex flex-wrap justify-start gap-2">
+                {(['all','agencies','startups'] as const).map((aud) => (
+                  <button
+                    key={aud}
+                    className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                      selectedAudience === aud
+                        ? 'bg-gray-900 text-white'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                    onClick={() => setSelectedAudience(aud)}
+                  >
+                    {aud === 'all' ? 'All' : aud === 'agencies' ? 'Agencies' : 'Startups'}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.p 
+              className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl"
               custom={3}
               variants={textVariants}
               initial="hidden"
               animate="visible"
+              key={selectedAudience}
             >
-              <div className="flex flex-wrap justify-start gap-2 mb-6">
-                <button 
-                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
-                    selectedAudience === 'all' 
-                      ? 'bg-gray-900 text-white' 
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                  onClick={() => setSelectedAudience('all')}
-                >
-                  All
-                </button>
-                <button 
-                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
-                    selectedAudience === 'agencies' 
-                      ? 'bg-gray-900 text-white' 
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                  onClick={() => setSelectedAudience('agencies')}
-                >
-                  Agencies
-                </button>
-                <button 
-                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
-                    selectedAudience === 'startups' 
-                      ? 'bg-gray-900 text-white' 
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                  onClick={() => setSelectedAudience('startups')}
-                >
-                  Startups
-                </button>
-              </div>
-            </motion.div>
+              {getSubtitleText()}
+            </motion.p>
+
 
             {/* CTAs */}
             <motion.div 
@@ -313,9 +334,9 @@ const LandingHero = () => {
               </motion.button>
             </motion.div>
             
-            {/* Micro-reassurance */}
+            {/* Micro-reassurance (trust badge moved to eyebrow above) */}
             <motion.div 
-              className="mb-6 space-y-4"
+              className="mb-2"
               custom={6}
               variants={textVariants}
               initial="hidden"
@@ -324,37 +345,6 @@ const LandingHero = () => {
               <p className="text-sm text-gray-600 font-medium">
                 Paid trial available · 1–2 weeks, no long-term commitment · ~30 seconds to book.
               </p>
-
-              {/* Trust badge: avatar stack + stars */}
-              <div className="flex items-center gap-3 flex-wrap">
-                <div className="flex -space-x-3">
-                  {[
-                    "/lovable-uploads/dave-cannell.png",
-                    "/lovable-uploads/john-bromley.png",
-                    "/lovable-uploads/8d290392-3676-42f7-91a8-d1bb48f6fca7.png",
-                    "/lovable-uploads/d4be4a5a-7f58-4205-b403-c137a43e5d8b.png",
-                    "/lovable-uploads/fbdcffaa-5b42-4efe-ae99-e7cec23a54c8.png",
-                  ].map((src, i) => (
-                    <img
-                      key={i}
-                      src={src}
-                      alt=""
-                      loading="lazy"
-                      className="w-9 h-9 rounded-full object-cover ring-2 ring-white shadow-sm bg-gray-100"
-                    />
-                  ))}
-                </div>
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-0.5 text-yellow-400">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-gray-600 font-medium">
-                    Trusted by 25+ global founders &amp; agencies
-                  </p>
-                </div>
-              </div>
             </motion.div>
             
           </motion.div>
@@ -372,11 +362,12 @@ const LandingHero = () => {
                 title="Stop Chasing Updates: Organize Tasks & Teams in One Place"
                 className="aspect-video bg-gray-100 rounded-xl overflow-hidden"
               />
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-900/90 text-white px-6 py-3 rounded-full text-sm font-medium">
+              <p className="mt-3 text-center text-sm font-medium text-gray-700">
                 Stop chasing updates. Get organized.
-              </div>
+              </p>
             </div>
           </motion.div>
+
         </div>
       </div>
     </header>

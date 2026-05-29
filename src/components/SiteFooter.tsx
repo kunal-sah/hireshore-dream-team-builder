@@ -39,7 +39,7 @@ const SiteFooter = () => {
   };
 
   const footerLinks = [
-    { icon: "📞", text: "Book a free strategy call", href: "/contact-us#book" },
+    { icon: "📞", text: "Book a strategy call", href: "/contact-us#book" },
     { icon: "📧", text: "kunal@hireshore.co", href: "mailto:kunal@hireshore.co" },
     { icon: "🌐", text: "www.hireshore.co", href: "https://www.hireshore.co", external: true },
   ];

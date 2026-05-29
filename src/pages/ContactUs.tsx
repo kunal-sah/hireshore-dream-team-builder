@@ -99,7 +99,7 @@ const ContactUs = () => {
       <SEOHead
         canonicalUrl="https://hireshore.co/contact-us"
         title="Contact Us | Book a Free Strategy Call | Hireshore"
-        description="Get in touch with Hireshore. Book a free strategy call to discuss how delivery pods can help you scale."
+        description="Get in touch with Hireshore. Book a strategy call to discuss how delivery pods can help you scale."
         keywords="contact hireshore, strategy call, get in touch"
       />
       <title>Contact Us - Hireshore | Get In Touch</title>
@@ -357,7 +357,7 @@ const ContactUs = () => {
                 Ready to Get Started?
               </h2>
               <p className="text-lg sm:text-xl text-white/90 mb-8 px-4">
-                Book a free 30-minute strategy session to discuss your needs and see how we can help.
+                Book a 30-minute strategy call to discuss your needs and see how we can help.
               </p>
               
               {/* Calendly Widget Placeholder */}

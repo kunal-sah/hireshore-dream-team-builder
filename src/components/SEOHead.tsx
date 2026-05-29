@@ -12,7 +12,7 @@ interface SEOHeadProps {
 
 export const SEOHead = ({
   title = "Done-For-You Delivery Pods | Scale With Hireshore",
-  description = "Scale without chaos with Hireshore's vetted delivery pods for dev, design, automation & support. Real case studies. Book a free strategy call.",
+  description = "Scale without chaos with Hireshore's vetted delivery pods for dev, design, automation & support. Real case studies. Book a strategy call.",
   keywords = "delivery pods, offshore development, remote team, managed services, web development, design services, marketing automation",
   ogImage = "https://hireshore.co/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png",
   ogType = "website",

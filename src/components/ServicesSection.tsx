@@ -209,7 +209,7 @@ const ServicesSection = () => {
                 }
               }}
             >
-              👉 Book a Free Strategy Session
+              Get My Delivery Pod
             </Button>
           </motion.div>
         </div>
