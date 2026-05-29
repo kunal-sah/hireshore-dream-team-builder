@@ -439,17 +439,17 @@ const AboutUs = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
                 Ready to Join Our Success Story?
               </h2>
-              <p className="text-xl text-white/90 mb-8">
-                Let's discuss how our delivery pods can help scale your business efficiently.
+              <p className="text-xl text-primary-foreground/90 mb-8">
+                Let's discuss how our delivery pods — or our new Direct Hire service — can help scale your business efficiently.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-colors"
+                  className="bg-white text-primary hover:bg-surface font-semibold px-8 py-3 rounded-lg transition-colors"
                   onClick={() => window.location.href = '/contact-us'}
                 >
                   Get In Touch
