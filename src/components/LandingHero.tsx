@@ -258,10 +258,7 @@ const LandingHero = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
                   trackCTAClick('hero_see_how_pods_work', 'hero_section');
-                  const element = document.getElementById('how-it-works');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
+                  window.location.href = '/delivery-pods';
                 }}
               >
                 <span>How it works</span>
