@@ -147,7 +147,7 @@ const Index = () => {
       />
       <NavBar />
       <LandingHero />
-      <main className="space-y-16 md:space-y-20 py-8">
+      <main>
         <TrustedStartups />
         <FoundersWall />
 

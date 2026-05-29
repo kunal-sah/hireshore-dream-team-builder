@@ -1,68 +1,89 @@
-# Homepage Refocus Plan
 
-## Strategic shift
+# Homepage section-gap fix
 
-**Current problem:** Homepage spends 5 sections explaining "what is a Delivery Pod" before showing proof, price, or the Nepal cost-saving angle. Visitors who came for "affordable offshore talent" have to scroll through a product-education funnel first.
+## Root cause
 
-**New positioning order (top → bottom):**
-1. Hook: Nepal-based managed teams, 70–80% cost savings, same expertise
-2. Proof: who trusts us (logos, testimonials)
-3. What you get: two clear offers — (a) Dedicated talent / team augmentation, (b) Cross-functional Pods
-4. How we hire/vet (trust on talent quality)
-5. Pricing snapshot + paid trial CTA
-6. FAQ + final CTA
+`src/pages/Index.tsx` wraps every homepage section in:
 
-## Homepage section changes
+```tsx
+<main className="space-y-16 md:space-y-20 py-8">
+```
 
-### Keep on homepage (lean versions)
-- `LandingHero` — rewrite copy to lead with "Managed offshore teams from Nepal. 70–80% lower cost, senior talent, fully managed."
-- `TrustedStartups` (logos)
-- `PodAtAGlance` — **shrink to 3 tiles**, reframe as "Two ways to hire" (Dedicated Talent / Cross-functional Pod / Managed by us)
-- `ProofSection` or `TestimonialsSection` (pick one, not both)
-- `ServicesSection` — keep, it shows the range
-- A new compact **"Nepal advantage"** strip: cost comparison ($ vs US/AU/UK), timezone overlap, English fluency, retention rate
-- `BenefitsSection` (trimmed)
-- Pricing teaser + paid trial CTA
-- `FAQSection` (top 4–5 only)
-- `SiteFooter`
+Each child section already owns its vertical padding (`py-12` / `py-16` / `py-20`). Stacking `space-y-20` on top of two `py-20` sections creates ~240px of empty space between sections. When adjacent sections have different background colors (white vs `bg-muted`/`bg-surface`), the gap reads as a "broken" white band sandwiched between colored sections — which is exactly what the screenshots show.
 
-### Move OFF homepage to a dedicated `/delivery-pods` page
-- `DeliveryPodDefinition` (full definition)
-- `InsideDeliveryPod` (Agency Pod vs Product Builder Pod)
-- `HowItWorksSection` (Day 1–2 / 3–4 / 5)
-- `WhyPodsSection` (comparison table)
-- Plus a CTA back to "Book a Pod"
+## Fix (4 changes)
 
-Link to it from the new compact "Two ways to hire" tile and from the nav (Services → Delivery Pods).
+### 1. Remove the double spacing on `<main>`
 
-### Optional: also create `/why-nepal` page later
-For deeper cost-savings storytelling, talent sourcing, timezone, case studies of Nepali talent. Not required now — a strip on homepage is enough.
+`src/pages/Index.tsx` line 150:
 
-## Why this works
+```diff
+- <main className="space-y-16 md:space-y-20 py-8">
++ <main>
+```
 
-- **Faster value clarity:** A cost-conscious founder sees "Nepal, 70–80% off, managed" in the first viewport instead of "what is a pod?"
-- **Two clean offers** instead of one fuzzy product education funnel
-- **Shorter homepage** (~8 sections vs ~13) — better mobile experience, better conversion
-- **Pod page becomes a real sales asset** — anyone seriously evaluating Pods gets the full story on one focused URL, better for SEO too ("delivery pod", "cross-functional pod team" keywords)
-- **Nepal angle becomes the headline** instead of being buried — that's your moat, lean into it
+Sections will then sit flush against each other and own their own rhythm.
 
-## Files affected (when we build)
+### 2. Standardize section padding
 
-- `src/pages/Index.tsx` — remove 4 sections, add Nepal-advantage strip, reorder
-- `src/pages/DeliveryPods.tsx` — **new page** composing the 4 moved sections + hero + CTA
-- `src/App.tsx` — register `/delivery-pods` route
-- `src/components/NavBar.tsx` + `MegaMenu.tsx` — add link
-- `src/components/LandingHero.tsx` — rewrite headline + subhead
-- `src/components/PodAtAGlance.tsx` — reduce to 3 tiles, reframe as "Two ways to hire" + "Fully managed"
-- New: `src/components/NepalAdvantage.tsx` — cost comparison strip
-- `public/sitemap.xml` + SEO metadata
+Audit every homepage section component and normalize the wrapper to ONE rule:
 
-## Open question for you
+```
+py-16 md:py-24
+```
 
-Before I write the implementation plan, confirm:
+Sections to align: `TrustedStartups`, `FoundersWall`, `NepalAdvantage`, `TwoWaysToHire`, `ServicesSection`, `BenefitsSection`, `RolesSection`, `TestimonialsSection`, `MediaFeatures`, `FAQSection`, `CalendlySection`.
 
-1. **Two offers or one?** Do you want to sell (a) "Dedicated talent / staff augmentation" AND (b) "Delivery Pods" as two distinct products on the homepage, or collapse both into one "Managed Nepal teams" offer and treat Pods as just one configuration?
-2. **Cost claim:** Can we show a concrete comparison (e.g. "$2,500/mo Nepal vs $8,000/mo US designer") or keep it as "70–80% savings" copy only?
-3. **Paid trial:** Keep the 1–2 week paid trial as the primary CTA on homepage?
+Exceptions: `TrustedStartups` (logo strip) can stay tighter at `py-10 md:py-14`.
 
-Answer those and I'll finalize the build plan.
+### 3. Establish a clean background rhythm
+
+Currently random. Switch to a deliberate alternation so the eye expects each transition:
+
+```text
+LandingHero          → bg-background (white)
+TrustedStartups      → bg-background
+FoundersWall         → bg-surface     (navy-50)
+NepalAdvantage       → bg-primary     (navy, white text)  ← anchor band
+TwoWaysToHire        → bg-background
+ServicesSection      → bg-surface
+BenefitsSection      → bg-background
+RolesSection         → bg-surface
+TestimonialsSection  → bg-background
+MediaFeatures        → bg-surface
+FAQSection           → bg-background
+CalendlySection      → bg-surface
+SiteFooter           → bg-primary
+```
+
+With sections flush + alternating tones, transitions become a deliberate visual rhythm instead of arbitrary white voids.
+
+### 4. Fix the three secondary issues visible in screenshots
+
+- **Orphan "Get My Delivery Pod" CTA pill** sitting between `TwoWaysToHire` and `BenefitsSection`: move it inside `TwoWaysToHire`'s own footer area (under the two cards) so it belongs to that section instead of floating in the gap.
+- **Floating Kunal avatar** above `CalendlySection`: it currently appears alone in a white band because of the gap. Once gaps collapse it will sit naturally above the heading. Also wrap it + heading + subhead in a single tight stack (`space-y-4`) so it never visually orphans again.
+- **Serif italic "our clients"** heading in `TestimonialsSection`: replace the italic serif span with the system display font (`font-display`) and use `text-primary` as the accent treatment instead of a different typeface. Keeps Navy Trust typography contract.
+
+## Files affected
+
+- `src/pages/Index.tsx` — remove `space-y` + `py-8` on `<main>`
+- `src/components/TrustedStartups.tsx`
+- `src/components/FoundersWall.tsx`
+- `src/components/NepalAdvantage.tsx`
+- `src/components/TwoWaysToHire.tsx` — also absorb the orphan CTA
+- `src/components/ServicesSection.tsx`
+- `src/components/BenefitsSection.tsx`
+- `src/components/RolesSection.tsx`
+- `src/components/TestimonialsSection.tsx` — also fix serif italic heading
+- `src/components/MediaFeatures.tsx`
+- `src/components/FAQSection.tsx`
+- `src/components/CalendlySection.tsx` — wrap avatar+heading+subhead in tight stack
+
+No copy changes, no logic changes, no new components. Pure layout/rhythm pass.
+
+## Expected outcome
+
+- No more white "dead bands" between sections.
+- Sections feel like one continuous page with intentional color rhythm.
+- The NepalAdvantage navy band becomes a clear anchor mid-page instead of being lost in noise.
+- Typography stays consistent (no rogue serif).

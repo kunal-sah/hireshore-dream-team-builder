@@ -61,12 +61,13 @@ const TrustedStartups = () => {
 
   return (
     <motion.section
-      className="max-w-6xl mx-auto py-8 px-4"
+      className="bg-background py-10 md:py-14 px-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
+      <div className="max-w-6xl mx-auto">
       <div className="text-center mb-6">
         <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">
           Trusted by 25+ Global Startups
@@ -109,6 +110,7 @@ const TrustedStartups = () => {
             </a>
           ))}
         </div>
+      </div>
       </div>
     </motion.section>
   );

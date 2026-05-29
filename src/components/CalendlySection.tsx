@@ -54,7 +54,7 @@ const CalendlySection = () => {
       ref={sectionRef}
       id="book" 
       aria-label="Book a meeting" 
-      className="py-12 sm:py-16 bg-gray-50"
+      className="py-16 md:py-24 bg-secondary"
       style={{ scrollMarginTop: '96px' }}
     >
       <div className="max-w-4xl mx-auto px-4">

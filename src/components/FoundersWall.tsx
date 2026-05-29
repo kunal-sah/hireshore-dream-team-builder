@@ -20,45 +20,47 @@ const item = { hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } };
 const FoundersWall = () => {
   return (
     <motion.section
-      className="max-w-5xl mx-auto px-4"
+      className="bg-secondary py-16 md:py-24 px-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <div className="text-center mb-6">
-        <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">
-          And the founders who trust our pods
-        </span>
-      </div>
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-6">
+          <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+            And the founders who trust our pods
+          </span>
+        </div>
 
-      <motion.div
-        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-3 sm:gap-x-6 sm:gap-y-5"
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        {founders.map((f) => (
-          <motion.div
-            key={f.name}
-            variants={item}
-            whileHover={{ y: -2 }}
-            className="flex items-center gap-2 sm:gap-3 bg-white border border-gray-100 rounded-full pl-1 pr-3 sm:pr-4 py-1 shadow-sm hover:shadow-md hover:border-purple-200 transition-all overflow-hidden min-w-0"
-          >
-            <img
-              src={f.photo}
-              alt={f.name}
-              loading="lazy"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover ring-2 ring-purple-100 bg-gray-100 flex-shrink-0"
-            />
-            <div className="min-w-0 flex-1">
-              <p className="text-xs sm:text-sm font-semibold text-gray-900 truncate">{f.name}</p>
-              <p className="text-[11px] sm:text-xs text-gray-500 truncate">{f.title}</p>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-3 sm:gap-x-6 sm:gap-y-5"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          {founders.map((f) => (
+            <motion.div
+              key={f.name}
+              variants={item}
+              whileHover={{ y: -2 }}
+              className="flex items-center gap-2 sm:gap-3 bg-white border border-gray-100 rounded-full pl-1 pr-3 sm:pr-4 py-1 shadow-sm hover:shadow-md hover:border-purple-200 transition-all overflow-hidden min-w-0"
+            >
+              <img
+                src={f.photo}
+                alt={f.name}
+                loading="lazy"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover ring-2 ring-purple-100 bg-gray-100 flex-shrink-0"
+              />
+              <div className="min-w-0 flex-1">
+                <p className="text-xs sm:text-sm font-semibold text-gray-900 truncate">{f.name}</p>
+                <p className="text-[11px] sm:text-xs text-gray-500 truncate">{f.title}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </motion.section>
   );
 };

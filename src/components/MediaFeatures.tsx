@@ -43,12 +43,13 @@ const MediaFeatures = () => {
 
   return (
     <motion.section 
-      className="max-w-5xl mx-auto py-8 px-4"
+      className="bg-secondary py-16 md:py-24 px-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
+      <div className="max-w-5xl mx-auto">
       <motion.div 
         className="text-center mb-6"
         initial={{ opacity: 0, y: 20 }}
@@ -104,6 +105,7 @@ const MediaFeatures = () => {
           </motion.div>
         ))}
       </motion.div>
+      </div>
     </motion.section>
   );
 };
