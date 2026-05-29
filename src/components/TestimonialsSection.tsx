@@ -19,6 +19,12 @@ const testimonials = [
     photo: "/lovable-uploads/dave-cannell.png",
   },
   {
+    name: "John Bromley",
+    title: "Cofounder, Sendr",
+    text: "Working with Hireshore has been a great experience. They quickly understood our GTM and outbound needs and helped us bring on the right talent to support our growth at Sendr. The process was smooth, and the people they placed have been a strong fit for the team.",
+    photo: "/lovable-uploads/john-bromley.png",
+  },
+  {
     name: "Aaron Erwich",
     title: "Founder, Digital Six",
     text: "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal. The WordPress guys are killing it. The SEO side is strong. This is way better than our past freelancer experience. I've already referred several people to Hireshore.",
