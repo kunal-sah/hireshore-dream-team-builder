@@ -21,7 +21,7 @@ const benefits = [
   {
     emoji: "🔁",
     title: "Zero Risk Hiring Guarantee",
-    desc: "If it's not a fit, we'll replace them free within 90 days. Your success, guaranteed.",
+    desc: "If it's not a fit, we'll replace them at no cost within 90 days. Your success, guaranteed.",
   },
   {
     emoji: "💰",
