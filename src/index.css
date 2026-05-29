@@ -4,6 +4,9 @@
 @tailwind utilities;
 
 @layer base {
+  html, body {
+    overflow-x: hidden;
+  }
   body {
     font-family: 'Epilogue', system-ui, sans-serif;
     color: hsl(var(--foreground));
@@ -13,6 +16,10 @@
     font-family: 'Urbanist', system-ui, sans-serif;
     letter-spacing: -0.02em;
     font-weight: 700;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
   }
 }
 

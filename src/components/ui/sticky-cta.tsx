@@ -24,7 +24,7 @@ export function StickyCTA() {
   };
 
   return (
-    <Card className="fixed bottom-6 right-6 p-4 shadow-lg border-primary/20 bg-background/95 backdrop-blur-sm z-50 max-w-sm">
+    <Card className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 sm:max-w-sm p-4 shadow-lg border-primary/20 bg-background/95 backdrop-blur-sm z-50">
       <div className="space-y-3">
         <p className="text-sm font-medium">Ready to get started?</p>
         <div className="flex gap-2">

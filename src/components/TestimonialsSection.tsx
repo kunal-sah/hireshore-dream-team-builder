@@ -82,7 +82,7 @@ const TestimonialsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.05 }}
-            className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 sm:p-8 md:p-10"
+            className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all p-5 sm:p-8 md:p-10 overflow-hidden"
           >
             <div
               className={`grid gap-6 md:gap-10 items-center ${
@@ -98,8 +98,8 @@ const TestimonialsSection = () => (
                   />
                 </div>
               )}
-              <div className={reversed && hasVideo ? "md:order-1" : ""}>
-                <p className="text-lg sm:text-xl text-gray-800 leading-relaxed">
+              <div className={`min-w-0 ${reversed && hasVideo ? "md:order-1" : ""}`}>
+                <p className="text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed break-words">
                   "{t.text}"
                 </p>
                 <div className="flex items-center gap-3 mt-6">
