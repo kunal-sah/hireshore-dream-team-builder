@@ -9,6 +9,7 @@ const founders = [
   { name: "Dave Cannell", title: "CEO, Sendr", photo: "/lovable-uploads/dave-cannell.png" },
   { name: "John Bromley", title: "Cofounder, Sendr", photo: "/lovable-uploads/john-bromley.png" },
   { name: "Yona Meissner", title: "Head of Ops, Swimply", photo: "/lovable-uploads/yona-meissner.png" },
+  { name: "Bryan Chung", title: "Head Honcho, Blank Consultancy", photo: "/lovable-uploads/bryan-chung.png" },
 ];
 
 const container = {
