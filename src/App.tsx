@@ -91,6 +91,7 @@ const AffectiveCareCaseStudy = lazy(() => import("./pages/case-studies/Affective
 const UncommonSolutionsCaseStudy = lazy(() => import("./pages/case-studies/UncommonSolutions"));
 const CoveDigitalCaseStudy = lazy(() => import("./pages/case-studies/CoveDigital"));
 const EkleipsiDigitalCaseStudy = lazy(() => import("./pages/case-studies/EkleipsiDigital"));
+const SendrCaseStudy = lazy(() => import("./pages/case-studies/Sendr"));
 
 // Lazy load resource pages
 const FAQs = lazy(() => import("./pages/resources/FAQs"));
