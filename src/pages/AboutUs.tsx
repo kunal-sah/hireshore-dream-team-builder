@@ -294,7 +294,7 @@ const AboutUs = () => {
         </section>
 
         {/* Video Section */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-surface">
           <div className="max-w-6xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -303,10 +303,10 @@ const AboutUs = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
                 How We Help You Scale
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
                 Watch this video to understand how agency owners can delegate and scale their operations 
                 without the overhead of hiring full-time staff.
               </p>
@@ -319,17 +319,17 @@ const AboutUs = () => {
               viewport={{ once: true }}
               className="max-w-4xl mx-auto"
             >
-              <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
+              <div className="bg-white rounded-2xl shadow-xl p-6 border border-border">
                 <YouTubeFacade
                   videoId="hCa98Yfnt-U"
                   title="How Agency Owners Can Delegate & Scale Without Hiring Full-Time Staff"
-                  className="aspect-video bg-gray-100 rounded-xl overflow-hidden"
+                  className="aspect-video bg-surface rounded-xl overflow-hidden"
                 />
                 <div className="mt-4 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <h3 className="font-display text-lg font-semibold text-foreground mb-2">
                     How Agency Owners Can Delegate & Scale Without Hiring Full-Time Staff
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-muted-foreground">
                     Learn the strategies and frameworks we use to help agencies scale efficiently
                   </p>
                 </div>
