@@ -8,8 +8,8 @@ const clients = [
     logo: "/lovable-uploads/b757a07c-9d5c-419d-9cc8-63208511c119.png",
   },
   {
-    name: "Affective Health",
-    url: "http://affectivehealthservices.com.au/",
+    name: "Cove Digital",
+    url: "#",
     logo: "/lovable-uploads/311b322b-98dc-490e-8eef-00a2ba10de8c.png",
   },
   {
