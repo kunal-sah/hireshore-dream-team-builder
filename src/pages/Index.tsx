@@ -156,7 +156,9 @@ const Index = () => {
       <LandingHero />
       <main className="space-y-16 md:space-y-20 py-8">
         <TrustedStartups />
+        <FoundersWall />
         <DeliveryPodDefinition />
+
         <Suspense fallback={<ComponentLoader />}>
           <PodAtAGlance />
         </Suspense>
