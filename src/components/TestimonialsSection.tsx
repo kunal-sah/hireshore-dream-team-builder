@@ -57,6 +57,12 @@ const testimonials: Testimonial[] = [
     text: "If you're on the hunt for exceptional talent, I couldn't recommend Kunal and his team highly enough! Not only did they present outstanding candidates, but they also took the time to fully understand our brief and consistently met deadlines. On the rare occasion an issue arose, Kunal handled it proactively and professionally. Their communication, attention to detail and commitment to delivering results truly set them apart.",
     photo: "/lovable-uploads/bryan-chung.png",
   },
+  {
+    name: "Rita Dagher",
+    title: "Psychologist | Managing Director, Affective Care & Affective Health Services",
+    text: "Hireshore has been supporting us with a managed remote team, including a Senior SEO Content Writer and Strategist, Marketing Assistant, and Web Developer Technical Specialist. Their team has been reliable, responsive, and easy to work with. They understood our needs clearly and helped us build the right support structure for our marketing and web operations.",
+    photo: "/lovable-uploads/affective-care-md.png",
+  },
 ];
 
 const TestimonialsSection = () => (
