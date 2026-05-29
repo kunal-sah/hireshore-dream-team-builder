@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Users, Calendar, Phone, Code, Pen, ShoppingCart, MessageSquare, User, Headphones, Search, FileEdit, Palette } from 'lucide-react';
+import { Briefcase, Users, Calendar, Phone, MessageSquare, User, Headphones, Search, FileEdit, Palette, Calculator, Receipt } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const ServicesSection = () => {
