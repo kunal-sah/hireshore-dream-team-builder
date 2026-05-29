@@ -36,9 +36,21 @@ interface MegaMenuProps {
 
 const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverEnter, onHoverLeave }) => {
   const menuContent = {
-    solutions: {
-      title: 'Solutions',
+    services: {
+      title: 'Services',
       columns: [
+        {
+          title: 'Delivery Pods',
+          items: [
+            { title: 'Web Dev Pod', description: 'Webflow/WordPress/Shopify', href: '/services/web-dev', icon: Code },
+            { title: 'Design Pod', description: 'Branding, social, ads', href: '/services/design', icon: Palette },
+            { title: 'Video Pod', description: 'Edits, reels, UGC', href: '/services/video', icon: Video },
+            { title: 'SEO & Content Pod', href: '/services/seo-content', icon: Search },
+            { title: 'Marketing Ops Pod', description: 'CRM & automation', href: '/services/marketing-ops', icon: Settings },
+            { title: 'Data / AI Pod', description: 'Dashboards, reporting', href: '/services/data-ai', icon: BarChart },
+            { title: 'Support & QA Pod', href: '/services/support-qa', icon: Headphones }
+          ]
+        },
         {
           title: 'By Outcome',
           items: [
@@ -47,43 +59,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
             { title: 'Automate operations', href: '/solutions/automate-ops', icon: Settings },
             { title: 'Fill your sales pipeline', href: '/solutions/sales-pipeline', icon: TrendingUp },
             { title: 'Ongoing support & QA', href: '/solutions/support-qa', icon: Headphones }
-          ]
-        },
-        {
-          title: 'By Role',
-          items: [
-            { title: 'For Agency Owners', href: '/solutions/agency-owners', icon: Building },
-            { title: 'For Marketing Leaders', href: '/solutions/marketing-leaders', icon: Target },
-            { title: 'For Founders/Startups', href: '/solutions/founders', icon: User },
-            { title: 'For HR/Recruiters', href: '/solutions/hr-recruiters', icon: Users }
-          ]
-        }
-      ],
-      spotlight: {
-        title: 'Configure your Delivery Pod',
-        description: 'Get a custom solution tailored to your needs',
-        href: '/configure-pod',
-        cta: 'Get Started'
-      }
-    },
-    services: {
-      title: 'Pods / Services',
-      columns: [
-        {
-          title: 'Development Pods',
-          items: [
-            { title: 'Web Dev Pod', description: 'Webflow/WordPress/Shopify', href: '/services/web-dev', icon: Code },
-            { title: 'Design Pod', description: 'Branding, social, ads', href: '/services/design', icon: Palette },
-            { title: 'Video Pod', description: 'Edits, reels, UGC', href: '/services/video', icon: Video }
-          ]
-        },
-        {
-          title: 'Growth Pods',
-          items: [
-            { title: 'SEO & Content Pod', href: '/services/seo-content', icon: Search },
-            { title: 'Marketing Ops Pod', description: 'CRM & automation', href: '/services/marketing-ops', icon: Settings },
-            { title: 'Data / AI Pod', description: 'Dashboards, reporting', href: '/services/data-ai', icon: BarChart },
-            { title: 'Support & QA Pod', href: '/services/support-qa', icon: Headphones }
           ]
         },
         {
@@ -97,10 +72,10 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
         }
       ],
       spotlight: {
-        title: 'View Case Studies',
-        description: 'See how we\'ve helped 100+ companies scale',
-        href: '/case-studies',
-        cta: 'View Proof'
+        title: 'Configure your Delivery Pod',
+        description: 'Get a custom solution tailored to your needs',
+        href: '/configure-pod',
+        cta: 'Get Started'
       }
     },
     staffing: {
@@ -118,46 +93,17 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
         {
           title: 'Get Started',
           items: [
-            { title: '1-Week Trial', href: '/staffing/trial', icon: Award },
+            { title: 'Paid Trial', href: '/staffing/trial', icon: Award },
             { title: 'Roles & Rate Card', href: '/staffing/rates', icon: Calculator },
             { title: 'Talent Profiles', href: '/staffing/talent-profiles', icon: Users }
           ]
         }
       ],
       spotlight: {
-        title: 'Start Your Trial',
-        description: 'Try our talent for one week, risk-free',
+        title: 'Start a Paid Trial',
+        description: 'Try our talent for 1–2 weeks, no commitment',
         href: '/staffing/trial',
         cta: 'Start Trial'
-      }
-    },
-    industries: {
-      title: 'Industries',
-      columns: [
-        {
-          title: 'Key Sectors',
-          items: [
-            { title: 'Agencies', href: '/industries/agencies', icon: Building },
-            { title: 'Real Estate & Property', href: '/industries/real-estate', icon: Building },
-            { title: 'E-commerce', href: '/industries/ecommerce', icon: Globe },
-            { title: 'SaaS/Tech', href: '/industries/saas-tech', icon: Code }
-          ]
-        },
-        {
-          title: 'More Industries',
-          items: [
-            { title: 'Healthcare', href: '/industries/healthcare', icon: Headphones },
-            { title: 'Education', href: '/industries/education', icon: BookOpen },
-            { title: 'Hospitality/Restaurants', href: '/industries/hospitality', icon: Building },
-            { title: 'Finance/Professional Services', href: '/industries/finance', icon: BarChart }
-          ]
-        }
-      ],
-      spotlight: {
-        title: 'Tailored Playbooks',
-        description: 'Industry-specific strategies and frameworks',
-        href: '/industries',
-        cta: 'View Playbooks'
       }
     },
     resources: {
@@ -168,14 +114,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
           items: [
             { title: 'Resource Hub', href: '/resources', icon: BookOpen },
             { title: 'Guides Library', href: '/resources/guides', icon: FileText },
-            { title: 'Templates Library', href: '/resources/templates', icon: FileText }
-          ]
-        },
-        {
-          title: 'Tools & Templates',
-          items: [
-            { title: 'Creative Brief Template', href: '/resources/creative-brief-template', icon: Palette },
-            { title: 'Web Launch Checklist', href: '/resources/web-launch-checklist', icon: Award },
+            { title: 'Templates Library', href: '/resources/templates', icon: FileText },
             { title: 'Cost Calculator', href: '/resources/cost-calculator', icon: Calculator }
           ]
         },
@@ -183,10 +122,20 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
           title: 'Deep Dives',
           items: [
             { title: 'Delivery Pods Playbook', href: '/resources/delivery-pods-playbook', icon: BookOpen },
-            { title: 'Case Studies', href: '/case-studies', icon: Award },
             { title: 'Case Notes', href: '/resources/case-notes', icon: FileText },
             { title: 'Webinars', href: '/resources/webinars', icon: Video },
             { title: 'FAQs', href: '/resources/faqs', icon: MessageCircle }
+          ]
+        },
+        {
+          title: 'Browse by Industry',
+          items: [
+            { title: 'Agencies', href: '/industries/agencies', icon: Building },
+            { title: 'Real Estate', href: '/industries/real-estate', icon: Building },
+            { title: 'E-commerce', href: '/industries/ecommerce', icon: Globe },
+            { title: 'SaaS/Tech', href: '/industries/saas-tech', icon: Code },
+            { title: 'Healthcare', href: '/industries/healthcare', icon: Headphones },
+            { title: 'Finance', href: '/industries/finance', icon: BarChart }
           ]
         }
       ],
@@ -195,27 +144,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuType, onClose, onHoverE
         description: 'Everything you need to scale your business',
         href: '/resources',
         cta: 'Browse All'
-      }
-    },
-    company: {
-      title: 'Company',
-      columns: [
-        {
-          title: 'About HireShore',
-          items: [
-            { title: 'About Us', href: '/about-us', icon: Users },
-            { title: 'Team & Culture', href: '/about-us#team', icon: User },
-            { title: 'Careers', href: '/company/careers', icon: Award },
-            { title: 'Partners', href: '/company/partners', icon: Building },
-            { title: 'Contact Us', href: '/contact-us', icon: Phone }
-          ]
-        }
-      ],
-      spotlight: {
-        title: 'Join Our Team',
-        description: 'Help us build the future of work',
-        href: '/company/careers',
-        cta: 'View Jobs'
       }
     }
   };
