@@ -378,7 +378,7 @@ const AboutUs = () => {
         </section>
 
         {/* Timeline */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-surface">
           <div className="max-w-4xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -387,10 +387,10 @@ const AboutUs = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Our Journey
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-muted-foreground">
                 From a local startup to a growing global delivery partner, here's how Hireshore has evolved:
               </p>
             </motion.div>
