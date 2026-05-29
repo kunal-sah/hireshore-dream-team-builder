@@ -23,6 +23,7 @@ import uncommonSolutionsThumbnail from '../assets/thumbnails/uncommon-solutions-
 import coveDigitalThumbnail from '../assets/thumbnails/cove-digital-thumbnail-v2.jpg';
 import digitalSixLogo from '../assets/digital-six-logo.png';
 import ekleipsiLogo from '../assets/ekleipsi-logo.png';
+const sendrLogo = '/lovable-uploads/sendr-logo.png';
 import { SEOHead } from "@/components/SEOHead";
  
 interface CaseStudy {
@@ -134,6 +135,18 @@ const caseStudies: CaseStudy[] = [
     thumbnail: coveDigitalThumbnail,
     tags: ['Cost Reduction', 'Operations', 'Marketing'],
     readTime: '6 min'
+  },
+  {
+    id: 'sendr',
+    title: 'Staffing a GTM Platform Startup: EA & GTM Engineer for Sendr',
+    client: 'Sendr',
+    industry: 'GTM Platform',
+    challenge: 'Hire reliable remote talent for CEO support and GTM operations without slowing product velocity',
+    result: 'EA/VA to CEO and GTM Engineer Consultant hired through a smooth, efficient process',
+    metrics: '2 Key Hires',
+    thumbnail: sendrLogo,
+    tags: ['Executive Assistant', 'GTM', 'Startup Hiring'],
+    readTime: '4 min'
   }
 ];
 
