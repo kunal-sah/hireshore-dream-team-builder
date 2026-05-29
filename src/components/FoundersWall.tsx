@@ -20,7 +20,7 @@ const item = { hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } };
 const FoundersWall = () => {
   return (
     <motion.section
-      className="max-w-5xl mx-auto px-4"
+      className="bg-secondary py-16 md:py-24 px-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
