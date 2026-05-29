@@ -121,6 +121,7 @@ const TestimonialsSection = () => (
         );
       })}
     </div>
+    </div>
   </section>
 );
 
