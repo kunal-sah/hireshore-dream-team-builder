@@ -36,7 +36,7 @@ const testimonials: Testimonial[] = [
     name: "Yona Meissner",
     title: "Head of Operations, Swimply",
     text: "Easy to work with and well priced. We needed to staff up customer support while staying focused on profitability — Hireshore let us achieve both. If cost, ease to scale, and speed matter, I'd definitely recommend them.",
-    photo: "/placeholder.svg",
+    photo: "/lovable-uploads/yona-meissner.png",
     videoId: "LjnthdX87Ao",
   },
   {
