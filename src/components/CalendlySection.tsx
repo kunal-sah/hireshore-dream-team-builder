@@ -3,26 +3,82 @@ import { getCalendlyURL, getCurrentPagePath } from '@/utils/utmTracking';
 import kunalPhoto from '@/assets/kunal-sah.png';
 
 
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (opts: {
+        url: string;
+        parentElement: HTMLElement;
+        prefill?: Record<string, unknown>;
+        utm?: Record<string, unknown>;
+      }) => void;
+    };
+  }
+}
+
+const CALENDLY_SCRIPT_SRC = 'https://assets.calendly.com/assets/external/widget.js';
+const CALENDLY_CSS_HREF = 'https://assets.calendly.com/assets/external/widget.css';
+
 const CalendlySection = () => {
   const calendlyURL = getCalendlyURL(`calendly_section_${getCurrentPagePath()}`);
-  const [isCalendlyLoaded, setIsCalendlyLoaded] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const widgetRef = useRef<HTMLDivElement>(null);
+  const initializedRef = useRef(false);
+  const [isWidgetReady, setIsWidgetReady] = useState(false);
 
   useEffect(() => {
-    const loadCalendly = () => {
-      if (isCalendlyLoaded) return;
-      
-      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (!existingScript) {
-        const script = document.createElement('script');
-        script.src = 'https://assets.calendly.com/assets/external/widget.js';
-        script.async = true;
-        document.body.appendChild(script);
-      }
-      setIsCalendlyLoaded(true);
+    const initWidget = () => {
+      if (initializedRef.current) return;
+      if (!widgetRef.current || !window.Calendly) return;
+      widgetRef.current.innerHTML = '';
+      window.Calendly.initInlineWidget({
+        url: calendlyURL,
+        parentElement: widgetRef.current,
+        prefill: {},
+        utm: {},
+      });
+      initializedRef.current = true;
+      // Give the iframe a moment to render before hiding the loader
+      setTimeout(() => setIsWidgetReady(true), 600);
     };
 
-    // Load Calendly when section becomes visible or user clicks book CTA
+    const loadCalendly = () => {
+      // Ensure CSS
+      if (!document.querySelector(`link[href="${CALENDLY_CSS_HREF}"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = CALENDLY_CSS_HREF;
+        document.head.appendChild(link);
+      }
+
+      if (window.Calendly) {
+        initWidget();
+        return;
+      }
+
+      const existing = document.querySelector<HTMLScriptElement>(
+        `script[src="${CALENDLY_SCRIPT_SRC}"]`
+      );
+      if (existing) {
+        existing.addEventListener('load', initWidget, { once: true });
+        // In case it already loaded but Calendly attached late
+        const t = setInterval(() => {
+          if (window.Calendly) {
+            clearInterval(t);
+            initWidget();
+          }
+        }, 150);
+        setTimeout(() => clearInterval(t), 8000);
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = CALENDLY_SCRIPT_SRC;
+      script.async = true;
+      script.onload = initWidget;
+      document.body.appendChild(script);
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -32,14 +88,11 @@ const CalendlySection = () => {
           }
         });
       },
-      { rootMargin: '100px' }
+      { rootMargin: '200px' }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
-    // Also load if user clicks any booking CTA
     const handleBookingClick = () => loadCalendly();
     document.addEventListener('calendly-load', handleBookingClick);
 
@@ -47,13 +100,13 @@ const CalendlySection = () => {
       observer.disconnect();
       document.removeEventListener('calendly-load', handleBookingClick);
     };
-  }, [isCalendlyLoaded]);
+  }, [calendlyURL]);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="book" 
-      aria-label="Book a meeting" 
+      id="book"
+      aria-label="Book a meeting"
       className="py-16 md:py-24 bg-secondary"
       style={{ scrollMarginTop: '96px' }}
     >
@@ -69,7 +122,7 @@ const CalendlySection = () => {
 
           <p className="text-muted-foreground text-base sm:text-lg px-4">Still have questions? Get a custom plan for your business in 30 minutes.</p>
           <div className="mt-4 sm:mt-6">
-            <button 
+            <button
               className="bg-primary text-primary-foreground font-semibold py-3 px-6 sm:px-8 rounded-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base"
               onClick={() => document.dispatchEvent(new CustomEvent('calendly-load'))}
             >
@@ -77,20 +130,28 @@ const CalendlySection = () => {
             </button>
           </div>
         </div>
-        
+
         {/* Calendly inline widget */}
-        <div 
-          className="calendly-inline-widget bg-white rounded-lg shadow-lg overflow-hidden mx-auto"
-          data-url={calendlyURL}
-          style={{ minWidth: '280px', maxWidth: '100%', height: '600px' }}
-        />
-        
+        <div className="relative w-full min-w-[280px] max-w-full h-[1150px] md:h-[1050px] lg:h-[820px] bg-white rounded-lg shadow-lg overflow-hidden mx-auto">
+          {!isWidgetReady && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-white z-10 pointer-events-none">
+              <div className="h-10 w-10 rounded-full border-4 border-primary/20 border-t-primary animate-spin" />
+              <p className="text-sm text-muted-foreground">Loading calendar…</p>
+            </div>
+          )}
+          <div
+            ref={widgetRef}
+            className="calendly-inline-widget w-full h-full"
+            data-url={calendlyURL}
+          />
+        </div>
+
         <noscript>
           <div className="text-center mt-8">
             <p className="text-gray-600 mb-4">JavaScript is required to book. Open here:</p>
-            <a 
+            <a
               href={calendlyURL}
-              target="_blank" 
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
             >
@@ -102,5 +163,6 @@ const CalendlySection = () => {
     </section>
   );
 };
+
 
 export default CalendlySection;
