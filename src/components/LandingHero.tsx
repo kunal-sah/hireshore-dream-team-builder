@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, AnimatePresence } from "framer-motion";
-import { Phone, Users, Headphones, Pointer, ArrowDown } from "lucide-react";
+import { Phone, Users, Headphones, Pointer, ArrowDown, Star } from "lucide-react";
 import YouTubeFacade from "./ui/youtube-facade";
 import { trackCTAClick } from "@/utils/utmTracking";
 
