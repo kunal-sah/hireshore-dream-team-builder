@@ -250,7 +250,7 @@ const AboutUs = () => {
                 viewport={{ once: true }}
                 className="order-2 lg:order-1"
               >
-                <div className="space-y-4 text-gray-600">
+                <div className="space-y-4 text-muted-foreground">
                   <p className="text-lg">
                     When I started Hireshore in 2021, I had a simple vision: to bridge the gap between talented professionals in Nepal and businesses around the world that needed quality work at a fair price.
                   </p>
@@ -258,15 +258,15 @@ const AboutUs = () => {
                     Growing up in Nepal, I witnessed incredible talent that often went unnoticed on the global stage. At the same time, I saw businesses struggling with high costs and unreliable freelancers. I knew there had to be a better way.
                   </p>
                   <p className="text-lg">
-                    Today, Hireshore has grown beyond my initial expectations. We've built 40+ dedicated pods, helped save our clients over $1M annually per business, and created meaningful careers for 300+ talented individuals. But what I'm most proud of is the relationships we've built - with our clients who trust us to be an extension of their teams, and with our team members who bring their best to work every day.
+                    In 2026, Hireshore has grown beyond my initial expectations. We've built 60+ dedicated pods, helped clients save over $1M annually per business, and created meaningful careers for 400+ talented individuals. This year we also launched Direct Hire — placing vetted Nepali talent straight into our clients' in-house teams with a one-time recruitment fee.
                   </p>
                   <p className="text-lg">
                     Our journey is just beginning. We're committed to continuing to innovate, to provide exceptional value to our clients, and to create opportunities for talented professionals in Nepal and beyond.
                   </p>
                   <div className="pt-4">
-                    <p className="text-xl font-semibold text-gray-900">Kunal Sah</p>
-                    <p className="text-gray-500">Founder & CEO, Hireshore</p>
-                    <p className="text-sm text-gray-400 mt-1">Nepal</p>
+                    <p className="font-display text-xl font-semibold text-foreground">Kunal Sah</p>
+                    <p className="text-muted-foreground">Founder & CEO, Hireshore</p>
+                    <p className="text-sm text-muted-foreground/70 mt-1">Nepal</p>
                   </div>
                 </div>
               </motion.div>
