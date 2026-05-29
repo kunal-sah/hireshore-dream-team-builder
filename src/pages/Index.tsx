@@ -1,9 +1,6 @@
 import React, { useEffect, lazy, Suspense } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { SEOHead } from "../components/SEOHead";
-import YouTubeFacade from "../components/ui/youtube-facade";
+
 
 // Critical above-fold components - load immediately
 import NavBar from "../components/NavBar";
