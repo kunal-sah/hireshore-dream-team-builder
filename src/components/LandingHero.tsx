@@ -322,7 +322,7 @@ const LandingHero = () => {
               animate="visible"
             >
               <p className="text-sm text-gray-600 font-medium">
-                No lock-in. ~30 seconds to book.
+                Paid trial available · 1–2 weeks, no long-term commitment · ~30 seconds to book.
               </p>
             </motion.div>
             
