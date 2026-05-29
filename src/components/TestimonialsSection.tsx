@@ -69,7 +69,14 @@ const testimonials: Testimonial[] = [
     text: "Hireshore has been supporting our digital growth through their Marketing Design Pod, covering design, social media, email marketing, ads, and overall digital marketing work. Their team has been reliable, creative, and easy to work with. They understand our requirements clearly, manage tasks professionally, and help us execute our digital work with consistency.",
     photo: "/lovable-uploads/james-nouri.png",
   },
+  {
+    name: "Ryan Jope",
+    title: "Founder, PropertyStack",
+    text: "We've hired over 15 people through Hireshore in just a year — and could've done 10 more. Resume videos and pre-vetted candidates make the process easy. The quality from Nepal has been significantly better.",
+    photo: "/lovable-uploads/d4be4a5a-7f58-4205-b403-c137a43e5d8b.png",
+  },
 ];
+
 
 const TestimonialsSection = () => (
   <section id="testimonials" className="bg-background py-16 md:py-24 px-4">
