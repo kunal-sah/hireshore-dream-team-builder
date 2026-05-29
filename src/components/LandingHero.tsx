@@ -127,7 +127,7 @@ const LandingHero = () => {
   };
 
   return (
-    <header ref={heroRef} className="w-full bg-background pt-20 sm:pt-28 pb-12 sm:pb-16 md:pb-20 px-4 relative overflow-hidden border-b border-border">
+    <header ref={heroRef} className="w-full bg-background pt-16 sm:pt-28 pb-10 sm:pb-16 md:pb-20 px-4 relative overflow-hidden border-b border-border">
 
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -177,7 +177,7 @@ const LandingHero = () => {
               </div>
             </motion.div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-[1.05] tracking-tight text-balance">
+            <h1 className="text-[28px] sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-gray-900 leading-[1.1] sm:leading-[1.05] tracking-tight text-balance">
               <motion.span 
                 className="inline-block"
                 initial={{ opacity: 1, y: 0 }}
@@ -213,7 +213,7 @@ const LandingHero = () => {
             </motion.div>
 
             <motion.p 
-              className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl"
+              className="text-[15px] sm:text-base md:text-lg lg:text-xl text-gray-700 max-w-2xl break-words"
               custom={3}
               variants={textVariants}
               initial="hidden"
@@ -233,7 +233,7 @@ const LandingHero = () => {
               animate="visible"
             >
               <motion.button
-                className="inline-flex items-center justify-center h-12 sm:h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md text-sm sm:text-base transition-colors w-full sm:min-w-[280px]"
+                className="relative overflow-hidden inline-flex items-center justify-center h-12 sm:h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md text-sm sm:text-base transition-colors w-full sm:min-w-[280px]"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)"
@@ -253,7 +253,7 @@ const LandingHero = () => {
               </motion.button>
 
               <motion.button
-                className="inline-flex items-center justify-center h-12 sm:h-14 border border-border text-foreground hover:bg-secondary font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md text-sm sm:text-base transition-colors w-full sm:min-w-[220px]"
+                className="relative overflow-hidden inline-flex items-center justify-center h-12 sm:h-14 border border-border text-foreground hover:bg-secondary font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md text-sm sm:text-base transition-colors w-full sm:min-w-[220px]"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {

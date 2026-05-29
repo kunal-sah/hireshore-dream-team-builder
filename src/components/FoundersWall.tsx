@@ -44,17 +44,17 @@ const FoundersWall = () => {
             key={f.name}
             variants={item}
             whileHover={{ y: -2 }}
-            className="flex items-center gap-3 bg-white border border-gray-100 rounded-full pl-1 pr-4 py-1 shadow-sm hover:shadow-md hover:border-purple-200 transition-all"
+            className="flex items-center gap-2 sm:gap-3 bg-white border border-gray-100 rounded-full pl-1 pr-3 sm:pr-4 py-1 shadow-sm hover:shadow-md hover:border-purple-200 transition-all overflow-hidden min-w-0"
           >
             <img
               src={f.photo}
               alt={f.name}
               loading="lazy"
-              className="w-10 h-10 rounded-full object-cover ring-2 ring-purple-100 bg-gray-100 flex-shrink-0"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover ring-2 ring-purple-100 bg-gray-100 flex-shrink-0"
             />
-            <div className="min-w-0">
-              <p className="text-sm font-semibold text-gray-900 truncate">{f.name}</p>
-              <p className="text-xs text-gray-500 truncate">{f.title}</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs sm:text-sm font-semibold text-gray-900 truncate">{f.name}</p>
+              <p className="text-[11px] sm:text-xs text-gray-500 truncate">{f.title}</p>
             </div>
           </motion.div>
         ))}
