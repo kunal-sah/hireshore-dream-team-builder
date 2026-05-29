@@ -431,7 +431,7 @@ const AboutUs = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-r from-blue-600 to-purple-700 py-20">
+        <section className="bg-primary py-20">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
