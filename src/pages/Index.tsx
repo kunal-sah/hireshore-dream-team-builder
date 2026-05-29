@@ -14,10 +14,7 @@ import { deferHeavyWork, preloadCriticalAssets, optimizeThirdPartyScripts } from
 // Lazy load below-fold components to reduce initial bundle
 const NepalAdvantage = lazy(() => import("../components/NepalAdvantage"));
 const TwoWaysToHire = lazy(() => import("../components/TwoWaysToHire"));
-const BenefitsSection = lazy(() => import("../components/BenefitsSection"));
-const MediaFeatures = lazy(() => import("../components/MediaFeatures"));
 const ServicesSection = lazy(() => import("../components/ServicesSection"));
-const RolesSection = lazy(() => import("../components/RolesSection"));
 const TestimonialsSection = lazy(() => import("../components/TestimonialsSection"));
 const FAQSection = lazy(() => import("../components/FAQSection"));
 const CalendlySection = lazy(() => import("../components/CalendlySection"));
