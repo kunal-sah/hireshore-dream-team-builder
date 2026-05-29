@@ -63,6 +63,12 @@ const testimonials: Testimonial[] = [
     text: "Hireshore has been supporting us with a managed remote team, including a Senior SEO Content Writer and Strategist, Marketing Assistant, and Web Developer Technical Specialist. Their team has been reliable, responsive, and easy to work with. They understood our needs clearly and helped us build the right support structure for our marketing and web operations.",
     photo: "/lovable-uploads/affective-care-md.png",
   },
+  {
+    name: "Richard Lang",
+    title: "Founder, RTO Acceleration",
+    text: "Hireshore helped us hire a Media Buyer through their direct hire service for our student acquisition team. They understood the role clearly, shared relevant candidates, and made the hiring process smooth and efficient. Their support saved us time and helped us find the right talent for our marketing needs.",
+    photo: "/lovable-uploads/richard-lang.png",
+  },
 ];
 
 const TestimonialsSection = () => (
