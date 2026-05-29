@@ -54,7 +54,8 @@ const testimonials: Testimonial[] = [
 ];
 
 const TestimonialsSection = () => (
-  <section id="testimonials" className="max-w-6xl mx-auto px-4">
+  <section id="testimonials" className="bg-background py-16 md:py-24 px-4">
+    <div className="max-w-6xl mx-auto">
     <motion.div
       className="text-center mb-10 sm:mb-14"
       initial={{ opacity: 0, y: 20 }}
@@ -62,9 +63,9 @@ const TestimonialsSection = () => (
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display tracking-tight text-gray-900">
         Hear it directly from{" "}
-        <span className="font-serif italic text-purple-600">our clients.</span>
+        <span className="font-display text-primary">our clients.</span>
       </h2>
       <p className="text-base sm:text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
         Real founders. Real outcomes. Watch what teams shipping with Hireshore have to say.
