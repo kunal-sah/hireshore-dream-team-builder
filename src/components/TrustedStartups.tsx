@@ -32,6 +32,11 @@ const clients = [
     url: "https://swimply.com/",
     logo: "/lovable-uploads/2999c320-31d3-437d-ac66-13dca87efa9b.png",
   },
+  {
+    name: "Sendr",
+    url: "https://sendr.ai/",
+    logo: "/lovable-uploads/sendr-logo.png",
+  },
 ];
 
 const TrustedStartups = () => {
