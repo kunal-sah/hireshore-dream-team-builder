@@ -170,7 +170,7 @@ const Solutions = () => {
                   </h3>
                   <p className="text-muted-foreground mb-4">{solution.description}</p>
                   <div className="flex items-center text-primary font-medium">
-                    Learn more
+                    View solution
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </Link>

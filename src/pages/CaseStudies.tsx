@@ -219,10 +219,6 @@ const CaseStudies = () => {
         description="See how agencies and startups scaled with Hireshore's delivery pods. Real case studies with measurable results."
         keywords="case studies, client success, delivery pods results"
       />
-      {/* SEO Meta Tags */}
-      <title>Case Studies & Proof - Hireshore Success Stories</title>
-      <meta name="description" content="Explore real case studies showing how Hireshore's managed delivery pods helped agencies and startups scale operations, reduce costs, and improve outcomes." />
-      <meta name="keywords" content="case studies, managed delivery pods, agency solutions, startup success, white-label services, Hireshore proof" />
       
       <NavBar />
       

@@ -1,0 +1,74 @@
+# Hireshore
+
+> Done-for-you delivery pods that give product teams and agencies full-time capacity without full-time overhead. Vetted talent from Nepal, managed by experienced team leads.
+
+Hireshore builds and manages dedicated offshore teams — "delivery pods" — for startups, agencies, and scale-ups. Each pod is staffed with vetted talent, led by an experienced pod lead, and designed to plug into your workflows as a fully managed extension of your team. Services cover web development, design, video production, SEO/content, marketing operations, data/AI, and support/QA.
+
+## Pages
+
+- [/](/): Homepage — delivery pods overview, case studies, testimonials, FAQ, and booking
+- [/services](/services): Full services catalog and delivery pod types
+- [/solutions](/solutions): Business solutions by outcome and role
+- [/case-studies](/case-studies): Real client results and growth stories
+- [/about-us](/about-us): Company mission, team, and values
+- [/pricing](/pricing): Transparent pricing and engagement models
+- [/staffing](/staffing): Recruitment, compliance, trial, and dedicated talent
+- [/industries](/industries): Vertical-specific delivery pod programs
+- [/resources](/resources): Guides, templates, case notes, and webinars library
+- [/contact-us](/contact-us): Get in touch and book a strategy call
+- [/configure-pod](/configure-pod): Build a custom delivery pod for your needs
+- [/delivery-pods](/delivery-pods): Delivery pod offerings and capabilities
+- [/privacy](/privacy): Privacy policy
+- [/terms](/terms): Terms of service
+- [/legal](/legal): Legal information
+
+## Services
+
+- [/services/web-dev](/services/web-dev): Web development pod
+- [/services/design](/services/design): Design pod
+- [/services/video](/services/video): Video production pod
+- [/services/seo-content](/services/seo-content): SEO & content pod
+- [/services/marketing-ops](/services/marketing-ops): Marketing operations pod
+- [/services/data-ai](/services/data-ai): Data & AI pod
+- [/services/support-qa](/services/support-qa): Support & QA pod
+
+## Solutions
+
+- [/solutions/launch-faster](/solutions/launch-faster): Launch websites faster
+- [/solutions/scale-design](/solutions/scale-design): Scale design without hires
+- [/solutions/automate-ops](/solutions/automate-ops): Automate operations
+- [/solutions/sales-pipeline](/solutions/sales-pipeline): Fill your sales pipeline
+- [/solutions/support-qa](/solutions/support-qa): Ongoing support & QA
+- [/solutions/agency-owners](/solutions/agency-owners): For agency owners
+- [/solutions/marketing-leaders](/solutions/marketing-leaders): For marketing leaders
+- [/solutions/founders](/solutions/founders): For founders
+- [/solutions/hr-recruiters](/solutions/hr-recruiters): For HR & recruiters
+
+## Case Studies
+
+- [/case-studies/digital-six](/case-studies/digital-six): Digital Six — scaling an offshore team
+- [/case-studies/swimply](/case-studies/swimply): Swimply — marketplace growth
+- [/case-studies/property-stack](/case-studies/property-stack): PropertyStack — proptech scale
+- [/case-studies/affective-care](/case-studies/affective-care): Affective Care — NDIS operations
+- [/case-studies/cove-digital](/case-studies/cove-digital): Cove Digital — agency delivery
+- [/case-studies/sendr](/case-studies/sendr): Sendr — logistics automation
+- [/case-studies/ekleipsi-digital](/case-studies/ekleipsi-digital): Ekleipsi Digital — brand & web
+
+## Industries
+
+- [/industries/ecommerce](/industries/ecommerce): E-commerce
+- [/industries/saas-tech](/industries/saas-tech): SaaS & technology
+- [/industries/healthcare](/industries/healthcare): Healthcare
+- [/industries/education](/industries/education): Education
+- [/industries/hospitality](/industries/hospitality): Hospitality
+- [/industries/finance](/industries/finance): Finance
+- [/industries/agencies](/industries/agencies): Agencies
+- [/industries/real-estate](/industries/real-estate): Real estate
+
+## Resources
+
+- [/resources/guides](/resources/guides): Guides library
+- [/resources/templates](/resources/templates): Templates library
+- [/resources/case-notes](/resources/case-notes): Case notes library
+- [/resources/webinars](/resources/webinars): Webinars library
+- [/resources/faqs](/resources/faqs): Frequently asked questions
