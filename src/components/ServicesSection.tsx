@@ -1,212 +1,113 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Users, Calendar, Phone, MessageSquare, User, Headphones, Search, FileEdit, Palette, Calculator, Receipt } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Calculator, User, Headphones, Calendar, Palette, Search, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
+const categories = [
+  {
+    title: "Bookkeeping & Billing",
+    description: "Xero, QuickBooks, MYOB. AR/AP, reconciliations, collections.",
+    icon: Calculator,
+    href: "/services",
+  },
+  {
+    title: "Virtual Assistants & Admin",
+    description: "Inbox, scheduling, data entry, CRM hygiene — your day, handled.",
+    icon: User,
+    href: "/services/support-qa-pod",
+  },
+  {
+    title: "Customer Support",
+    description: "Calls, web chat, and 24/7 ticket coverage under your brand.",
+    icon: Headphones,
+    href: "/services/support-qa-pod",
+  },
+  {
+    title: "Appointment Setting",
+    description: "Qualified meetings booked straight into your calendar.",
+    icon: Calendar,
+    href: "/services/marketing-ops-pod",
+  },
+  {
+    title: "Design & Content",
+    description: "Graphics, brand assets, and content built for your channels.",
+    icon: Palette,
+    href: "/services/design-pod",
+  },
+  {
+    title: "SEO & Marketing Ops",
+    description: "On-page SEO, content production, and funnel ops execution.",
+    icon: Search,
+    href: "/services/seo-content-pod",
+  },
+];
+
 const ServicesSection = () => {
-  const techRoles = [
-    {
-      title: "Bookkeepers",
-      icon: <Calculator className="w-10 h-10 text-primary" />,
-      description: "Day-to-day bookkeeping in Xero, QuickBooks, and MYOB — clean books, on time."
-    },
-    {
-      title: "Billing & Accounts Specialists",
-      icon: <Receipt className="w-10 h-10 text-primary" />,
-      description: "Invoicing, AR/AP, reconciliations, and collections handled end-to-end."
-    },
-    {
-      title: "Graphics Designers",
-      icon: <Palette className="w-10 h-10 text-primary" />,
-      description: "Creative professionals who design stunning visual content and brand materials."
-    },
-    {
-      title: "SEO Specialists",
-      icon: <Search className="w-10 h-10 text-primary" />,
-      description: "Experts who optimize your online presence to improve visibility and rankings."
-    },
-    {
-      title: "Content Creators",
-      icon: <FileEdit className="w-10 h-10 text-primary" />,
-      description: "Talented writers and creators who develop engaging content for your audience."
-    },
-  ];
-  
-  const supportRoles = [
-    { 
-      title: "Virtual Assistants", 
-      icon: <User className="w-10 h-10 text-primary" />,
-      description: "Remote professionals who handle administrative tasks and support business operations."
-    },
-    { 
-      title: "Call Answering Services", 
-      icon: <Phone className="w-10 h-10 text-primary" />,
-      description: "Dedicated staff who professionally handle incoming calls for your business."
-    },
-    { 
-      title: "Web Chat Support", 
-      icon: <MessageSquare className="w-10 h-10 text-primary" />,
-      description: "Real-time chat agents who provide immediate assistance to website visitors."
-    },
-    { 
-      title: "Appointment Setters", 
-      icon: <Calendar className="w-10 h-10 text-primary" />,
-      description: "Specialists who schedule and manage meetings and appointments efficiently."
-    },
-    { 
-      title: "24/7 Customer Support Agents", 
-      icon: <Headphones className="w-10 h-10 text-primary" />,
-      description: "Round-the-clock support team ensuring customer queries are addressed anytime."
-    },
-    { 
-      title: "Business Continuity Assistants", 
-      icon: <Briefcase className="w-10 h-10 text-primary" />,
-      description: "Professionals who ensure your business operations continue running smoothly."
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
   return (
-    <section id="services" className="py-16 md:py-24 bg-secondary">
+    <section id="services" className="py-16 md:py-20 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16">
-          <motion.h2 
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+        <div className="text-center mb-10 sm:mb-12 max-w-3xl mx-auto">
+          <motion.h2
+            className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-foreground mb-4"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            Delivery Pods We Offer
+            What our pods cover
           </motion.h2>
-          <motion.p 
-            className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4"
+          <motion.p
+            className="text-base sm:text-lg text-muted-foreground"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
             viewport={{ once: true }}
           >
-            Pre-vetted, white-labeled pods for web, design, automation, marketing, and support - fully managed so you stay focused on growth.
+            Managed pods for back-office, support, and growth — fully white-labeled, ready in days.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 mb-12 sm:mb-16">
-          {/* Admin & Support Roles Column - Now on the LEFT */}
-          <motion.div
-            className="bg-white rounded-xl p-4 sm:p-6 shadow-lg"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center mb-6">
-              <div className="flex-shrink-0 bg-primary/10 rounded-full p-3">
-                <Users className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="ml-3 sm:ml-4 text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900">☎️ Admin & Support Roles</h3>
-            </div>
-            
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-10">
+          {categories.map((cat, i) => (
             <motion.div
-              className="space-y-4 sm:space-y-6 mb-6"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
+              key={cat.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
               viewport={{ once: true }}
             >
-              {supportRoles.map((role, index) => (
-                <motion.div 
-                  key={index} 
-                  className="flex items-start" 
-                  variants={itemVariants}
-                >
-                  <div className="flex-shrink-0 mt-1">{role.icon}</div>
-                  <div className="ml-3 sm:ml-4">
-                    <h4 className="text-base sm:text-lg font-medium text-gray-900">{role.title}</h4>
-                    <p className="text-sm sm:text-base text-gray-600">{role.description}</p>
-                  </div>
-                </motion.div>
-              ))}
+              <Link
+                to={cat.href}
+                className="group block h-full rounded-xl bg-white border border-border p-5 sm:p-6 hover:border-primary/40 hover:shadow-md transition-all"
+              >
+                <cat.icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-3" />
+                <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1">
+                  {cat.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  {cat.description}
+                </p>
+              </Link>
             </motion.div>
-
-          </motion.div>
-          
-          {/* Tech & Creative Roles Column - Now on the RIGHT */}
-          <motion.div
-            className="bg-white rounded-xl p-4 sm:p-6 shadow-lg"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center mb-6">
-              <div className="flex-shrink-0 bg-primary/10 rounded-full p-3">
-                <Briefcase className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="ml-3 sm:ml-4 text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900">📊 Back-Office & Marketing Roles</h3>
-            </div>
-            
-            <motion.div
-              className="space-y-4 sm:space-y-6 mb-6"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {techRoles.map((role, index) => (
-                <motion.div 
-                  key={index} 
-                  className="flex items-start" 
-                  variants={itemVariants}
-                >
-                  <div className="flex-shrink-0 mt-1">{role.icon}</div>
-                  <div className="ml-3 sm:ml-4">
-                    <h4 className="text-base sm:text-lg font-medium text-gray-900">{role.title}</h4>
-                    <p className="text-sm sm:text-base text-gray-600">{role.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-
-          </motion.div>
+          ))}
         </div>
-        
-        <div className="text-center">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Button asChild variant="outline" className="rounded-full">
+            <Link to="/services">
+              See all roles <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
+          </Button>
+          <Button
+            className="bg-primary hover:bg-primary/90 text-white rounded-full"
+            onClick={() => {
+              const el = document.getElementById('book');
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
           >
-            <Button 
-              className="bg-primary hover:bg-primary/90 text-white font-medium py-4 sm:py-6 px-6 sm:px-8 rounded-full text-base sm:text-lg hover:shadow-lg transition-all inline-flex items-center gap-2"
-              onClick={() => {
-                const element = document.getElementById('book');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
-            >
-              Get My Delivery Pod
-            </Button>
-          </motion.div>
+            Get my pod
+          </Button>
         </div>
       </div>
     </section>
