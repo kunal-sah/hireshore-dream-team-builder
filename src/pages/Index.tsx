@@ -183,43 +183,8 @@ const Index = () => {
         <Suspense fallback={<ComponentLoader />}>
           <MediaFeatures />
         </Suspense>
-        
-        {/* Marlon's Medz Media Testimonial */}
-        <section className="max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-gradient-subtle rounded-2xl p-8 md:p-12 border"
-          >
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
-                <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-6">
-                  "The best experience I've had working with a remote team. Websites came out fantastic - fast, 
-                  secure, beautifully designed. The team's energy, proactiveness, and suggestions make them feel 
-                  like a real part of my business. I've worked with freelancers before - this is a whole different level. 
-                  I've referred Hireshore to friends, clients, and even my full-time employer. It's truly been a 
-                  game changer for both my business and personal life."
-                </blockquote>
-                <div className="flex items-center">
-                  <div>
-                    <p className="font-semibold text-gray-900">Marlon M.</p>
-                    <p className="text-sm text-gray-600">Founder, Medz Media</p>
-                  </div>
-                </div>
-              </div>
-              <YouTubeFacade
-                videoId="43qQdLve5Ps"
-                title="Medz Media Testimonial - Marlon M."
-                className="aspect-video rounded-xl overflow-hidden shadow-lg"
-              />
-            </div>
-          </motion.div>
-        </section>
 
-        {/* Aaron's Digital Six Testimonial */}
+        {/* Featured Video Testimonial — Aaron / Digital Six */}
         <section className="max-w-6xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -230,10 +195,13 @@ const Index = () => {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
+                <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider">Featured Story</span>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-4">
+                  From 22 people to 47 across Australia & Nepal
+                </h3>
                 <blockquote className="text-lg text-gray-700 italic mb-4">
-                  "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal. 
-                  The WordPress guys are killing it. The SEO side is strong. This is way better than our past 
+                  "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal.
+                  The WordPress guys are killing it. The SEO side is strong. This is way better than our past
                   freelancer experience. I've already referred several people to Hireshore."
                 </blockquote>
                 <div className="flex items-center gap-4">
@@ -243,7 +211,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="text-center">
                 <YouTubeFacade
                   videoId="yW90cSyX_iI"
@@ -256,74 +224,6 @@ const Index = () => {
           </motion.div>
         </section>
 
-        {/* Yona's Swimply Testimonial */}
-        <section className="max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 md:p-12 border border-purple-100"
-          >
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
-                <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-6">
-                  "Easy to work with and well priced. The business was growing, so we needed to staff up our 
-                  customer support team because great customer support is a core pillar of our business. However, 
-                  as we wanted to keep focusing on profitability, costs were also top of mind. That's where 
-                  Hireshore came in—we could achieve both. If you have similar needs including focus on cost, 
-                  the ease to scale up and down, and the speed... definitely would recommend."
-                </blockquote>
-                <div className="flex items-center">
-                  <div>
-                    <p className="font-semibold text-gray-900">Yona Meissner</p>
-                    <p className="text-sm text-gray-600">Head of Operations, Swimply</p>
-                  </div>
-                </div>
-              </div>
-              <YouTubeFacade
-                videoId="LjnthdX87Ao"
-                title="Swimply Testimonial - Yona Meissner"
-                className="aspect-video rounded-xl overflow-hidden shadow-lg"
-              />
-            </div>
-          </motion.div>
-        </section>
-
-        {/* Ryan's PropertyStack Testimonial */}
-        <section className="max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12 border"
-          >
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
-                <blockquote className="text-lg md:text-xl text-gray-900 leading-relaxed mb-6">
-                  "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. 
-                  The hiring process is much easier now with resume videos and pre-vetted candidates. 
-                  Compared to freelancers or other markets, the quality from Nepal has been significantly better. 
-                  You guys have helped us grow fast and we've referred you to many of our partners."
-                </blockquote>
-                <div className="flex items-center">
-                  <div>
-                    <p className="font-semibold text-gray-900">Ryan Jope</p>
-                    <p className="text-sm text-gray-600">Founder of PropertyStack</p>
-                  </div>
-                </div>
-              </div>
-              <YouTubeFacade
-                videoId="9xMVgH1j9XE"
-                title="PropertyStack Testimonial - Ryan Jope"
-                className="aspect-video rounded-xl overflow-hidden shadow-lg"
-              />
-            </div>
-          </motion.div>
-        </section>
 
         {/* View All Case Studies CTA */}
         <section className="max-w-4xl mx-auto px-4 text-center">

@@ -43,6 +43,12 @@ const testimonials = [
     photo: "/lovable-uploads/d4be4a5a-7f58-4205-b403-c137a43e5d8b.png",
   },
   {
+    name: "Yona Meissner",
+    title: "Head of Operations, Swimply",
+    text: "Easy to work with and well priced. We needed to staff up customer support while staying focused on profitability — Hireshore let us achieve both. If cost, the ease to scale up and down, and speed matter to you, I'd definitely recommend them.",
+    photo: "/placeholder.svg",
+  },
+  {
     name: "Chloe Bundy",
     title: "Founder, Cove Digital",
     text: "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver without compromise is a game changer. I hand over the project and SOP, and it's done before the deadline.",
