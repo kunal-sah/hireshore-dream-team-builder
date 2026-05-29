@@ -7,7 +7,6 @@ import NavBar from "../components/NavBar";
 import LandingHero from "../components/LandingHero";
 import TrustedStartups from "../components/TrustedStartups";
 import FoundersWall from "../components/FoundersWall";
-import DeliveryPodDefinition from "../components/DeliveryPodDefinition";
 import SiteFooter from "../components/SiteFooter";
 import { preloadCriticalResources, optimizeImageLoading } from "../utils/performanceOptimizer";
 import { deferHeavyWork, preloadCriticalAssets, optimizeThirdPartyScripts } from "../utils/criticalPathOptimizer";
