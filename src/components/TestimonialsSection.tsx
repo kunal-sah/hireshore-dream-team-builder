@@ -51,6 +51,12 @@ const testimonials: Testimonial[] = [
     text: "Working with Hireshore has given me more time to grow my business and take on new local clients. I hand over the project and SOP, and it's done before the deadline.",
     photo: "/lovable-uploads/a2773a93-5211-4d24-a4b1-ec9b04e22039.png",
   },
+  {
+    name: "Bryan Chung",
+    title: "Head Honcho, Blank Consultancy",
+    text: "If you're on the hunt for exceptional talent, I couldn't recommend Kunal and his team highly enough! Not only did they present outstanding candidates, but they also took the time to fully understand our brief and consistently met deadlines. On the rare occasion an issue arose, Kunal handled it proactively and professionally. Their communication, attention to detail and commitment to delivering results truly set them apart.",
+    photo: "/lovable-uploads/bryan-chung.png",
+  },
 ];
 
 const TestimonialsSection = () => (
