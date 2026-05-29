@@ -1,28 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import MegaMenu from './MegaMenu';
-import { cn } from "@/lib/utils";
 import { getCalendlyURL, trackCTAClick } from "@/utils/utmTracking";
 
+const mobileSections: { label: string; href: string; children: { label: string; href: string }[] }[] = [
+  {
+    label: 'Services',
+    href: '/services',
+    children: [
+      { label: 'Web Dev Pod', href: '/services/web-dev' },
+      { label: 'Design Pod', href: '/services/design' },
+      { label: 'Video Pod', href: '/services/video' },
+      { label: 'SEO & Content Pod', href: '/services/seo-content' },
+      { label: 'Marketing Ops Pod', href: '/services/marketing-ops' },
+      { label: 'Data / AI Pod', href: '/services/data-ai' },
+      { label: 'Support & QA Pod', href: '/services/support-qa' },
+      { label: 'Launch faster', href: '/solutions/launch-faster' },
+      { label: 'Scale design', href: '/solutions/scale-design' },
+      { label: 'Automate operations', href: '/solutions/automate-ops' },
+      { label: 'Fill sales pipeline', href: '/solutions/sales-pipeline' },
+      { label: 'Support & QA', href: '/solutions/support-qa' },
+      { label: 'Configure your Pod', href: '/configure-pod' },
+    ],
+  },
+  {
+    label: 'Staffing',
+    href: '/staffing',
+    children: [
+      { label: 'Dedicated Talent', href: '/staffing/dedicated' },
+      { label: 'Build-a-Team', href: '/staffing/build-team' },
+      { label: 'Recruitment-as-a-Service', href: '/staffing/recruitment' },
+      { label: 'Compliance & Payroll', href: '/staffing/compliance' },
+      { label: 'Paid Trial', href: '/staffing/trial' },
+      { label: 'Rates & Roles', href: '/staffing/rates' },
+      { label: 'Talent Profiles', href: '/staffing/talent-profiles' },
+    ],
+  },
+  {
+    label: 'Resources',
+    href: '/resources',
+    children: [
+      { label: 'Guides Library', href: '/resources/guides' },
+      { label: 'Templates Library', href: '/resources/templates' },
+      { label: 'Cost Calculator', href: '/resources/cost-calculator' },
+      { label: 'Delivery Pods Playbook', href: '/resources/delivery-pods-playbook' },
+      { label: 'Case Notes', href: '/resources/case-notes' },
+      { label: 'Webinars', href: '/resources/webinars' },
+      { label: 'FAQs', href: '/resources/faqs' },
+      { label: 'Browse by Industry', href: '/industries' },
+    ],
+  },
+];
+
 const NavBar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string>('');
   const [activeMenu, setActiveMenu] = useState('');
   const [menuTimeout, setMenuTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
 
   const handleMenuEnter = (menuType: string) => {
     if (menuTimeout) {
@@ -33,9 +69,7 @@ const NavBar = () => {
   };
 
   const handleMenuLeave = () => {
-    const timeout = setTimeout(() => {
-      setActiveMenu('');
-    }, 600);
+    const timeout = setTimeout(() => setActiveMenu(''), 600);
     setMenuTimeout(timeout);
   };
 
@@ -47,9 +81,7 @@ const NavBar = () => {
   };
 
   const handleMegaMenuLeave = () => {
-    const timeout = setTimeout(() => {
-      setActiveMenu('');
-    }, 500);
+    const timeout = setTimeout(() => setActiveMenu(''), 500);
     setMenuTimeout(timeout);
   };
 
@@ -61,185 +93,78 @@ const NavBar = () => {
     }
   };
 
-  // Create ripple effect for buttons
-  const createRipple = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const button = event.currentTarget;
-    const circle = document.createElement('span');
-    const diameter = Math.max(button.clientWidth, button.clientHeight);
-    const radius = diameter / 2;
-
-    const rect = button.getBoundingClientRect();
-    
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${event.clientX - rect.left - radius}px`;
-    circle.style.top = `${event.clientY - rect.top - radius}px`;
-    
-    circle.classList.add('ripple');
-    
-    const ripple = button.querySelector('.ripple');
-    if (ripple) {
-      ripple.remove();
-    }
-    
-    button.appendChild(circle);
-    
-    // Remove the span after the animation completes
-    setTimeout(() => {
-      if (circle.parentElement) {
-        circle.parentElement.removeChild(circle);
-      }
-    }, 800);
+  const handleBookTrial = (source: string, location: string) => {
+    const utmURL = getCalendlyURL(source);
+    trackCTAClick(source, location);
+    window.open(utmURL, '_blank');
   };
 
+  const desktopItems: { label: string; href: string; menu?: string }[] = [
+    { label: 'Services', href: '/services', menu: 'services' },
+    { label: 'Staffing', href: '/staffing', menu: 'staffing' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Case Studies', href: '/case-studies' },
+    { label: 'Resources', href: '/resources', menu: 'resources' },
+  ];
+
   return (
-    <motion.nav 
-      className={`fixed top-0 left-0 right-0 w-full bg-white shadow-sm z-50 border-b transition-all duration-300`}
+    <motion.nav
+      className="fixed top-0 left-0 right-0 w-full bg-white shadow-sm z-50 border-b transition-all duration-300"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center h-16">
-          <motion.div 
+          <motion.div
             className="flex-shrink-0 flex items-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <Link to="/" className="flex items-center">
-              <motion.img 
-                src="/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png" 
-                alt="HireShore Logo" 
-                className="h-10 w-auto" 
+              <motion.img
+                src="/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png"
+                alt="HireShore Logo"
+                className="h-10 w-auto"
                 initial={{ opacity: 0, rotateY: 90 }}
                 animate={{ opacity: 1, rotateY: 0 }}
                 transition={{ duration: 0.8, type: "spring" }}
               />
             </Link>
           </motion.div>
-          
-            {/* Navigation Links */}
-            <div className="hidden lg:flex items-center space-x-1 relative"
-            >
-            {/* Solutions */}
-            <div
-              className="relative group"
-              onMouseEnter={() => handleMenuEnter('solutions')}
-            >
-              {/* Hover buffer area above */}
-              <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
-              
-              <Link
-                to="/solutions"
-                className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
+
+          {/* Navigation Links */}
+          <div className="hidden lg:flex items-center space-x-1 relative">
+            {desktopItems.map((item) => (
+              <div
+                key={item.label}
+                className="relative group"
+                onMouseEnter={() => item.menu ? handleMenuEnter(item.menu) : handleMenuLeave()}
               >
-                Solutions
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
+                {item.menu && (
+                  <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
+                )}
+                <Link
+                  to={item.href}
+                  className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
+                >
+                  {item.label}
+                  {item.menu && <ChevronDown className="ml-1 h-4 w-4" />}
+                </Link>
+              </div>
+            ))}
 
-            {/* Pods/Services */}
-            <div
-              className="relative group"
-              onMouseEnter={() => handleMenuEnter('services')}
-            >
-              <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
-              
-              <Link
-                to="/services"
-                className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
-              >
-                Pod
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-
-            {/* Staffing */}
-            <div
-              className="relative group"
-              onMouseEnter={() => handleMenuEnter('staffing')}
-            >
-              <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
-              
-              <Link
-                to="/staffing"
-                className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
-              >
-                Staffing
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-
-            {/* Industries */}
-            <div
-              className="relative group"
-              onMouseEnter={() => handleMenuEnter('industries')}
-            >
-              <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
-              
-              <Link
-                to="/industries"
-                className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
-              >
-                Industries
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-
-            {/* Pricing */}
-            <Link
-              to="/pricing"
-              className="px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
-            >
-              Pricing
-            </Link>
-
-            {/* Resources */}
-            <div
-              className="relative group"
-              onMouseEnter={() => handleMenuEnter('resources')}
-            >
-              <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
-              
-              <Link
-                to="/resources"
-                className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
-              >
-                Resources
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-
-            {/* Company */}
-            <div
-              className="relative group"
-              onMouseEnter={() => handleMenuEnter('company')}
-            >
-              <div className="absolute -top-4 left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
-              
-              <Link
-                to="/about-us"
-                className="flex items-center px-4 py-2 text-gray-900 hover:text-primary font-semibold transition-colors rounded-lg hover:bg-gray-50"
-              >
-                Company
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-
-            {/* Book a Call - Primary CTA */}
+            {/* CTA */}
             <motion.button
               className="ml-4 inline-flex items-center justify-center bg-primary text-white font-semibold px-6 py-3 rounded-lg text-sm hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                const utmURL = getCalendlyURL('navbar_book_call');
-                trackCTAClick('navbar_book_call', 'main_navigation');
-                window.open(utmURL, '_blank');
-              }}
+              onClick={() => handleBookTrial('navbar_book_trial', 'main_navigation')}
             >
               <Phone className="mr-2 h-4 w-4" />
-              Book a Call
+              Book a paid trial
             </motion.button>
-            {/* Mega Menu inside nav container */}
+
             <MegaMenu
               isOpen={!!activeMenu}
               menuType={activeMenu}
@@ -255,13 +180,9 @@ const NavBar = () => {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary hover:bg-gray-100 transition-all duration-300"
               whileTap={{ scale: 0.95 }}
+              aria-label="Open main menu"
             >
-              <span className="sr-only">Open main menu</span>
-              {mobileMenuOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
-              )}
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </motion.button>
           </div>
         </div>
@@ -274,79 +195,85 @@ const NavBar = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="lg:hidden bg-white border-t border-gray-200 shadow-lg"
+              className="lg:hidden bg-white border-t border-gray-200 shadow-lg overflow-hidden"
             >
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                <Link
-                  to="/solutions"
-                  className="block px-3 py-2 rounded-md text-base font-semibold text-gray-900 hover:text-primary hover:bg-gray-50 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Solutions
-                </Link>
-                <Link
-                  to="/services"
-                  className="block px-3 py-2 rounded-md text-base font-semibold text-gray-900 hover:text-primary hover:bg-gray-50 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Pod
-                </Link>
-                <Link
-                  to="/staffing"
-                  className="block px-3 py-2 rounded-md text-base font-semibold text-gray-900 hover:text-primary hover:bg-gray-50 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Staffing
-                </Link>
-                <Link
-                  to="/industries"
-                  className="block px-3 py-2 rounded-md text-base font-semibold text-gray-900 hover:text-primary hover:bg-gray-50 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Industries
-                </Link>
+              <div className="px-2 pt-2 pb-3 space-y-1 max-h-[80vh] overflow-y-auto">
+                {mobileSections.map((section) => {
+                  const expanded = mobileExpanded === section.label;
+                  return (
+                    <div key={section.label} className="border-b border-gray-100 last:border-b-0">
+                      <button
+                        onClick={() => setMobileExpanded(expanded ? '' : section.label)}
+                        className="w-full flex justify-between items-center px-3 py-3 text-base font-semibold text-gray-900 hover:text-primary"
+                      >
+                        <span>{section.label}</span>
+                        <ChevronDown className={`h-4 w-4 transition-transform ${expanded ? 'rotate-180' : ''}`} />
+                      </button>
+                      <AnimatePresence>
+                        {expanded && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden bg-gray-50"
+                          >
+                            <Link
+                              to={section.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="block px-6 py-2 text-sm font-semibold text-primary"
+                            >
+                              View all →
+                            </Link>
+                            {section.children.map((child) => (
+                              <Link
+                                key={child.href}
+                                to={child.href}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="block px-6 py-2 text-sm text-gray-700 hover:text-primary hover:bg-gray-100"
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+
                 <Link
                   to="/pricing"
-                  className="block px-3 py-2 rounded-md text-base font-semibold text-gray-900 hover:text-primary hover:bg-gray-50 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3 py-3 text-base font-semibold text-gray-900 hover:text-primary border-b border-gray-100"
                 >
                   Pricing
                 </Link>
                 <Link
-                  to="/resources"
-                  className="block px-3 py-2 rounded-md text-base font-semibold text-gray-900 hover:text-primary hover:bg-gray-50 transition-colors"
+                  to="/case-studies"
                   onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3 py-3 text-base font-semibold text-gray-900 hover:text-primary border-b border-gray-100"
                 >
-                  Resources
+                  Case Studies
                 </Link>
-                <Link
-                  to="/about-us"
-                  className="block px-3 py-2 rounded-md text-base font-semibold text-gray-900 hover:text-primary hover:bg-gray-50 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Company
-                </Link>
-                
+
                 <motion.button
                   className="w-full mt-4 inline-flex items-center justify-center bg-primary text-white font-semibold px-4 py-3 rounded-lg text-base hover:bg-primary/90 transition-all duration-300 shadow-lg"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
-                    const utmURL = getCalendlyURL('mobile_menu_book_call');
-                    trackCTAClick('mobile_menu_book_call', 'mobile_navigation');
-                    window.open(utmURL, '_blank');
+                    handleBookTrial('mobile_menu_book_trial', 'mobile_navigation');
                     setMobileMenuOpen(false);
                   }}
                 >
                   <Phone className="mr-2 h-5 w-5" />
-                  Book a Call
+                  Book a paid trial
                 </motion.button>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-
     </motion.nav>
   );
 };
