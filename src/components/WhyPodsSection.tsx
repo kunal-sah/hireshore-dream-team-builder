@@ -99,7 +99,7 @@ const WhyPodsSection = () => {
           className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
         >
           {/* Desktop Table */}
-          <div className="hidden md:block overflow-x-auto">
+          <div className="hidden lg:block overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-200">
@@ -137,8 +137,8 @@ const WhyPodsSection = () => {
             </table>
           </div>
 
-          {/* Mobile Cards */}
-          <div className="md:hidden p-6 space-y-6">
+          {/* Mobile/Tablet Cards */}
+          <div className="lg:hidden p-6 space-y-6">
             {comparisonData.map((row, index) => (
               <div key={index} className="bg-gray-50 rounded-lg p-4">
                 <h4 className="font-semibold text-gray-900 mb-4">{row.criteria}</h4>
