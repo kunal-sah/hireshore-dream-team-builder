@@ -59,7 +59,14 @@ const CalendlySection = () => {
     >
       <div className="max-w-4xl mx-auto px-4">
         <div className="text-center mb-6 sm:mb-8">
+          <img
+            src={kunalPhoto}
+            alt="Kunal Sah, Founder of Hireshore"
+            loading="lazy"
+            className="mx-auto mb-5 w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover ring-4 ring-white shadow-lg"
+          />
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Talk to Kunal — 30 min, no pitch</h2>
+
           <p className="text-muted-foreground text-base sm:text-lg px-4">Still have questions? Get a custom plan for your business in 30 minutes.</p>
           <div className="mt-4 sm:mt-6">
             <button 
