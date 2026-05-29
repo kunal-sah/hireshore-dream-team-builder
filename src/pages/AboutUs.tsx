@@ -467,6 +467,7 @@ const AboutUs = () => {
             </motion.div>
           </div>
         </section>
+        <MediaFeatures />
       </main>
 
       <SiteFooter />
