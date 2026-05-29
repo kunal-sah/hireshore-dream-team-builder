@@ -136,7 +136,7 @@ const AboutUs = () => {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
                 About Hireshore
               </h1>
               <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8 px-4">
