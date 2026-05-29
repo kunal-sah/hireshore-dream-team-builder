@@ -1,40 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Users, Calendar, Phone, Code, Pen, ShoppingCart, MessageSquare, User, Headphones, Search, FileEdit, Palette } from 'lucide-react';
+import { Briefcase, Users, Calendar, Phone, MessageSquare, User, Headphones, Search, FileEdit, Palette, Calculator, Receipt } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const ServicesSection = () => {
   const techRoles = [
-    { 
-      title: "Full Stack Developers", 
-      icon: <Code className="w-10 h-10 text-primary" />,
-      description: "Expert developers who can handle both front-end and back-end development needs."
+    {
+      title: "Bookkeepers",
+      icon: <Calculator className="w-10 h-10 text-primary" />,
+      description: "Day-to-day bookkeeping in Xero, QuickBooks, and MYOB — clean books, on time."
     },
-    { 
-      title: "Graphics Designers", 
+    {
+      title: "Billing & Accounts Specialists",
+      icon: <Receipt className="w-10 h-10 text-primary" />,
+      description: "Invoicing, AR/AP, reconciliations, and collections handled end-to-end."
+    },
+    {
+      title: "Graphics Designers",
       icon: <Palette className="w-10 h-10 text-primary" />,
       description: "Creative professionals who design stunning visual content and brand materials."
     },
-    { 
-      title: "UI/UX Designers", 
-      icon: <Pen className="w-10 h-10 text-primary" />,
-      description: "Creative professionals who craft beautiful, user-friendly interfaces and experiences."
-    },
-    { 
-      title: "SEO Specialists", 
+    {
+      title: "SEO Specialists",
       icon: <Search className="w-10 h-10 text-primary" />,
       description: "Experts who optimize your online presence to improve visibility and rankings."
     },
-    { 
-      title: "Content Creators", 
+    {
+      title: "Content Creators",
       icon: <FileEdit className="w-10 h-10 text-primary" />,
       description: "Talented writers and creators who develop engaging content for your audience."
     },
-    { 
-      title: "Shopify & WordPress Developers", 
-      icon: <ShoppingCart className="w-10 h-10 text-primary" />,
-      description: "Specialized developers who build and enhance e-commerce and CMS platforms."
-    }
   ];
   
   const supportRoles = [
@@ -167,7 +162,7 @@ const ServicesSection = () => {
               <div className="flex-shrink-0 bg-primary/10 rounded-full p-3">
                 <Briefcase className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="ml-3 sm:ml-4 text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900">🛠️ Tech & Creative Roles</h3>
+              <h3 className="ml-3 sm:ml-4 text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900">📊 Back-Office & Marketing Roles</h3>
             </div>
             
             <motion.div
