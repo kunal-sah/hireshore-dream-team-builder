@@ -279,7 +279,7 @@ const AboutUs = () => {
                 className="order-1 lg:order-2"
               >
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl transform rotate-3"></div>
+                  <div className="absolute inset-0 bg-primary rounded-2xl transform rotate-3"></div>
                   <div className="relative bg-white p-2 rounded-2xl shadow-xl">
                     <img 
                       src={founderImage} 
