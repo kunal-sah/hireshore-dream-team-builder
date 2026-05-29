@@ -11,6 +11,7 @@ const founders = [
   { name: "Yona Meissner", title: "Head of Ops, Swimply", photo: "/lovable-uploads/yona-meissner.png" },
   { name: "Bryan Chung", title: "Head Honcho, Blank Consultancy", photo: "/lovable-uploads/bryan-chung.png" },
   { name: "Rita Dagher", title: "Managing Director, Affective Care & Affective Health Services", photo: "/lovable-uploads/affective-care-md.png" },
+  { name: "Richard Lang", title: "Founder, RTO Acceleration", photo: "/lovable-uploads/richard-lang.png" },
 ];
 
 const container = {
