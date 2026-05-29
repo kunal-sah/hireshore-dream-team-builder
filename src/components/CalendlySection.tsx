@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { getCalendlyURL, getCurrentPagePath } from '@/utils/utmTracking';
+import kunalPhoto from '@/assets/kunal-sah.png';
+
 
 const CalendlySection = () => {
   const calendlyURL = getCalendlyURL(`calendly_section_${getCurrentPagePath()}`);
