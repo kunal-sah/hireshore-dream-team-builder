@@ -162,7 +162,7 @@ const ServicesSection = () => {
               <div className="flex-shrink-0 bg-primary/10 rounded-full p-3">
                 <Briefcase className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="ml-3 sm:ml-4 text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900">🛠️ Tech & Creative Roles</h3>
+              <h3 className="ml-3 sm:ml-4 text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900">📊 Back-Office & Marketing Roles</h3>
             </div>
             
             <motion.div
