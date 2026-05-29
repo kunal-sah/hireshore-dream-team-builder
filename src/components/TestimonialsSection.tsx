@@ -69,6 +69,12 @@ const testimonials: Testimonial[] = [
     text: "Hireshore helped us hire a Media Buyer through their direct hire service for our student acquisition team. They understood the role clearly, shared relevant candidates, and made the hiring process smooth and efficient. Their support saved us time and helped us find the right talent for our marketing needs.",
     photo: "/lovable-uploads/richard-lang.png",
   },
+  {
+    name: "James Nouri",
+    title: "General Manager",
+    text: "Hireshore has been supporting our digital growth through their Marketing Design Pod, covering design, social media, email marketing, ads, and overall digital marketing work. Their team has been reliable, creative, and easy to work with. They understand our requirements clearly, manage tasks professionally, and help us execute our digital work with consistency.",
+    photo: "/lovable-uploads/james-nouri.png",
+  },
 ];
 
 const TestimonialsSection = () => (
