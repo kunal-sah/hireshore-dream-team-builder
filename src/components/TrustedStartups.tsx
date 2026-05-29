@@ -111,6 +111,7 @@ const TrustedStartups = () => {
           ))}
         </div>
       </div>
+      </div>
     </motion.section>
   );
 };
