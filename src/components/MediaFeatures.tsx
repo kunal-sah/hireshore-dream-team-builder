@@ -49,6 +49,7 @@ const MediaFeatures = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
+      <div className="max-w-5xl mx-auto">
       <motion.div 
         className="text-center mb-6"
         initial={{ opacity: 0, y: 20 }}
