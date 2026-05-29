@@ -71,7 +71,7 @@ const testimonials: Testimonial[] = [
   },
   {
     name: "James Nouri",
-    title: "General Manager",
+    title: "General Manager, Ezy Deanz",
     text: "Hireshore has been supporting our digital growth through their Marketing Design Pod, covering design, social media, email marketing, ads, and overall digital marketing work. Their team has been reliable, creative, and easy to work with. They understand our requirements clearly, manage tasks professionally, and help us execute our digital work with consistency.",
     photo: "/lovable-uploads/james-nouri.png",
   },
