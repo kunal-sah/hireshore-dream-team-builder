@@ -1,141 +1,126 @@
-
 import React from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-
-import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import YouTubeFacade from "./ui/youtube-facade";
 
-const testimonials = [
-  {
-    name: "Dave Cannell",
-    title: "Cofounder & CEO, Sendr",
-    text: "Hireshore helped us hire reliable remote talent for key support and GTM roles at Sendr, including an EA/VA to the CEO and a GTM Engineer Consultant / Account Manager. Their team understood our needs quickly, shared relevant profiles, and made the hiring process smooth and efficient.",
-    photo: "/lovable-uploads/dave-cannell.png",
-  },
-  {
-    name: "John Bromley",
-    title: "Cofounder, Sendr",
-    text: "Working with Hireshore has been a great experience. They quickly understood our GTM and outbound needs and helped us bring on the right talent to support our growth at Sendr. The process was smooth, and the people they placed have been a strong fit for the team.",
-    photo: "/lovable-uploads/john-bromley.png",
-  },
+type Testimonial = {
+  name: string;
+  title: string;
+  text: string;
+  photo: string;
+  videoId?: string;
+};
+
+const testimonials: Testimonial[] = [
   {
     name: "Aaron Erwich",
     title: "Founder, Digital Six",
-    text: "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal. The WordPress guys are killing it. The SEO side is strong. This is way better than our past freelancer experience. I've already referred several people to Hireshore.",
+    text: "We were maybe 22–23 when we started... now there are 47 people across Australia and Nepal. The WordPress guys are killing it. The SEO side is strong. This is way better than our past freelancer experience.",
     photo: "/lovable-uploads/8d290392-3676-42f7-91a8-d1bb48f6fca7.png",
-  },
-  {
-    name: "Marlon M.",
-    title: "Founder, Medz Media",
-    text: "The best experience I've had working with a remote team. Websites came out fantastic - fast, secure, beautifully designed. The team's energy, proactiveness, and suggestions make them feel like a real part of my business. I've worked with freelancers before - this is a whole different level.",
-    photo: "/lovable-uploads/fbdcffaa-5b42-4efe-ae99-e7cec23a54c8.png",
+    videoId: "yW90cSyX_iI",
   },
   {
     name: "Ryan Jope",
     title: "Founder, PropertyStack",
-    text: "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality from Nepal has been significantly better.",
+    text: "We've hired over 15 people through Hireshore in just a year — and could've done 10 more. Resume videos and pre-vetted candidates make the process easy. The quality from Nepal has been significantly better.",
     photo: "/lovable-uploads/d4be4a5a-7f58-4205-b403-c137a43e5d8b.png",
+    videoId: "9xMVgH1j9XE",
+  },
+  {
+    name: "Marlon M.",
+    title: "Founder, Medz Media",
+    text: "The best experience I've had working with a remote team. Websites came out fantastic — fast, secure, beautifully designed. Their energy, proactiveness, and suggestions make them feel like a real part of my business.",
+    photo: "/lovable-uploads/fbdcffaa-5b42-4efe-ae99-e7cec23a54c8.png",
+    videoId: "43qQdLve5Ps",
   },
   {
     name: "Yona Meissner",
     title: "Head of Operations, Swimply",
-    text: "Easy to work with and well priced. We needed to staff up customer support while staying focused on profitability — Hireshore let us achieve both. If cost, the ease to scale up and down, and speed matter to you, I'd definitely recommend them.",
+    text: "Easy to work with and well priced. We needed to staff up customer support while staying focused on profitability — Hireshore let us achieve both. If cost, ease to scale, and speed matter, I'd definitely recommend them.",
     photo: "/placeholder.svg",
+    videoId: "LjnthdX87Ao",
+  },
+  {
+    name: "Dave Cannell",
+    title: "Cofounder & CEO, Sendr",
+    text: "Hireshore helped us hire reliable remote talent for key support and GTM roles at Sendr. Their team understood our needs quickly, shared relevant profiles, and made the hiring process smooth and efficient.",
+    photo: "/lovable-uploads/dave-cannell.png",
   },
   {
     name: "Chloe Bundy",
     title: "Founder, Cove Digital",
-    text: "Working with Hireshore has given me more time to grow my business and take on new local clients. I'm also a WordPress expert myself, so having a pod I trust to deliver without compromise is a game changer. I hand over the project and SOP, and it's done before the deadline.",
+    text: "Working with Hireshore has given me more time to grow my business and take on new local clients. I hand over the project and SOP, and it's done before the deadline.",
     photo: "/lovable-uploads/a2773a93-5211-4d24-a4b1-ec9b04e22039.png",
-  },
-  {
-    name: "Breearna Jope",
-    title: "Founder, Uncommon Solutions",
-    text: "The team is well-skilled, easy to work with, and they deliver on time. I get estimates upfront, so I can confidently promise timelines to my clients - and they're met. I don't need to search for freelancers anymore. Kunal and the Hireshore team help me pitch, plan, and deliver custom solutions for every client.",
-    photo: "/lovable-uploads/394a2ced-a988-4153-8ef9-1e99f76765fb.png",
   },
 ];
 
 const TestimonialsSection = () => (
-  <motion.section 
-    id="testimonials" 
-    className="max-w-5xl mx-auto py-8 sm:py-12 px-4"
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
-  >
-    <motion.h2 
-      className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-center"
+  <section id="testimonials" className="max-w-6xl mx-auto px-4">
+    <motion.div
+      className="text-center mb-10 sm:mb-14"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      Why Founders & Agencies Rely on Hireshore
-    </motion.h2>
-    
-    <Carousel
-      opts={{
-        align: "start",
-        loop: true,
-      }}
-      className="w-full"
-    >
-      <CarouselContent className="py-4">
-        {testimonials.map((testimonial, index) => (
-          <CarouselItem key={index} className="basis-full sm:basis-1/2 lg:basis-1/3">
-            <motion.div 
-              className="p-1"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
+        Hear it directly from{" "}
+        <span className="font-serif italic text-purple-600">our clients.</span>
+      </h2>
+      <p className="text-base sm:text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+        Real founders. Real outcomes. Watch what teams shipping with Hireshore have to say.
+      </p>
+    </motion.div>
+
+    <div className="space-y-6 sm:space-y-8">
+      {testimonials.map((t, index) => {
+        const reversed = index % 2 === 1;
+        const hasVideo = !!t.videoId;
+        return (
+          <motion.div
+            key={t.name}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.05 }}
+            className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all p-6 sm:p-8 md:p-10"
+          >
+            <div
+              className={`grid gap-6 md:gap-10 items-center ${
+                hasVideo ? "md:grid-cols-2" : "md:grid-cols-1"
+              }`}
             >
-              <Card className="border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:border-purple-200">
-                <CardContent className="flex flex-col gap-4 p-6">
-                  <div className="flex items-center gap-4">
-                    <motion.img 
-                      src={testimonial.photo} 
-                      alt={testimonial.name} 
-                      className="w-12 h-12 rounded-full object-cover ring-2 ring-transparent hover:ring-[#8b5cf6] transition-all duration-300"
-                      initial={{ scale: 0.9 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      whileHover={{ scale: 1.1 }}
-                    />
-                    <div>
-                      <p className="font-medium text-gray-900">{testimonial.name}</p>
-                      <p className="text-sm text-gray-500">{testimonial.title}</p>
-                    </div>
+              {hasVideo && (
+                <div className={reversed ? "md:order-2" : ""}>
+                  <YouTubeFacade
+                    videoId={t.videoId!}
+                    title={`${t.name} testimonial`}
+                    className="aspect-video bg-gray-100 rounded-xl overflow-hidden"
+                  />
+                </div>
+              )}
+              <div className={reversed && hasVideo ? "md:order-1" : ""}>
+                <p className="text-lg sm:text-xl text-gray-800 leading-relaxed">
+                  "{t.text}"
+                </p>
+                <div className="flex items-center gap-3 mt-6">
+                  <img
+                    src={t.photo}
+                    alt={t.name}
+                    loading="lazy"
+                    className="w-12 h-12 rounded-full object-cover ring-2 ring-purple-100 bg-gray-100"
+                  />
+                  <div>
+                    <p className="font-semibold text-gray-900">{t.name}</p>
+                    <p className="text-sm text-gray-500">{t.title}</p>
                   </div>
-                  <motion.p 
-                    className="text-gray-700 italic"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    "{testimonial.text}"
-                  </motion.p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <div className="flex justify-center gap-2 mt-6">
-        <CarouselPrevious className="static transform-none mx-2 hover:bg-[#8b5cf6]/10 hover:text-[#8b5cf6] transition-colors" />
-        <CarouselNext className="static transform-none mx-2 hover:bg-[#8b5cf6]/10 hover:text-[#8b5cf6] transition-colors" />
-      </div>
-    </Carousel>
-  </motion.section>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        );
+      })}
+    </div>
+  </section>
 );
 
 export default TestimonialsSection;
