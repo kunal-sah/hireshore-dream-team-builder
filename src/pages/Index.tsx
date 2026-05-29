@@ -66,7 +66,7 @@ const Index = () => {
       "name": "Hireshore",
       "url": currentDomain,
       "logo": `${currentDomain}/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png`,
-      "description": "Get Full-Time Capacity Without the Full-Time Overhead. Managed Delivery Pods for agencies and startups.",
+      "description": "Get Full-Time Capacity Without the Full-Time Overhead. Managed Delivery Pods for product teams and agencies.",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+977 981 9074501",
