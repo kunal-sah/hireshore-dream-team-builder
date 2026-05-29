@@ -19,14 +19,14 @@ const HowItWorksSection = () => {
       title: "Spin-Up",
       description: "Stand up pod, set boards, align cadence",
       icon: Settings,
-      color: "from-indigo-500 to-indigo-600"
+      color: "from-primary to-primary"
     },
     {
       day: "Day 5",
       title: "Ship", 
       description: "Deliver + daily updates, weekly scorecards, QA baked in",
       icon: Rocket,
-      color: "from-purple-500 to-purple-600"
+      color: "from-primary to-primary"
     }
   ];
 

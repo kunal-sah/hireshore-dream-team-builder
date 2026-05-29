@@ -45,7 +45,7 @@ const SiteFooter = () => {
   ];
 
   return (
-    <footer className="w-full py-8 sm:py-12 md:py-16 bg-gradient-to-t from-[#e7e9f9] to-transparent mt-6 sm:mt-8 md:mt-12 relative">
+    <footer className="w-full py-8 sm:py-12 md:py-16 bg-gradient-to-t from-secondary to-transparent mt-6 sm:mt-8 md:mt-12 relative">
       {/* Animated background elements */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <motion.div 

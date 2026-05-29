@@ -17,19 +17,19 @@ const ProofSection = () => {
       number: "5+",
       label: "Years operating", 
       icon: Clock,
-      color: "from-indigo-500 to-indigo-600"
+      color: "from-primary to-primary"
     },
     {
       number: "80%",
       label: "Avg workload reduced",
       icon: TrendingUp,
-      color: "from-purple-500 to-purple-600"
+      color: "from-primary to-primary"
     },
     {
       number: "25+",
       label: "Startups & agencies served",
       icon: Users,
-      color: "from-cyan-500 to-cyan-600"
+      color: "from-primary to-primary"
     }
   ];
 

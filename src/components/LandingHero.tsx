@@ -127,74 +127,8 @@ const LandingHero = () => {
   };
 
   return (
-    <header ref={heroRef} className="w-full bg-gradient-to-b from-white to-[#f0f4ff] pt-20 sm:pt-28 pb-12 sm:pb-16 md:pb-20 px-4 relative overflow-hidden spotlight" style={{
-      '--x': '50%',
-      '--y': '50%',
-    } as React.CSSProperties}>
-      {/* Animated morphing background elements */}
-      <motion.div 
-        className="absolute inset-0 w-full h-full"
-        style={{ opacity }}
-      >
-        <motion.div 
-          className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-blue-200 to-purple-200 opacity-20 blur-3xl morphing-shape" 
-          style={{ y: bgY1 }}
-          animate={{ 
-            x: [0, 10, 0],
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-20 right-[15%] w-80 h-80 rounded-full bg-gradient-to-tr from-blue-200 to-indigo-200 opacity-20 blur-3xl morphing-shape"
-          style={{ y: bgY2 }}
-          animate={{
-            x: [0, -15, 0],
-            scale: [1, 1.07, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-            delay: 1
-          }}
-        />
-        
-        {/* Add more subtle floating elements */}
-        <motion.div 
-          className="absolute top-[30%] right-[25%] w-24 h-24 rounded-full bg-gradient-to-r from-cyan-200 to-blue-200 opacity-10 blur-xl"
-          animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            repeatType: "reverse",
-            delay: 0.5
-          }}
-        />
-        
-        <motion.div 
-          className="absolute bottom-[40%] left-[20%] w-32 h-32 rounded-full bg-gradient-to-r from-purple-200 to-pink-200 opacity-10 blur-xl"
-          animate={{
-            y: [0, 15, 0],
-            x: [0, -10, 0],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            repeatType: "reverse",
-            delay: 2
-          }}
-        />
-      </motion.div>
+    <header ref={heroRef} className="w-full bg-background pt-20 sm:pt-28 pb-12 sm:pb-16 md:pb-20 px-4 relative overflow-hidden border-b border-border">
+
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Side-by-side layout */}
@@ -299,7 +233,7 @@ const LandingHero = () => {
               animate="visible"
             >
               <motion.button
-                className="inline-flex items-center justify-center h-12 sm:h-14 gradient-btn bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg text-sm sm:text-base transition-all hover:shadow-xl ripple-effect relative overflow-hidden w-full sm:min-w-[280px]"
+                className="inline-flex items-center justify-center h-12 sm:h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md text-sm sm:text-base transition-colors w-full sm:min-w-[280px]"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)"
@@ -319,7 +253,7 @@ const LandingHero = () => {
               </motion.button>
 
               <motion.button
-                className="inline-flex items-center justify-center h-12 sm:h-14 border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-sm sm:text-base transition-all w-full sm:min-w-[220px]"
+                className="inline-flex items-center justify-center h-12 sm:h-14 border border-border text-foreground hover:bg-secondary font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-md text-sm sm:text-base transition-colors w-full sm:min-w-[220px]"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
@@ -356,7 +290,7 @@ const LandingHero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           >
-            <div className="relative bg-white rounded-2xl shadow-2xl p-4">
+            <div className="relative bg-white rounded-lg border border-border shadow-sm p-3">
               <YouTubeFacade
                 videoId="kdXYdRxr4qA"
                 title="Stop Chasing Updates: Organize Tasks & Teams in One Place"

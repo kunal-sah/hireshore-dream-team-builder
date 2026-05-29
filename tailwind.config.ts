@@ -20,8 +20,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				playfair: ['Playfair Display', 'serif'],
+				sans: ['Epilogue', 'system-ui', 'sans-serif'],
+				display: ['Urbanist', 'system-ui', 'sans-serif'],
+				playfair: ['Urbanist', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -134,8 +135,8 @@ export default {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-primary-hover': 'var(--gradient-primary-hover)',
 				'gradient-subtle': 'var(--gradient-subtle)',
-				'gradient-blue-purple': 'linear-gradient(135deg, hsl(217 100% 65%), hsl(250 84% 67%))',
-				'gradient-purple-blue': 'linear-gradient(135deg, hsl(250 84% 67%), hsl(217 100% 65%))'
+				'gradient-blue-purple': 'linear-gradient(135deg, hsl(222 60% 14%), hsl(222 60% 14%))',
+				'gradient-purple-blue': 'linear-gradient(135deg, hsl(222 60% 14%), hsl(222 60% 14%))'
 			}
 		}
 	},

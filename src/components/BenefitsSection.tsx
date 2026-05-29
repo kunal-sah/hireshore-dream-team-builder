@@ -58,7 +58,7 @@ const BenefitsSection = () => {
       {/* Container with max width to prevent wide screens from breaking the layout */}
       <div className="max-w-5xl mx-auto relative">
         {/* Gradient background effect */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f0f4ff] via-white to-[#f0f4ff] opacity-70 -z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary via-white to-secondary opacity-70 -z-10"></div>
         
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -77,7 +77,7 @@ const BenefitsSection = () => {
             >
               Why Hireshore?
               <motion.span 
-                className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-primary"
+                className="absolute -bottom-2 left-0 w-full h-1 bg-primary"
                 initial={{ width: 0, opacity: 0 }}
                 whileInView={{ width: "100%", opacity: 1 }}
                 transition={{ duration: 1, delay: 0.2 }}
@@ -115,7 +115,7 @@ const BenefitsSection = () => {
                 <Card className="border border-gray-100 shadow-sm hover:shadow-md transition-shadow group hover:border-purple-200 duration-300 h-full bg-white">
                   <CardContent className="p-6 flex flex-col items-center text-center h-full">
                     <motion.div
-                      className="w-16 h-16 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-blue-50 to-indigo-50"
+                      className="w-16 h-16 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-primary to-primary"
                       animate={{ 
                         y: [0, -5, 0],
                         boxShadow: [
@@ -137,14 +137,14 @@ const BenefitsSection = () => {
                         {benefit.emoji}
                       </motion.span>
                     </motion.div>
-                    <h3 className="text-lg font-bold mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-primary transition-colors duration-300">
+                    <h3 className="text-lg font-bold mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-primary transition-colors duration-300">
                       {benefit.title}
                     </h3>
                     <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">{benefit.desc}</p>
                     
                     {/* Add subtle gradient line */}
                     <motion.div 
-                      className="w-0 h-0.5 bg-gradient-primary mt-4"
+                      className="w-0 h-0.5 bg-primary mt-4"
                       animate={{ width: hoveredIndex === index ? "80%" : "0%" }}
                       transition={{ duration: 0.3 }}
                     />

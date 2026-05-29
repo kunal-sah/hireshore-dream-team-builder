@@ -201,7 +201,7 @@ const ServicesSection = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Button 
-              className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium py-4 sm:py-6 px-6 sm:px-8 rounded-full text-base sm:text-lg hover:shadow-lg transition-all inline-flex items-center gap-2"
+              className="bg-primary hover:bg-primary/90 text-white font-medium py-4 sm:py-6 px-6 sm:px-8 rounded-full text-base sm:text-lg hover:shadow-lg transition-all inline-flex items-center gap-2"
               onClick={() => {
                 const element = document.getElementById('book');
                 if (element) {
