@@ -35,11 +35,11 @@ const LandingHero = () => {
   const getSubtitleText = () => {
     switch (selectedAudience) {
       case 'agencies':
-        return "Agency buried in client work? Hire vetted Nepal-based specialists or a full Delivery Pod — fully managed, 70–80% lower cost than local hires, no freelancer chasing.";
+        return "Agency buried in client work? Hire vetted Nepal-based specialists or a full Delivery Pod — fully managed, save up to 83% on payroll vs local hires, no freelancer chasing.";
       case 'startups':
         return "Building on a budget? Get senior offshore talent or a cross-functional pod from Nepal — same expertise, a fraction of the cost, fully managed by us.";
       default:
-        return "Managed offshore teams from Nepal. Dedicated specialists or full cross-functional pods — same senior expertise as US/UK/AU hires, 70–80% lower cost, zero hiring headaches.";
+        return "Managed offshore teams from Nepal. Dedicated specialists or full cross-functional pods — same senior expertise as US/UK/AU hires, save up to 83% on payroll, zero hiring headaches.";
     }
   };
 
@@ -184,7 +184,7 @@ const LandingHero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                Senior offshore teams from Nepal. <span className="text-primary-variant">70–80% less cost.</span>
+                Senior offshore teams from Nepal. <span className="text-primary-variant">Save up to 83% on payroll.</span>
               </motion.span>
             </h1>
 

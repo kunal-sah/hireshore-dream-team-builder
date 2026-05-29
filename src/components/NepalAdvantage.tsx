@@ -9,8 +9,8 @@ const NepalAdvantage = () => {
   const stats = [
     {
       icon: DollarSign,
-      stat: '70–80%',
-      label: 'Lower cost',
+      stat: 'Up to 83%',
+      label: 'Payroll savings',
       detail: 'vs equivalent US, UK, AU hires — same seniority, none of the overhead.',
     },
     {
