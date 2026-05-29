@@ -105,6 +105,7 @@ const MediaFeatures = () => {
           </motion.div>
         ))}
       </motion.div>
+      </div>
     </motion.section>
   );
 };
