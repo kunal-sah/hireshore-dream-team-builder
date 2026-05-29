@@ -1,75 +1,48 @@
-## Homepage audit — what's unwanted / off-offer / redundant
+## Goal
 
-Current order:
-`Hero → TrustedStartups (client logos) → FoundersWall (founder faces) → NepalAdvantage → TwoWaysToHire → ServicesSection → BenefitsSection → RolesSection → Testimonials → MediaFeatures (press) → FAQ → Calendly`
+Tighten the homepage by replacing the dense 11-role grid in `ServicesSection` with a compact "What our pods cover" category strip. Preserve the detailed role content by moving it to `/services` (full catalog) — relevant `/services/*` pod pages already exist and remain the destination for deep dives.
 
-### Problems found
+## Homepage change
 
-**1. Three "trust strip" sections doing similar jobs**
-- `TrustedStartups` — client logo marquee ("Trusted by 25+ Global Startups")
-- `FoundersWall` — founder headshots + names
-- `MediaFeatures` — press logos (Forbes, MSN, Inman…)
+Replace `src/components/ServicesSection.tsx` content with a slim section:
 
-Two of these stacked near the hero, and a third buried mid-page. Feels repetitive and dilutes each one.
-
-**2. `ServicesSection` and `RolesSection` overlap heavily**
-Both are "here are the roles we provide." Combined they list devs twice, designers twice, VAs twice.
-
-**3. Off-offer roles still listed**
-Memory says: *Focus on VA & back-office outsourcing (bookkeeping, billing). No software dev.* But both sections still feature:
-- Full Stack Developers
-- QA Engineers & DevOps
-- Shopify / WordPress Developers
-- UI/UX Designers
-
-These contradict the positioning and pull the page away from the VA / back-office offer.
-
-**4. `BenefitsSection` and `NepalAdvantage` are both "why us" pitches**
-NepalAdvantage = why Nepal. BenefitsSection = generic benefits ("Elite Talent. No Guesswork." etc.). They argue similar points back to back.
-
-**5. RolesSection has no real heading visible in the scan** — it's a decorative list, low information density for the space it takes.
-
----
-
-### Recommended changes
-
-**Remove from homepage**
-- `RolesSection` — fully redundant with ServicesSection. Delete from Index.
-- `MediaFeatures` — move to About Us page (press credibility belongs there, not on the conversion path).
-- `BenefitsSection` — merge its 2–3 strongest points into `NepalAdvantage` as a small bullet row, then remove the standalone section.
-
-**Trim / refocus**
-- `ServicesSection` — strip software-dev-heavy roles. Keep VA, bookkeeping/billing, customer support, appointment setters, chat support, admin, plus the lighter creative/marketing roles that actually match the pods (SEO, Content, Graphics). Drop Full Stack Devs, QA/DevOps, Shopify/WordPress Devs. Rename the "Tech & Creative" cluster to "Marketing & Creative."
-- `FoundersWall` — keep, but consider moving it directly above `TestimonialsSection` so all "real people" social proof lives together, instead of competing with the client-logo strip near the hero.
-
-**Keep as-is**
-- `LandingHero`, `TrustedStartups`, `NepalAdvantage` (enhanced), `TwoWaysToHire`, `TestimonialsSection`, `FAQSection`, `CalendlySection`.
-
----
-
-### Proposed new homepage order
+- Heading: **What our pods cover**
+- Subhead: One line reinforcing managed pods (not job-board hiring)
+- 6 category cards (icon + title + 1-line description), single row on desktop / 2-col on mobile:
 
 ```text
-Hero
-TrustedStartups            (one trust strip near hero — logos)
-NepalAdvantage             (why Nepal + 3 merged benefit bullets)
-TwoWaysToHire              (the offer: Pods vs Dedicated)
-ServicesSection            (refocused: VA, back-office, support, marketing/creative)
-FoundersWall               (faces, leads into…)
-TestimonialsSection
-FAQSection
-CalendlySection
+1. Bookkeeping & Billing       → /services/web-dev (replace with finance pod when added)
+2. Virtual Assistants & Admin  → /services/support-qa-pod
+3. Customer Support (calls/chat/24·7) → /services/support-qa-pod
+4. Appointment Setting         → /services/marketing-ops-pod
+5. Design & Content            → /services/design-pod
+6. SEO & Marketing Ops         → /services/seo-content-pod
 ```
 
-### Where moved content goes
-- `MediaFeatures` → `src/pages/AboutUs.tsx` (press section).
-- `RolesSection` → deleted (content already covered by Services).
-- `BenefitsSection` strongest 3 points → folded into `NepalAdvantage`.
+- Single CTA: **"See all roles →"** linking to `/services`
+- Keep existing `id="services"` anchor and section spacing tokens
 
-### Technical notes
-- Edit `src/pages/Index.tsx` to remove `RolesSection`, `BenefitsSection`, `MediaFeatures` imports + Suspense blocks, and reorder.
-- Edit `src/components/ServicesSection.tsx` to drop dev-heavy role objects from `techRoles`.
-- Edit `src/components/NepalAdvantage.tsx` to add a compact 3-item benefits row.
-- Edit `src/pages/AboutUs.tsx` to render `MediaFeatures`.
+Result: removes ~60% of vertical scroll between `TwoWaysToHire` and `FoundersWall`, gets users to social proof + Calendly faster.
 
-Want me to proceed with all of the above, or cherry-pick (e.g. just remove RolesSection + MediaFeatures + dev roles, and leave BenefitsSection alone)?
+## Move detailed roles to /services
+
+Update `src/pages/Services.tsx` to host the full catalog currently on the homepage:
+
+- Two columns retained: **Admin & Support Roles** and **Back-Office & Marketing Roles**
+- All 11 roles with full descriptions (Virtual Assistants, Call Answering, Web Chat, Appointment Setters, 24/7 Support, Business Continuity, Bookkeepers, Billing & Accounts, Graphics Designers, SEO Specialists, Content Creators)
+- Each role links to its matching `/services/*` pod page where applicable
+- Keeps Paid-trial CTA at the bottom
+
+I'll first read `src/pages/Services.tsx` to merge cleanly without duplicating sections it already renders.
+
+## Files touched
+
+- `src/components/ServicesSection.tsx` — replaced with compact category strip
+- `src/pages/Services.tsx` — full role catalog added/merged
+- `.lovable/plan.md` — short note appended to record the change
+
+## Not changed
+
+- `src/pages/Index.tsx` order stays the same (ServicesSection keeps its slot)
+- `TwoWaysToHire`, `NepalAdvantage`, `FoundersWall`, `TestimonialsSection`, `FAQ`, `Calendly` untouched
+- No design-token, typography, or color changes (Navy Trust palette preserved, no gradients)
