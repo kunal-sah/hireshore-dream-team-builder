@@ -175,6 +175,43 @@ const SiteFooter = () => {
               </div>
             </motion.div>
           </div>
+
+          {/* Sitemap: Company, Industries, By Role */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mt-8 pt-8 border-t border-gray-100">
+            <div>
+              <h5 className="text-sm font-semibold text-gray-800 mb-3">Company</h5>
+              <ul className="space-y-2 text-sm">
+                <li><Link to="/about-us" className="text-gray-600 hover:text-primary">About Us</Link></li>
+                <li><Link to="/about-us#team" className="text-gray-600 hover:text-primary">Team & Culture</Link></li>
+                <li><Link to="/company/careers" className="text-gray-600 hover:text-primary">Careers</Link></li>
+                <li><Link to="/company/partners" className="text-gray-600 hover:text-primary">Partners</Link></li>
+                <li><Link to="/contact-us" className="text-gray-600 hover:text-primary">Contact Us</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-sm font-semibold text-gray-800 mb-3">Industries</h5>
+              <ul className="space-y-2 text-sm">
+                <li><Link to="/industries/agencies" className="text-gray-600 hover:text-primary">Agencies</Link></li>
+                <li><Link to="/industries/real-estate" className="text-gray-600 hover:text-primary">Real Estate</Link></li>
+                <li><Link to="/industries/ecommerce" className="text-gray-600 hover:text-primary">E-commerce</Link></li>
+                <li><Link to="/industries/saas-tech" className="text-gray-600 hover:text-primary">SaaS / Tech</Link></li>
+                <li><Link to="/industries/healthcare" className="text-gray-600 hover:text-primary">Healthcare</Link></li>
+                <li><Link to="/industries/education" className="text-gray-600 hover:text-primary">Education</Link></li>
+                <li><Link to="/industries/hospitality" className="text-gray-600 hover:text-primary">Hospitality</Link></li>
+                <li><Link to="/industries/finance" className="text-gray-600 hover:text-primary">Finance</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-sm font-semibold text-gray-800 mb-3">Solutions by Role</h5>
+              <ul className="space-y-2 text-sm">
+                <li><Link to="/solutions/agency-owners" className="text-gray-600 hover:text-primary">For Agency Owners</Link></li>
+                <li><Link to="/solutions/marketing-leaders" className="text-gray-600 hover:text-primary">For Marketing Leaders</Link></li>
+                <li><Link to="/solutions/founders" className="text-gray-600 hover:text-primary">For Founders</Link></li>
+                <li><Link to="/solutions/hr-recruiters" className="text-gray-600 hover:text-primary">For HR / Recruiters</Link></li>
+                <li><Link to="/configure-pod" className="text-gray-600 hover:text-primary">Configure your Pod</Link></li>
+              </ul>
+            </div>
+          </div>
           
           {/* Company Links & Legal Links */}
           <div className="flex flex-col md:flex-row justify-between items-center mt-6 sm:mt-8 space-y-4 md:space-y-0">
