@@ -3,13 +3,23 @@
 @tailwind components;
 @tailwind utilities;
 
-.shadow-glass {
-  box-shadow: 0 8px 32px 0 rgba(90, 89, 171, 0.13), 0 1.5px 7.5px 0 rgba(41, 65, 124, 0.10);
+@layer base {
+  body {
+    font-family: 'Epilogue', system-ui, sans-serif;
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6, .font-display, .font-playfair {
+    font-family: 'Urbanist', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
 }
 
-.font-playfair {
-  font-family: 'Playfair Display', serif;
+.shadow-glass {
+  box-shadow: 0 4px 16px 0 hsl(222 60% 14% / 0.06), 0 1px 3px 0 hsl(222 60% 14% / 0.04);
 }
+
 
 /* Add CSS variables for mouse position (for parallax effects) */
 :root {
