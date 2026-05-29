@@ -140,9 +140,9 @@ const Index = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col font-sans text-neutral-900 overflow-x-hidden">
       <SEOHead 
-        title="Done-For-You Delivery Pods | Scale With Hireshore"
-        description="Scale without chaos with Hireshore's vetted delivery pods for dev, design, automation & support. Real case studies. Book a strategy call."
-        keywords="delivery pods, offshore development, remote team, managed services, web development, design services, marketing automation, white label services"
+        title="Senior Offshore Teams from Nepal | Hireshore"
+        description="Hire senior offshore talent from Nepal. Dedicated specialists or managed delivery pods — save up to 83% on payroll. Vetted, fully managed, paid trial available."
+        keywords="offshore teams Nepal, offshore talent, dedicated specialists, delivery pods, virtual assistants, bookkeeping, remote team, managed offshore staffing"
         canonicalUrl="https://hireshore.co/"
       />
       <NavBar />

@@ -11,9 +11,9 @@ interface SEOHeadProps {
 }
 
 export const SEOHead = ({
-  title = "Done-For-You Delivery Pods | Scale With Hireshore",
-  description = "Scale without chaos with Hireshore's vetted delivery pods for dev, design, automation & support. Real case studies. Book a strategy call.",
-  keywords = "delivery pods, offshore development, remote team, managed services, web development, design services, marketing automation",
+  title = "Senior Offshore Teams from Nepal | Hireshore",
+  description = "Hire senior offshore talent from Nepal. Dedicated specialists or managed delivery pods — save up to 83% on payroll. Vetted, fully managed, paid trial available.",
+  keywords = "offshore teams Nepal, offshore talent, dedicated specialists, delivery pods, virtual assistants, bookkeeping, remote team, managed offshore staffing",
   ogImage = "https://hireshore.co/lovable-uploads/ebb69f88-62a2-4344-a4f5-5f906856fb26.png",
   ogType = "website",
   canonicalUrl,
