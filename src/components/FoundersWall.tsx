@@ -10,6 +10,7 @@ const founders = [
   { name: "John Bromley", title: "Cofounder, Sendr", photo: "/lovable-uploads/john-bromley.png" },
   { name: "Yona Meissner", title: "Head of Ops, Swimply", photo: "/lovable-uploads/yona-meissner.png" },
   { name: "Bryan Chung", title: "Head Honcho, Blank Consultancy", photo: "/lovable-uploads/bryan-chung.png" },
+  { name: "Managing Director", title: "Affective Care & Affective Health", photo: "/lovable-uploads/affective-care-md.png" },
 ];
 
 const container = {
