@@ -19,13 +19,13 @@ const AboutUs = () => {
   const stats = [
     {
       icon: Users,
-      number: "300+",
+      number: "400+",
       label: "Team Members",
       description: "Skilled professionals across multiple domains"
     },
     {
       icon: Globe,
-      number: "5+",
+      number: "10+",
       label: "Countries Served",
       description: "Global reach with local expertise"
     },
@@ -89,8 +89,13 @@ const AboutUs = () => {
     },
     {
       year: "2025",
-      title: "Current State",
-      description: "Trusted across UK, AU, EU & US: Serving 25+ clients from multiple regions with tailored offshore solutions. 40+ Pods Launched: Providing businesses with scalable teams designed to meet specific needs. $1M+ Saved Annually per Business: Clients save significant costs per pod while maintaining high-quality service."
+      title: "Scaled Across Continents",
+      description: "Crossed 40+ active pods serving clients across the UK, AU, EU & US, helping businesses save $1M+ annually per pod while maintaining premium delivery quality."
+    },
+    {
+      year: "2026",
+      title: "Launched Direct Hire Services",
+      description: "Hireshore launched Direct Hire — a recruitment service that places vetted Nepali talent directly into clients' in-house teams as full-time employees, with a one-time placement fee and no ongoing management overhead. Today we serve 40+ clients with 60+ pods and a 400+ strong talent bench."
     }
   ];
 
