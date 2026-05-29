@@ -214,11 +214,11 @@ const AboutUs = () => {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-8 text-center">
+                <div className="bg-primary text-primary-foreground rounded-2xl p-8 text-center">
                   <div className="text-6xl mb-4">🚀</div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
-                  <p className="text-gray-700">
-                    To democratize access to world-class development and creative talent, 
+                  <h3 className="font-display text-2xl font-bold mb-4">Our Mission</h3>
+                  <p className="text-primary-foreground/90">
+                    To democratize access to world-class back-office and creative talent,
                     enabling businesses of all sizes to compete and scale globally.
                   </p>
                 </div>
