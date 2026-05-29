@@ -185,24 +185,24 @@ const AboutUs = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-6">
                   Our Story
                 </h2>
-                <div className="space-y-4 text-gray-600">
+                <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Hireshore was born from a simple observation: most businesses struggle to scale their development 
-                    and creative operations efficiently. Traditional freelancer marketplaces are unpredictable, 
+                    Hireshore was born from a simple observation: most businesses struggle to scale their back-office
+                    and creative operations efficiently. Traditional freelancer marketplaces are unpredictable,
                     and building in-house teams is expensive and time-consuming.
                   </p>
                   <p>
-                    We pioneered the "delivery pod" model - dedicated, cross-functional teams that work exclusively 
-                    for your business. This approach combines the cost-efficiency of offshore talent with the 
+                    We pioneered the "delivery pod" model — dedicated, cross-functional teams that work exclusively
+                    for your business. This approach combines the cost-efficiency of offshore talent with the
                     reliability and integration of an in-house team.
                   </p>
                   <p>
-                    Today, we're proud to serve over 200 clients worldwide, from early-stage startups to 
-                    Fortune 500 companies, helping them scale their operations without the traditional headaches 
-                    of remote team management.
+                    In 2026 we extended this with Direct Hire, our recruitment service that places vetted Nepali
+                    talent directly into clients' in-house teams as full-time employees — with a one-time placement
+                    fee and no ongoing management overhead. Today we serve 40+ clients across the UK, AU, EU and US.
                   </p>
                 </div>
               </motion.div>
