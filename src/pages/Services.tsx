@@ -285,6 +285,96 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Full Role Catalog */}
+      <section className="py-16 px-4 bg-muted/20">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Roles We Staff</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Pre-vetted talent from Nepal, fully managed and white-labeled — across admin, support, finance, and marketing.
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
+            {/* Admin & Support */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-background rounded-xl p-6 shadow-sm border border-border"
+            >
+              <div className="flex items-center mb-6">
+                <div className="flex-shrink-0 bg-primary/10 rounded-full p-3">
+                  <Users className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="ml-4 text-xl lg:text-2xl font-semibold">Admin & Support Roles</h3>
+              </div>
+              <div className="space-y-5">
+                {[
+                  { title: "Virtual Assistants", icon: User, desc: "Remote professionals who handle administrative tasks and support business operations." },
+                  { title: "Call Answering Services", icon: Phone, desc: "Dedicated staff who professionally handle incoming calls for your business." },
+                  { title: "Web Chat Support", icon: MessageSquare, desc: "Real-time chat agents who provide immediate assistance to website visitors." },
+                  { title: "Appointment Setters", icon: Calendar, desc: "Specialists who schedule and manage meetings and appointments efficiently." },
+                  { title: "24/7 Customer Support Agents", icon: Headphones, desc: "Round-the-clock support team ensuring customer queries are addressed anytime." },
+                  { title: "Business Continuity Assistants", icon: Briefcase, desc: "Professionals who ensure your business operations continue running smoothly." },
+                ].map((role) => (
+                  <div key={role.title} className="flex items-start">
+                    <role.icon className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
+                    <div className="ml-4">
+                      <h4 className="text-base font-medium text-foreground">{role.title}</h4>
+                      <p className="text-sm text-muted-foreground">{role.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Back-Office & Marketing */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-background rounded-xl p-6 shadow-sm border border-border"
+            >
+              <div className="flex items-center mb-6">
+                <div className="flex-shrink-0 bg-primary/10 rounded-full p-3">
+                  <Briefcase className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="ml-4 text-xl lg:text-2xl font-semibold">Back-Office & Marketing Roles</h3>
+              </div>
+              <div className="space-y-5">
+                {[
+                  { title: "Bookkeepers", icon: Calculator, desc: "Day-to-day bookkeeping in Xero, QuickBooks, and MYOB — clean books, on time." },
+                  { title: "Billing & Accounts Specialists", icon: Receipt, desc: "Invoicing, AR/AP, reconciliations, and collections handled end-to-end." },
+                  { title: "Graphics Designers", icon: Palette, desc: "Creative professionals who design stunning visual content and brand materials." },
+                  { title: "SEO Specialists", icon: Search, desc: "Experts who optimize your online presence to improve visibility and rankings." },
+                  { title: "Content Creators", icon: FileEdit, desc: "Talented writers and creators who develop engaging content for your audience." },
+                ].map((role) => (
+                  <div key={role.title} className="flex items-start">
+                    <role.icon className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
+                    <div className="ml-4">
+                      <h4 className="text-base font-medium text-foreground">{role.title}</h4>
+                      <p className="text-sm text-muted-foreground">{role.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="text-center mt-10">
+            <Button size="lg" onClick={bookCall} className="rounded-full">
+              Start a paid trial <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Tech Hiring & Staff Augmentation */}
       <section className="py-16 px-4 bg-muted/20">
         <div className="max-w-6xl mx-auto">
