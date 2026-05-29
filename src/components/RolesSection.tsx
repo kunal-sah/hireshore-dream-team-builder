@@ -76,7 +76,7 @@ const RolesSection = () => {
       {/* Container with max width to prevent wide screens from breaking the layout */}
       <div className="max-w-4xl mx-auto relative">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-blue-50/30 to-white opacity-70 -z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-primary/30 to-white opacity-70 -z-10"></div>
         
         <motion.h2 
           className="text-2xl md:text-3xl font-bold mb-10 text-center"
@@ -93,7 +93,7 @@ const RolesSection = () => {
           >
             Roles We Specialize In
             <motion.span 
-              className="absolute bottom-0 left-0 w-full h-1 bg-gradient-primary"
+              className="absolute bottom-0 left-0 w-full h-1 bg-primary"
               initial={{ width: 0 }}
               animate={isInView ? { width: "100%" } : { width: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
@@ -155,7 +155,7 @@ const RolesSection = () => {
                 
                 {/* Animated gradient background */}
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-10"
+                  className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10"
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
@@ -185,7 +185,7 @@ const RolesSection = () => {
         
         {/* Add floating decorative elements */}
         <motion.div
-          className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br from-blue-100/40 to-purple-100/40 blur-xl opacity-50 -z-5"
+          className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br from-primary/40 to-primary/40 blur-xl opacity-50 -z-5"
           animate={{
             y: [0, -15, 0],
             x: [0, 10, 0],
@@ -199,7 +199,7 @@ const RolesSection = () => {
         />
         
         <motion.div
-          className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-gradient-to-tr from-blue-100/40 to-indigo-100/40 blur-xl opacity-50 -z-5"
+          className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-gradient-to-tr from-primary/40 to-primary/40 blur-xl opacity-50 -z-5"
           animate={{
             y: [0, 12, 0],
             x: [0, -8, 0],

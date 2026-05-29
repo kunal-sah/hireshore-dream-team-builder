@@ -8,11 +8,11 @@ const PodAtAGlance = () => {
 
   const features = [
     { icon: Users, label: 'Team', value: 'PM + multi-skill specialists', color: 'from-primary to-primary-variant' },
-    { icon: Clock, label: 'Start', value: 'Day 1–2 Intake → Day 3–4 Spin-Up → Day 5 Ship', color: 'from-green-500 to-green-600' },
-    { icon: Target, label: 'Capacity', value: 'Full-time output (flexible month-to-month)', color: 'from-purple-500 to-purple-600' },
-    { icon: Globe, label: 'Overlap', value: '2–4 hrs/day in your time zone', color: 'from-orange-500 to-orange-600' },
-    { icon: CheckCircle, label: 'Quality', value: 'Managed process & QA included', color: 'from-teal-500 to-teal-600' },
-    { icon: Settings, label: 'Stack', value: 'We use your SOPs, tools, and brand voice', color: 'from-indigo-500 to-indigo-600' },
+    { icon: Clock, label: 'Start', value: 'Day 1–2 Intake → Day 3–4 Spin-Up → Day 5 Ship', color: 'from-primary to-primary' },
+    { icon: Target, label: 'Capacity', value: 'Full-time output (flexible month-to-month)', color: 'from-primary to-primary' },
+    { icon: Globe, label: 'Overlap', value: '2–4 hrs/day in your time zone', color: 'from-primary to-primary' },
+    { icon: CheckCircle, label: 'Quality', value: 'Managed process & QA included', color: 'from-primary to-primary' },
+    { icon: Settings, label: 'Stack', value: 'We use your SOPs, tools, and brand voice', color: 'from-primary to-primary' },
   ];
 
   const containerVariants = {
