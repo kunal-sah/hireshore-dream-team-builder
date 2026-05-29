@@ -8,7 +8,7 @@ const founders = [
   { name: "Breearna Jope", title: "Founder, Uncommon Solutions", photo: "/lovable-uploads/394a2ced-a988-4153-8ef9-1e99f76765fb.png" },
   { name: "Dave Cannell", title: "CEO, Sendr", photo: "/lovable-uploads/dave-cannell.png" },
   { name: "John Bromley", title: "Cofounder, Sendr", photo: "/lovable-uploads/john-bromley.png" },
-  { name: "Yona Meissner", title: "Head of Ops, Swimply", photo: "/placeholder.svg" },
+  { name: "Yona Meissner", title: "Head of Ops, Swimply", photo: "/lovable-uploads/yona-meissner.png" },
 ];
 
 const container = {
