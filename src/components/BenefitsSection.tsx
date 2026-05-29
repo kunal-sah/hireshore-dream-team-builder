@@ -54,7 +54,7 @@ const BenefitsSection = () => {
   };
 
   return (
-    <section id="benefits" className="relative py-8 sm:py-12 px-4">
+    <section id="benefits" className="relative bg-background py-16 md:py-24 px-4">
       {/* Container with max width to prevent wide screens from breaking the layout */}
       <div className="max-w-5xl mx-auto relative">
         {/* Gradient background effect */}
