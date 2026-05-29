@@ -12,6 +12,7 @@ const founders = [
   { name: "Bryan Chung", title: "Head Honcho, Blank Consultancy", photo: "/lovable-uploads/bryan-chung.png" },
   { name: "Rita Dagher", title: "Managing Director, Affective Care & Affective Health Services", photo: "/lovable-uploads/affective-care-md.png" },
   { name: "Richard Lang", title: "Founder, RTO Acceleration", photo: "/lovable-uploads/richard-lang.png" },
+  { name: "James Nouri", title: "General Manager", photo: "/lovable-uploads/james-nouri.png" },
 ];
 
 const container = {
