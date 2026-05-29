@@ -128,7 +128,7 @@ const AboutUs = () => {
           </div>
         </div>
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-12 sm:py-16 lg:py-20">
+        <section className="bg-surface py-12 sm:py-16 lg:py-20">
           <div className="max-w-6xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
