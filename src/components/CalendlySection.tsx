@@ -110,7 +110,7 @@ const CalendlySection = () => {
       className="py-16 md:py-24 bg-secondary"
       style={{ scrollMarginTop: '96px' }}
     >
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6 sm:mb-8">
           <img
             src={kunalPhoto}
