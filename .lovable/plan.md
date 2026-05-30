@@ -1,13 +1,13 @@
-Update minimatch to patched versions to resolve CVE-2026-27904 (High severity ReDoS).
+Fix mobile horizontal overflow on hero and standardize side margins across homepage sections.
 
-Current vulnerable versions in lockfile:
-- minimatch 3.1.2 (affected ≤3.1.3, patched in 3.1.4+)
-- minimatch 9.0.5 (affected <9.0.7, patched in 9.0.7+)
+## 1. Hero overflow fix (`src/components/LandingHero.tsx`)
+- Add `min-w-0` to both grid children (left content + right video) so grid tracks can shrink below min-content on mobile.
+- Bump section padding `px-4` → `px-4 sm:px-6 lg:px-8`.
 
-Steps:
-1. Add npm `overrides` to package.json forcing minimatch >=3.1.4 and >=9.0.7
-2. Run `bun install` to regenerate bun.lockb with safe versions
-3. Verify `bun pm ls minimatch` shows only patched versions
-4. Run `bun run build` to confirm no build breakage
+## 2. Standardize horizontal padding to `px-4 sm:px-6 lg:px-8`
+- `TrustedStartups.tsx`, `FoundersWall.tsx`, `TestimonialsSection.tsx` — wrap content in `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`, drop `px-4` from section
+- `NepalAdvantage.tsx`, `TwoWaysToHire.tsx`, `FAQSection.tsx`, `SiteFooter.tsx` — `md:px-8` → `lg:px-8`
+- `CalendlySection.tsx` — `px-4` → `px-4 sm:px-6 lg:px-8`
 
-No application code changes. Only package.json and lockfile updates.
+## 3. Verify
+Re-test at 390px and 1168px, confirm no horizontal scroll.
