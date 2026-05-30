@@ -127,7 +127,7 @@ const LandingHero = () => {
   };
 
   return (
-    <header ref={heroRef} className="w-full bg-background pt-16 sm:pt-28 pb-10 sm:pb-16 md:pb-20 px-4 relative overflow-hidden border-b border-border">
+    <header ref={heroRef} className="w-full bg-background pt-16 sm:pt-28 pb-10 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-b border-border">
 
 
       <div className="max-w-7xl mx-auto relative z-10">
