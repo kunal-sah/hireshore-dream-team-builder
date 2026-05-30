@@ -135,7 +135,7 @@ const LandingHero = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[500px] sm:min-h-[600px]">
           {/* Left side - Content */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-8 min-w-0"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
