@@ -127,7 +127,7 @@ const LandingHero = () => {
   };
 
   return (
-    <header ref={heroRef} className="w-full bg-background pt-16 sm:pt-28 pb-10 sm:pb-16 md:pb-20 px-4 relative overflow-hidden border-b border-border">
+    <header ref={heroRef} className="w-full bg-background pt-16 sm:pt-28 pb-10 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-b border-border">
 
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -135,7 +135,7 @@ const LandingHero = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[500px] sm:min-h-[600px]">
           {/* Left side - Content */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-8 min-w-0"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -282,7 +282,7 @@ const LandingHero = () => {
           
           {/* Right side - Video */}
           <motion.div 
-            className="relative"
+            className="relative min-w-0"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}

@@ -79,7 +79,7 @@ const testimonials: Testimonial[] = [
 
 
 const TestimonialsSection = () => (
-  <section id="testimonials" className="bg-background py-16 md:py-24 px-4">
+  <section id="testimonials" className="bg-background py-16 md:py-24 px-4 sm:px-6 lg:px-8">
     <div className="max-w-6xl mx-auto">
     <motion.div
       className="text-center mb-10 sm:mb-14"

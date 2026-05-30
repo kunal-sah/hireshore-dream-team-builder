@@ -61,7 +61,7 @@ const TrustedStartups = () => {
 
   return (
     <motion.section
-      className="bg-background py-10 md:py-14 px-4"
+      className="bg-background py-10 md:py-14 px-4 sm:px-6 lg:px-8"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
