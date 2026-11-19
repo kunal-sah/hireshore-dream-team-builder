@@ -214,11 +214,11 @@ const RealEstate = () => {
               <CardContent className="p-0">
                 <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
                 <p className="text-muted-foreground mb-6">
-                  PropertyStack needed a comprehensive platform to manage properties, leads, and client relationships while scaling rapidly across multiple markets.
+                  PropertyStack was a lean 5-person team that needed to scale support, operations and back-office staff quickly without the cost of local hiring.
                 </p>
                 <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
                 <p className="text-muted-foreground">
-                  We developed a complete real estate management system with IDX integration, automated lead nurturing, and powerful analytics.
+                  Hireshore handled recruitment, HR and payroll for a dedicated offshore team from Nepal — covering client success, QA, admin and operations support.
                 </p>
               </CardContent>
             </Card>
@@ -228,16 +228,16 @@ const RealEstate = () => {
                 <h3 className="text-xl font-semibold mb-6">Results</h3>
                 <div className="space-y-6">
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">400%</div>
-                    <div className="text-muted-foreground">Increase in qualified leads</div>
+                    <div className="text-3xl font-bold text-primary mb-2">15+</div>
+                    <div className="text-muted-foreground">Full-time hires in 12 months</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">50%</div>
-                    <div className="text-muted-foreground">Faster deal closing</div>
+                    <div className="text-3xl font-bold text-primary mb-2">&lt;3 Weeks</div>
+                    <div className="text-muted-foreground">Average time to hire</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">$2M+</div>
-                    <div className="text-muted-foreground">Additional annual revenue</div>
+                    <div className="text-3xl font-bold text-primary mb-2">$1M+</div>
+                    <div className="text-muted-foreground">Estimated annual payroll savings</div>
                   </div>
                 </div>
               </CardContent>
@@ -250,7 +250,7 @@ const RealEstate = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <p className="text-lg italic mb-6">
-                    "Hireshore helped us hire talented developers and support staff who transformed our operations. The team they connected us with is exceptional and has been instrumental in our growth."
+                    "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. You guys have helped us grow fast and we've referred you to many of our partners."
                   </p>
                   <div>
                     <div className="font-semibold">Ryan Jope</div>
@@ -285,7 +285,7 @@ const RealEstate = () => {
                     PropertyStack Case Study
                   </Link>
                 </h3>
-                <p className="text-sm text-muted-foreground">See how we increased qualified leads by 400%</p>
+                <p className="text-sm text-muted-foreground">See how we helped them hire 15+ people in a year</p>
               </CardContent>
             </Card>
             <Card className="p-6 hover:border-primary transition-colors">
