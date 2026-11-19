@@ -158,29 +158,6 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="py-16 px-4 bg-muted/50">
-        <div className="max-w-4xl mx-auto">
-          <Card className="p-8 bg-card">
-            <CardContent className="p-0">
-              <div className="flex items-start gap-4">
-                <div className="flex-1 text-center">
-                  <p className="text-lg italic mb-6">
-                    "Joining this team was the best career decision I've made. The culture of innovation, 
-                    support for professional growth, and work-life balance is exceptional. I get to work on 
-                    challenging projects with brilliant people while maintaining flexibility in my schedule."
-                  </p>
-                  <div>
-                    <div className="font-semibold">Kushal Dura</div>
-                    <div className="text-sm text-muted-foreground">Engineering Manager, PropertyStack</div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
       {/* Open Positions */}
       <section id="open-positions" className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
