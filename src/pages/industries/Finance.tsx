@@ -174,11 +174,11 @@ const Finance = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <p className="text-lg italic mb-6">
-                    "Hireshore helped us build a talented team that handles operations efficiently. The quality of candidates and support has been excellent, allowing us to scale effectively."
+                    "If you're on the hunt for exceptional talent, I couldn't recommend Kunal and his team highly enough! They presented outstanding candidates, took the time to fully understand our brief and consistently met deadlines."
                   </p>
                   <div>
-                    <div className="font-semibold">Ryan Jope</div>
-                    <div className="text-sm text-muted-foreground">Founder, PropertyStack</div>
+                    <div className="font-semibold">Bryan Chung</div>
+                    <div className="text-sm text-muted-foreground">Head Honcho, Blank Consultancy</div>
                   </div>
                 </div>
               </div>

@@ -1,3 +1,4 @@
+import ClientSuccessStory from "@/components/ClientSuccessStory";
 import { SEOHead } from "@/components/SEOHead";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
@@ -294,81 +295,7 @@ const TalentProfiles = () => {
           </div>
         </section>
 
-        {/* Case Study Section */}
-        <section className="py-16 px-4">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Talent Success: PropertyStack</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-4">
-                  Real Estate Success Story
-                </div>
-                <h3 className="text-2xl font-bold mb-4">15+ Top Talents Hired Globally</h3>
-                <p className="text-muted-foreground mb-6">
-                  PropertyStack rapidly scaled their team by hiring 15+ pre-vetted professionals across development, design, and support roles through our talent network.
-                </p>
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                    <span>15+ specialists hired in 1 year</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                    <span>All fully vetted and ready to work</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                    <span>$1M+ saved vs traditional recruitment</span>
-                  </div>
-                </div>
-                <Link to="/case-studies/property-stack" className="inline-flex items-center text-primary font-semibold hover:underline">
-                  Read Full Case Study
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
-              <div className="bg-card p-8 rounded-xl border border-border shadow-elegant">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-primary mb-2">15+</div>
-                    <div className="text-sm text-muted-foreground">Team members</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-primary mb-2">$1M+</div>
-                    <div className="text-sm text-muted-foreground">Cost saved</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-primary mb-2">100%</div>
-                    <div className="text-sm text-muted-foreground">Satisfaction rate</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-primary mb-2">3x</div>
-                    <div className="text-sm text-muted-foreground">Faster hiring</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonial Section */}
-        <section className="py-16 px-4 bg-muted/50">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-card p-8 md:p-12 rounded-xl border border-border shadow-elegant">
-              <div className="flex items-center justify-center mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star className="w-5 h-5 text-yellow-500 fill-current" key={i} />
-                ))}
-              </div>
-              <blockquote className="text-xl text-center text-foreground mb-6 italic">
-                "We've hired over 15 people through Hireshore in just a year. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality has been significantly better. The talent profiles make it easy to find exactly who we need."
-              </blockquote>
-              <div className="text-center">
-                <div className="font-semibold text-foreground">Ryan Jope</div>
-                <div className="text-muted-foreground">Founder, PropertyStack</div>
-              </div>
-            </div>
-          </div>
-        </section>
+      <ClientSuccessStory story="digital-six" />
 
         {/* Vetting Process Section */}
         <section className="py-16 px-4">

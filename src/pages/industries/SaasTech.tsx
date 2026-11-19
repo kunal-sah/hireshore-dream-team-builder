@@ -1,3 +1,4 @@
+import ClientSuccessStory from "@/components/ClientSuccessStory";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
@@ -248,72 +249,7 @@ const SaasTech = () => {
         </div>
       </section>
 
-      {/* Case Study Section */}
-      <section className="py-16 px-4 bg-muted/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Success Story: PropertyStack</h2>
-            <p className="text-xl text-muted-foreground">How a lean proptech team scaled to 20+ with remote talent from Nepal</p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12 mb-12">
-            <Card className="p-8">
-              <CardContent className="p-0">
-                <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
-                <p className="text-muted-foreground mb-6">
-                  PropertyStack was a lean 5-person team that needed engineers, QA and customer support staff quickly, without the cost and delay of local hiring.
-                </p>
-                <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
-                <p className="text-muted-foreground">
-                  Hireshore handled recruitment, HR and payroll for a dedicated remote team from Nepal — covering development, QA, design and client success roles.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="p-8 border-primary">
-              <CardContent className="p-0">
-                <h3 className="text-xl font-semibold mb-6">Results</h3>
-                <div className="space-y-6">
-                  <div>
-                    <div className="text-3xl font-bold text-primary mb-2">15+</div>
-                    <div className="text-muted-foreground">Full-time hires in 12 months</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-primary mb-2">&lt;3 Weeks</div>
-                    <div className="text-muted-foreground">Average time to hire</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-primary mb-2">$1M+</div>
-                    <div className="text-muted-foreground">Estimated annual payroll savings</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Testimonial */}
-          <Card className="p-8 bg-card">
-            <CardContent className="p-0">
-              <div className="flex items-center justify-center mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
-                ))}
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="flex-1 text-center">
-                  <p className="text-lg italic mb-6">
-                    "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality from Nepal has been significantly better."
-                  </p>
-                  <div>
-                    <div className="font-semibold">Ryan Jope</div>
-                    <div className="text-sm text-muted-foreground">Founder, PropertyStack</div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      <ClientSuccessStory story="sendr" />
 
       {/* Related Resources */}
       <section className="py-16 px-4">
@@ -324,9 +260,9 @@ const SaasTech = () => {
               <h3 className="font-semibold mb-2">SaaS Onboarding Case Note</h3>
               <p className="text-sm text-muted-foreground">How a SaaS team tightened user onboarding</p>
             </Link>
-            <Link to="/case-studies/property-stack" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300">
-              <h3 className="font-semibold mb-2">PropertyStack Case Study</h3>
-              <p className="text-sm text-muted-foreground">How they hired 15+ people in a year</p>
+            <Link to="/case-studies/sendr" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300">
+              <h3 className="font-semibold mb-2">Sendr Case Study</h3>
+              <p className="text-sm text-muted-foreground">Remote hires for support and GTM roles</p>
             </Link>
             <Link to="/resources/cost-calculator" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300">
               <h3 className="font-semibold mb-2">Team Cost Calculator</h3>

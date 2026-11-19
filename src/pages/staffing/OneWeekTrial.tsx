@@ -52,10 +52,10 @@ const OneWeekTrial = () => {
       role: "Founder"
     },
     {
-      name: "Ryan Jope", 
-      company: "PropertyStack",
-      quote: "We've hired over 15 people through Hireshore in just a year. The quality from Nepal has been significantly better than freelancers.",
-      role: "Founder"
+      name: "Dave Cannell",
+      company: "Sendr",
+      quote: "Hireshore helped us hire reliable remote talent for key support and GTM roles at Sendr. Their team understood our needs quickly, shared relevant profiles, and made the hiring process smooth and efficient.",
+      role: "Cofounder & CEO"
     },
     {
       name: "Breearna Jope",

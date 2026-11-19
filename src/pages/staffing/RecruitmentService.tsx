@@ -1,3 +1,4 @@
+import ClientSuccessStory from "@/components/ClientSuccessStory";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
@@ -225,29 +226,7 @@ const RecruitmentService = () => {
         </div>
       </section>
 
-      {/* Case Study Section */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Success Story: PropertyStack</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">15+ Quality Hires in Under 3 Weeks Each</h3>
-              <p className="text-muted-foreground mb-6">
-                PropertyStack used our recruitment-as-a-service to build their entire product and support team, reducing hiring time by 50% while saving over $1M annually.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-3" /><span>Reduced hiring time from 1.5 months to under 3 weeks</span></div>
-                <div className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-3" /><span>$1M+ annual savings vs. local hiring</span></div>
-                <div className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-3" /><span>Developers, QA, designers & support agents</span></div>
-              </div>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <blockquote className="text-lg italic mb-4">"We've hired over 15 people through Hireshore in just a year. The quality has been significantly better than freelancers."</blockquote>
-              <div className="font-semibold">Ryan Jope, Founder PropertyStack</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ClientSuccessStory story="rto-acceleration" />
 
       {/* CTA Section */}
       <section className="py-16 px-4 bg-primary text-primary-foreground">

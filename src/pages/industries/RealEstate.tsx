@@ -1,3 +1,4 @@
+import ClientSuccessStory from "@/components/ClientSuccessStory";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
@@ -201,67 +202,7 @@ const RealEstate = () => {
         </div>
       </section>
 
-      {/* Case Study Section */}
-      <section className="py-16 px-4 bg-muted/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Success Story: PropertyStack</h2>
-            <p className="text-xl text-muted-foreground">Revolutionizing property management with technology</p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12 mb-12">
-            <Card className="p-8">
-              <CardContent className="p-0">
-                <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
-                <p className="text-muted-foreground mb-6">
-                  PropertyStack was a lean 5-person team that needed to scale support, operations and back-office staff quickly without the cost of local hiring.
-                </p>
-                <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
-                <p className="text-muted-foreground">
-                  Hireshore handled recruitment, HR and payroll for a dedicated offshore team from Nepal — covering client success, QA, admin and operations support.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="p-8 border-primary">
-              <CardContent className="p-0">
-                <h3 className="text-xl font-semibold mb-6">Results</h3>
-                <div className="space-y-6">
-                  <div>
-                    <div className="text-3xl font-bold text-primary mb-2">15+</div>
-                    <div className="text-muted-foreground">Full-time hires in 12 months</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-primary mb-2">&lt;3 Weeks</div>
-                    <div className="text-muted-foreground">Average time to hire</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-primary mb-2">$1M+</div>
-                    <div className="text-muted-foreground">Estimated annual payroll savings</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Testimonial */}
-          <Card className="p-8 bg-card">
-            <CardContent className="p-0">
-              <div className="flex items-start gap-4">
-                <div className="flex-1">
-                  <p className="text-lg italic mb-6">
-                    "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. You guys have helped us grow fast and we've referred you to many of our partners."
-                  </p>
-                  <div>
-                    <div className="font-semibold">Ryan Jope</div>
-                    <div className="text-sm text-muted-foreground">Founder, PropertyStack</div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      <ClientSuccessStory story="digital-six" />
 
       {/* Related Resources */}
       <section className="py-16 px-4">
@@ -281,11 +222,11 @@ const RealEstate = () => {
             <Card className="p-6 hover:border-primary transition-colors">
               <CardContent className="p-0">
                 <h3 className="text-lg font-semibold mb-2">
-                  <Link to="/case-studies/property-stack" className="hover:text-primary">
-                    PropertyStack Case Study
+                  <Link to="/case-studies/digital-six" className="hover:text-primary">
+                    Digital Six Case Study
                   </Link>
                 </h3>
-                <p className="text-sm text-muted-foreground">See how we helped them hire 15+ people in a year</p>
+                <p className="text-sm text-muted-foreground">How an agency grew from 22 to 47 people</p>
               </CardContent>
             </Card>
             <Card className="p-6 hover:border-primary transition-colors">

@@ -24,20 +24,19 @@ const HRRecruiters: React.FC = () => {
   ];
 
   const caseStudy = {
-    company: "PropertyStack",
-    industry: "PropTech • Brisbane, Australia",
-    challenge: "When PropertyStack first connected with Hireshore, they were a lean 5-member startup team using no-code tools and freelancers. Scaling with freelancers lacked long-term efficiency, quality, and cohesion.",
-    solution: "Hireshore delivered a full-stack recruitment-as-a-service solution, helping PropertyStack onboard 15+ high-quality team members across engineering, design, QA, client success, and operations including Full-stack & React Developers, QA Engineers, UX/UI Designers, Client Success & Tech Support Agents, Data Entry & Admin Support, Executive Assistant, and Engineering Team Lead.",
+    company: "RTO Acceleration",
+    industry: "Education • Student Acquisition",
+    challenge: "RTO Acceleration needed an experienced Media Buyer for their student acquisition team, and wanted to hire them directly into their own team.",
+    solution: "Using Hireshore's direct hire service, we clarified the role, shared relevant pre-vetted candidates and ran a smooth hiring process for a one-time recruitment fee.",
     results: [
-      { metric: "Full-time Hires", value: "15+", improvement: "within 12 months" },
-      { metric: "Weeks Hiring", value: "<3", improvement: "from ~1.5 months" },
-      { metric: "Annual Savings", value: "$1M+", improvement: "vs local hiring" }
+      { metric: "Hiring Model", value: "Direct", improvement: "hired in-house" },
+      { metric: "Role Filled", value: "1", improvement: "Media Buyer" },
+      { metric: "Fee", value: "One-time", improvement: "recruitment fee" }
     ],
     testimonial: {
-      quote: "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality from Nepal has been significantly better. You guys have helped us grow fast and we've referred you to many of our partners.",
-      author: "Ryan Jope",
-      role: "Founder, PropertyStack",
-      videoUrl: "https://www.youtube.com/embed/9xMVgH1j9XE"
+      quote: "Hireshore helped us hire a Media Buyer through their direct hire service for our student acquisition team. They understood the role clearly, shared relevant candidates, and made the hiring process smooth and efficient. Their support saved us time and helped us find the right talent for our marketing needs.",
+      author: "Richard Lang",
+      role: "Founder, RTO Acceleration",
     }
   };
 
@@ -292,14 +291,7 @@ const HRRecruiters: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="text-center">
-                <YouTubeFacade
-                  videoId="9xMVgH1j9XE"
-                  title={`${caseStudy.company} Testimonial`}
-                  className="aspect-video bg-muted rounded-lg overflow-hidden"
-                />
-                <p className="text-sm text-muted-foreground mt-2">Watch the full testimonial</p>
-              </div>
+
             </div>
           </div>
         </section>
