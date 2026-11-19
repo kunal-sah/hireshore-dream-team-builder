@@ -271,7 +271,7 @@ const RealEstate = () => {
             <Card className="p-6 hover:border-primary transition-colors">
               <CardContent className="p-0">
                 <h3 className="text-lg font-semibold mb-2">
-                  <Link to="/resources/guides/funnel-guide" className="hover:text-primary">
+                  <Link to="/resources/guides/funnels" className="hover:text-primary">
                     Real Estate Lead Generation Guide
                   </Link>
                 </h3>
@@ -281,7 +281,7 @@ const RealEstate = () => {
             <Card className="p-6 hover:border-primary transition-colors">
               <CardContent className="p-0">
                 <h3 className="text-lg font-semibold mb-2">
-                  <Link to="/case-studies/propertystack" className="hover:text-primary">
+                  <Link to="/case-studies/property-stack" className="hover:text-primary">
                     PropertyStack Case Study
                   </Link>
                 </h3>

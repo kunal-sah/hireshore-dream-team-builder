@@ -16,44 +16,44 @@ import { SEOHead } from "@/components/SEOHead";
 
 const SaasTech = () => {
   const services = [
-    "Full-Stack SaaS Development",
-    "Cloud Architecture & DevOps",
-    "API Development & Integration",
-    "Database Design & Optimization", 
-    "Security & Compliance",
-    "Mobile App Development",
-    "Product Management & Strategy",
-    "Technical Support & Maintenance"
+    "Full-Stack & Frontend Engineers",
+    "Backend & Platform Engineers",
+    "QA & Test Engineers",
+    "DevOps & Cloud Engineers",
+    "UI/UX Designers",
+    "Product & Project Managers",
+    "Data & Analytics Specialists",
+    "Customer Support & Technical Success"
   ];
 
   const solutions = [
     {
       icon: Code,
-      title: "MVP Development",
-      description: "Rapid MVP development to validate your SaaS concept and get to market fast"
+      title: "Engineering Pods",
+      description: "Cross-functional remote pods that plug straight into your roadmap and sprint cadence"
     },
     {
       icon: Cloud,
-      title: "Cloud Infrastructure",
-      description: "Scalable cloud architecture on AWS, Azure, or Google Cloud Platform"
+      title: "Dedicated Developers",
+      description: "Full-time remote engineers hired into your own team, tools and processes"
     },
     {
       icon: Database,
-      title: "Data Solutions",
-      description: "Advanced database design, analytics, and AI/ML integration"
+      title: "QA & Testing",
+      description: "Vetted QA engineers who protect your releases as your user base grows"
     },
     {
       icon: Shield,
-      title: "Security & Compliance",
-      description: "Enterprise-grade security with SOC 2, GDPR, and industry compliance"
+      title: "Support & Back-Office",
+      description: "Customer success, admin and back-office staff that keep SaaS operations running"
     }
   ];
 
   const stats = [
-    { number: "50+", label: "SaaS Products Built" },
-    { number: "200%", label: "Average User Growth" },
-    { number: "99.9%", label: "Uptime Guarantee" },
-    { number: "3 Months", label: "Average MVP Timeline" }
+    { number: "15+", label: "Full-time hires for a single SaaS client" },
+    { number: "<3 Weeks", label: "Average time to hire" },
+    { number: "$1M+", label: "Estimated annual payroll savings" },
+    { number: "Up to 83%", label: "Lower payroll costs vs local hiring" }
   ];
 
   const techStack = [
@@ -98,22 +98,22 @@ const SaasTech = () => {
       </nav>
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 bg-gradient-to-br from-primary/5 to-primary/10">
+      <section className="pt-24 pb-16 px-4 bg-muted/30">
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-6">
             <Code className="mr-2 h-4 w-4" />
             For SaaS & Tech Companies
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Build Your SaaS Product
+            Scale Your SaaS Team
             <span className="text-primary"> 60% Faster</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Stop waiting months to find developers. Get a full-stack team that starts delivering production-ready code in days—from MVP to scale.
+            Stop waiting months to find engineers. Hire vetted remote developers, QA and support talent from Nepal — sourced, vetted, managed and paid by Hireshore.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link to="/configure-pod">Start Building Today</Link>
+              <Link to="/configure-pod">Start Hiring Today</Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
               <Link to="/case-studies">View SaaS Success Stories</Link>
@@ -151,7 +151,7 @@ const SaasTech = () => {
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Ship Faster, Scale Smarter</h2>
           <p className="text-xl text-muted-foreground">
-            Get a full-stack development team that starts delivering production-ready code in days. From MVP to enterprise scale, we provide the complete talent stack you need—without the hiring headaches or long onboarding timelines.
+            Get a vetted remote team that starts delivering in days. From engineering to customer support, we source, hire and manage the talent you need—without the hiring headaches or long onboarding timelines.
           </p>
         </div>
       </section>
@@ -159,9 +159,9 @@ const SaasTech = () => {
       {/* Services */}
       <section className="py-16 px-4 bg-muted/20">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">Complete SaaS Development Services</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">SaaS &amp; Tech Roles We Hire For</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-            From MVP to enterprise scale, we deliver the full stack of talent you need
+            From engineering to support, we source, vet and manage the full talent stack you need
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => (
@@ -181,7 +181,7 @@ const SaasTech = () => {
       {/* Solutions */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Specialized SaaS Solutions</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">How SaaS Companies Work With Us</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {solutions.map((solution) => (
               <Card key={solution.title} className="p-8 text-center">
@@ -199,7 +199,7 @@ const SaasTech = () => {
       {/* Tech Stack */}
       <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Technology Stack</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Tech Stacks Our Talent Works In</h2>
           <div className="flex flex-wrap justify-center gap-4">
             {techStack.map((tech) => (
               <div key={tech} className="bg-background px-4 py-2 rounded-lg border">
@@ -220,7 +220,7 @@ const SaasTech = () => {
                 <Users className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-4">SaaS Expertise</h3>
                 <p className="text-muted-foreground">
-                  Specialized teams with deep SaaS experience across multiple industries and scales.
+                  We recruit and manage remote teams for SaaS companies at every stage, from seed to scale.
                 </p>
               </CardContent>
             </Card>
@@ -228,9 +228,9 @@ const SaasTech = () => {
             <Card className="p-8 text-center">
               <CardContent className="p-0">
                 <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Rapid Development</h3>
+                <h3 className="text-xl font-semibold mb-4">Fast Onboarding</h3>
                 <p className="text-muted-foreground">
-                  Get to market fast with our proven development methodologies and frameworks.
+                  Pre-vetted candidates with video profiles, so you can interview, hire and onboard in weeks.
                 </p>
               </CardContent>
             </Card>
@@ -238,9 +238,9 @@ const SaasTech = () => {
             <Card className="p-8 text-center">
               <CardContent className="p-0">
                 <BarChart className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Scalable Architecture</h3>
+                <h3 className="text-xl font-semibold mb-4">Scale Up or Down</h3>
                 <p className="text-muted-foreground">
-                  Built for scale from day one with cloud-native architecture and best practices.
+                  Add or step back roles as your roadmap changes—no hiring pipeline, no local payroll overhead.
                 </p>
               </CardContent>
             </Card>
@@ -253,7 +253,7 @@ const SaasTech = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Success Story: PropertyStack</h2>
-            <p className="text-xl text-muted-foreground">Building a scalable SaaS platform for real estate</p>
+            <p className="text-xl text-muted-foreground">How a lean proptech team scaled to 20+ with remote talent from Nepal</p>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12 mb-12">
@@ -261,11 +261,11 @@ const SaasTech = () => {
               <CardContent className="p-0">
                 <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
                 <p className="text-muted-foreground mb-6">
-                  PropertyStack needed to build a robust SaaS platform that could handle thousands of users while maintaining performance and security.
+                  PropertyStack was a lean 5-person team that needed engineers, QA and customer support staff quickly, without the cost and delay of local hiring.
                 </p>
                 <h3 className="text-xl font-semibold mb-4 text-primary">The Solution</h3>
                 <p className="text-muted-foreground">
-                  We built a cloud-native architecture with microservices, automated scaling, and enterprise-grade security from day one.
+                  Hireshore handled recruitment, HR and payroll for a dedicated remote team from Nepal — covering development, QA, design and client success roles.
                 </p>
               </CardContent>
             </Card>
@@ -275,16 +275,16 @@ const SaasTech = () => {
                 <h3 className="text-xl font-semibold mb-6">Results</h3>
                 <div className="space-y-6">
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">10k+</div>
-                    <div className="text-muted-foreground">Active users supported</div>
+                    <div className="text-3xl font-bold text-primary mb-2">15+</div>
+                    <div className="text-muted-foreground">Full-time hires in 12 months</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">99.9%</div>
-                    <div className="text-muted-foreground">Platform uptime</div>
+                    <div className="text-3xl font-bold text-primary mb-2">&lt;3 Weeks</div>
+                    <div className="text-muted-foreground">Average time to hire</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary mb-2">4 Months</div>
-                    <div className="text-muted-foreground">From MVP to launch</div>
+                    <div className="text-3xl font-bold text-primary mb-2">$1M+</div>
+                    <div className="text-muted-foreground">Estimated annual payroll savings</div>
                   </div>
                 </div>
               </CardContent>
@@ -302,11 +302,11 @@ const SaasTech = () => {
               <div className="flex items-start gap-4">
                 <div className="flex-1 text-center">
                   <p className="text-lg italic mb-6">
-                    "The developers and QA engineers Hireshore helped us hire have been exceptional. They've brought strong technical skills and helped us scale our engineering team effectively."
+                    "We've hired over 15 people through Hireshore in just a year - and could've done 10 more. The hiring process is much easier now with resume videos and pre-vetted candidates. Compared to freelancers or other markets, the quality from Nepal has been significantly better."
                   </p>
                   <div>
-                    <div className="font-semibold">Kushal Dura</div>
-                    <div className="text-sm text-muted-foreground">Engineering Manager, PropertyStack</div>
+                    <div className="font-semibold">Ryan Jope</div>
+                    <div className="text-sm text-muted-foreground">Founder, PropertyStack</div>
                   </div>
                 </div>
               </div>
@@ -320,17 +320,17 @@ const SaasTech = () => {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-bold text-center mb-8">Related Resources</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <Link to="/resources/guides/automation-guide" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300">
-              <h3 className="font-semibold mb-2">SaaS Development Guide</h3>
-              <p className="text-sm text-muted-foreground">Best practices for building SaaS</p>
+            <Link to="/resources/case-notes/saas-onboarding" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300">
+              <h3 className="font-semibold mb-2">SaaS Onboarding Case Note</h3>
+              <p className="text-sm text-muted-foreground">How a SaaS team tightened user onboarding</p>
             </Link>
             <Link to="/case-studies/property-stack" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300">
               <h3 className="font-semibold mb-2">PropertyStack Case Study</h3>
-              <p className="text-sm text-muted-foreground">Full SaaS development story</p>
+              <p className="text-sm text-muted-foreground">How they hired 15+ people in a year</p>
             </Link>
             <Link to="/resources/cost-calculator" className="p-6 bg-card border border-border rounded-lg hover:border-primary/40 transition-all duration-300">
-              <h3 className="font-semibold mb-2">Development Cost Calculator</h3>
-              <p className="text-sm text-muted-foreground">Estimate your project costs</p>
+              <h3 className="font-semibold mb-2">Team Cost Calculator</h3>
+              <p className="text-sm text-muted-foreground">Estimate what your remote team would cost</p>
             </Link>
           </div>
         </div>
@@ -340,13 +340,13 @@ const SaasTech = () => {
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Build Your Next SaaS Product?
+            Ready to Scale Your SaaS Team?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Partner with SaaS specialists who understand the unique challenges of building scalable software.
+            Tell us the roles you need filled. We'll shortlist vetted remote candidates and handle their HR and payroll for you.
           </p>
           <Button size="lg" variant="secondary" asChild>
-            <Link to="/configure-pod">Start Your SaaS Project</Link>
+            <Link to="/configure-pod">Build Your Team</Link>
           </Button>
         </div>
       </section>

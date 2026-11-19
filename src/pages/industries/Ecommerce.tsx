@@ -289,7 +289,7 @@ const Ecommerce = () => {
             <Card className="p-6 hover:border-primary transition-colors">
               <CardContent className="p-0">
                 <h3 className="text-lg font-semibold mb-2">
-                  <Link to="/resources/guides/funnel-guide" className="hover:text-primary">
+                  <Link to="/resources/guides/funnels" className="hover:text-primary">
                     E-commerce Funnel Optimization Guide
                   </Link>
                 </h3>
